@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.rbac.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * <p>
@@ -47,6 +49,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
     @Autowired
     private AdminRoleMapper adminRoleMapper;
+
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
     private IsAdmin isAdmin;
@@ -133,7 +138,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     }
 
     /**
-     * 更新操作员角色
+     * 更新管理员角色
      * @param adminId
      * @param rids
      * @return
@@ -144,10 +149,12 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         adminRoleMapper.delete(new QueryWrapper<AdminRole>().eq("admin_id",adminId));
 
         if(null == rids || 0 == rids.length){
+            redisTemplate.delete(redisTemplate.keys("menu_*"));
             return RespBean.success("更新成功");
         }
         Integer result = adminRoleMapper.insertAdminRole(adminId, rids);
         if(rids.length == result) {
+            redisTemplate.delete(redisTemplate.keys("menu_*"));
             return RespBean.success("更新成功");
         }
         return RespBean.error("更新失败");

@@ -15,6 +15,7 @@ import com.example.rbac.utils.UserUtils;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -58,6 +59,9 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
     @Autowired
     private IsAdmin isAdmin;
+
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
 
     /**
      * 根据username获取员工实体
@@ -240,10 +244,12 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         employeeRoleMapper.delete(new QueryWrapper<EmployeeRole>().eq("employee_id",employeeId));
 
         if(null == ids || 0 == ids.length){
+            redisTemplate.delete(redisTemplate.keys("menu_*"));
             return RespBean.success("更新成功");
         }
         int result = employeeRoleMapper.insertEmployeeRole(employeeId, ids);
         if(ids.length == result) {
+            redisTemplate.delete(redisTemplate.keys("menu_*"));
             return RespBean.success("更新成功");
         }
         return RespBean.error("更新失败");
