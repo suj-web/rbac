@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rbac.mapper.EmployeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.rbac.pojo.Employee">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="work_id" property="workId" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="phone" property="phone" />
+        <result column="telephone" property="telephone" />
+        <result column="email" property="email" />
+        <result column="address" property="address" />
+        <result column="birthday" property="birthday" />
+        <result column="wed_lock" property="wedLock" />
+        <result column="id_card" property="idCard" />
+        <result column="department_id" property="departmentId" />
+        <result column="position_id" property="positionId" />
+        <result column="nation_id" property="nationId" />
+        <result column="native_place" property="nativePlace" />
+        <result column="politic_id" property="politicId" />
+        <result column="job_level_id" property="jobLevelId" />
+        <result column="engage_form" property="engageForm" />
+        <result column="tiptop_degree" property="tiptopDegree" />
+        <result column="specialty" property="specialty" />
+        <result column="school" property="school" />
+        <result column="gender" property="gender" />
+        <result column="begin_date" property="beginDate" />
+        <result column="not_work_date" property="notWorkDate" />
+        <result column="user_face" property="userFace" />
+        <result column="work_state" property="workState" />
+        <result column="remark" property="remark" />
+        <result column="contract_term" property="contractTerm" />
+        <result column="conversion_time" property="conversionTime" />
+        <result column="begin_contract" property="beginContract" />
+        <result column="end_contract" property="endContract" />
+        <result column="work_age" property="workAge" />
+        <result column="salary_id" property="salaryId" />
+        <result column="enabled" property="enabled" />
+        <result column="is_delete" property="isDelete" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <resultMap id="EmployeeInfo" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
+        <association property="department" javaType="com.example.rbac.pojo.Department">
+            <id column="depid" property="id" />
+            <result column="depname" property="name" />
+        </association>
+        <association property="position" javaType="com.example.rbac.pojo.Position">
+            <id column="posid" property="id"/>
+            <result column="posname" property="name"/>
+        </association>
+        <association property="nation" javaType="com.example.rbac.pojo.Nation">
+            <id column="natid" property="id"/>
+            <result column="natname" property="name"/>
+        </association>
+        <association property="politicsStatus" javaType="com.example.rbac.pojo.PoliticsStatus">
+            <id column="psid" property="id"/>
+            <result column="psname" property="name"/>
+        </association>
+        <association property="joblevel" javaType="com.example.rbac.pojo.Joblevel">
+            <id column="jobid" property="id"/>
+            <result column="jobname" property="name"/>
+        </association>
+        <collection property="roles" ofType="com.example.rbac.pojo.Role"
+                    column="id" select="com.example.rbac.mapper.RoleMapper.getRolesByEmployeeId">
+        </collection>
+    </resultMap>
+
+    <resultMap id="EmployeeWithSalary" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
+        <association property="salary" javaType="com.example.rbac.pojo.Salary">
+            <id column="sid" property="id"/>
+            <result column="sname" property="name"/>
+            <result column="sbasic_alary" property="basicSalary"/>
+            <result column="sbonus" property="bonus"/>
+            <result column="slunch_salary" property="lunchSalary"/>
+            <result column="straffic_salary" property="trafficSalary"/>
+            <result column="sall_salary" property="allSalary"/>
+            <result column="spension_base" property="pensionBase"/>
+            <result column="spension_per" property="pensionPer"/>
+            <result column="smedical_base" property="medicalBase"/>
+            <result column="smedical_per" property="medicalPer"/>
+            <result column="saccumulation_fund_base" property="accumulationFundBase"/>
+            <result column="saccumulation_fund_per" property="accumulationFundPer"/>
+        </association>
+        <association property="department" javaType="com.example.rbac.pojo.Department">
+            <result column="depname" property="name"/>
+        </association>
+        <collection property="roles" ofType="com.example.rbac.pojo.Role"
+                    column="id" select="com.example.rbac.mapper.RoleMapper.getRolesByEmployeeId">
+        </collection>
+    </resultMap>
+
+    <resultMap id="EmployeeWithRole" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
+        <collection property="roles" ofType="com.example.rbac.pojo.Role"
+                    column="id" select="com.example.rbac.mapper.RoleMapper.getRolesByEmployeeId">
+        </collection>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, work_id, username, password, phone, telephone, email, address, birthday, wed_lock, id_card, department_id, position_id, nation_id, native_place, politic_id, job_level_id, engage_form, tiptop_degree, specialty, school, gender, begin_date, not_work_date, user_face, work_state, remark, contract_term, conversion_time, begin_contract, end_contract, work_age, salary_id, enabled, is_delete, gmt_create, gmt_modified
+    </sql>
+
+    <select id="getEmployeeByPage" resultMap="EmployeeInfo">
+        SELECT DISTINCT
+            emp.*, dep.id AS depid,
+            dep.`name` AS depname,
+            pos.id AS posid,
+            pos.`name` AS posname,
+            nat.id AS natid,
+            nat.`name` AS natname,
+            ps.id AS psid,
+            ps.`name` AS psname,
+            job.id AS jobid,
+            job.`name` AS jobname
+        FROM
+            t_employee emp,
+            t_department dep,
+            t_position pos,
+            t_nation nat,
+            t_politics_status ps,
+            t_joblevel job
+        WHERE
+            emp.department_id = dep.id
+        AND emp.position_id = pos.id
+        AND emp.nation_id = nat.id
+        AND emp.politic_id = ps.id
+        AND emp.job_level_id = job.id
+        AND emp.is_delete = FALSE
+        <if test="null!=employee.name and ''!=employee.name">
+            AND emp.`name` LIKE concat('%',#{employee.name},'%')
+        </if>
+        <if test="null!=employee.politicId">
+            AND emp.politic_id = #{employee.politicId}
+        </if>
+        <if test="null!=employee.nationId">
+            AND emp.nation_id = #{employee.nationId}
+        </if>
+        <if test="null!=employee.jobLevelId">
+            AND emp.job_level_id = #{employee.jobLevelId}
+        </if>
+        <if test="null!=employee.positionId">
+            AND emp.position_id = #{employee.positionId}
+        </if>
+        <if test="null!=employee.engageForm and ''!=employee.engageForm">
+            AND e.engage_form= #{employee.engageForm}
+        </if>
+        <if test="null!=employee.departmentId">
+            AND e.department_id = #{employee.departmentId}
+        </if>
+        <if test="null!=beginDateScope and 2==beginDateScope.length">
+            AND e.begin_date BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
+        </if>
+        ORDER BY
+            emp.id
+    </select>
+
+    <select id="getEmployee" resultMap="EmployeeInfo">
+        SELECT DISTINCT
+            emp.*, dep.id AS depid,
+            dep.`name` AS depname,
+            pos.id AS posid,
+            pos.`name` AS posname,
+            nat.id AS natid,
+            nat.`name` AS natname,
+            ps.id AS psid,
+            ps.`name` AS psname,
+            job.id AS jobid,
+            job.`name` AS jobname
+        FROM
+            t_employee emp,
+            t_department dep,
+            t_position pos,
+            t_nation nat,
+            t_politics_status ps,
+            t_joblevel job
+        WHERE
+            emp.department_id = dep.id
+        AND emp.position_id = pos.id
+        AND emp.nation_id = nat.id
+        AND emp.politic_id = ps.id
+        AND emp.job_level_id = job.id
+        AND emp.is_delete = FALSE
+        <if test="null != employeeId">
+            AND emp.id = #{employeeId}
+        </if>
+            ORDER BY emp.id
+    </select>
+
+    <select id="getEmployeeWithSalary" resultMap="EmployeeWithSalary">
+        SELECT
+            emp.*,
+            dep.name AS dname,
+            sal.id AS sid,
+            sal.`name` AS sname,
+            sal.basic_salary AS sbasic_salary,
+            sal.bonus AS sbonus,
+            sal.lunch_salary AS slunch_salary,
+            sal.traffic_salary AS straffic_salary,
+            sal.all_salary AS sall_salary,
+            sal.pension_base AS spension_base,
+            sal.pension_per AS spension_per,
+            sal.medical_base AS smedical_base,
+            sal.medical_per AS smedical_per,
+            sal.accumulation_fund_base AS saccumulation_fund_base,
+            sal.accumulation_fund_per AS saccumulation_fund_per
+        FROM
+            t_employee emp
+        LEFT JOIN t_salary sal ON emp.salary_id=sal.id
+        LEFT JOIN t_department dep ON emp.department_id=dep.id
+        WHERE
+            emp.is_delete = FALSE
+            ORDER BY emp.id
+    </select>
+
+    <select id="getAllEmployees" resultMap="EmployeeWithRole">
+        SELECT
+            emp.*
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        <if test="null!=employeeId">
+            AND emp.id!=#{employeeId}
+        </if>
+        <if test="null!=keywords and ''!=keywords">
+            AND emp.`name` like CONCAT('%',#{keywords},'%')
+        </if>
+            ORDER BY emp.id
+    </select>
+
+    <select id="getEmployeeWithRoleByPage" resultMap="EmployeeWithRole">
+        SELECT
+            emp.*
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        <if test="null!=name and ''!=name">
+            AND emp.name = #{name}
+        </if>
+            ORDER BY emp.id
+    </select>
+</mapper>
