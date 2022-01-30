@@ -23,11 +23,4 @@ public interface RoleMapper extends BaseMapper<Role> {
      * @return
      */
     List<Role> getRolesByAdminId(Integer adminId);
-
-    /**
-     * 根据员工id获取对应角色
-     * @param employeeId
-     * @return
-     */
-    List<Role> getRolesByEmployeeId(Integer employeeId);
 }

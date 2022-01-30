@@ -2,6 +2,7 @@ package com.example.rbac.service;
 
 import com.example.rbac.pojo.EmployeeTrain;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.RespPageBean;
 
 /**
  * <p>
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IEmployeeTrainService extends IService<EmployeeTrain> {
 
+    /**
+     * 获取员工培训信息
+     * @param currentPage
+     * @param size
+     * @param name
+     * @param workId
+     * @return
+     */
+    RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String workId);
 }

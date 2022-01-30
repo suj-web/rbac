@@ -44,7 +44,6 @@ public class AdminRole implements Serializable {
 
     @ApiModelProperty(value = "逻辑删除")
     @TableField("is_delete")
-    @TableLogic
     private Boolean isDelete;
 
     @ApiModelProperty(value = "创建时间")

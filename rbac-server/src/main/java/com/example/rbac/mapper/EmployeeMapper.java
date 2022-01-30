@@ -53,11 +53,4 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      */
     List<Employee> getAllEmployees(Integer employeeId, String keywords);
 
-    /**
-     * 获取所有员工信息(带用户角色)
-     * @param page
-     * @param name
-     * @return
-     */
-    IPage<Employee> getEmployeeWithRoleByPage(Page<Employee> page, String name);
 }

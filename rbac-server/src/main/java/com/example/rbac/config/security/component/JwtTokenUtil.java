@@ -28,11 +28,10 @@ public class JwtTokenUtil {
      * @param userDetails
      * @return
      */
-    public String generateToken(UserDetails userDetails, Boolean isAdmin){
+    public String generateToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
-        claims.put(CLAIM_KEY_IS_ADMIN, isAdmin);
         return generateToken(claims);
     }
 

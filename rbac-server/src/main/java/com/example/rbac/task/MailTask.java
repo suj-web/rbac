@@ -48,7 +48,6 @@ public class MailTask {
             //如果重试次数超过3次，更新状态为投递失败，不在重试
             if(3<=mailLog.getCount()) {
                 mailLogService.update(new UpdateWrapper<MailLog>().set("status",2).eq("msg_id",mailLog.getMsgId()));
-
             } else {
                 mailLogService.update(new UpdateWrapper<MailLog>().set("count", mailLog.getCount() + 1)
                         .set("try_time", LocalDateTime.now().plusMinutes(MailConstants.MSG_TIMEOUT))

@@ -16,9 +16,37 @@
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
 
+    <resultMap id="EmployeeEc" type="com.example.rbac.pojo.EmployeeEc" extends="BaseResultMap">
+        <association property="employee" javaType="com.example.rbac.pojo.Employee">
+            <id column="eid" property="id" />
+            <result column="ename" property="name" />
+            <result column="ework_id" property="workId" />
+        </association>
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, employee_id, ec_date, ec_reason, ec_point, ec_type, remark, is_delete, gmt_create, gmt_modified
     </sql>
 
+<!--    获取所有奖惩人员信息-->
+    <select id="getAllEmployeeEc" resultMap="EmployeeEc">
+        SELECT
+            ee.*, e.id AS eid,
+            e.`name` AS ename,
+            e.work_id AS ework_id
+        FROM
+            t_employee_ec ee,
+            t_employee e
+        WHERE
+            e.id = ee.employee_id
+        AND e.is_delete = FALSE
+        <if test="null!=name and ''!=name">
+            AND e. NAME LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="null!=workId and ''!=workId">
+            AND e.work_id = #{workId}
+        </if>
+        ORDER BY e.id
+    </select>
 </mapper>

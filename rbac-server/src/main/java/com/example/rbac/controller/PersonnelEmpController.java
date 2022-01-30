@@ -1,6 +1,5 @@
 package com.example.rbac.controller;
 
-
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
@@ -9,8 +8,6 @@ import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
 import com.example.rbac.pojo.*;
 import com.example.rbac.service.*;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Param;
-import org.apache.poi.ss.formula.functions.Na;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,20 +22,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * <p>
- *  前端控制器
- * </p>
+ * 人事管理下的员工资料
  *
- * 普通员工基本资料
- * @author suj
- * @since 2022-01-07
+ * @Author suj
+ * @create 2022/1/24
  */
 @RestController
-@RequestMapping("/employee/basic")
-public class EmployeeController {
+@RequestMapping("/personnel/emp")
+public class PersonnelEmpController {
     @Autowired
     private IEmployeeService employeeService;
-
+    
     @Autowired
     private IPoliticsStatusService politicsStatusService;
 
@@ -65,7 +59,7 @@ public class EmployeeController {
 
     @ApiOperation(value = "获取所有政治面貌")
     @GetMapping("/politicsstatus")
-    public List<PoliticsStatus>  getAllPoliticsStatus(){
+    public List<PoliticsStatus> getAllPoliticsStatus(){
         return politicsStatusService.list();
     }
 

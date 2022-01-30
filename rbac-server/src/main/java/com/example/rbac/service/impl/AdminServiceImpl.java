@@ -53,9 +53,6 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    @Autowired
-    private IsAdmin isAdmin;
-
     /**
      * 根据用户名获取管理员实体
      * @param username
@@ -130,11 +127,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
      */
     @Override
     public List<Admin> getAllAdmins(String keywords) {
-        if(isAdmin.getIsAdmin()) {
-            Integer adminId = ((Admin) UserUtils.getCurrentUser()).getId();
-            return adminMapper.getAllAdmins(adminId, keywords);
-        }
-        return adminMapper.getAllAdmins(null, keywords);
+        Integer adminId = UserUtils.getCurrentUser().getId();
+        return adminMapper.getAllAdmins(adminId, keywords);
     }
 
     /**

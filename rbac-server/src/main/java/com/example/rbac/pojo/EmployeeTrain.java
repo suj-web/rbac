@@ -64,5 +64,7 @@ public class EmployeeTrain implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
 
-
+    @ApiModelProperty(value = "员工信息")
+    @TableField(exist = false)
+    private Employee employee;
 }

@@ -26,44 +26,22 @@ import java.security.Principal;
 public class LoginController {
 
     @Autowired
-    private IsAdmin isAdmin;
-
-    @Autowired
     private LoginService loginService;
 
     @ApiOperation(value = "登录之后返回token")
     @PostMapping("/login")
     public RespBean login(@RequestBody UserLoginParam user, HttpServletRequest request) {
-        isAdmin.setIsAdmin(user.getIsAdmin());
         return loginService.login(user.getUsername(), user.getPassword(),user.getCode(),request);
     }
 
-    @ApiOperation(value = "获取当前用户信息")
-    @GetMapping("/info")
-    public void getUserInfo(HttpServletResponse response) throws IOException {
-        if(isAdmin.getIsAdmin()) {
-            response.sendRedirect("/admin/info");
-        } else {
-            response.sendRedirect("/employee/info");
-        }
-    }
 
-    @ApiOperation(value = "获取当前管理员信息", hidden = true)
+    @ApiOperation(value = "获取当前管理员信息")
     @GetMapping("/admin/info")
     public Admin getAdminInfo(Principal principal) {
         if(null == principal){
             return null;
         }
         return loginService.getAdminInfo(principal.getName());
-    }
-
-    @ApiOperation(value = "获取当前员工信息", hidden = true)
-    @GetMapping("/employee/info")
-    public Employee getEmployeeInfo(Principal principal) {
-        if(null == principal){
-            return null;
-        }
-        return loginService.getEmployeeInfo(principal.getName());
     }
 
     @ApiOperation(value = "退出登录")

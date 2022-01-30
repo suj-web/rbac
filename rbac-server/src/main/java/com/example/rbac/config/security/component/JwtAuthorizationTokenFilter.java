@@ -1,6 +1,5 @@
 package com.example.rbac.config.security.component;
 
-import com.example.rbac.pojo.IsAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,9 +28,6 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    private IsAdmin isAdmin;
-
-    @Autowired
     private UserDetailsService userDetailsService;
 
     @Override
@@ -42,8 +38,6 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
         if(null!=authHeader && authHeader.startsWith(tokenHead)){
             String authToken = authHeader.substring(tokenHead.length());
             String username = jwtTokenUtil.getUserNameFormToken(authToken);
-            //设置当前登录的用户类型
-            isAdmin.setIsAdmin(jwtTokenUtil.getIsAdminFromToken(authToken));
             //token存在用户名,但未登录
             if(null!=username && null== SecurityContextHolder.getContext().getAuthentication()){
                 //登录

@@ -84,44 +84,10 @@
         AND r.id = rr.role_id
         AND rr.resource_id = re2.id
         AND re2.enabled = TRUE
+        AND r.is_delete = FALSE
         AND re1.type != 2
         AND re2.type != 2
         AND ar.admin_id = #{adminId}
-        ORDER BY
-            re2.id
-    </select>
-
-    <select id="getResourcesByEmployeeId" resultMap="Resources">
-        SELECT DISTINCT
-            re1.*, re2.id AS id2,
-            re2.id AS id2,
-            re2.url AS url2,
-            re2.path AS path2,
-            re2.type AS type2,
-            re2.component AS component2,
-            re2.name AS name2,
-            re2.icon_cls AS icon_cls2,
-            re2.parent_id AS parent_id2,
-            re2.enabled AS enabled2,
-            re2.is_delete AS is_delete2,
-            re2.gmt_create AS gmt_create2,
-            re2.gmt_modified AS gmt_modified2
-        FROM
-            t_employee_role er,
-            t_role r,
-            t_role_resource rr,
-            t_resource re1,
-            t_resource re2
-        WHERE
-            re1.id = re2.parent_id
-        AND er.role_id = r.id
-        AND r.id = rr.role_id
-        AND rr.resource_id = re2.id
-        AND re2.enabled = TRUE
-        AND
-        AND re1.type != 2
-        AND re2.type != 2
-        AND er.employee_id = #{employeeId}
         ORDER BY
             re2.id
     </select>
@@ -142,6 +108,7 @@
             r.id = rr.role_id
         AND rr.resource_id = res.id
         AND res.enabled = TRUE
+        AND r.is_delete = FALSE
         ORDER BY
             res.id
     </select>
@@ -159,28 +126,10 @@
         AND r.id = rr.role_id
         AND rr.resource_id = res.id
         AND res.enabled = TRUE
+        AND r.is_delete = FALSE
         AND res.type = 2
         AND res.parent_id = #{parentId}
         AND ar.admin_id = #{userId}
-        ORDER BY res.id
-    </select>
-
-    <select id="getEmployeeActionByPath" resultMap="BaseResultMap">
-        SELECT
-            res.*
-        FROM
-            t_employee_role er,
-            t_role r,
-            t_role_resource rr,
-            t_resource res
-        WHERE
-            er.role_id = r.id
-        AND r.id = rr.role_id
-        AND rr.resource_id = res.id
-        AND res.enabled = TRUE
-        AND res.type = 2
-        AND res.parent_id = #{parentId}
-        AND er.employee_id = #{userId}
         ORDER BY res.id
     </select>
 

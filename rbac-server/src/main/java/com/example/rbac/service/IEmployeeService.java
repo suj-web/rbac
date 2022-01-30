@@ -28,13 +28,6 @@ public interface IEmployeeService extends IService<Employee> {
     Employee getEmployeeByUserName(String username);
 
     /**
-     * 根据员工id获取角色
-     * @param id
-     * @return
-     */
-    List<Role> getRolesByEmployeeId(Integer id);
-
-    /**
      * 分页查询员工信息
      * @param currentPage
      * @param size
@@ -65,24 +58,6 @@ public interface IEmployeeService extends IService<Employee> {
     List<Employee> getEmployee(Integer employeeId);
 
     /**
-     * 更新员工密码
-     * @param oldPass
-     * @param pass
-     * @param employeeId
-     * @return
-     */
-    RespBean updateEmployeePassword(String oldPass, String pass, Integer employeeId);
-
-    /**
-     * 更新员工头像
-     * @param url
-     * @param id
-     * @param authentication
-     * @return
-     */
-    RespBean updateEmployeeUserFace(String url, Integer id, Authentication authentication);
-
-    /**
      * 获取所有员工账套
      * @param currentPage
      * @param size
@@ -90,27 +65,4 @@ public interface IEmployeeService extends IService<Employee> {
      */
     RespPageBean getEmployeeWithSalary(Integer currentPage, Integer size);
 
-    /**
-     * 根据关键字获取员工
-     * @param keywords
-     * @return
-     */
-    List<Employee> getAllEmployees(String keywords);
-
-    /**
-     * 获取所有员工信息(带用户角色)
-     * @param currentPage
-     * @param size
-     * @param name
-     * @return
-     */
-    RespPageBean getEmployeeWithRoleByPage(Integer currentPage, Integer size, String name);
-
-    /**
-     * 更新员工角色
-     * @param employeeId
-     * @param ids
-     * @return
-     */
-    RespBean updateEmployeeRole(Integer employeeId, Integer[] ids);
 }

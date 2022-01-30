@@ -38,8 +38,6 @@ public class LoginServiceImpl implements LoginService {
     @Value("${jwt.tokenHead}")
     private String tokenHead;
 
-    @Autowired
-    private IsAdmin isAdmin;
 
     /**
      * 用户登录
@@ -72,7 +70,7 @@ public class LoginServiceImpl implements LoginService {
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
         //生成token
-        String token = jwtTokenUtil.generateToken(userDetails, isAdmin.getIsAdmin());
+        String token = jwtTokenUtil.generateToken(userDetails);
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token",token);
         tokenMap.put("tokenHead",tokenHead);

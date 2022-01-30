@@ -25,12 +25,12 @@ public interface ResourceMapper extends BaseMapper<Resource> {
      */
     List<Resource> getResourcesByAdminId(Integer adminId);
 
-    /**
-     * 通过员工id查询资源列表
-     * @param employeeId
-     * @return
-     */
-    List<Resource> getResourcesByEmployeeId(Integer employeeId);
+//    /**
+//     * 通过员工id查询资源列表
+//     * @param employeeId
+//     * @return
+//     */
+//    List<Resource> getResourcesByEmployeeId(Integer employeeId);
 
     /**
      * 根据角色获取资源
@@ -52,11 +52,11 @@ public interface ResourceMapper extends BaseMapper<Resource> {
      */
     List<Resource> getAdminActionByPath(@Param("userId") Integer userId, @Param("parentId") Integer parentId);
 
-    /**
-     * 根据userId和parentId获取员工当前页面下可执行的操作
-     * @param userId
-     * @param parentId
-     * @return
-     */
-    List<Resource> getEmployeeActionByPath(@Param("userId") Integer userId,@Param("parentId") Integer parentId);
+//    /**
+//     * 根据userId和parentId获取员工当前页面下可执行的操作
+//     * @param userId
+//     * @param parentId
+//     * @return
+//     */
+//    List<Resource> getEmployeeActionByPath(@Param("userId") Integer userId,@Param("parentId") Integer parentId);
 }

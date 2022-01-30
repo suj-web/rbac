@@ -27,18 +27,10 @@ public class ChatController {
     @Autowired
     private IAdminService adminService;
 
-    @Autowired
-    private IEmployeeService employeeService;
-
     @ApiOperation(value = "获取所有管理员")
     @GetMapping("/admin")
     public List<Admin> getAllAdmins(String keywords) {
         return adminService.getAllAdmins(keywords);
     }
 
-    @ApiOperation(value = "获取所有员工")
-    @GetMapping("/employee")
-    public List<Employee> getAllEmployees(String keywords) {
-        return employeeService.getAllEmployees(keywords);
-    }
 }

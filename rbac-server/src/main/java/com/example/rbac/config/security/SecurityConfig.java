@@ -2,8 +2,6 @@ package com.example.rbac.config.security;
 
 import com.example.rbac.config.security.component.*;
 import com.example.rbac.pojo.Admin;
-import com.example.rbac.pojo.Employee;
-import com.example.rbac.pojo.IsAdmin;
 import com.example.rbac.service.IAdminService;
 import com.example.rbac.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private CustomerUrlDecisionManager customerUrlDecisionManager;
-
-    @Autowired
-    private IsAdmin isAdmin;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -132,19 +127,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     protected UserDetailsService userDetailsService() {
         return username -> {
-            if(isAdmin.getIsAdmin()){
                 Admin admin = adminService.getAdminByUserName(username);
                 if(null != admin){
                     admin.setRoles(adminService.getRolesByAdminId(admin.getId()));
                     return admin;
                 }
-            } else {
-                Employee employee = employeeService.getEmployeeByUserName(username);
-                if(null != employee){
-                    employee.setRoles(employeeService.getRolesByEmployeeId(employee.getId()));
-                    return employee;
-                }
-            }
             return null;
         };
     }
@@ -154,8 +141,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new JwtAuthorizationTokenFilter();
     }
 
-    @Bean
-    public IsAdmin isAdmin(){
-        return new IsAdmin();
-    }
 }

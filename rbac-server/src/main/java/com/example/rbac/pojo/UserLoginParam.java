@@ -27,6 +27,4 @@ public class UserLoginParam {
     @ApiModelProperty(value = "验证码",required = true)
     private String code;
 
-    @ApiModelProperty(value = "是否是管理员",required = true)
-    private Boolean isAdmin;
 }

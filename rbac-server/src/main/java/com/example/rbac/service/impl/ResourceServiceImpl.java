@@ -1,9 +1,6 @@
 package com.example.rbac.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.rbac.pojo.Admin;
-import com.example.rbac.pojo.Employee;
-import com.example.rbac.pojo.IsAdmin;
 import com.example.rbac.utils.UserUtils;
 import com.example.rbac.pojo.Resource;
 import com.example.rbac.mapper.ResourceMapper;
@@ -34,8 +31,6 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @Autowired
-    private IsAdmin isAdmin;
     /**
      * 通过用户id查询资源列表
      * @return
@@ -43,23 +38,15 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     @Override
     public List<Resource> getResourcesByUserId() {
         Integer userId;
-        List<Resource> resources;
+        List<Resource> resources = null;
         ValueOperations<String, Object> valueOperations = redisTemplate.opsForValue();
-        if(isAdmin.getIsAdmin()) {
-            userId = ((Admin)UserUtils.getCurrentUser()).getId();
-            //从redis中获取菜单数据
-            resources = (List) valueOperations.get("menu_admin_" + userId);
-            if(CollectionUtils.isEmpty(resources)) {
-                resources = resourceMapper.getResourcesByAdminId(userId);
-                valueOperations.set("menu_admin_" + userId, resources);
-            }
-        } else {
-            userId = ((Employee) UserUtils.getCurrentUser()).getId();
-            resources = (List) valueOperations.get("menu_employee_" + userId);
-            if(CollectionUtils.isEmpty(resources)) {
-                resources = resourceMapper.getResourcesByEmployeeId(userId);
-                valueOperations.set("menu_employee_"+userId,resources);
-            }
+
+        userId = UserUtils.getCurrentUser().getId();
+        //从redis中获取菜单数据
+        resources = (List) valueOperations.get("menu_admin_" + userId);
+        if(CollectionUtils.isEmpty(resources)) {
+            resources = resourceMapper.getResourcesByAdminId(userId);
+            valueOperations.set("menu_admin_" + userId, resources);
         }
         return resources;
     }
@@ -80,15 +67,9 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
      */
     @Override
     public List<Resource> getActionResourceByPath(String currentActivePath) {
-        Integer userId;
         Integer parentId = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("path",currentActivePath)).getId();
-        if(isAdmin.getIsAdmin()){
-            userId = ((Admin)UserUtils.getCurrentUser()).getId();
-            return resourceMapper.getAdminActionByPath(userId, parentId);
-        } else {
-            userId = ((Employee)UserUtils.getCurrentUser()).getId();
-            return resourceMapper.getEmployeeActionByPath(userId, parentId);
-        }
+        Integer userId = UserUtils.getCurrentUser().getId();
+        return resourceMapper.getAdminActionByPath(userId, parentId);
     }
 
     /**

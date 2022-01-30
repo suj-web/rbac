@@ -2,8 +2,6 @@ package com.example.rbac.config;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.rbac.config.security.component.JwtTokenUtil;
-import com.example.rbac.pojo.IsAdmin;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -38,9 +36,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    private IsAdmin isAdmin;
-
     /**
      * 添加端点,这样在网页可以通过websocket连接上服务
      * 也就是我们配置websocket的服务地址,并且可以指定是否使用socketJS
@@ -74,7 +69,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                     if(StringUtils.isNotBlank(token)) {
                         String authToken = token.substring(tokenHead.length());
                         String username = jwtTokenUtil.getUserNameFormToken(authToken);
-                        isAdmin.setIsAdmin(jwtTokenUtil.getIsAdminFromToken(authToken));
                         //token中存在用户名
                         if(StringUtils.isNotBlank(username)) {
                             //登录

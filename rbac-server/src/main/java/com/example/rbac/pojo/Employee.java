@@ -39,7 +39,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Accessors(chain = true)
 @TableName("t_employee")
 @ApiModel(value="Employee对象", description="")
-public class Employee implements Serializable, UserDetails {
+public class Employee implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -217,10 +217,6 @@ public class Employee implements Serializable, UserDetails {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
 
-    @ApiModelProperty(value = "角色")
-    @TableField(exist = false)
-    private List<Role> roles;
-
     @ApiModelProperty(value = "部门")
     @TableField(exist = false)
     @ExcelEntity(name = "部门")
@@ -249,34 +245,4 @@ public class Employee implements Serializable, UserDetails {
     @ApiModelProperty(value = "工资账套")
     @TableField(exist = false)
     private Salary salary;
-
-    @Override
-//    @JsonIgnore
-    @JsonDeserialize(using = CustomAuthorityDeserializer.class)
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<SimpleGrantedAuthority> authorities = roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
-                .collect(Collectors.toList());
-        return authorities;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
-    }
 }

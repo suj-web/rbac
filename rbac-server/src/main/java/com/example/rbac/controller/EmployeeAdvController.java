@@ -1,18 +1,13 @@
 package com.example.rbac.controller;
 
-import com.example.rbac.pojo.Employee;
-import com.example.rbac.pojo.RespBean;
+import com.example.rbac.pojo.Appraise;
 import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.pojo.Role;
-import com.example.rbac.service.IEmployeeRoleService;
-import com.example.rbac.service.IEmployeeService;
-import com.example.rbac.service.IRoleService;
+import com.example.rbac.service.*;
 import io.swagger.annotations.ApiOperation;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -26,31 +21,23 @@ import java.util.List;
 public class EmployeeAdvController {
 
     @Autowired
-    private IEmployeeService employeeService;
-
+    private IEmployeeEcService employeeEcService;
     @Autowired
-    private IEmployeeRoleService employeeRoleService;
-
+    private IEmployeeTrainService employeeTrainService;
     @Autowired
-    private IRoleService roleService;
+    private IEmployeeRemoveService employeeRemoveService;
+    @Autowired
+    private IAppraiseService appraiseService;
+    @Autowired
+    private ISalaryAdjustService salaryAdjustService;
+    @Autowired
+    private ISalaryService salaryService;
 
-    @ApiOperation(value = "获取所有员工信息(带用户角色)")
-    @GetMapping("/")
-    public RespPageBean getEmployeeWithRoleByPage(@RequestParam(defaultValue = "1") Integer currentPage,
+    @ApiOperation(value = "获取所有考评信息")
+    @GetMapping("/appraise")
+    public RespPageBean getAllAppraise(@RequestParam(defaultValue = "1") Integer currentSize,
                                        @RequestParam(defaultValue = "10") Integer size,
-                                       String name){
-        return employeeService.getEmployeeWithRoleByPage(currentPage, size, name);
-    }
-
-    @ApiOperation(value = "获取角色信息")
-    @GetMapping("/role")
-    public List<Role> getAllRoles() {
-        return roleService.list();
-    }
-
-    @ApiOperation(value = "更新员工角色")
-    @PutMapping("/role")
-    public RespBean updateEmployeeRole(Integer employeeId, Integer[] ids) {
-        return employeeService.updateEmployeeRole(employeeId, ids);
+                                       String name, String workId) {
+        return appraiseService.getAllAppraise(currentSize, size, name, workId);
     }
 }

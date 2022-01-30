@@ -65,9 +65,6 @@
             <id column="jobid" property="id"/>
             <result column="jobname" property="name"/>
         </association>
-        <collection property="roles" ofType="com.example.rbac.pojo.Role"
-                    column="id" select="com.example.rbac.mapper.RoleMapper.getRolesByEmployeeId">
-        </collection>
     </resultMap>
 
     <resultMap id="EmployeeWithSalary" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
@@ -89,15 +86,6 @@
         <association property="department" javaType="com.example.rbac.pojo.Department">
             <result column="depname" property="name"/>
         </association>
-        <collection property="roles" ofType="com.example.rbac.pojo.Role"
-                    column="id" select="com.example.rbac.mapper.RoleMapper.getRolesByEmployeeId">
-        </collection>
-    </resultMap>
-
-    <resultMap id="EmployeeWithRole" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
-        <collection property="roles" ofType="com.example.rbac.pojo.Role"
-                    column="id" select="com.example.rbac.mapper.RoleMapper.getRolesByEmployeeId">
-        </collection>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -217,7 +205,7 @@
             ORDER BY emp.id
     </select>
 
-    <select id="getAllEmployees" resultMap="EmployeeWithRole">
+    <select id="getAllEmployees" resultMap="BaseResultMap">
         SELECT
             emp.*
         FROM
@@ -233,16 +221,4 @@
             ORDER BY emp.id
     </select>
 
-    <select id="getEmployeeWithRoleByPage" resultMap="EmployeeWithRole">
-        SELECT
-            emp.*
-        FROM
-            t_employee emp
-        WHERE
-            emp.is_delete = FALSE
-        <if test="null!=name and ''!=name">
-            AND emp.name = #{name}
-        </if>
-            ORDER BY emp.id
-    </select>
 </mapper>

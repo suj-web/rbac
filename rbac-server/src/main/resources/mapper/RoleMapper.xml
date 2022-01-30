@@ -30,18 +30,4 @@
         AND r.is_delete = FALSE
         AND ar.admin_id = #{adminId}
     </select>
-
-    <select id="getRolesByEmployeeId" resultMap="BaseResultMap">
-        SELECT
-            r.id,
-            r.`name`,
-            r.name_zh
-        FROM
-            t_employee_role er,
-            t_role r
-        WHERE
-            er.role_id = r.id
-        AND r.is_delete = FALSE
-        AND er.employee_id = #{employeeId}
-    </select>
 </mapper>

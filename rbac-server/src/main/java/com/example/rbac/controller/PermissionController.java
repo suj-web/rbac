@@ -31,8 +31,6 @@ public class PermissionController {
     private IRoleResourceService roleResourceService;
 
     @Autowired
-    private IEmployeeRoleService employeeRoleService;
-    @Autowired
     private IAdminRoleService adminRoleService;
 
     @ApiOperation(value = "获取所有角色")
@@ -60,10 +58,7 @@ public class PermissionController {
         if(adminRoles.size() > 0) {
             return RespBean.error("该数据有关联数据,操作失败!");
         }
-        List<EmployeeRole> employeeRoles = employeeRoleService.list(new QueryWrapper<EmployeeRole>().eq("role_id", id));
-        if(employeeRoles.size() > 0) {
-            return RespBean.error("该数据有关联数据,操作失败!");
-        }
+
         if(roleService.removeById(id)){
             roleResourceService.remove(new QueryWrapper<RoleResource>().eq("role_id",id));
             return RespBean.success("删除成功");

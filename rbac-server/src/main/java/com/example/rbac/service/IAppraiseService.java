@@ -2,10 +2,11 @@ package com.example.rbac.service;
 
 import com.example.rbac.pojo.Appraise;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.RespPageBean;
 
 /**
  * <p>
- *  服务类
+ *  员工考评服务类
  * </p>
  *
  * @author suj
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IAppraiseService extends IService<Appraise> {
 
+    /**
+     * 获取所有考评信息
+     * @param currentSize
+     * @param size
+     * @param name
+     * @param workId
+     * @return
+     */
+    RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String workId);
 }
