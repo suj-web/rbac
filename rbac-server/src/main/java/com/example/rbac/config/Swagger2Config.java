@@ -35,7 +35,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("企业员工信息管理接口文档")
                 .description("企业员工信息管理接口文档")
-                .contact(new Contact("xxxx","   ","xxxx@xxxx.com"))
+                .contact(new Contact("xxxx","http:localhost:8082/doc.html","xxxx@xxxx.com"))
                 .version("1.0")
                 .build();
     }

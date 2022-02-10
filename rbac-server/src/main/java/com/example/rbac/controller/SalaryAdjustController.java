@@ -2,10 +2,7 @@ package com.example.rbac.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.example.rbac.pojo.Employee;
-import com.example.rbac.pojo.RespBean;
-import com.example.rbac.pojo.RespPageBean;
-import com.example.rbac.pojo.Salary;
+import com.example.rbac.pojo.*;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.ISalaryAdjustService;
 import com.example.rbac.service.ISalaryService;
@@ -13,10 +10,11 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * 员工调薪
+ * 人事管理-员工调薪
  * @author suj
  * @since 2022-01-12
  */
@@ -34,5 +32,41 @@ public class SalaryAdjustController {
                                            String name, String workId) {
         return salaryAdjustService.getAllSalaryAdjust(currentPage, size, name, workId);
 
+    }
+
+    @ApiOperation(value = "添加员工调薪信息")
+    @PostMapping("/")
+    public RespBean addSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
+        if(salaryAdjustService.save(salaryAdjust)) {
+            return RespBean.success("添加成功");
+        }
+        return RespBean.error("添加失败");
+    }
+
+    @ApiOperation(value = "修改员工调薪信息")
+    @PutMapping("/")
+    public RespBean updateSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
+        if(salaryAdjustService.saveOrUpdate(salaryAdjust)) {
+            return RespBean.success("修改成功");
+        }
+        return RespBean.error("修改失败");
+    }
+
+    @ApiOperation(value = "删除员工调薪信息")
+    @DeleteMapping("/{id}")
+    public RespBean deleteSalaryAdjust(@PathVariable Integer id) {
+        if(salaryAdjustService.removeById(id)) {
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
+
+    @ApiOperation(value = "批量删除员工调薪信息")
+    @DeleteMapping("/")
+    public RespBean deleteManySalaryAdjust(Integer[] ids) {
+        if(salaryAdjustService.removeByIds(Arrays.asList(ids))) {
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
     }
 }

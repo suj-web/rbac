@@ -22,7 +22,7 @@ import java.util.Map;
  * 当前登录用户
  */
 @RestController
-public class UserInfoController {
+public class AdminInfoController {
     @Autowired
     private IAdminService adminService;
 

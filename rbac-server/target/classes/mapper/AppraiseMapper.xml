@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rbac.mapper.AppraiseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.rbac.pojo.Appraise">
+        <id column="id" property="id" />
+        <result column="employee_id" property="employeeId" />
+        <result column="app_date" property="appDate" />
+        <result column="app_result" property="appResult" />
+        <result column="app_content" property="appContent" />
+        <result column="remark" property="remark" />
+        <result column="is_delete" property="isDelete" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <resultMap id="Appraise" type="com.example.rbac.pojo.Appraise" extends="BaseResultMap">
+        <association property="employee" javaType="com.example.rbac.pojo.Employee">
+            <id column="eid" property="id" />
+            <result column="ename" property="name" />
+            <result column="ework_id" property="workId" />
+        </association>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, employee_id, app_date, app_result, app_content, remark, is_delete, gmt_create, gmt_modified
+    </sql>
+
+    <select id="getAllAppraise" resultMap="Appraise">
+        SELECT
+            ap.*, e.id AS eid,
+            e.`name` AS ename,
+            e.work_id AS ework_id
+        FROM
+            t_appraise ap,
+            t_employee e
+        WHERE
+            e.id = ap.employee_id
+        AND e.is_delete = FALSE
+        <if test="null!=name and ''!=name">
+            AND e. NAME LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="null!=workId and ''!=workId">
+            AND e.work_id = #{workId}
+        </if>
+        ORDER BY e.id
+    </select>
+</mapper>

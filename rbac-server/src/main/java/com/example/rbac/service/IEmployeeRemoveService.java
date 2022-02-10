@@ -2,6 +2,8 @@ package com.example.rbac.service;
 
 import com.example.rbac.pojo.EmployeeRemove;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.RespBean;
+import com.example.rbac.pojo.RespPageBean;
 
 /**
  * <p>
@@ -13,4 +15,27 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IEmployeeRemoveService extends IService<EmployeeRemove> {
 
+    /**
+     * 获取所有员工调动资料
+     * @param currentSize
+     * @param size
+     * @param name
+     * @param workId
+     * @return
+     */
+    RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String workId);
+
+    /**
+     * 添加员工调动信息
+     * @param employeeRemove
+     * @return
+     */
+    RespBean addEmployeeRemove(EmployeeRemove employeeRemove);
+
+    /**
+     * 修改员工调动信息
+     * @param employeeRemove
+     * @return
+     */
+    RespBean updateEmployeeRemove(EmployeeRemove employeeRemove);
 }

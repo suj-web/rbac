@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -95,5 +96,7 @@ public class Salary implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
 
-
+    @ApiModelProperty(value = "员工信息")
+    @TableField(exist = false)
+    private List<Employee> employees;
 }

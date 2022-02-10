@@ -12,10 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * 系统管理-基础信息设置-权限组
  * @Author suj
  * @create 2022/1/6
- *
- * 权限组
  */
 @RestController
 @RequestMapping("/system/basic/permission")

@@ -6,15 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
+ *人事管理-员工考评
  * @author suj
  * @since 2022-01-07
  */
 @RestController
-@RequestMapping("/appraise")
+@RequestMapping("/personnel/appraise")
 public class AppraiseController {
 
 }

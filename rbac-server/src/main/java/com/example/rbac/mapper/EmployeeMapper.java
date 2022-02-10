@@ -41,16 +41,9 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
     /**
      * 获取所有员工账套
      * @param page
+     * @param name
+     * @param workId
      * @return
      */
-    IPage<Employee> getEmployeeWithSalary(Page<Employee> page);
-
-    /**
-     * 根据关键字获取员工
-     * @param employeeId
-     * @param keywords
-     * @return
-     */
-    List<Employee> getAllEmployees(Integer employeeId, String keywords);
-
+    IPage<Employee> getEmployeeWithSalary(Page<Employee> page, @Param("name") String name, @Param("workId") String workId);
 }

@@ -25,11 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
- * 普通员工基本资料
+ * 员工基本资料
  * @author suj
  * @since 2022-01-07
  */

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 
 /**
- *员工培训
+ *人事管理-员工培训
  * @Author suj
  * @create 2022/1/24
  */

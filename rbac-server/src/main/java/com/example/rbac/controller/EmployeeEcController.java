@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 
 /**
- * 员工奖惩
+ * 人事管理-员工奖惩
  * @author suj
  * @since 2022-01-07
  */

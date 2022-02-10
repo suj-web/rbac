@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -26,4 +28,11 @@ public interface SalaryAdjustMapper extends BaseMapper<SalaryAdjust> {
      * @return
      */
     IPage<SalaryAdjust> getAllSalaryAdjust(Page<SalaryAdjust> page, @Param("name") String name, @Param("workId") String workId);
+
+    /**
+     * 根据员工id获取调薪信息
+     * @param employeeId
+     * @return
+     */
+    List<SalaryAdjust> getSalaryAdjustByEmployeeId(Integer employeeId);
 }
