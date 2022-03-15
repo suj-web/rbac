@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.rbac.pojo.Role;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -42,8 +44,28 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * 获取所有员工账套
      * @param page
      * @param name
-     * @param workId
      * @return
      */
-    IPage<Employee> getEmployeeWithSalary(Page<Employee> page, @Param("name") String name, @Param("workId") String workId);
+    IPage<Employee> getEmployeeWithSalary(Page<Employee> page, @Param("name") String name);
+
+    /**
+     * 获取所有员工账套(不分页)
+     */
+    List<Employee> getEmployeeWithSalary2();
+
+    /**
+     * 获取所有员工当月工资信息
+     * @param page
+     * @param depId
+     * @param year
+     * @param monthValue
+     * @return
+     */
+    IPage<Employee> getAllEmployeeWithSalaryTable(Page<Employee> page, @Param("depId") Integer depId, @Param("year") Integer year, @Param("month") Integer monthValue);
+
+    /**
+     * 获取所有员工当月工资信息(不分页)
+     * @return
+     */
+    List<Employee> getAllEmployeeWithSalaryTable2(@Param("year") Integer year, @Param("month") Integer month);
 }

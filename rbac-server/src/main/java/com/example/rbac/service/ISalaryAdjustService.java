@@ -4,6 +4,8 @@ import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.pojo.SalaryAdjust;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务类
@@ -19,8 +21,8 @@ public interface ISalaryAdjustService extends IService<SalaryAdjust> {
      * @param currentPage
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, String name, String workId);
+    RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, String name, String localDate);
 }

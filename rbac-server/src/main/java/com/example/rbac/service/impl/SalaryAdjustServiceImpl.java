@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务实现类
@@ -29,13 +31,13 @@ public class SalaryAdjustServiceImpl extends ServiceImpl<SalaryAdjustMapper, Sal
      * @param currentPage
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
     @Override
-    public RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, String name, String workId) {
+    public RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, String name, String localDate) {
         Page<SalaryAdjust> page = new Page<>(currentPage, size);
-        IPage<SalaryAdjust> salaryAdjustIPage = salaryAdjustMapper.getAllSalaryAdjust(page, name, workId);
+        IPage<SalaryAdjust> salaryAdjustIPage = salaryAdjustMapper.getAllSalaryAdjust(page, name, localDate);
         return new RespPageBean(salaryAdjustIPage.getTotal(), salaryAdjustIPage.getRecords());
     }
 }

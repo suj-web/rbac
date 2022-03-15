@@ -1,5 +1,6 @@
 package com.example.rbac.controller;
 
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.Admin;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.service.IAdminService;
@@ -26,10 +27,8 @@ public class AdminInfoController {
     @Autowired
     private IAdminService adminService;
 
-    @Autowired
-    private IEmployeeService employeeService;
-
-    @ApiOperation(value = "更新当前管理员信息")
+    @OperationLogAnnotation(operModul = "",operType = "更新",operDesc = "更新当前操作员信息")
+    @ApiOperation(value = "更新当前操作员信息")
     @PutMapping("/admin/info")
     public RespBean updateAdminInfo(@RequestBody Admin admin, Authentication authentication) {
         if(adminService.updateById(admin)){
@@ -41,7 +40,8 @@ public class AdminInfoController {
         return RespBean.error("更新失败");
     }
 
-    @ApiOperation(value = "更新管理员密码")
+    @OperationLogAnnotation(operModul = "",operType = "更新",operDesc = "更新当前操作员密码")
+    @ApiOperation(value = "更新操作员密码")
     @PutMapping("/user/pass")
     public RespBean updateUserPass(@RequestBody Map<String, String> info) {
         String oldPass = info.get("oldPass");
@@ -50,8 +50,9 @@ public class AdminInfoController {
         return adminService.updateAdminPassword(oldPass, pass, adminId);
     }
 
-    @ApiOperation(value = "更新用户管理员头像")
-    @PostMapping("/user/userface")
+    @OperationLogAnnotation(operModul = "",operType = "更新",operDesc = "更新当前操作员头像")
+    @ApiOperation(value = "更新操作员头像")
+    @PostMapping("/admin/userface")
     public RespBean updateUserFace(MultipartFile file, Integer id, Authentication authentication) {
         String[] filePath = FastDFSUtils.upload(file);
         String url = FastDFSUtils.getTrackerUrl() + filePath[0]  + "/" + filePath[1];

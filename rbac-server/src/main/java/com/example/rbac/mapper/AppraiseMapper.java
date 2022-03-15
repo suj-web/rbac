@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.Appraise;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
 
 /**
  * <p>
@@ -21,8 +24,8 @@ public interface AppraiseMapper extends BaseMapper<Appraise> {
      * 获取所有考评信息
      * @param page
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    IPage<Appraise> getAllAppraise(Page<Appraise> page, String name, String workId);
+    IPage<Appraise> getAllAppraise(Page<Appraise> page, @Param("name") String name, @Param("localDate") String localDate);
 }

@@ -19,6 +19,9 @@ public class DateConverter implements Converter<String, LocalDate> {
     @Override
     public LocalDate convert(String s) {
         try {
+            if("".equals(s) || null == s) {
+                return null;
+            }
             return LocalDate.parse(s, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         } catch (Exception e) {
             log.error("日期转换异常："+e.getMessage());

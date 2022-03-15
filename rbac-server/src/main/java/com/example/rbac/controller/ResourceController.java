@@ -14,9 +14,6 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * <p>
- *  前端控制器
- * </p>
  *
  * @author suj
  * @since 2022-01-05
@@ -28,7 +25,7 @@ public class ResourceController {
     @Autowired
     private IResourceService resourceService;
 
-    @ApiOperation(value = "通过用户id(管理员id，员工id)查询资源列表")
+    @ApiOperation(value = "通过用户id查询资源列表")
     @GetMapping("/resource")
     public List<Resource> getResourcesByUserId(){
         return resourceService.getResourcesByUserId();

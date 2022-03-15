@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务实现类
@@ -29,13 +31,13 @@ public class EmployeeTrainServiceImpl extends ServiceImpl<EmployeeTrainMapper, E
      * @param currentPage
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
     @Override
-    public RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String workId) {
+    public RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String localDate) {
         Page<EmployeeTrain> page = new Page<>(currentPage, size);
-        IPage<EmployeeTrain> employeeTrainIPage = employeeTrainMapper.getAllEmployeeTrain(page, name, workId);
+        IPage<EmployeeTrain> employeeTrainIPage = employeeTrainMapper.getAllEmployeeTrain(page, name, localDate);
         return new RespPageBean(employeeTrainIPage.getTotal(), employeeTrainIPage.getRecords());
     }
 }

@@ -17,13 +17,4 @@ import java.util.List;
  */
 @Repository
 public interface SalaryMapper extends BaseMapper<Salary> {
-
-    /**
-     * 获取所有员工工资信息
-     * @param salaryId
-     * @param depId
-     * @return
-     */
-    List<Salary> getAllSalary(@Param("salaryId") Integer salaryId, @Param("depId") Integer depId);
-
 }

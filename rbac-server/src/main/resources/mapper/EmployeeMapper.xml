@@ -71,11 +71,9 @@
         <association property="salary" javaType="com.example.rbac.pojo.Salary">
             <id column="sid" property="id"/>
             <result column="sname" property="name"/>
-            <result column="sbasic_alary" property="basicSalary"/>
-            <result column="sbonus" property="bonus"/>
+            <result column="sbasic_salary" property="basicSalary"/>
             <result column="slunch_salary" property="lunchSalary"/>
             <result column="straffic_salary" property="trafficSalary"/>
-            <result column="sall_salary" property="allSalary"/>
             <result column="spension_base" property="pensionBase"/>
             <result column="spension_per" property="pensionPer"/>
             <result column="smedical_base" property="medicalBase"/>
@@ -88,11 +86,44 @@
         </association>
     </resultMap>
 
+    <resultMap id="EmployeeWithSalary2" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
+        <association property="salary" javaType="com.example.rbac.pojo.Salary">
+            <id column="sid" property="id"/>
+            <result column="sname" property="name"/>
+            <result column="sbasic_salary" property="basicSalary"/>
+            <result column="slunch_salary" property="lunchSalary"/>
+            <result column="straffic_salary" property="trafficSalary"/>
+            <result column="spension_base" property="pensionBase"/>
+            <result column="spension_per" property="pensionPer"/>
+            <result column="smedical_base" property="medicalBase"/>
+            <result column="smedical_per" property="medicalPer"/>
+            <result column="saccumulation_fund_base" property="accumulationFundBase"/>
+            <result column="saccumulation_fund_per" property="accumulationFundPer"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="EmployeeWithSalaryTable" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
+        <association property="department" javaType="com.example.rbac.pojo.Department">
+            <id column="depId" property="id" />
+            <result column="depName" property="name"/>
+        </association>
+        <collection property="salaryTables" ofType="com.example.rbac.pojo.SalaryTable">
+            <id column="stId" property="id" />
+            <result column="stYear" property="year" />
+            <result column="stMonth" property="month" />
+            <result column="stBonus" property="bonus" />
+            <result column="stAllSalary" property="allSalary" />
+            <result column="stEnabled" property="enabled" />
+        </collection>
+    </resultMap>
+
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, name, work_id, username, password, phone, telephone, email, address, birthday, wed_lock, id_card, department_id, position_id, nation_id, native_place, politic_id, job_level_id, engage_form, tiptop_degree, specialty, school, gender, begin_date, not_work_date, user_face, work_state, remark, contract_term, conversion_time, begin_contract, end_contract, work_age, salary_id, enabled, is_delete, gmt_create, gmt_modified
     </sql>
 
+<!--    分页查询员工信息-->
     <select id="getEmployeeByPage" resultMap="EmployeeInfo">
         SELECT DISTINCT
             emp.*, dep.id AS depid,
@@ -147,6 +178,7 @@
             emp.id
     </select>
 
+<!--    获取员工信息-->
     <select id="getEmployee" resultMap="EmployeeInfo">
         SELECT DISTINCT
             emp.*, dep.id AS depid,
@@ -179,6 +211,7 @@
             ORDER BY emp.id
     </select>
 
+<!--    获取所有员工账套-->
     <select id="getEmployeeWithSalary" resultMap="EmployeeWithSalary">
         SELECT
             emp.*,
@@ -186,10 +219,8 @@
             sal.id AS sid,
             sal.`name` AS sname,
             sal.basic_salary AS sbasic_salary,
-            sal.bonus AS sbonus,
             sal.lunch_salary AS slunch_salary,
             sal.traffic_salary AS straffic_salary,
-            sal.all_salary AS sall_salary,
             sal.pension_base AS spension_base,
             sal.pension_per AS spension_per,
             sal.medical_base AS smedical_base,
@@ -205,10 +236,89 @@
         <if test="null!=name and ''!=name">
             AND emp. NAME LIKE CONCAT('%', #{name}, '%')
         </if>
-        <if test="null!=workId and ''!=workId">
-            AND emp.work_id = #{workId}
-        </if>
             ORDER BY emp.id
     </select>
 
+<!--    获取所有员工账套(不分页)-->
+    <select id="getEmployeeWithSalary2" resultMap="EmployeeWithSalary2">
+        SELECT
+            emp.*, sal.id AS sid,
+            sal.`name` AS sname,
+            sal.basic_salary AS sbasic_salary,
+            sal.lunch_salary AS slunch_salary,
+            sal.traffic_salary AS straffic_salary,
+            sal.pension_base AS spension_base,
+            sal.pension_per AS spension_per,
+            sal.medical_base AS smedical_base,
+            sal.medical_per AS smedical_per,
+            sal.accumulation_fund_base AS saccumulation_fund_base,
+            sal.accumulation_fund_per AS saccumulation_fund_per
+        FROM
+            t_employee emp,
+            t_salary sal
+        WHERE
+            emp.salary_id = sal.id
+    </select>
+
+<!--    获取所有员工当月工资信息-->
+    <select id="getAllEmployeeWithSalaryTable" resultMap="EmployeeWithSalaryTable">
+        SELECT
+            emp.id,
+            emp.`name`,
+            emp.work_id,
+            dep.id AS depId,
+            dep.`name` AS depName,
+            st.id AS stId,
+            st.`year` AS stYear,
+            st.`month` AS stMonth,
+            st.bonus AS stBonus,
+            st.all_salary AS stAllSalary,
+            st.enabled AS stEnabled
+        FROM
+            t_employee emp,
+            t_department dep,
+            t_salary_table st
+        WHERE
+            emp.department_id = dep.id
+        AND emp.id = st.employee_id
+        <if test="null != depId">
+            AND dep.id = #{depId}
+        </if>
+        <if test="null != year">
+            AND st.`year` = #{year}
+        </if>
+        <if test="null != month">
+            AND st.`month` = #{month}
+        </if>
+        ORDER BY emp.id
+    </select>
+
+    <select id="getAllEmployeeWithSalaryTable2" resultMap="EmployeeWithSalaryTable">
+        SELECT
+            emp.id,
+            emp.`name`,
+            emp.work_id,
+            dep.id AS depId,
+            dep.`name` AS depName,
+            st.id AS stId,
+            st.`year` AS stYear,
+            st.`month` AS stMonth,
+            st.bonus AS stBonus,
+            st.all_salary AS stAllSalary,
+            st.enabled AS stEnabled
+        FROM
+            t_employee emp,
+            t_department dep,
+            t_salary_table st
+        WHERE
+            emp.department_id = dep.id
+        AND emp.id = st.employee_id
+        <if test="null != year">
+            AND st.`year` = #{year}
+        </if>
+        <if test="null != month">
+            AND st.`month` = #{month}
+        </if>
+        ORDER BY emp.id
+    </select>
 </mapper>

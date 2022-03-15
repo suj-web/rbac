@@ -4,6 +4,8 @@ import com.example.rbac.pojo.Appraise;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.RespPageBean;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  员工考评服务类
@@ -19,8 +21,8 @@ public interface IAppraiseService extends IService<Appraise> {
      * @param currentSize
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String workId);
+    RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String localDate);
 }

@@ -13,12 +13,8 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 
- * </p>
- *
  * @author suj
- * @since 2022-01-07
+ * @since 2022-03-14
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -33,17 +29,25 @@ public class Oplog implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    @ApiModelProperty(value = "操作员")
+    private String operator;
+
+    @ApiModelProperty(value = "操作员ip地址")
+    private String ip;
+
+    @ApiModelProperty(value = "操作类型")
+    private String type;
+
     @ApiModelProperty(value = "操作内容")
-    private String operate;
+    private String description;
 
-    @ApiModelProperty(value = "操作员ID")
-    @TableField("operater_id")
-    private Integer operaterId;
+    @ApiModelProperty(value = "操作模块")
+    private String model;
 
-    @ApiModelProperty(value = "操作人员类型 0管理员 1员工")
-    private Boolean type;
+    @ApiModelProperty(value = "操作结果")
+    private String result;
 
-    @ApiModelProperty(value = "逻辑删除")
+    @ApiModelProperty(value = "逻辑删除 1删除 0未删除")
     @TableField("is_delete")
     @TableLogic
     private Boolean isDelete;
@@ -57,6 +61,4 @@ public class Oplog implements Serializable {
     @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
-
-
 }

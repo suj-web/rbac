@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.pojo.Role;
+import io.swagger.models.auth.In;
 import org.springframework.security.core.Authentication;
 
 import java.time.LocalDate;
@@ -62,9 +63,40 @@ public interface IEmployeeService extends IService<Employee> {
      * @param currentPage
      * @param size
      * @param name
-     * @param workId
      * @return
      */
-    RespPageBean getEmployeeWithSalary(Integer currentPage, Integer size, String name, String workId);
+    RespPageBean getEmployeeWithSalary(Integer currentPage, Integer size, String name);
 
+    /**
+     * 获取所有员工账套(不分页)
+     * @return
+     */
+    List<Employee> getEmployeeWithSalary2();
+
+    /**
+     * 获取所有员工当月工资信息
+     * @param currentPage
+     * @param size
+     * @param depId
+     * @return
+     */
+    RespPageBean getAllEmployeeWithSalaryTable(Integer currentPage, Integer size, Integer depId);
+
+    /**
+     * 获取所有员工当月工资信息(不分页)
+     * @param year
+     * @param monthValue
+     * @return
+     */
+    List<Employee> getAllEmployeeWithSalaryTable2(int year, int monthValue);
+
+    /**
+     * 获取所有工资表信息
+     * @param currentPage
+     * @param size
+     * @param depId
+     * @param localDate
+     * @return
+     */
+    RespPageBean getAllSalaryTables(Integer currentPage, Integer size, Integer depId, LocalDate localDate);
 }

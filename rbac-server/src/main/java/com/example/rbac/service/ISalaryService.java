@@ -14,12 +14,4 @@ import java.util.List;
  * @since 2022-01-07
  */
 public interface ISalaryService extends IService<Salary> {
-
-    /**
-     * 获取所有员工工资信息
-     * @param salaryId
-     * @param depId
-     * @return
-     */
-    List<Salary> getAllSalary(Integer salaryId, Integer depId);
 }

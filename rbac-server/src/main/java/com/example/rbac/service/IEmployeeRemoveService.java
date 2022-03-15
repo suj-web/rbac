@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.RespPageBean;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务类
@@ -20,10 +22,10 @@ public interface IEmployeeRemoveService extends IService<EmployeeRemove> {
      * @param currentSize
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String workId);
+    RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String localDate);
 
     /**
      * 添加员工调动信息

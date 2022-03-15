@@ -6,6 +6,7 @@ import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
 import com.example.rbac.service.*;
 import io.swagger.annotations.ApiOperation;
@@ -50,6 +51,7 @@ public class EmployeeController {
     @Autowired
     private IDepartmentService departmentService;
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "查询",operDesc = "查询所有员工信息")
     @ApiOperation(value = "获取所有员工信息(分页)")
     @GetMapping("/")
     public RespPageBean getAllEmployee(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -95,12 +97,14 @@ public class EmployeeController {
         return employeeService.maxWorkID();
     }
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "添加",operDesc = "添加员工")
     @ApiOperation(value = "添加员工")
     @PostMapping("/")
     public RespBean addEmployee(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
     }
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "更新",operDesc = "更新员工")
     @ApiOperation(value = "更新员工")
     @PutMapping("/")
     public RespBean updateEmployee(@RequestBody Employee employee){
@@ -110,6 +114,7 @@ public class EmployeeController {
         return RespBean.error("更新失败!");
     }
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "删除",operDesc = "删除员工")
     @ApiOperation(value = "删除员工")
     @DeleteMapping("/{id}")
     public RespBean deleteEmployee(@PathVariable Integer id){
@@ -119,6 +124,7 @@ public class EmployeeController {
         return RespBean.error("删除失败!");
     }
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "删除",operDesc = "批量删除员工")
     @ApiOperation(value = "批量删除员工")
     @DeleteMapping("/")
     public RespBean deleteEmployees(Integer[] ids){
@@ -128,6 +134,7 @@ public class EmployeeController {
         return RespBean.error("删除失败!");
     }
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "导出数据",operDesc = "导出员工数据")
     @ApiOperation(value = "导出员工数据")
     @GetMapping(value = "/export", produces = "application/octet-stream")
     public void exportEmployee(HttpServletResponse response){
@@ -153,6 +160,7 @@ public class EmployeeController {
         }
     }
 
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "导入数据",operDesc = "导入员工数据")
     @ApiOperation(value = "导入员工数据")
     @PostMapping("/import")
     public RespBean importEmployee(MultipartFile file) {

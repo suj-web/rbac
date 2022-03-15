@@ -6,10 +6,8 @@
     <resultMap id="BaseResultMap" type="com.example.rbac.pojo.Salary">
         <id column="id" property="id" />
         <result column="basic_salary" property="basicSalary" />
-        <result column="bonus" property="bonus" />
         <result column="lunch_salary" property="lunchSalary" />
         <result column="traffic_salary" property="trafficSalary" />
-        <result column="all_salary" property="allSalary" />
         <result column="pension_base" property="pensionBase" />
         <result column="pension_per" property="pensionPer" />
         <result column="medical_base" property="medicalBase" />
@@ -22,43 +20,8 @@
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
 
-    <resultMap id="SalaryWithEmployee" type="com.example.rbac.pojo.Salary" extends="BaseResultMap">
-        <collection property="employees" ofType="com.example.rbac.pojo.Employee">
-            <id column="emp_id" property="id" />
-            <result column="emp_name" property="name" />
-            <association property="department" javaType="com.example.rbac.pojo.Department">
-                <id column="dep_id" property="id" />
-                <result column="dep_name" property="name" />
-            </association>
-        </collection>
-    </resultMap>
-
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, basic_salary, bonus, lunch_salary, traffic_salary, all_salary, pension_base, pension_per, medical_base, medical_per, accumulation_fund_base, accumulation_fund_per, name, is_delete, gmt_create, gmt_modified
+        id, basic_salary, lunch_salary, traffic_salary, pension_base, pension_per, medical_base, medical_per, accumulation_fund_base, accumulation_fund_per, name, is_delete, gmt_create, gmt_modified
     </sql>
-
-<!--    获取所有员工工资信息-->
-    <select id="getAllSalary" resultMap="SalaryWithEmployee">
-        SELECT
-            sal.*, emp.id AS emp_id,
-            emp.`name` AS emp_name,
-            dep.id AS dep_id,
-            dep.`name` AS dep_name
-        FROM
-            t_employee emp,
-            t_salary sal,
-            t_department dep
-        WHERE
-            emp.salary_id = sal.id
-        AND emp.department_id = dep.id
-        AND emp.is_delete = FALSE
-        <if test="null!=salaryId and ''!=salaryId">
-            AND sal.id = #{salaryId}
-        </if>
-        <if test="null!=depId and ''!=depId">
-            AND dep.id = #{depId}
-        </if>
-        ORDER BY emp.id
-    </select>
 </mapper>

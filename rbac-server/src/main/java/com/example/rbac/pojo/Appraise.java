@@ -44,7 +44,7 @@ public class Appraise implements Serializable {
 
     @ApiModelProperty(value = "考评结果")
     @TableField("app_result")
-    private String appResult;
+    private Integer appResult;
 
     @ApiModelProperty(value = "考评内容")
     @TableField("app_content")

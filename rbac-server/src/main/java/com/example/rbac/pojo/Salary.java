@@ -37,46 +37,39 @@ public class Salary implements Serializable {
 
     @ApiModelProperty(value = "基本工资")
     @TableField("basic_salary")
-    private Integer basicSalary;
-
-    @ApiModelProperty(value = "奖金")
-    private Integer bonus;
+    private Double basicSalary;
 
     @ApiModelProperty(value = "午餐补助")
     @TableField("lunch_salary")
-    private Integer lunchSalary;
+    private Double lunchSalary;
 
     @ApiModelProperty(value = "交通补助")
     @TableField("traffic_salary")
-    private Integer trafficSalary;
-
-    @ApiModelProperty(value = "应发工资")
-    @TableField("all_salary")
-    private Integer allSalary;
+    private Double trafficSalary;
 
     @ApiModelProperty(value = "养老金基数")
     @TableField("pension_base")
-    private Integer pensionBase;
+    private Double pensionBase;
 
     @ApiModelProperty(value = "养老金比率")
     @TableField("pension_per")
-    private Float pensionPer;
+    private Double pensionPer;
 
     @ApiModelProperty(value = "医疗基数")
     @TableField("medical_base")
-    private Integer medicalBase;
+    private Double medicalBase;
 
     @ApiModelProperty(value = "医疗保险比率")
     @TableField("medical_per")
-    private Float medicalPer;
+    private Double medicalPer;
 
     @ApiModelProperty(value = "公积金基数")
     @TableField("accumulation_fund_base")
-    private Integer accumulationFundBase;
+    private Double accumulationFundBase;
 
     @ApiModelProperty(value = "公积金比率")
     @TableField("accumulation_fund_per")
-    private Float accumulationFundPer;
+    private Double accumulationFundPer;
 
     @ApiModelProperty(value = "名称")
     private String name;
@@ -95,8 +88,4 @@ public class Salary implements Serializable {
     @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
-
-    @ApiModelProperty(value = "员工信息")
-    @TableField(exist = false)
-    private List<Employee> employees;
 }

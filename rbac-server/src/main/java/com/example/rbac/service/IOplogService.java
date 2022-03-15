@@ -2,6 +2,9 @@ package com.example.rbac.service;
 
 import com.example.rbac.pojo.Oplog;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.RespPageBean;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IOplogService extends IService<Oplog> {
 
+    /**
+     * 查询操作日志
+     * @param currentPage
+     * @param size
+     * @param name
+     * @return
+     */
+    RespPageBean getAllOplogs(Integer currentPage, Integer size, String name);
 }

@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务实现类
@@ -30,13 +32,13 @@ public class AppraiseServiceImpl extends ServiceImpl<AppraiseMapper, Appraise> i
      * @param currentSize
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
     @Override
-    public RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String workId) {
+    public RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String localDate) {
         Page<Appraise> page = new Page<>(currentSize, size);
-        IPage<Appraise> appraiseIPage = appraiseMapper.getAllAppraise(page, name, workId);
+        IPage<Appraise> appraiseIPage = appraiseMapper.getAllAppraise(page, name, localDate);
         return new RespPageBean(appraiseIPage.getTotal(), appraiseIPage.getRecords());
     }
 }

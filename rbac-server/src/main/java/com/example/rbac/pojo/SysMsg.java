@@ -44,10 +44,6 @@ public class SysMsg implements Serializable {
     @TableField("receiver_id")
     private Integer receiverId;
 
-    @ApiModelProperty(value = "接收方身份 0管理员 1员工")
-    @TableField("receiver_type")
-    private Boolean receiverType;
-
     @ApiModelProperty(value = "0 未读 1 已读")
     private Boolean state;
 

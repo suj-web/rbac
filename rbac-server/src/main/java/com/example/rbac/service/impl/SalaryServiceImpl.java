@@ -20,17 +20,4 @@ import java.util.List;
 @Service
 public class SalaryServiceImpl extends ServiceImpl<SalaryMapper, Salary> implements ISalaryService {
 
-    @Autowired
-    private SalaryMapper salaryMapper;
-    /**
-     * 获取所有员工工资信息
-     * @param salaryId
-     * @param depId
-     * @return
-     */
-    @Override
-    public List<Salary> getAllSalary(Integer salaryId, Integer depId) {
-
-        return salaryMapper.getAllSalary(salaryId, depId);
-    }
 }

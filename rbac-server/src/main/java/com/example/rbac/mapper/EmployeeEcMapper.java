@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  Mapper 接口
@@ -22,8 +24,8 @@ public interface EmployeeEcMapper extends BaseMapper<EmployeeEc> {
      * 获取所有奖惩人员信息
      * @param page
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    IPage<EmployeeEc> getAllEmployeeEc(Page<EmployeeEc> page, @Param("name") String name, @Param("workId") String workId);
+    IPage<EmployeeEc> getAllEmployeeEc(Page<EmployeeEc> page, @Param("name") String name, @Param("localDate") String localDate);
 }

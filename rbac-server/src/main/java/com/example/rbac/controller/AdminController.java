@@ -1,6 +1,7 @@
 package com.example.rbac.controller;
 
 
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.Admin;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.Role;
@@ -13,14 +14,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
  * @author suj
  * @since 2022-01-07
  *
- * 管理员管理
+ * 操作员管理
  */
 @RestController
 @RequestMapping("/system/admin")
@@ -32,13 +29,15 @@ public class AdminController {
     @Autowired
     private IRoleService roleService;
 
-    @ApiOperation(value = "获取所有管理员")
+    @OperationLogAnnotation(operModul = "系统操作模块-操作员操作",operType = "查询",operDesc = "查询所有操作员信息")
+    @ApiOperation(value = "获取所有操作员")
     @GetMapping("/")
     public List<Admin> getAllAdmins(String keywords) {
         return adminService.getAllAdmins(keywords);
     }
 
-    @ApiOperation(value = "更新管理员")
+    @OperationLogAnnotation(operModul = "系统操作模块-操作员操作",operType = "更新",operDesc = "更新操作员信息")
+    @ApiOperation(value = "更新操作员")
     @PutMapping("/")
     public RespBean updateAdmin(@RequestBody Admin admin) {
         if (adminService.updateById(admin)) {
@@ -47,7 +46,8 @@ public class AdminController {
         return RespBean.error("更新失败");
     }
 
-    @ApiOperation(value = "删除管理员")
+    @OperationLogAnnotation(operModul = "系统操作模块-操作员操作",operType = "删除",operDesc = "删除操作员信息")
+    @ApiOperation(value = "删除操作员")
     @DeleteMapping("/{id}")
     public RespBean deleteAdmin(@PathVariable Integer id) {
         if (adminService.removeById(id)) {
@@ -62,6 +62,7 @@ public class AdminController {
         return roleService.list();
     }
 
+    @OperationLogAnnotation(operModul = "系统操作模块-操作员操作",operType = "更新",operDesc = "更新操作员角色")
     @ApiOperation(value = "更新操作员角色")
     @PutMapping("/role")
     public RespBean updateAdminRole(Integer adminId, Integer[] rids) {

@@ -1,6 +1,7 @@
 package com.example.rbac.controller;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.RespPageBean;
@@ -33,14 +34,16 @@ public class SalarySobCfgController {
         return salaryService.list();
     }
 
+    @OperationLogAnnotation(operModul = "员工账套设置",operType = "查询",operDesc = "获取所有员工账套")
     @ApiOperation(value = "获取所有员工账套")
     @GetMapping("/")
     public RespPageBean getEmployeeWithSalary(@RequestParam(defaultValue = "1") Integer currentPage,
                                               @RequestParam(defaultValue = "10")Integer size,
-                                              String name, String workId){
-        return employeeService.getEmployeeWithSalary(currentPage, size, name, workId);
+                                              String name){
+        return employeeService.getEmployeeWithSalary(currentPage, size, name);
     }
 
+    @OperationLogAnnotation(operModul = "员工账套设置",operType = "更新",operDesc = "更新员工账套")
     @ApiOperation(value = "更新员工账套")
     @PutMapping("/")
     public RespBean updateEmployeeSalary(Integer eid, Integer sid){

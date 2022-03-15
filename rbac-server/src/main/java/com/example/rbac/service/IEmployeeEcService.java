@@ -4,6 +4,8 @@ import com.example.rbac.pojo.EmployeeEc;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.RespPageBean;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务类
@@ -19,8 +21,8 @@ public interface IEmployeeEcService extends IService<EmployeeEc> {
      * @param currentPage
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String workId);
+    RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String localDate);
 }

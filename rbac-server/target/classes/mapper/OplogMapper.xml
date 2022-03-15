@@ -5,9 +5,12 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.example.rbac.pojo.Oplog">
         <id column="id" property="id" />
-        <result column="operate" property="operate" />
-        <result column="operater_id" property="operaterId" />
+        <result column="operator" property="operator" />
+        <result column="ip" property="ip" />
         <result column="type" property="type" />
+        <result column="description" property="description" />
+        <result column="model" property="model" />
+        <result column="result" property="result" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
@@ -15,7 +18,20 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, operate, operater_id, type, is_delete, gmt_create, gmt_modified
+        id, operator, ip, type, description, model, result, is_delete, gmt_create, gmt_modified
     </sql>
 
+    <select id="getAllOplogs" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            t_oplog op
+        WHERE
+            op.is_delete = FALSE
+        <if test="null!=name and ''!=name">
+            AND op.operator LIKE concat('%',#{name},'%')
+        </if>
+        ORDER BY
+            op.id
+    </select>
 </mapper>

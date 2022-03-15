@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -24,10 +25,10 @@ public interface SalaryAdjustMapper extends BaseMapper<SalaryAdjust> {
      * 获取所有员工调薪信息
      * @param page
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
-    IPage<SalaryAdjust> getAllSalaryAdjust(Page<SalaryAdjust> page, @Param("name") String name, @Param("workId") String workId);
+    IPage<SalaryAdjust> getAllSalaryAdjust(Page<SalaryAdjust> page, @Param("name") String name, @Param("localDate") String localDate);
 
     /**
      * 根据员工id获取调薪信息

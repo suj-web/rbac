@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务实现类
@@ -37,13 +39,13 @@ public class EmployeeRemoveServiceImpl extends ServiceImpl<EmployeeRemoveMapper,
      * @param currentSize
      * @param size
      * @param name
-     * @param workId
+     * @param localDate
      * @return
      */
     @Override
-    public RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String workId) {
+    public RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String localDate) {
         Page<EmployeeRemove> page = new Page<>(currentSize, size);
-        IPage<EmployeeRemove> employeeRemoveIPage = employeeRemoveMapper.getAllEmployeeRemove(page, name, workId);
+        IPage<EmployeeRemove> employeeRemoveIPage = employeeRemoveMapper.getAllEmployeeRemove(page, name, localDate);
         return new RespPageBean(employeeRemoveIPage.getTotal(), employeeRemoveIPage.getRecords());
     }
 
@@ -70,7 +72,6 @@ public class EmployeeRemoveServiceImpl extends ServiceImpl<EmployeeRemoveMapper,
     }
 
     @Override
-    @Transactional
     public RespBean updateEmployeeRemove(EmployeeRemove employeeRemove) {
         if(1 != employeeRemoveMapper.updateById(employeeRemove)) {
             return RespBean.error("更新失败");

@@ -1,7 +1,6 @@
 package com.example.rbac.pojo;
 
-import cn.afterturn.easypoi.excel.annotation.Excel;
-import cn.afterturn.easypoi.excel.annotation.ExcelEntity;
+import cn.afterturn.easypoi.excel.annotation.*;
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.time.LocalDate;
@@ -245,4 +244,9 @@ public class Employee implements Serializable{
     @ApiModelProperty(value = "工资账套")
     @TableField(exist = false)
     private Salary salary;
+
+    @ApiModelProperty(value = "工资表")
+    @TableField(exist = false)
+    @ExcelCollection(name = "工资表")
+    private List<SalaryTable> salaryTables;
 }

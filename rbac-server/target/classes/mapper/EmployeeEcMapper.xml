@@ -41,11 +41,12 @@
         WHERE
             e.id = ee.employee_id
         AND e.is_delete = FALSE
+        AND ee.is_delete = FALSE
         <if test="null!=name and ''!=name">
             AND e. NAME LIKE CONCAT('%', #{name}, '%')
         </if>
-        <if test="null!=workId and ''!=workId">
-            AND e.work_id = #{workId}
+        <if test="null!=localDate and ''!=localDate">
+            AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
         ORDER BY e.id
     </select>
