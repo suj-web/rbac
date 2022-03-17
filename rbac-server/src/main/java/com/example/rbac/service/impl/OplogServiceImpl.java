@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- *  服务实现类
- * </p>
- *
+ * 操作日志
  * @author suj
  * @since 2022-01-07
  */
@@ -37,4 +34,5 @@ public class OplogServiceImpl extends ServiceImpl<OplogMapper, Oplog> implements
         IPage<Oplog> oplogIPage = oplogMapper.getAllOplogs(page, name);
         return new RespPageBean(oplogIPage.getTotal(), oplogIPage.getRecords());
     }
+
 }
