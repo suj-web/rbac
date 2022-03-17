@@ -9,7 +9,6 @@
         <result column="ec_date" property="ecDate" />
         <result column="ec_reason" property="ecReason" />
         <result column="ec_point" property="ecPoint" />
-        <result column="ec_type" property="ecType" />
         <result column="remark" property="remark" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
@@ -24,9 +23,25 @@
         </association>
     </resultMap>
 
+    <resultMap id="ChartResultMap" type="com.example.rbac.pojo.RespChartBean">
+        <result column="name" property="name" />
+        <result column="count" property="count" />
+    </resultMap>
+
+    <resultMap id="ScoreRankResultMap" type="com.example.rbac.pojo.EmployeeEc" extends="BaseResultMap">
+        <result column="score" property="score" />
+        <association property="employee" javaType="com.example.rbac.pojo.Employee">
+            <result column="emp_name" property="name" />
+            <result column="emp_work_id" property="workId" />
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
+        </association>
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, employee_id, ec_date, ec_reason, ec_point, ec_type, remark, is_delete, gmt_create, gmt_modified
+        id, employee_id, ec_date, ec_reason, ec_point, remark, is_delete, gmt_create, gmt_modified
     </sql>
 
 <!--    获取所有奖惩人员信息-->
@@ -49,5 +64,88 @@
             AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
         ORDER BY e.id
+    </select>
+
+<!--    员工积分统计-->
+    <select id="getScoreStatistic" resultMap="ChartResultMap">
+        SELECT
+            scoredj AS `name`,
+            COUNT(empId) AS `count`
+        FROM
+            (
+                SELECT
+                    CASE
+                <![CDATA[
+                WHEN score < 0 THEN
+                '<0'
+                WHEN score >= 0
+                AND score < 20 THEN
+                '0-20'
+                WHEN score >= 20
+                AND score < 40 THEN
+                '20-40'
+                WHEN score >= 40
+                AND score < 60 THEN
+                '40-60'
+                WHEN score >= 60
+                AND score < 80 THEN
+                '60-80'
+                WHEN score >= 80 THEN
+                '>80'
+                ]]>
+                END AS scoredj,
+                    empId
+                FROM
+                    (
+                        SELECT
+                            emp.id AS empId,
+                            SUM(ee.ec_point) AS score
+                        FROM
+                            t_employee emp,
+                            t_employee_ec ee,
+                            t_department dep
+                        WHERE
+                            emp.is_delete = FALSE
+                        AND emp.department_id = dep.id
+                        AND emp.id = ee.employee_id
+                        <if test="null!=localDate and ''!=localDate">
+                            AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+                        </if>
+                        <if test="null != depId">
+                            AND dep.id = #{depId}
+                        </if>
+                        GROUP BY
+                            emp.id
+                    ) sc
+            ) a
+        GROUP BY
+            scoredj
+    </select>
+
+<!--    员工积分排名-->
+    <select id="getScoreRank" resultMap="ScoreRankResultMap">
+        SELECT
+            emp.`name` AS emp_name,
+            emp.work_id AS emp_work_id,
+            dep.`name` AS dep_name,
+            SUM(ee.ec_point) AS score,
+            ee.id
+        FROM
+            t_employee emp,
+            t_employee_ec ee,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.department_id = dep.id
+        AND emp.id = ee.employee_id
+        <if test="null!=localDate and ''!=localDate">
+            AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+        </if>
+        <if test="null != depId">
+            AND dep.id = #{depId}
+        </if>
+        GROUP BY
+            emp.id
+        ORDER BY score DESC
     </select>
 </mapper>

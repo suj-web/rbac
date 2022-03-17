@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.EmployeeEc;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.rbac.pojo.RespChartBean;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -28,4 +30,21 @@ public interface EmployeeEcMapper extends BaseMapper<EmployeeEc> {
      * @return
      */
     IPage<EmployeeEc> getAllEmployeeEc(Page<EmployeeEc> page, @Param("name") String name, @Param("localDate") String localDate);
+
+    /**
+     * 员工积分统计
+     * @param localDate
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getScoreStatistic(@Param("localDate") String localDate, @Param("depId") Integer depId);
+
+    /**
+     * 员工积分排名
+     * @param page
+     * @param localDate
+     * @param depId
+     * @return
+     */
+    IPage<EmployeeEc> getScoreRank(Page<EmployeeEc> page, @Param("localDate") String localDate, @Param("depId") Integer depId);
 }

@@ -2,9 +2,11 @@ package com.example.rbac.service;
 
 import com.example.rbac.pojo.EmployeeEc;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.RespChartBean;
 import com.example.rbac.pojo.RespPageBean;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -25,4 +27,22 @@ public interface IEmployeeEcService extends IService<EmployeeEc> {
      * @return
      */
     RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String localDate);
+
+    /**
+     * 员工积分统计
+     * @param localDate
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getScoreStatistic(String localDate, Integer depId);
+
+    /**
+     * 员工积分排名
+     * @param currentPage
+     * @param size
+     * @param localDate
+     * @param depId
+     * @return
+     */
+    RespPageBean getScoreRank(Integer currentPage, Integer size, String localDate, Integer depId);
 }

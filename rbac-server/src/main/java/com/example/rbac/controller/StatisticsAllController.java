@@ -58,30 +58,6 @@ public class StatisticsAllController {
         return employeeService.getDepartmentNumber();
     }
 
-    @ApiOperation(value = "人员构成分析-按年龄段统计")
-    @GetMapping("/composition/age")
-    public List<RespChartBean> getCompositionByAge(Integer depId) {
-        return employeeService.getCompositionByAge(depId);
-    }
-
-    @ApiOperation(value = "人员构成分析-按工龄统计")
-    @GetMapping("/composition/workAge")
-    public List<RespChartBean> getCompositionByWorkAge(Integer depId) {
-        return employeeService.getCompositionByWorkAge(depId);
-    }
-
-    @ApiOperation(value = "人员构成分析-按性别统计")
-    @GetMapping("/composition/gender")
-    public List<RespChartBean> getCompositionByGender(Integer depId) {
-        return employeeService.getCompositionByGender(depId);
-    }
-
-    @ApiOperation(value = "人员构成分析-按最高学历统计")
-    @GetMapping("/composition/degree")
-    public List<RespChartBean> getCompositionByDegree(Integer depId) {
-        return employeeService.getCompositionByDegree(depId);
-    }
-
     @ApiOperation(value = "获取所有部门信息")
     @GetMapping("/department/list")
     public List<Department> getDepartments() {

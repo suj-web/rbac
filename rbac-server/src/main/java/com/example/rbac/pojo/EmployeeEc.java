@@ -9,6 +9,7 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -50,10 +51,6 @@ public class EmployeeEc implements Serializable {
     @TableField("ec_point")
     private Integer ecPoint;
 
-    @ApiModelProperty(value = "奖罚类别，0：奖，1：罚")
-    @TableField("ec_type")
-    private Boolean ecType;
-
     @ApiModelProperty(value = "备注")
     private String remark;
 
@@ -75,4 +72,8 @@ public class EmployeeEc implements Serializable {
     @ApiModelProperty(value = "员工信息")
     @TableField(exist = false)
     private Employee employee;
+
+    @ApiModelProperty(value = "员工总积分")
+    @TableField(exist = false)
+    private Integer score;
 }
