@@ -102,4 +102,24 @@ public interface IEmployeeService extends IService<Employee> {
      * @return
      */
     List<RespChartBean> getPositionNumber();
+
+    /**
+     * 部门人员统计
+     * @return
+     */
+    List<RespChartBean> getDepartmentNumber();
+
+    /**
+     * 人员构成分析-按年龄段统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByAge(Integer depId);
+
+    /**
+     * 人员构成分析-按工龄统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByWorkAge(Integer depId);
 }

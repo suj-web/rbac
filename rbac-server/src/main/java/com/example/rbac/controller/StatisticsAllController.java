@@ -4,6 +4,7 @@ import com.example.rbac.pojo.RespChartBean;
 import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.service.IAttendanceService;
 import com.example.rbac.service.IEmployeeService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,9 +37,27 @@ public class StatisticsAllController {
         return attendanceService.getAllAttendance(currentPage, size, localDate, absenteeism);
     }
 
-    @ApiOperation(value = "职业人数统计")
+    @ApiOperation(value = "职位人员统计")
     @GetMapping("/position/number")
     public List<RespChartBean> getPositionNumber() {
         return employeeService.getPositionNumber();
+    }
+
+    @ApiOperation(value = "部门人员统计")
+    @GetMapping("/department/number")
+    public List<RespChartBean> getDepartmentNumber() {
+        return employeeService.getDepartmentNumber();
+    }
+
+    @ApiOperation(value = "人员构成分析-按年龄段统计")
+    @GetMapping("/composition/age")
+    public List<RespChartBean> getCompositionByAge(Integer depId) {
+        return employeeService.getCompositionByAge(depId);
+    }
+
+    @ApiOperation(value = "人员构成分析-按工龄统计")
+    @GetMapping("/composition/workAge")
+    public List<RespChartBean> getCompositionByWorkAge(Integer depId) {
+        return employeeService.getCompositionByWorkAge(depId);
     }
 }

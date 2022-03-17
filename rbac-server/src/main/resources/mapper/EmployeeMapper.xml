@@ -341,4 +341,98 @@
         GROUP BY
             pos.`name`
     </select>
+
+<!--    部门人员统计-->
+    <select id="getDepartmentNumber" resultMap="ChartResultMap">
+        SELECT
+            dep.`name` AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.department_id = dep.id
+        GROUP BY
+            dep.`name`
+    </select>
+
+    <select id="getCompositionByAge" resultMap="ChartResultMap">
+        SELECT
+            nnd AS `name`,
+            COUNT(*) AS `count`
+        FROM
+        <![CDATA[
+            (
+                SELECT
+                    CASE
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) < 24 THEN
+                '24以下'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 24
+                AND YEAR (NOW()) - YEAR (emp.birthday) < 29 THEN
+                '24-29'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 29
+                AND YEAR (NOW()) - YEAR (emp.birthday) < 34 THEN
+                '29-34'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 34
+                AND YEAR (NOW()) - YEAR (emp.birthday) < 39 THEN
+                '34-39'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 39
+                AND YEAR (NOW()) - YEAR (emp.birthday) < 44 THEN
+                '39-44'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 44
+                AND YEAR (NOW()) - YEAR (emp.birthday) < 49 THEN
+                '44-49'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 49
+                AND YEAR (NOW()) - YEAR (emp.birthday) < 55 THEN
+                '49-55'
+                WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 55 THEN
+                '55以上'
+                END AS nnd,
+                    department_id AS departmentId
+                FROM
+                    t_employee emp
+            ) a ]]>
+        WhERE 1 = 1
+        <if test="null != depId">
+            AND departmentId = #{depId}
+        </if>
+        GROUP BY
+            nnd
+    </select>
+
+    <select id="getCompositionByWorkAge" resultMap="ChartResultMap">
+        SELECT
+            gld AS `name`,
+            COUNT(*) AS `count`
+        FROM
+        <![CDATA[
+            (
+                SELECT
+                    CASE
+                WHEN emp.work_age < 1 THEN
+                '1以下'
+                WHEN emp.work_age >= 1
+                AND emp.work_age < 2 THEN
+                '1-2'
+                WHEN emp.work_age >= 2
+                AND emp.work_age < 5 THEN
+                '2-5'
+                WHEN emp.work_age >= 5
+                AND emp.work_age < 10 THEN
+                '5-10'
+                WHEN emp.work_age >= 10 THEN
+                '10以上'
+                END AS gld,
+                    department_id AS departmentId
+                FROM
+                t_employee emp
+            ) a ]]>
+        WHERE 1 = 1
+        <if test="null != depId">
+            AND departmentId = #{depId}
+        </if>
+        GROUP BY
+            gld
+    </select>
 </mapper>

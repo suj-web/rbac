@@ -29,6 +29,15 @@ class RbacApplicationTests {
     private IEmployeeService employeeService;
 
     @Test
+    public void test(){
+        List<Employee> employees = employeeService.list();
+        for(Employee employee: employees) {
+            employee.setWorkAge(LocalDate.now().getYear() - employee.getBeginDate().getYear());
+            employeeService.updateById(employee);
+        }
+    }
+
+    @Test
     public void insert(){
         List<Employee> employees = employeeService.getEmployeeWithSalary2();
         SalaryTable table = new SalaryTable();

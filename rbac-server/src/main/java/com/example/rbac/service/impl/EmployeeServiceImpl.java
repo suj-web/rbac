@@ -202,4 +202,33 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public List<RespChartBean> getPositionNumber() {
         return employeeMapper.getPositionNumber();
     }
+
+    /**
+     * 部门人员统计
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getDepartmentNumber() {
+        return employeeMapper.getDepartmentNumber();
+    }
+
+    /**
+     * 人员构成分析-按年龄段统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getCompositionByAge(Integer depId) {
+        return employeeMapper.getCompositionByAge(depId);
+    }
+
+    /**
+     * 人员构成分析-按工龄统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getCompositionByWorkAge(Integer depId) {
+        return employeeMapper.getCompositionByWorkAge(depId);
+    }
 }
