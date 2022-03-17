@@ -5,10 +5,11 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.example.rbac.pojo.SysMsg">
         <id column="id" property="id" />
-        <result column="message_id" property="messageId" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
         <result column="type" property="type" />
-        <result column="receiver_id" property="receiverId" />
-        <result column="state" property="state" />
+        <result column="creator" property="creator" />
+        <result column="enable" property="enable" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
@@ -16,7 +17,23 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, message_id, type, receiver_id, state, is_delete, gmt_create, gmt_modified
+        id, title, content, type, creator, enable, is_delete, gmt_create, gmt_modified
     </sql>
 
+    <select id="getAllSystemMessage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_sys_msg sm
+        WHERE
+            sm.is_delete = FALSE
+        <if test="null != sysMsg.title and '' != sysMsg.title">
+            AND sm.title LIKE concat('%',#{sysMsg.title},'%')
+        </if>
+        <if test="null != sysMsg.creator and '' != sysMsg.creator">
+            AND sm.creator LIKE concat('%',#{sysMsg.creator},'%')
+        </if>
+        <if test="null != sysMsg.type">
+            AND sm.type = #{sysMsg.type}
+        </if>
+    </select>
 </mapper>

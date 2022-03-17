@@ -20,4 +20,20 @@
         id, title, content, type, creator, enable, is_delete, gmt_create, gmt_modified
     </sql>
 
+    <select id="getAllSystemMessage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM t_sys_msg sm
+        WHERE
+            sm.is_delete = FALSE
+        <if test="null != sysMsg.title and '' != sysMsg.title">
+            AND sm.title LIKE concat('%',#{sysMsg.title},'%')
+        </if>
+        <if test="null != sysMsg.creator and '' != sysMsg.creator">
+            AND sm.creator LIKE concat('%',#{sysMsg.creator},'%')
+        </if>
+        <if test="null != sysMsg.type">
+            AND sm.type = #{sysMsg.type}
+        </if>
+    </select>
 </mapper>

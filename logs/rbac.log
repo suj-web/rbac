@@ -260,3 +260,364 @@
 2022-03-17 17:23:27.163  INFO 8204 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6]
 2022-03-17 17:23:37.632  INFO 8204 --- [http-nio-8082-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
 2022-03-17 17:23:58.475  INFO 8204 --- [http-nio-8082-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 17:53:27.165  INFO 8204 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 187]
+2022-03-17 18:04:54.397  INFO 20584 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 20584 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-17 18:04:54.397  INFO 20584 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-17 18:04:54.428  INFO 20584 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-17 18:04:54.428  INFO 20584 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-17 18:04:57.168  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 18:04:57.168  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 18:04:57.199  INFO 20584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2022-03-17 18:04:58.204  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-17 18:04:58.204  INFO 20584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-17 18:04:58.204  INFO 20584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-17 18:04:58.220  INFO 20584 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-17 18:04:58.220  INFO 20584 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-17 18:04:58.220  INFO 20584 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-17 18:04:58.220  INFO 20584 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-17 18:04:58.237  INFO 20584 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-17 18:04:58.315  INFO 20584 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-17 18:04:58.315  INFO 20584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3887 ms
+2022-03-17 18:04:58.487  INFO 20584 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-17 18:04:58.645  INFO 20584 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-17 18:05:01.374  INFO 20584 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-17 18:05:01.563  INFO 20584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-17 18:05:02.035  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-17 18:05:02.051  INFO 20584 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78f2e6c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@2d7ea7e5, org.springframework.security.web.header.HeaderWriterFilter@7b6f0cea, org.springframework.security.web.authentication.logout.LogoutFilter@e239699, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@536410e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b2fbd79, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7da80964, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72273517, org.springframework.security.web.session.SessionManagementFilter@78cf626c, org.springframework.security.web.access.ExceptionTranslationFilter@214ef27b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5030822]
+2022-03-17 18:05:02.179  INFO 20584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-17 18:05:02.179  INFO 20584 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-17 18:05:02.179  INFO 20584 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-17 18:05:02.258  INFO 20584 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-17 18:05:02.370  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.402  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-17 18:05:02.448  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.448  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-17 18:05:02.469  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:05:02.501  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.501  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-17 18:05:02.516  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.516  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-17 18:05:02.532  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.532  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-17 18:05:02.532  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.548  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.564  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-17 18:05:02.564  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.564  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-17 18:05:02.564  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-17 18:05:02.564  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.564  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-17 18:05:02.579  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-17 18:05:02.579  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-17 18:05:02.579  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:05:02.579  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-17 18:05:02.579  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-17 18:05:02.579  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-17 18:05:02.595  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-17 18:05:02.595  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-17 18:05:02.595  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-17 18:05:02.595  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-17 18:05:02.595  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-17 18:05:02.595  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.610  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-17 18:05:02.610  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.610  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-17 18:05:02.626  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.626  WARN 20584 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:05:02.626  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-17 18:05:02.626  INFO 20584 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-17 18:05:02.644  INFO 20584 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-17 18:05:02.644  INFO 20584 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4e14b6df]]
+2022-03-17 18:05:02.644  INFO 20584 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-17 18:05:02.658  INFO 20584 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 8.87 seconds (JVM running for 10.359)
+2022-03-17 18:05:12.558  INFO 20584 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-17 18:05:12.558  INFO 20584 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-17 18:05:12.558  INFO 20584 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-17 18:05:25.549  INFO 20584 --- [http-nio-8082-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:05:47.112  INFO 20584 --- [http-nio-8082-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:06:01.470  INFO 20584 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6]
+2022-03-17 18:06:50.765  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 18912 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-17 18:06:50.765  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-17 18:06:50.812  INFO 18912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-17 18:06:50.812  INFO 18912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-17 18:06:51.692  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 18:06:51.692  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 18:06:51.723  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-17 18:06:52.429  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-17 18:06:52.508  INFO 18912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-17 18:06:52.508  INFO 18912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1696 ms
+2022-03-17 18:06:52.664  INFO 18912 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-17 18:06:52.743  INFO 18912 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-17 18:06:54.917  INFO 18912 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-17 18:06:55.073  INFO 18912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-17 18:06:55.518  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-17 18:06:55.533  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77c49443, org.springframework.security.web.context.SecurityContextPersistenceFilter@146f4df5, org.springframework.security.web.header.HeaderWriterFilter@6f70f46a, org.springframework.security.web.authentication.logout.LogoutFilter@5cb44039, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@607c3b9f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70558d10, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f185a7e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c8ca79e, org.springframework.security.web.session.SessionManagementFilter@2fea34d3, org.springframework.security.web.access.ExceptionTranslationFilter@72e38c01, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67f70d4f]
+2022-03-17 18:06:55.650  INFO 18912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-17 18:06:55.650  INFO 18912 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-17 18:06:55.664  INFO 18912 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-17 18:06:55.712  INFO 18912 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-17 18:06:55.806  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.837  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-17 18:06:55.884  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.884  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-17 18:06:55.902  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:06:55.933  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.933  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-17 18:06:55.933  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.949  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-17 18:06:55.949  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.949  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-17 18:06:55.949  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.964  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.980  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-17 18:06:55.980  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.980  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-17 18:06:55.980  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-17 18:06:55.980  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:55.980  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-17 18:06:55.996  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-17 18:06:55.998  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-17 18:06:56.002  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-17 18:06:56.002  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-17 18:06:56.017  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-17 18:06:56.017  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:56.017  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-17 18:06:56.017  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:56.033  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-17 18:06:56.033  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:56.033  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:06:56.048  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-17 18:06:56.048  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-17 18:06:56.064  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-17 18:06:56.064  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@28664ef7]]
+2022-03-17 18:06:56.064  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-17 18:06:56.080  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 5.68 seconds (JVM running for 6.659)
+2022-03-17 18:07:02.744  INFO 18912 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-17 18:07:02.744  INFO 18912 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-17 18:07:02.744  INFO 18912 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-17 18:07:02.996  INFO 18912 --- [http-nio-8082-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:07:11.977  INFO 18912 --- [http-nio-8082-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:07:15.607  INFO 18912 --- [http-nio-8082-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:07:32.390  INFO 18912 --- [http-nio-8082-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:07:40.075  INFO 18912 --- [http-nio-8082-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:07:46.523  INFO 18912 --- [http-nio-8082-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:07:54.983  INFO 18912 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6]
+2022-03-17 18:14:37.043  INFO 18912 --- [Thread-13] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-03-17 18:14:37.043  INFO 18912 --- [Thread-13] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@28664ef7]]
+2022-03-17 18:14:37.043  INFO 18912 --- [Thread-13] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-03-17 18:14:37.527  INFO 18912 --- [Thread-13] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-03-17 18:14:37.527  INFO 18912 --- [Thread-13] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-03-17 18:14:37.752  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 18912 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-17 18:14:37.752  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-17 18:14:38.128  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 18:14:38.128  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 18:14:38.144  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-17 18:14:38.316  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-17 18:14:38.332  INFO 18912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-17 18:14:38.332  INFO 18912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 580 ms
+2022-03-17 18:14:38.410  INFO 18912 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-17 18:14:38.428  INFO 18912 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2022-03-17 18:14:39.656  INFO 18912 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-17 18:14:39.718  INFO 18912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-17 18:14:39.875  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-17 18:14:39.891  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a2851a6, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a26681b, org.springframework.security.web.header.HeaderWriterFilter@77c4d3b4, org.springframework.security.web.authentication.logout.LogoutFilter@59a909fc, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@392fe43b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ebf8646, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1549639, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fd0eb0, org.springframework.security.web.session.SessionManagementFilter@6882dfcd, org.springframework.security.web.access.ExceptionTranslationFilter@4906208c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@202dfb7b]
+2022-03-17 18:14:39.974  INFO 18912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-17 18:14:39.974  INFO 18912 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-17 18:14:39.974  INFO 18912 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-17 18:14:40.008  INFO 18912 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-17 18:14:40.040  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.040  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-17 18:14:40.087  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.087  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-17 18:14:40.103  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:14:40.118  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.132  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-17 18:14:40.134  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.134  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-17 18:14:40.134  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.134  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-17 18:14:40.150  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.150  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.165  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-17 18:14:40.165  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.165  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-17 18:14:40.165  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-17 18:14:40.165  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.181  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-17 18:14:40.181  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-17 18:14:40.181  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-17 18:14:40.181  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:14:40.181  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-17 18:14:40.181  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-17 18:14:40.181  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-17 18:14:40.197  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-17 18:14:40.197  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-17 18:14:40.197  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-17 18:14:40.197  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-17 18:14:40.197  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-17 18:14:40.197  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.197  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-17 18:14:40.212  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.212  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-17 18:14:40.232  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.232  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3d0ff34a]]
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 2.534 seconds (JVM running for 470.835)
+2022-03-17 18:14:40.244  INFO 18912 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-17 18:14:41.340  INFO 18912 --- [Thread-22] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-03-17 18:14:41.340  INFO 18912 --- [Thread-22] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3d0ff34a]]
+2022-03-17 18:14:41.340  INFO 18912 --- [Thread-22] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-03-17 18:14:41.609  INFO 18912 --- [Thread-22] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closing ...
+2022-03-17 18:14:41.609  INFO 18912 --- [Thread-22] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2022-03-17 18:14:41.844  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 18912 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-17 18:14:41.844  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-17 18:14:42.173  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 18:14:42.173  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 18:14:42.189  INFO 18912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2022-03-17 18:14:42.283  INFO 18912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-17 18:14:42.283  INFO 18912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-17 18:14:42.299  INFO 18912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-17 18:14:42.299  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-17 18:14:42.299  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-17 18:14:42.299  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-17 18:14:42.299  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-17 18:14:42.299  INFO 18912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-17 18:14:42.314  INFO 18912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-17 18:14:42.314  INFO 18912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 470 ms
+2022-03-17 18:14:42.377  INFO 18912 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-17 18:14:42.377  INFO 18912 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2022-03-17 18:14:43.370  INFO 18912 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-17 18:14:43.417  INFO 18912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-17 18:14:43.496  INFO 18912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d7d8138, org.springframework.security.web.context.SecurityContextPersistenceFilter@1467d94, org.springframework.security.web.header.HeaderWriterFilter@ccc8fd7, org.springframework.security.web.authentication.logout.LogoutFilter@3557a2a7, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@7d154cf5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b62f65a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@97a967f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@764b4b1c, org.springframework.security.web.session.SessionManagementFilter@2d034490, org.springframework.security.web.access.ExceptionTranslationFilter@72d2eb32, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@e067243]
+2022-03-17 18:14:43.537  INFO 18912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-17 18:14:43.537  INFO 18912 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-17 18:14:43.545  INFO 18912 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-17 18:14:43.561  INFO 18912 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-17 18:14:43.577  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.592  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-17 18:14:43.624  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.624  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-17 18:14:43.640  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:14:43.655  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.655  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-17 18:14:43.655  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.671  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-17 18:14:43.671  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.671  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-17 18:14:43.671  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.687  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.687  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-17 18:14:43.687  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.702  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-17 18:14:43.702  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-17 18:14:43.702  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.702  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-17 18:14:43.702  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-17 18:14:43.702  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-17 18:14:43.702  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-17 18:14:43.702  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-17 18:14:43.718  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-17 18:14:43.733  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.733  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-17 18:14:43.738  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.738  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-17 18:14:43.750  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.750  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.750  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-17 18:14:43.750  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-17 18:14:43.750  WARN 18912 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-17 18:14:43.750  INFO 18912 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-03-17 18:14:43.765  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-17 18:14:43.765  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@241d5fe9]]
+2022-03-17 18:14:43.765  INFO 18912 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-17 18:14:43.765  INFO 18912 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 1.944 seconds (JVM running for 474.351)
+2022-03-17 18:14:43.765  INFO 18912 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-17 18:14:51.885  INFO 18912 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-17 18:14:51.885  INFO 18912 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-17 18:14:51.885  INFO 18912 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-17 18:15:43.399  INFO 18912 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 6]
+2022-03-17 18:15:43.418  INFO 18912 --- [http-nio-8082-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:15:45.230  INFO 18912 --- [http-nio-8082-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:15:55.875  INFO 18912 --- [http-nio-8082-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:15:56.017  INFO 18912 --- [http-nio-8082-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:16:51.983  INFO 18912 --- [http-nio-8082-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-03-17 18:16:53.770  INFO 18912 --- [http-nio-8082-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:17:02.008  INFO 18912 --- [http-nio-8082-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:17:10.744  INFO 18912 --- [http-nio-8082-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:17:20.266  INFO 18912 --- [http-nio-8082-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-03-17 18:17:25.636  INFO 18912 --- [http-nio-8082-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
