@@ -18,43 +18,29 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author suj
- * @since 2022-03-08
+ * @since 2022-03-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_attendance")
-@ApiModel(value="Attendance对象", description="")
-public class Attendance implements Serializable {
+@TableName("t_backup")
+@ApiModel(value="Backup对象", description="")
+public class Backup implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "员工id")
+    @ApiModelProperty(value = "主键id")
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "员工id")
-    @TableField("employee_id")
-    private Integer employeeId;
+    @ApiModelProperty(value = "文件名称")
+    private String name;
 
-    @ApiModelProperty(value = "上班时间")
-    @TableField("attendance_time")
-    private LocalDateTime attendanceTime;
+    @ApiModelProperty(value = "文件存放路径")
+    private String path;
 
-    @ApiModelProperty(value = "下班时间")
-    @TableField("closing_time")
-    private LocalDateTime closingTime;
-
-    @ApiModelProperty(value = "事假")
-    @TableField("personal_leave")
-    private Integer personalLeave;
-
-    @ApiModelProperty(value = "病假")
-    @TableField("sick_leave")
-    private Integer sickLeave;
-
-    @ApiModelProperty(value = "出勤")
-    private Boolean absenteeism;
+    @ApiModelProperty(value = "文件大小")
+    private Double size;
 
     @ApiModelProperty(value = "逻辑删除")
     @TableField("is_delete")
@@ -70,5 +56,6 @@ public class Attendance implements Serializable {
     @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
+
 
 }

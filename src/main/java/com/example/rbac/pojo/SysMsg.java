@@ -1,11 +1,11 @@
 package com.example.rbac.pojo;
 
-import com.baomidou.mybatisplus.annotation.*;
-
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -48,19 +48,16 @@ public class SysMsg implements Serializable {
     @ApiModelProperty(value = "是否发布公告 0发布 1不发布")
     private Boolean enable;
 
-    @ApiModelProperty(value = "逻辑删除")
+    @ApiModelProperty(value = "逻辑删除 1删除 0未删除")
     @TableField("is_delete")
-    @TableLogic
     private Boolean isDelete;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
+    @TableField("gmt_create")
     private LocalDateTime gmtCreate;
 
     @ApiModelProperty(value = "更新时间")
-    @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
+    @TableField("gmt_modified")
     private LocalDateTime gmtModified;
 
 
