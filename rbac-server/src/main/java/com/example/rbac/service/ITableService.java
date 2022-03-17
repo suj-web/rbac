@@ -1,7 +1,7 @@
 package com.example.rbac.service;
 
-import com.example.rbac.pojo.Backup;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.Table;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author suj
  * @since 2022-03-17
  */
-public interface IBackupService extends IService<Backup> {
+public interface ITableService extends IService<Table> {
 
 }

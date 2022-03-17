@@ -1,9 +1,9 @@
 package com.example.rbac.service.impl;
 
-import com.example.rbac.pojo.SysMsg;
-import com.example.rbac.mapper.SysMsgMapper;
-import com.example.rbac.service.ISysMsgService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.rbac.mapper.TableMapper;
+import com.example.rbac.pojo.Table;
+import com.example.rbac.service.ITableService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-17
  */
 @Service
-public class SysMsgServiceImpl extends ServiceImpl<SysMsgMapper, SysMsg> implements ISysMsgService {
+public class TableServiceImpl extends ServiceImpl<TableMapper, Table> implements ITableService {
 
 }
