@@ -357,6 +357,7 @@
             dep.`name`
     </select>
 
+<!--    人员构成分析-按年龄段统计-->
     <select id="getCompositionByAge" resultMap="ChartResultMap">
         SELECT
             nnd AS `name`,
@@ -401,6 +402,7 @@
             nnd
     </select>
 
+<!--    人员构成分析-按工龄统计-->
     <select id="getCompositionByWorkAge" resultMap="ChartResultMap">
         SELECT
             gld AS `name`,
@@ -434,5 +436,40 @@
         </if>
         GROUP BY
             gld
+    </select>
+
+<!--    人员构成分析-按性别统计-->
+    <select id="getCompositionByGender" resultMap="ChartResultMap">
+        SELECT
+            emp.gender AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE 1 = 1
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            emp.gender
+    </select>
+
+<!--    人员构成分析-按最高学历统计-->
+    <select id="getCompositionByDegree" resultMap="ChartResultMap">
+        SELECT
+            emp.tiptop_degree AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE 1 = 1
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            emp.tiptop_degree
+    </select>
+
+<!--    部门薪资统计-->
+    <select id="getSalaryDepartment" resultMap="ChartResultMap">
+
     </select>
 </mapper>

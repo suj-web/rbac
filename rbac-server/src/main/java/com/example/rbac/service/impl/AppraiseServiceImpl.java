@@ -41,4 +41,20 @@ public class AppraiseServiceImpl extends ServiceImpl<AppraiseMapper, Appraise> i
         IPage<Appraise> appraiseIPage = appraiseMapper.getAllAppraise(page, name, localDate);
         return new RespPageBean(appraiseIPage.getTotal(), appraiseIPage.getRecords());
     }
+
+    /**
+     * 考评得分排名
+     * @param currentPage
+     * @param size
+     * @param localDate
+     * @param depId
+     * @return
+     */
+    @Override
+    public RespPageBean getAppraiseRank(Integer currentPage, Integer size, String localDate, Integer depId) {
+        Page<Appraise> page = new Page<>(currentPage, size);
+        IPage<Appraise> appraiseIPage = appraiseMapper.getAppraiseRank(page, depId, localDate);
+        RespPageBean respPageBean = new RespPageBean(appraiseIPage.getTotal(), appraiseIPage.getRecords());
+        return respPageBean;
+    }
 }

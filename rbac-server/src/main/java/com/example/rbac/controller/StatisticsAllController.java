@@ -1,8 +1,11 @@
 package com.example.rbac.controller;
 
+import com.example.rbac.pojo.Department;
 import com.example.rbac.pojo.RespChartBean;
 import com.example.rbac.pojo.RespPageBean;
+import com.example.rbac.service.IAppraiseService;
 import com.example.rbac.service.IAttendanceService;
+import com.example.rbac.service.IDepartmentService;
 import com.example.rbac.service.IEmployeeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +31,12 @@ public class StatisticsAllController {
 
     @Autowired
     private IEmployeeService employeeService;
+
+    @Autowired
+    private IDepartmentService departmentService;
+
+    @Autowired
+    private IAppraiseService appraiseService;
 
     @ApiOperation(value = "出勤信息统计")
     @GetMapping("/attendance/list")
@@ -60,4 +69,37 @@ public class StatisticsAllController {
     public List<RespChartBean> getCompositionByWorkAge(Integer depId) {
         return employeeService.getCompositionByWorkAge(depId);
     }
+
+    @ApiOperation(value = "人员构成分析-按性别统计")
+    @GetMapping("/composition/gender")
+    public List<RespChartBean> getCompositionByGender(Integer depId) {
+        return employeeService.getCompositionByGender(depId);
+    }
+
+    @ApiOperation(value = "人员构成分析-按最高学历统计")
+    @GetMapping("/composition/degree")
+    public List<RespChartBean> getCompositionByDegree(Integer depId) {
+        return employeeService.getCompositionByDegree(depId);
+    }
+
+    @ApiOperation(value = "获取所有部门信息")
+    @GetMapping("/department/list")
+    public List<Department> getDepartments() {
+        return departmentService.list();
+    }
+
+    @ApiOperation(value = "考评得分排名")
+    @GetMapping("/appraise/rank")
+    public RespPageBean getAppraiseRank(@RequestParam(defaultValue = "1") Integer currentPage,
+                                        @RequestParam(defaultValue = "10") Integer size,
+                                        String localDate, Integer depId) {
+        return appraiseService.getAppraiseRank(currentPage, size, localDate, depId);
+    }
+
+    @ApiOperation(value = "部门薪资统计")
+    @GetMapping("/salary/department")
+    public List<RespChartBean> getSalaryDepartment() {
+        return employeeService.getSalaryDepartment();
+    }
+
 }

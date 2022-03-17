@@ -23,6 +23,17 @@
         </association>
     </resultMap>
 
+    <resultMap id="AppraiseRankResultMap" type="com.example.rbac.pojo.Appraise" extends="BaseResultMap">
+        <association property="employee" javaType="com.example.rbac.pojo.Employee">
+            <id column="eid" property="id" />
+            <result column="ename" property="name" />
+            <result column="ework_id" property="workId" />
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
+        </association>
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, employee_id, app_date, app_result, app_content, remark, is_delete, gmt_create, gmt_modified
@@ -32,7 +43,7 @@
         SELECT
             ap.*, e.id AS eid,
             e.`name` AS ename,
-            e.work_id AS ework_id
+            e.work_id AS ework_id,
         FROM
             t_appraise ap,
             t_employee e
@@ -47,5 +58,29 @@
             AND date_format(ap.app_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
         ORDER BY e.id
+    </select>
+
+    <select id="getAppraiseRank" resultMap="AppraiseRankResultMap">
+        SELECT
+            ap.*, e.id AS eid,
+            e.`name` AS ename,
+            e.work_id AS ework_id,
+            dep.name AS dep_name
+        FROM
+            t_appraise ap,
+            t_employee e,
+            t_department dep
+        WHERE
+            e.id = ap.employee_id
+        AND e.is_delete = FALSE
+        AND ap.is_delete = FALSE
+        AND e.department_id = dep.id
+        <if test="null != depId">
+            AND e.department_id = #{depId}
+        </if>
+        <if test="null != localDate and '' != localDate">
+            AND date_format(ap.app_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+        </if>
+        ORDER BY ap.app_result DESC
     </select>
 </mapper>

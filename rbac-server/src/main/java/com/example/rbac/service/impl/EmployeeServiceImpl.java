@@ -231,4 +231,33 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public List<RespChartBean> getCompositionByWorkAge(Integer depId) {
         return employeeMapper.getCompositionByWorkAge(depId);
     }
+
+    /**
+     * 人员构成分析-按性别统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getCompositionByGender(Integer depId) {
+        return employeeMapper.getCompositionByGender(depId);
+    }
+
+    /**
+     * 人员构成分析-按最高学历统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getCompositionByDegree(Integer depId) {
+        return employeeMapper.getCompositionByDegree(depId);
+    }
+
+    /**
+     * 部门薪资统计
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getSalaryDepartment() {
+        return employeeMapper.getSalaryDepartment();
+    }
 }

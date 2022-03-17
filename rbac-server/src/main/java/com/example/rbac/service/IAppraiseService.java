@@ -25,4 +25,14 @@ public interface IAppraiseService extends IService<Appraise> {
      * @return
      */
     RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String localDate);
+
+    /**
+     * 考评得分排名
+     * @param currentPage
+     * @param size
+     * @param localDate
+     * @param depId
+     * @return
+     */
+    RespPageBean getAppraiseRank(Integer currentPage, Integer size, String localDate, Integer depId);
 }

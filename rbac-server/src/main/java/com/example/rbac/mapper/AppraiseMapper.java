@@ -28,4 +28,13 @@ public interface AppraiseMapper extends BaseMapper<Appraise> {
      * @return
      */
     IPage<Appraise> getAllAppraise(Page<Appraise> page, @Param("name") String name, @Param("localDate") String localDate);
+
+    /**
+     * 考评得分排名
+     * @param page
+     * @param depId
+     * @param localDate
+     * @return
+     */
+    IPage<Appraise> getAppraiseRank(Page<Appraise> page, @Param("depId") Integer depId, @Param("localDate") String localDate);
 }

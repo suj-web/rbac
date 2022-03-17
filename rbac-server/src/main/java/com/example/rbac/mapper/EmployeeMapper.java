@@ -95,4 +95,24 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @return
      */
     List<RespChartBean> getCompositionByWorkAge(Integer depId);
+
+    /**
+     * 人员构成分析-按性别统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByGender(Integer depId);
+
+    /**
+     * 人员构成分析-按最高学历统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByDegree(Integer depId);
+
+    /**
+     * 部门薪资统计
+     * @return
+     */
+    List<RespChartBean> getSalaryDepartment();
 }
