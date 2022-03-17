@@ -27,6 +27,7 @@ public class SystemDataController {
     @Autowired
     private IBackupService backupService;
 
+    @OperationLogAnnotation(operModul = "系统管理-备份恢复数据库", operType = "查询",operDesc = "查询备份文件")
     @ApiOperation(value = "查询备份文件")
     @GetMapping("/list")
     public List<Backup> getBackupFiles() {
