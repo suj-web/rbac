@@ -470,6 +470,41 @@
 
 <!--    部门薪资统计-->
     <select id="getSalaryDepartment" resultMap="ChartResultMap">
+        SELECT
+            dep.`name` AS `name`,
+            SUM(st.all_salary) / COUNT(*) AS `count`
+        FROM
+            t_employee emp,
+            t_department dep,
+            t_salary_table st
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.department_id = dep.id
+        AND emp.id = st.employee_id
+        <if test="null!=localDate and ''!=localDate">
+            AND date_format(st.gmt_create,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+        </if>
+        GROUP BY
+            dep.`name`
+    </select>
 
+<!--    职位薪资统计-->
+    <select id="getSalaryPosition" resultMap="ChartResultMap">
+        SELECT
+            pos.`name` AS `name`,
+            SUM(st.all_salary) / COUNT(*) AS `count`
+        FROM
+            t_employee emp,
+            t_position pos,
+            t_salary_table st
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.position_id = pos.id
+        AND emp.id = st.employee_id
+        <if test="null!=localDate and ''!=localDate">
+            AND date_format(st.gmt_create,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+        </if>
+        GROUP BY
+            pos.`name`
     </select>
 </mapper>

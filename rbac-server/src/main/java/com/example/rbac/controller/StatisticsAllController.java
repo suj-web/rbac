@@ -98,8 +98,14 @@ public class StatisticsAllController {
 
     @ApiOperation(value = "部门薪资统计")
     @GetMapping("/salary/department")
-    public List<RespChartBean> getSalaryDepartment() {
-        return employeeService.getSalaryDepartment();
+    public List<RespChartBean> getSalaryDepartment(String localDate) {
+        return employeeService.getSalaryDepartment(localDate);
+    }
+
+    @ApiOperation(value = "职位薪资统计")
+    @GetMapping("/salary/position")
+    public List<RespChartBean> getSalaryPosition(String localDate) {
+        return employeeService.getSalaryPosition(localDate);
     }
 
 }

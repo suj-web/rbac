@@ -15,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class RespChartBean {
 
     private String name;
-    private Integer count;
+    private Double count;
 
 }

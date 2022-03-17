@@ -112,7 +112,15 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
 
     /**
      * 部门薪资统计
+     * @param localDate
      * @return
      */
-    List<RespChartBean> getSalaryDepartment();
+    List<RespChartBean> getSalaryDepartment(String localDate);
+
+    /**
+     * 职位薪资统计
+     * @param localDate
+     * @return
+     */
+    List<RespChartBean> getSalaryPosition(String localDate);
 }

@@ -254,10 +254,21 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
     /**
      * 部门薪资统计
+     * @param localDate
      * @return
      */
     @Override
-    public List<RespChartBean> getSalaryDepartment() {
-        return employeeMapper.getSalaryDepartment();
+    public List<RespChartBean> getSalaryDepartment(String localDate) {
+        return employeeMapper.getSalaryDepartment(localDate);
+    }
+
+    /**
+     * 职位薪资统计
+     * @param localDate
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getSalaryPosition(String localDate) {
+        return employeeMapper.getSalaryPosition(localDate);
     }
 }
