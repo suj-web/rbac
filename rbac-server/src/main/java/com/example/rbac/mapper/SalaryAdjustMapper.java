@@ -30,10 +30,4 @@ public interface SalaryAdjustMapper extends BaseMapper<SalaryAdjust> {
      */
     IPage<SalaryAdjust> getAllSalaryAdjust(Page<SalaryAdjust> page, @Param("name") String name, @Param("localDate") String localDate);
 
-    /**
-     * 根据员工id获取调薪信息
-     * @param employeeId
-     * @return
-     */
-    List<SalaryAdjust> getSalaryAdjustByEmployeeId(Integer employeeId);
 }

@@ -50,14 +50,4 @@
         </if>
         ORDER BY e.id
     </select>
-
-    <select id="getSalaryAdjustByEmployeeId" resultMap="BaseResultMap">
-        SELECT
-            sa.*
-        FROM
-            t_salary_adjust sa
-        WHERE
-            sa.employee_id = #{employeeId}
-        AND sa.is_delete = FALSE
-    </select>
 </mapper>

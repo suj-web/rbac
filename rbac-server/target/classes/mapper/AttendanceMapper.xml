@@ -15,9 +15,46 @@
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
 
+    <resultMap id="AttendanceResultMap" type="com.example.rbac.pojo.Attendance" extends="BaseResultMap">
+        <association property="employee" javaType="com.example.rbac.pojo.Employee">
+            <result column="emp_name" property="name" />
+            <result column="emp_work_id" property="workId" />
+            <association property="position" javaType="com.example.rbac.pojo.Position">
+                <result column="pos_name" property="name" />
+            </association>
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
+        </association>
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, employee_id, attendance_time, closing_time, personal_leave, sick_leave, absenteeism, gmt_create, gmt_modified
     </sql>
 
+<!--    考勤信息统计-->
+    <select id="getAllAttendance" resultMap="AttendanceResultMap">
+        SELECT
+            att.*, emp.`name` AS emp_name,
+            emp.work_id AS emp_work_id,
+            dep.`name` AS dep_name,
+            pos.`name` AS pos_name
+        FROM
+            t_attendance att,
+            t_employee emp,
+            t_department dep,
+            t_position pos
+        WHERE
+            emp.is_delete = FALSE
+        AND att.employee_id = emp.id
+        AND emp.position_id = pos.id
+        AND emp.department_id = dep.id
+        <if test="null != localDate and '' != localDate">
+            AND date_format(att.gmt_create,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+        </if>
+        <if test="null != absenteeism">
+            AND att.absenteeism = #{absenteeism}
+        </if>
+    </select>
 </mapper>

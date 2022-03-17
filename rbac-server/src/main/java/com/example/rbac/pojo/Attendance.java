@@ -39,10 +39,12 @@ public class Attendance implements Serializable {
 
     @ApiModelProperty(value = "上班时间")
     @TableField("attendance_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime attendanceTime;
 
     @ApiModelProperty(value = "下班时间")
     @TableField("closing_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime closingTime;
 
     @ApiModelProperty(value = "事假")
@@ -71,4 +73,7 @@ public class Attendance implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
 
+    @ApiModelProperty(value = "员工信息")
+    @TableField(exist = false)
+    private Employee employee;
 }
