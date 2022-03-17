@@ -1,10 +1,7 @@
 package com.example.rbac.service;
 
-import com.example.rbac.pojo.Employee;
+import com.example.rbac.pojo.*;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.rbac.pojo.RespBean;
-import com.example.rbac.pojo.RespPageBean;
-import com.example.rbac.pojo.Role;
 import io.swagger.models.auth.In;
 import org.springframework.security.core.Authentication;
 
@@ -99,4 +96,10 @@ public interface IEmployeeService extends IService<Employee> {
      * @return
      */
     RespPageBean getAllSalaryTables(Integer currentPage, Integer size, Integer depId, LocalDate localDate);
+
+    /**
+     * 职业人数统计
+     * @return
+     */
+    List<RespChartBean> getPositionNumber();
 }

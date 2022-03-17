@@ -51,7 +51,7 @@
         AND emp.position_id = pos.id
         AND emp.department_id = dep.id
         <if test="null != localDate and '' != localDate">
-            AND date_format(att.gmt_create,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+            AND date_format(att.attendance_time,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
         <if test="null != absenteeism">
             AND att.absenteeism = #{absenteeism}

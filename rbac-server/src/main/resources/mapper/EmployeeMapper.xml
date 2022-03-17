@@ -117,6 +117,11 @@
         </collection>
     </resultMap>
 
+    <resultMap id="ChartResultMap" type="com.example.rbac.pojo.RespChartBean">
+        <result column="name" property="name" />
+        <result column="count" property="count" />
+    </resultMap>
+
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
@@ -320,5 +325,20 @@
             AND st.`month` = #{month}
         </if>
         ORDER BY emp.id
+    </select>
+
+<!--    职业人数统计-->
+    <select id="getPositionNumber" resultMap="ChartResultMap">
+        SELECT
+            pos.`name` AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp,
+            t_position pos
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.position_id = pos.id
+        GROUP BY
+            pos.`name`
     </select>
 </mapper>

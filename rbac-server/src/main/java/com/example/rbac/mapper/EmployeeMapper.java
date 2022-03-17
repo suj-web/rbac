@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.rbac.pojo.RespChartBean;
 import com.example.rbac.pojo.Role;
 import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
@@ -64,8 +65,14 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
     IPage<Employee> getAllEmployeeWithSalaryTable(Page<Employee> page, @Param("depId") Integer depId, @Param("year") Integer year, @Param("month") Integer monthValue);
 
     /**
-     * 获取所有员工当月工资信息(不分页)
+     * 获取所有员工当月工资信息(不分页)(用于导出excel)
      * @return
      */
     List<Employee> getAllEmployeeWithSalaryTable2(@Param("year") Integer year, @Param("month") Integer month);
+
+    /**
+     * 职业人数统计
+     * @return
+     */
+    List<RespChartBean> getPositionNumber();
 }

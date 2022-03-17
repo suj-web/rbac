@@ -193,4 +193,13 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         IPage<Employee> employeeIPage = employeeMapper.getAllEmployeeWithSalaryTable(page, depId, localDate.getYear(), localDate.getMonthValue());
         return new RespPageBean(employeeIPage.getTotal(), employeeIPage.getRecords());
     }
+
+    /**
+     * 职业人数统计
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getPositionNumber() {
+        return employeeMapper.getPositionNumber();
+    }
 }
