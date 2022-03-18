@@ -1,9 +1,12 @@
 package com.example.rbac;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.SalaryTable;
+import com.example.rbac.service.IEmployeeEcService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.ISalaryTableService;
+import com.example.rbac.utils.ScoreUtils;
 import org.apache.tomcat.jni.Local;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,26 @@ class RbacApplicationTests {
     void contextLoads() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         System.out.println(encoder.encode("admin"));
+    }
+
+    @Autowired
+    private IEmployeeEcService employeeEcService;
+
+    @Test
+    public void test2() {
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        List<SalaryTable> list = salaryTableService.list(new QueryWrapper<SalaryTable>()
+                .eq("year", localDate.getYear())
+                .eq("month", localDate.getMonthValue()));
+        for (SalaryTable salaryTable: list) {
+            Integer score = employeeEcService.getScoreByEmployeeId(salaryTable.getEmployeeId(), formatter.format(localDate));
+
+            double bonus = salaryTable.getAllSalary() * 0.1 * ScoreUtils.getScoreGrade(score);
+            salaryTable.setBonus(bonus);
+            salaryTable.setAllSalary(salaryTable.getAllSalary()+bonus);
+            salaryTableService.updateById(salaryTable);
+        }
     }
 
     @Test

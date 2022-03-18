@@ -2,6 +2,7 @@ package com.example.rbac.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.EcRule;
+import com.example.rbac.pojo.RespPageBean;
 
 /**
  * <p>
@@ -13,4 +14,11 @@ import com.example.rbac.pojo.EcRule;
  */
 public interface IEcRuleService extends IService<EcRule> {
 
+    /**
+     * 查询所有奖惩规则
+     * @param currentPage
+     * @param size
+     * @return
+     */
+    RespPageBean getEcRuleList(Integer currentPage, Integer size);
 }

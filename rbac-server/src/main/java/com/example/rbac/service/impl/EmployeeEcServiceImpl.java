@@ -69,4 +69,15 @@ public class EmployeeEcServiceImpl extends ServiceImpl<EmployeeEcMapper, Employe
         RespPageBean respPageBean = new RespPageBean(employeeEcIPage.getTotal(), employeeEcIPage.getRecords());
         return respPageBean;
     }
+
+    /**
+     * 根据员工id获取员工某个月的总积分
+     * @param empId
+     * @param localDate
+     * @return
+     */
+    @Override
+    public Integer getScoreByEmployeeId(Integer empId, String localDate) {
+        return employeeEcMapper.getScoreByEmployeeId(empId, localDate);
+    }
 }

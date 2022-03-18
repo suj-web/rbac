@@ -16,7 +16,6 @@ import java.io.IOException;
 /**
  * 验证码
  */
-//@Api(tags = "CaptchaController")
 @RestController
 public class CaptchaController {
 

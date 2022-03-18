@@ -47,6 +47,7 @@
             t_position pos
         WHERE
             emp.is_delete = FALSE
+        AND att.is_delete = FALSE
         AND att.employee_id = emp.id
         AND emp.position_id = pos.id
         AND emp.department_id = dep.id
@@ -55,6 +56,29 @@
         </if>
         <if test="null != absenteeism">
             AND att.absenteeism = #{absenteeism}
+        </if>
+    </select>
+
+<!--    人事管理-员工考勤-查询员工考勤信息-->
+    <select id="getAttendances" resultMap="AttendanceResultMap">
+        SELECT
+            att.*, emp.`name` AS emp_name,
+            emp.work_id AS emp_work_id,
+            dep.`name` AS dep_name,
+            pos.`name` AS pos_name
+        FROM
+            t_attendance att,
+            t_employee emp,
+            t_department dep,
+            t_position pos
+        WHERE
+            emp.is_delete = FALSE
+            att.is_delete = FALSE
+        AND att.employee_id = emp.id
+        AND emp.position_id = pos.id
+        AND emp.department_id = dep.id
+        <if test="null!=beginDateScope and 2==beginDateScope.length">
+            AND att.attendance_time BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
         </if>
     </select>
 </mapper>

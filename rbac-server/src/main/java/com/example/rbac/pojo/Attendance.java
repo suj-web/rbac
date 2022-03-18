@@ -13,10 +13,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 
- * </p>
- *
+ * 员工考勤实体类
  * @author suj
  * @since 2022-03-08
  */

@@ -4,6 +4,8 @@ import com.example.rbac.pojo.Attendance;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.RespPageBean;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  服务类
@@ -23,4 +25,13 @@ public interface IAttendanceService extends IService<Attendance> {
      * @return
      */
     RespPageBean getAllAttendance(Integer currentPage, Integer size, String localDate, Boolean absenteeism);
+
+    /**
+     * 人事管理-员工考勤-查询员工考勤信息
+     * @param currentPage
+     * @param size
+     * @param beginDateScope
+     * @return
+     */
+    RespPageBean getAttendances(Integer currentPage, Integer size, LocalDate[] beginDateScope);
 }

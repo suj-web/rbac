@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.time.LocalDate;
+
 /**
  * 考勤Mapper
  * @author suj
@@ -24,4 +26,12 @@ public interface AttendanceMapper extends BaseMapper<Attendance> {
      * @return
      */
     IPage<Attendance> getAllAttendance(Page<Attendance> page, @Param("localDate") String localDate, @Param("absenteeism") Boolean absenteeism);
+
+    /**
+     * 人事管理-员工考勤-查询员工考勤信息
+     * @param page
+     * @param beginDateScope
+     * @return
+     */
+    IPage<Attendance> getAttendances(Page<Attendance> page, LocalDate[] beginDateScope);
 }

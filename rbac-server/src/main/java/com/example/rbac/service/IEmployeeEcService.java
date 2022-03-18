@@ -45,4 +45,12 @@ public interface IEmployeeEcService extends IService<EmployeeEc> {
      * @return
      */
     RespPageBean getScoreRank(Integer currentPage, Integer size, String localDate, Integer depId);
+
+    /**
+     * 根据员工id获取员工某个月的总积分
+     * @param empId
+     * @param localDate
+     * @return
+     */
+    Integer getScoreByEmployeeId(Integer empId, String localDate);
 }

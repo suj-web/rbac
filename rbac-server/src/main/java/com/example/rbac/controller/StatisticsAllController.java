@@ -38,7 +38,7 @@ public class StatisticsAllController {
     @Autowired
     private IAppraiseService appraiseService;
 
-    @ApiOperation(value = "出勤信息统计")
+    @ApiOperation(value = "考勤信息统计")
     @GetMapping("/attendance/list")
     public RespPageBean getAllAttendance(@RequestParam(defaultValue = "1") Integer currentPage,
                                          @RequestParam(defaultValue = "10") Integer size,

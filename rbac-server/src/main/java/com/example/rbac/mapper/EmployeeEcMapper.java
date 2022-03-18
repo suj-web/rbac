@@ -47,4 +47,12 @@ public interface EmployeeEcMapper extends BaseMapper<EmployeeEc> {
      * @return
      */
     IPage<EmployeeEc> getScoreRank(Page<EmployeeEc> page, @Param("localDate") String localDate, @Param("depId") Integer depId);
+
+    /**
+     * 根据员工id获取员工某个月的总积分
+     * @param empId
+     * @param localDate
+     * @return
+     */
+    Integer getScoreByEmployeeId(@Param("empId") Integer empId, @Param("localDate") String localDate);
 }

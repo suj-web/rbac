@@ -153,4 +153,17 @@
             emp.id
         ORDER BY score DESC
     </select>
+
+    <select id="getScoreByEmployeeId" resultType="java.lang.Integer">
+        SELECT
+            SUM(er.score) AS score
+        FROM
+            t_employee_ec ee,
+            t_ec_rule er
+        WHERE
+            ee.is_delete = FALSE
+        AND ee.ec_id = er.id
+        AND ee.employee_id = #{empId}
+        AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+    </select>
 </mapper>
