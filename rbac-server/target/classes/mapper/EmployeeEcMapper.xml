@@ -7,8 +7,7 @@
         <id column="id" property="id" />
         <result column="employee_id" property="employeeId" />
         <result column="ec_date" property="ecDate" />
-        <result column="ec_reason" property="ecReason" />
-        <result column="ec_point" property="ecPoint" />
+        <result column="ec_id" property="ecId" />
         <result column="remark" property="remark" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
@@ -41,7 +40,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, employee_id, ec_date, ec_reason, ec_point, remark, is_delete, gmt_create, gmt_modified
+        id, employee_id, ec_date, ec_id, remark, is_delete, gmt_create, gmt_modified
     </sql>
 
 <!--    获取所有奖惩人员信息-->
@@ -52,13 +51,15 @@
             e.work_id AS ework_id
         FROM
             t_employee_ec ee,
-            t_employee e
+            t_employee e,
+            t_ec_rule er
         WHERE
             e.id = ee.employee_id
+        AND ee.ec_id = er.id
         AND e.is_delete = FALSE
         AND ee.is_delete = FALSE
         <if test="null!=name and ''!=name">
-            AND e. NAME LIKE CONCAT('%', #{name}, '%')
+            AND e.`name` LIKE CONCAT('%', #{name}, '%')
         </if>
         <if test="null!=localDate and ''!=localDate">
             AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
@@ -99,13 +100,15 @@
                     (
                         SELECT
                             emp.id AS empId,
-                            SUM(ee.ec_point) AS score
+                            SUM(er.score) AS score
                         FROM
                             t_employee emp,
                             t_employee_ec ee,
-                            t_department dep
+                            t_department dep,
+                            t_ec_rule er
                         WHERE
                             emp.is_delete = FALSE
+                        AND ee.is_delete = FALSE
                         AND emp.department_id = dep.id
                         AND emp.id = ee.employee_id
                         <if test="null!=localDate and ''!=localDate">
@@ -128,14 +131,16 @@
             emp.`name` AS emp_name,
             emp.work_id AS emp_work_id,
             dep.`name` AS dep_name,
-            SUM(ee.ec_point) AS score,
+            SUM(er.score) AS score,
             ee.id
         FROM
             t_employee emp,
             t_employee_ec ee,
-            t_department dep
+            t_department dep,
+            t_ec_rule er
         WHERE
             emp.is_delete = FALSE
+        AND ee.is_delete = FALSE
         AND emp.department_id = dep.id
         AND emp.id = ee.employee_id
         <if test="null!=localDate and ''!=localDate">

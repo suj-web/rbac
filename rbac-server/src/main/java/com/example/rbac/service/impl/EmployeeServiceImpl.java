@@ -171,7 +171,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public RespPageBean getAllEmployeeWithSalaryTable(Integer currentPage, Integer size, Integer depId) {
         Page<Employee> page = new Page<>(currentPage, size);
         IPage<Employee> employeeIPage = employeeMapper.getAllEmployeeWithSalaryTable(page, depId, LocalDate.now().getYear(), LocalDate.now().getMonthValue());
-        return new RespPageBean(employeeIPage.getTotal(), employeeIPage.getRecords());
+        RespPageBean respPageBean = new RespPageBean(employeeIPage.getTotal(), employeeIPage.getRecords());
+        return respPageBean;
     }
 
     /**
