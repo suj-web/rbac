@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.RespChartBean;
 import com.example.rbac.pojo.Role;
 import io.swagger.models.auth.In;
@@ -123,4 +124,65 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @return
      */
     List<RespChartBean> getSalaryPosition(String localDate);
+
+    /**
+     * 人事信息统计-员工结构统计-按聘用形式统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByEngageForm(Integer depId);
+
+    /**
+     * 员工结构统计-按在职状态统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByWorkState(Integer depId);
+
+    /**
+     * 年龄统计-员工平均年龄
+     * @param depId
+     * @return
+     */
+    Integer getAverageAge(Integer depId);
+
+    /**
+     * 年龄统计-部门员工平均年龄统计
+     * @return
+     */
+    List<RespChartBean> getDepartmentAverageAge();
+
+    /**
+     * 工龄统计-员工平均工龄统计
+     * @param depId
+     * @return
+     */
+    Integer getAverageWorkAge(Integer depId);
+
+    /**
+     * 工龄统计-部门员工平均工龄统计
+     * @return
+     */
+    List<RespChartBean> getDepartmentAverageWorkAge();
+
+    /**
+     * 按婚姻状况统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getWedLock(Integer depId);
+
+    /**
+     * 按民族进行统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getNation(Integer depId);
+
+    /**
+     * 按政治面貌进行统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getPoliticStatus(Integer depId);
 }

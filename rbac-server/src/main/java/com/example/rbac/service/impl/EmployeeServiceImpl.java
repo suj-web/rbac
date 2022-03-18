@@ -271,4 +271,92 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public List<RespChartBean> getSalaryPosition(String localDate) {
         return employeeMapper.getSalaryPosition(localDate);
     }
+
+    /**
+     * 人事信息统计-员工结构统计-按聘用形式统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getCompositionByEngageForm(Integer depId) {
+        return employeeMapper.getCompositionByEngageForm(depId);
+    }
+
+    /**
+     * 员工结构统计-按在职状态统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getCompositionByWorkState(Integer depId) {
+        return employeeMapper.getCompositionByWorkState(depId);
+    }
+
+    /**
+     * 年龄统计-员工平均年龄
+     * @param depId
+     * @return
+     */
+    @Override
+    public Integer getAverageAge(Integer depId) {
+        return employeeMapper.getAverageAge(depId);
+    }
+
+    /**
+     * 年龄统计-部门员工平均年龄统计
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getDepartmentAverageAge() {
+        return employeeMapper.getDepartmentAverageAge();
+    }
+
+    /**
+     * 工龄统计-员工平均工龄统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public Integer getAverageWorkAge(Integer depId) {
+        return employeeMapper.getAverageWorkAge(depId);
+    }
+
+    /**
+     * 工龄统计-部门员工平均工龄统计
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getDepartmentAverageWorkAge() {
+        return employeeMapper.getDepartmentAverageWorkAge();
+    }
+
+    /**
+     * 按婚姻状况统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getWedLock(Integer depId) {
+        return employeeMapper.getWedLock(depId);
+    }
+
+    /**
+     * 按民族进行统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getNation(Integer depId) {
+        return employeeMapper.getNation(depId);
+    }
+
+    /**
+     * 按政治面貌进行统计
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getPoliticStatus(Integer depId) {
+        return employeeMapper.getPoliticStatus(depId);
+    }
 }

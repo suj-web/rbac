@@ -507,4 +507,155 @@
         GROUP BY
             pos.`name`
     </select>
+
+<!--    人事信息统计-员工结构统计-按聘用形式统计-->
+    <select id="getCompositionByEngageForm" resultMap="ChartResultMap">
+        SELECT
+            emp.engage_form AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            emp.engage_form
+    </select>
+
+<!--    员工结构统计-按在职状态统计-->
+    <select id="getCompositionByWorkState" resultMap="ChartResultMap">
+        SELECT
+            emp.work_state AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            emp.work_state
+    </select>
+
+<!--    年龄统计-员工平均年龄-->
+    <select id="getAverageAge" resultType="java.lang.Integer">
+        SELECT
+            SUM(
+                YEAR (NOW()) - YEAR (emp.birthday)
+            ) / COUNT(*) AS age
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+    </select>
+
+<!--    年龄统计-部门员工平均年龄统计-->
+    <select id="getDepartmentAverageAge" resultMap="ChartResultMap">
+        SELECT
+            SUM(
+                YEAR (NOW()) - YEAR (emp.birthday)
+            ) / COUNT(*) AS `count`,
+            dep.`name` AS `name`
+        FROM
+            t_employee emp,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.department_id = dep.id
+        GROUP BY
+            dep.`name`
+    </select>
+
+<!--    工龄统计-员工平均工龄统计-->
+    <select id="getAverageWorkAge" resultType="java.lang.Integer">
+        SELECT
+            SUM(emp.work_age) / COUNT(*) AS age
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+    </select>
+
+<!--    工龄统计-部门员工平均工龄统计-->
+    <select id="getDepartmentAverageWorkAge" resultMap="ChartResultMap">
+        SELECT
+            SUM(emp.work_age) / COUNT(*) AS `count`,
+            dep.`name` AS `name`
+        FROM
+            t_employee emp,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.department_id = dep.id
+        GROUP BY
+            dep.`name`
+    </select>
+
+<!--    按婚姻状况统计-->
+    <select id="getWedLock" resultMap="ChartResultMap">
+        SELECT
+            emp.wed_lock AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            emp.wed_lock
+    </select>
+
+<!--    按民族进行统计-->
+    <select id="getNation" resultMap="ChartResultMap">
+        SELECT
+            nat.`name` AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp,
+            t_nation nat
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.nation_id = nat.id
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            nat.`name`
+    </select>
+
+<!--    按政治面貌进行统计-->
+    <select id="getPoliticStatus" resultMap="ChartResultMap">
+        SELECT
+            ps.`name` AS `name`,
+            COUNT(*) AS `count`
+        FROM
+            t_employee emp,
+            t_politics_status ps
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.politic_id = ps.id
+        <if test="null != depId">
+            AND emp.department_id = #{depId}
+        </if>
+        GROUP BY
+            ps.`name`
+    </select>
 </mapper>

@@ -150,4 +150,65 @@ public interface IEmployeeService extends IService<Employee> {
      * @return
      */
     List<RespChartBean> getSalaryPosition(String localDate);
+
+    /**
+     * 员工结构统计-按聘用形式统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByEngageForm(Integer depId);
+
+    /**
+     * 员工结构统计-按在职状态统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getCompositionByWorkState(Integer depId);
+
+    /**
+     * 年龄统计-员工平均年龄
+     * @param depId
+     * @return
+     */
+    Integer getAverageAge(Integer depId);
+
+    /**
+     * 年龄统计-部门员工平均年龄统计
+     * @return
+     */
+    List<RespChartBean> getDepartmentAverageAge();
+
+    /**
+     * 工龄统计-员工平均工龄统计
+     * @param depId
+     * @return
+     */
+    Integer getAverageWorkAge(Integer depId);
+
+    /**
+     * 工龄统计-部门员工平均工龄统计
+     * @return
+     */
+    List<RespChartBean> getDepartmentAverageWorkAge();
+
+    /**
+     * 按婚姻状况统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getWedLock(Integer depId);
+
+    /**
+     * 按民族进行统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getNation(Integer depId);
+
+    /**
+     * 按政治面貌进行统计
+     * @param depId
+     * @return
+     */
+    List<RespChartBean> getPoliticStatus(Integer depId);
 }
