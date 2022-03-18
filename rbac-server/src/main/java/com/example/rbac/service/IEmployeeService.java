@@ -211,4 +211,11 @@ public interface IEmployeeService extends IService<Employee> {
      * @return
      */
     List<RespChartBean> getPoliticStatus(Integer depId);
+
+    /**
+     * 员工异动信息统计
+     * @param localDate
+     * @return
+     */
+    List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate);
 }

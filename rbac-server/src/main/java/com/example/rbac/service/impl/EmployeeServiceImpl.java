@@ -3,10 +3,8 @@ package com.example.rbac.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.rbac.mapper.MailLogMapper;
-import com.example.rbac.mapper.RoleMapper;
+import com.example.rbac.mapper.*;
 import com.example.rbac.pojo.*;
-import com.example.rbac.mapper.EmployeeMapper;
 import com.example.rbac.service.IEmployeeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.rbac.utils.UserUtils;
@@ -24,7 +22,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -43,12 +44,17 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     @Autowired
     private EmployeeMapper employeeMapper;
 
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
     @Autowired
     private MailLogMapper mailLogMapper;
+
+    @Autowired
+    private DepartmentMapper departmentMapper;
+
+    @Autowired
+    private EmployeeRemoveMapper employeeRemoveMapper;
 
 
     /**
@@ -358,5 +364,62 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     @Override
     public List<RespChartBean> getPoliticStatus(Integer depId) {
         return employeeMapper.getPoliticStatus(depId);
+    }
+
+    /**
+     * 员工异动信息统计
+     * @param localDate
+     * @return
+     */
+    @Override
+    @Transactional
+    public List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate) {
+        List<Department> departments = departmentMapper.selectList(null);
+        List<RespEmployeeRecordBean> respEmployeeRecordBeans = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        localDate = localDate + "-01";
+        for(Department department: departments) {
+            RespEmployeeRecordBean bean = new RespEmployeeRecordBean();
+            bean.setName(department.getName());
+            //期初人数
+            Integer beginCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state", "在职").lt("begin_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth())));
+            bean.setBeginCount(beginCount);
+            //期末人数
+            Integer endCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state", "在职").lt("begin_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setEndCount(endCount);
+            //入职人数
+            Integer entryCount = endCount - beginCount;
+            bean.setEntryCount(entryCount);
+            //入职率
+            Double inductionRate = entryCount / ((beginCount + endCount) / 2.0) * 100;
+            if (entryCount == 0 && (beginCount + endCount == 0)) {
+                bean.setInductionRate(0.0);
+            } else {
+                bean.setInductionRate(inductionRate);
+            }
+
+            //转正人数
+            Integer conversionCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state","在职").between("conversion_time", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setConversionCount(conversionCount);
+            //离职人数
+            Integer dimissionCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state","离职").between("conversion_time", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setDimissionCount(dimissionCount);
+            //离职率
+            Double dimissionRate = dimissionCount / ((beginCount + endCount) / 2.0) * 100;
+            if (dimissionCount == 0 && (beginCount + endCount == 0)) {
+                bean.setDimissionRate(0.0);
+            } else {
+                bean.setDimissionRate(dimissionRate);
+            }
+            //调入人数
+            Integer foldCount = employeeRemoveMapper.selectCount(new QueryWrapper<EmployeeRemove>().eq("after_department_id",department.getId()).between("remove_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setFoldCount(foldCount);
+            //调离人数
+            Integer transferCount = employeeRemoveMapper.selectCount(new QueryWrapper<EmployeeRemove>().eq("before_department_id",department.getId()).between("remove_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setTransferCount(transferCount);
+
+            respEmployeeRecordBeans.add(bean);
+        }
+        return respEmployeeRecordBeans;
     }
 }

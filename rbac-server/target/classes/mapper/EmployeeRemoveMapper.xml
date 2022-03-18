@@ -6,7 +6,9 @@
     <resultMap id="BaseResultMap" type="com.example.rbac.pojo.EmployeeRemove">
         <id column="id" property="id" />
         <result column="employee_id" property="employeeId" />
+        <result column="before_department_id" property="beforeDepartmentId" />
         <result column="after_department_id" property="afterDepartmentId" />
+        <result column="before_position_id" property="beforePositionId" />
         <result column="after_position_id" property="afterPositionId" />
         <result column="remove_date" property="removeDate" />
         <result column="reason" property="reason" />
@@ -26,7 +28,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, employee_id, after_department_id, after_position_id, remove_date, reason, remark, is_delete, gmt_create, gmt_modified
+        id, employee_id, before_department_id, before_position_id, after_department_id, after_position_id, remove_date, reason, remark, is_delete, gmt_create, gmt_modified
     </sql>
 
     <select id="getAllEmployeeRemove" resultMap="EmployeeRemove">
