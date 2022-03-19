@@ -40,12 +40,24 @@ public class HomeRemindController {
         return employeeService.getContractExpire(currentPage, size);
     }
 
-//    @ApiOperation(value = "生日提醒")
-//    @GetMapping("/birthday")
-//    public RespPageBean getBirthday(@RequestParam(defaultValue = "1") Integer currentPage,
-//                                @RequestParam(defaultValue = "10") Integer size) {
-//        return employeeService.getBirthday(currentPage, size);
-//    }
+    @ApiOperation(value = "合同到期数量")
+    @GetMapping("/contract/expire/count")
+    public Integer getContractExpireCount() {
+        return employeeService.getContractExpireCount();
+    }
+
+    @ApiOperation(value = "生日提醒")
+    @GetMapping("/birthday/remind")
+    public RespPageBean getBirthdayRemind(@RequestParam(defaultValue = "1") Integer currentPage,
+                                @RequestParam(defaultValue = "10") Integer size) {
+        return employeeService.getBirthdayRemind(currentPage, size);
+    }
+
+    @ApiOperation(value = "生日提醒数量")
+    @GetMapping("/birthday/remind/count")
+    public Integer getBirthdayRemindCount() {
+        return employeeService.getBirthdayRemindCount();
+    }
 
 
     @ApiOperation(value = "在线人数")

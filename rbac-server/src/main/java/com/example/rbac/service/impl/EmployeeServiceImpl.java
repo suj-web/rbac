@@ -433,9 +433,18 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     @Override
     public RespPageBean getContractExpire(Integer currentPage, Integer size) {
         Page<Employee> page = new Page<>(currentPage, size);
-        IPage<Employee> employeePage = employeeMapper.selectPage(page, new QueryWrapper<Employee>().lt("end_contract", LocalDate.now()));
+        IPage<Employee> employeePage = employeeMapper.getContractExpire(page);
         RespPageBean respPageBean = new RespPageBean(employeePage.getTotal(), employeePage.getRecords());
         return respPageBean;
+    }
+
+    /**
+     * 合同到期数量
+     * @return
+     */
+    @Override
+    public Integer getContractExpireCount() {
+        return employeeMapper.selectCount(new QueryWrapper<Employee>().eq("work_state","在职").lt("end_contract",LocalDate.now()));
     }
 
     /**
@@ -444,12 +453,20 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
      * @param size
      * @return
      */
-//    @Override
-//    public RespPageBean getBirthday(Integer currentPage, Integer size) {
-//        Page<Employee> page = new Page<>(currentPage, size);
-//        IPage<Employee> employeePage = employeeMapper.
-//        RespPageBean respPageBean = new RespPageBean(employeePage.getTotal(), employeePage.getRecords());
-//        return respPageBean;
-//    }
+    @Override
+    public RespPageBean getBirthdayRemind(Integer currentPage, Integer size) {
+        Page<Employee> page = new Page<>(currentPage, size);
+        IPage<Employee> employeePage = employeeMapper.getBirthdayRemind(page);
+        RespPageBean respPageBean = new RespPageBean(employeePage.getTotal(), employeePage.getRecords());
+        return respPageBean;
+    }
 
+    /**
+     * 生日提醒数量
+     * @return
+     */
+    @Override
+    public Integer getBirthdayRemindCount() {
+        return employeeMapper.getBirthdayRemindCount();
+    }
 }

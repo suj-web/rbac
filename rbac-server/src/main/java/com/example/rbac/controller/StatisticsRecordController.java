@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -29,9 +31,10 @@ public class StatisticsRecordController {
     @ApiOperation(value = "员工异动信息统计")
     @GetMapping("/")
     public List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate) {
-        if(null != localDate && "" != localDate) {
-            return employeeService.getEmployeeTransaction(localDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        if(null == localDate || "" == localDate) {
+            localDate = formatter.format(LocalDate.now());
         }
-        return null;
+        return employeeService.getEmployeeTransaction(localDate);
     }
 }

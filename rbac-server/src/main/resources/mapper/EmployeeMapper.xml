@@ -122,6 +122,12 @@
         <result column="count" property="count" />
     </resultMap>
 
+    <resultMap id="ContractExpireResultMap" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
+        <association property="department" javaType="com.example.rbac.pojo.Department">
+            <result column="dep_name" property="name" />
+        </association>
+    </resultMap>
+
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
@@ -155,6 +161,7 @@
         AND emp.politic_id = ps.id
         AND emp.job_level_id = job.id
         AND emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         <if test="null!=employee.name and ''!=employee.name">
             AND emp.`name` LIKE concat('%',#{employee.name},'%')
         </if>
@@ -210,6 +217,7 @@
         AND emp.politic_id = ps.id
         AND emp.job_level_id = job.id
         AND emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         <if test="null != employeeId">
             AND emp.id = #{employeeId}
         </if>
@@ -238,6 +246,7 @@
         LEFT JOIN t_department dep ON emp.department_id=dep.id
         WHERE
             emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         <if test="null!=name and ''!=name">
             AND emp. NAME LIKE CONCAT('%', #{name}, '%')
         </if>
@@ -263,6 +272,7 @@
             t_salary sal
         WHERE
             emp.salary_id = sal.id
+        AND emp.work_state = '在职'
     </select>
 
 <!--    获取所有员工当月工资信息-->
@@ -285,6 +295,7 @@
             t_salary_table st
         WHERE
             emp.department_id = dep.id
+        AND emp.work_state = '在职'
         AND emp.id = st.employee_id
         <if test="null != depId">
             AND dep.id = #{depId}
@@ -317,6 +328,7 @@
             t_salary_table st
         WHERE
             emp.department_id = dep.id
+        AND emp.work_state = '在职'
         AND emp.id = st.employee_id
         <if test="null != year">
             AND st.`year` = #{year}
@@ -337,6 +349,7 @@
             t_position pos
         WHERE
             emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         AND emp.position_id = pos.id
         GROUP BY
             pos.`name`
@@ -352,6 +365,7 @@
             t_department dep
         WHERE
             emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         AND emp.department_id = dep.id
         GROUP BY
             dep.`name`
@@ -393,6 +407,7 @@
                     department_id AS departmentId
                 FROM
                     t_employee emp
+                WHERE emp.work_state = '在职'
             ) a ]]>
         WhERE 1 = 1
         <if test="null != depId">
@@ -428,7 +443,8 @@
                 END AS gld,
                     department_id AS departmentId
                 FROM
-                t_employee emp
+                    t_employee emp
+                WHERE emp.work_state = '在职'
             ) a ]]>
         WHERE 1 = 1
         <if test="null != depId">
@@ -446,6 +462,7 @@
         FROM
             t_employee emp
         WHERE 1 = 1
+        AND emp.work_state = '在职'
         <if test="null != depId">
             AND emp.department_id = #{depId}
         </if>
@@ -461,6 +478,7 @@
         FROM
             t_employee emp
         WHERE 1 = 1
+        AND emp.work_state = '在职'
         <if test="null != depId">
             AND emp.department_id = #{depId}
         </if>
@@ -479,6 +497,7 @@
             t_salary_table st
         WHERE
             emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         AND emp.department_id = dep.id
         AND emp.id = st.employee_id
         <if test="null!=localDate and ''!=localDate">
@@ -499,6 +518,7 @@
             t_salary_table st
         WHERE
             emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         AND emp.position_id = pos.id
         AND emp.id = st.employee_id
         <if test="null!=localDate and ''!=localDate">
@@ -517,6 +537,7 @@
             t_employee emp
         WHERE
             emp.is_delete = FALSE
+        AND emp.work_state = '在职'
         <if test="null != depId">
             AND emp.department_id = #{depId}
         </if>
@@ -657,5 +678,52 @@
         </if>
         GROUP BY
             ps.`name`
+    </select>
+
+<!--    合同到期提醒-->
+    <select id="getContractExpire" resultMap="ContractExpireResultMap">
+        SELECT
+            emp.*, dep.`name` AS dep_name
+        FROM
+            t_employee emp,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.department_id = dep.id
+        <![CDATA[
+        AND emp.end_contract <= NOW()
+        ]]>
+    </select>
+
+<!--    生日提醒-->
+    <select id="getBirthdayRemind" resultMap="ContractExpireResultMap">
+        SELECT
+            emp.*, dep.`name` AS dep_name
+        FROM
+            t_employee emp,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.department_id = dep.id
+        <![CDATA[
+        AND DATE_FORMAT(birthday, '%m-%d') >= DATE_FORMAT(NOW(), '%m-%d')
+        AND DATE_FORMAT(birthday, '%m-%d') <= DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 WEEK),'%m-%d')
+        ]]>
+    </select>
+
+    <select id="getBirthdayRemindCount" resultType="java.lang.Integer">
+        SELECT
+            count(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        <![CDATA[
+        AND DATE_FORMAT(birthday, '%m-%d') >= DATE_FORMAT(NOW(), '%m-%d')
+        AND DATE_FORMAT(birthday, '%m-%d') <= DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 WEEK),'%m-%d')
+        ]]>
     </select>
 </mapper>

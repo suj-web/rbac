@@ -185,4 +185,24 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @return
      */
     List<RespChartBean> getPoliticStatus(Integer depId);
+
+    /**
+     * 合同到期提醒
+     * @param page
+     * @return
+     */
+    IPage<Employee> getContractExpire(Page<Employee> page);
+
+    /**
+     * 生日提醒
+     * @param page
+     * @return
+     */
+    IPage<Employee> getBirthdayRemind(Page<Employee> page);
+
+    /**
+     * 生日提醒数量
+     * @return
+     */
+    Integer getBirthdayRemindCount();
 }

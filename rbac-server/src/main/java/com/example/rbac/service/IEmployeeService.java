@@ -228,10 +228,22 @@ public interface IEmployeeService extends IService<Employee> {
     RespPageBean getContractExpire(Integer currentPage, Integer size);
 
     /**
+     * 合同到期数量
+     * @return
+     */
+    Integer getContractExpireCount();
+
+    /**
      * 生日提醒
      * @param currentPage
      * @param size
      * @return
      */
-//    RespPageBean getBirthday(Integer currentPage, Integer size);
+    RespPageBean getBirthdayRemind(Integer currentPage, Integer size);
+
+    /**
+     * 生日提醒数量
+     * @return
+     */
+    Integer getBirthdayRemindCount();
 }

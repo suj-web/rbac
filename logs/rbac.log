@@ -4942,3 +4942,1011 @@ com.alibaba.fastjson.JSONException: syntax error, pos 1
 2022-03-19 15:42:34.379  INFO 4896 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-03-19 15:42:34.379  INFO 4896 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
 2022-03-19 15:43:26.506  INFO 4896 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-03-19 16:13:26.520  INFO 4896 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 187]
+2022-03-19 16:13:49.511  INFO 9720 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 9720 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-19 16:13:49.511  INFO 9720 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-19 16:13:49.574  INFO 9720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-19 16:13:49.574  INFO 9720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-19 16:13:50.452  INFO 9720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-19 16:13:50.452  INFO 9720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-19 16:13:50.483  INFO 9720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2022-03-19 16:13:51.189  INFO 9720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-19 16:13:51.205  INFO 9720 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-19 16:13:51.284  INFO 9720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-19 16:13:51.284  INFO 9720 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1710 ms
+2022-03-19 16:13:51.472  INFO 9720 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-19 16:13:51.567  INFO 9720 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-19 16:13:53.971  INFO 9720 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-19 16:13:54.143  INFO 9720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-19 16:13:54.663  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-19 16:13:54.679  INFO 9720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12366829, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c1e1199, org.springframework.security.web.header.HeaderWriterFilter@c4cbe97, org.springframework.security.web.authentication.logout.LogoutFilter@3ccd7459, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@382aee36, org.springframework.security.web.session.ConcurrentSessionFilter@29d476cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4aa7f866, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f6a18d8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ff7cdba, org.springframework.security.web.session.SessionManagementFilter@3feb53bf, org.springframework.security.web.access.ExceptionTranslationFilter@2de4a72d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f2118f7]
+2022-03-19 16:13:54.820  INFO 9720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-19 16:13:54.820  INFO 9720 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-19 16:13:54.836  INFO 9720 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-19 16:13:54.902  INFO 9720 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-19 16:13:54.996  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.044  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.044  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:13:55.059  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-19 16:13:55.059  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-03-19 16:13:55.059  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-03-19 16:13:55.075  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.075  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-03-19 16:13:55.075  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-03-19 16:13:55.090  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.106  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-19 16:13:55.122  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:13:55.156  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.156  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-19 16:13:55.156  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.171  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-19 16:13:55.171  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.171  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-19 16:13:55.187  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.187  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.202  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-19 16:13:55.218  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.218  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-19 16:13:55.218  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-19 16:13:55.218  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.218  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-19 16:13:55.218  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-19 16:13:55.234  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-19 16:13:55.239  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:13:55.239  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-19 16:13:55.239  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-19 16:13:55.239  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-19 16:13:55.250  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-19 16:13:55.253  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-19 16:13:55.255  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-19 16:13:55.256  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-19 16:13:55.256  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-19 16:13:55.256  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.256  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-19 16:13:55.272  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.272  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-19 16:13:55.272  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.287  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.287  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-03-19 16:13:55.287  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-19 16:13:55.287  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-19 16:13:55.355  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-03-19 16:13:55.370  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-03-19 16:13:55.370  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.370  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-03-19 16:13:55.386  INFO 9720 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-03-19 16:13:55.401  WARN 9720 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:13:55.417  INFO 9720 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-19 16:13:55.417  INFO 9720 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3b1928bf]]
+2022-03-19 16:13:55.417  INFO 9720 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-19 16:13:55.433  INFO 9720 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 6.519 seconds (JVM running for 7.676)
+2022-03-19 16:14:00.161 ERROR 9720 --- [MessageBroker-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:14:10.018 ERROR 9720 --- [MessageBroker-3] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:14:20.008 ERROR 9720 --- [MessageBroker-5] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:14:30.007 ERROR 9720 --- [MessageBroker-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:14:40.015 ERROR 9720 --- [MessageBroker-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:14:50.010 ERROR 9720 --- [MessageBroker-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:14:54.049  INFO 9720 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-03-19 16:15:00.027 ERROR 9720 --- [MessageBroker-2] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:15:10.016 ERROR 9720 --- [MessageBroker-8] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:15:20.019 ERROR 9720 --- [MessageBroker-8] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:15:30.015 ERROR 9720 --- [MessageBroker-8] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:15:40.003 ERROR 9720 --- [MessageBroker-8] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap' referenced from 'com.example.rbac.mapper.EmployeeMapper.getContractExpire'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816) ~[mybatis-3.5.3.jar:3.5.3]
+	at java.util.Collection.removeIf(Collection.java:414) ~[na:1.8.0_201]
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.5.3.jar:3.5.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.<init>(MybatisMapperMethod.java:50) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.lambda$cachedMapperMethod$0(MybatisMapperProxy.java:101) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_201]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.cachedMapperMethod(MybatisMapperProxy.java:100) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:95) ~[mybatis-plus-core-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.sun.proxy.$Proxy125.selectList(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.sun.proxy.$Proxy126.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:275) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at com.baomidou.mybatisplus.extension.service.IService$$FastClassBySpringCGLIB$$f8525d18.invoke(<generated>) ~[mybatis-plus-extension-3.3.1.tmp.jar:3.3.1.tmp]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.8.jar:5.3.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.8.jar:5.3.8]
+	at com.example.rbac.service.impl.MailLogServiceImpl$$EnhancerBySpringCGLIB$$c16c6e75.list(<generated>) ~[classes/:na]
+	at com.example.rbac.task.MailTask.mailTask(MailTask.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_201]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) [spring-context-5.3.8.jar:5.3.8]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_201]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_201]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.example.rbac.mapper.EmployeeMapper.ContractExpireResultMap
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674) ~[mybatis-3.5.3.jar:3.5.3]
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339) ~[mybatis-3.5.3.jar:3.5.3]
+	... 46 common frames omitted
+
+2022-03-19 16:15:47.008  INFO 2200 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 2200 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-19 16:15:47.008  INFO 2200 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-19 16:15:47.086  INFO 2200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-19 16:15:47.086  INFO 2200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-19 16:15:47.934  INFO 2200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-19 16:15:47.934  INFO 2200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-19 16:15:47.965  INFO 2200 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2022-03-19 16:15:48.640  INFO 2200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-19 16:15:48.656  INFO 2200 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-19 16:15:48.728  INFO 2200 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-19 16:15:48.728  INFO 2200 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1642 ms
+2022-03-19 16:15:48.892  INFO 2200 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-19 16:15:48.954  INFO 2200 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-19 16:15:51.353  INFO 2200 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-19 16:15:51.561  INFO 2200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-19 16:15:52.019  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-19 16:15:52.045  INFO 2200 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59241d73, org.springframework.security.web.context.SecurityContextPersistenceFilter@5fc7581e, org.springframework.security.web.header.HeaderWriterFilter@4a233ef9, org.springframework.security.web.authentication.logout.LogoutFilter@7b59a0be, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@1275e815, org.springframework.security.web.session.ConcurrentSessionFilter@16c169a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@536861f4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b5996dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75eb04c9, org.springframework.security.web.session.SessionManagementFilter@503c623d, org.springframework.security.web.access.ExceptionTranslationFilter@543a019c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4326b112]
+2022-03-19 16:15:52.161  INFO 2200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-19 16:15:52.161  INFO 2200 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-19 16:15:52.176  INFO 2200 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-19 16:15:52.245  INFO 2200 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-19 16:15:52.351  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.398  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.398  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:15:52.414  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-19 16:15:52.429  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-03-19 16:15:52.429  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-03-19 16:15:52.429  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.429  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-03-19 16:15:52.429  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-03-19 16:15:52.461  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.461  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-19 16:15:52.476  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:15:52.508  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.508  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-19 16:15:52.523  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.523  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-19 16:15:52.523  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.539  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-19 16:15:52.549  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.555  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.586  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-19 16:15:52.586  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.586  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-19 16:15:52.586  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-19 16:15:52.586  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.602  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-19 16:15:52.602  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-19 16:15:52.602  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-19 16:15:52.602  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:15:52.617  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-19 16:15:52.617  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-19 16:15:52.617  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-19 16:15:52.617  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-19 16:15:52.617  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-19 16:15:52.617  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-19 16:15:52.633  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-19 16:15:52.633  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-19 16:15:52.633  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.633  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-19 16:15:52.651  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.651  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-19 16:15:52.667  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.667  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.667  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-03-19 16:15:52.682  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-19 16:15:52.682  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-19 16:15:52.777  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-03-19 16:15:52.792  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-03-19 16:15:52.808  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.808  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-03-19 16:15:52.808  INFO 2200 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-03-19 16:15:52.823  WARN 2200 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:15:52.839  INFO 2200 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-19 16:15:52.846  INFO 2200 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2b1a114f]]
+2022-03-19 16:15:52.846  INFO 2200 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-19 16:15:52.855  INFO 2200 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 6.355 seconds (JVM running for 7.388)
+2022-03-19 16:16:00.584  INFO 2200 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-19 16:16:00.584  INFO 2200 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-19 16:16:00.584  INFO 2200 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-19 16:16:51.424  INFO 2200 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-03-19 16:23:55.328  INFO 16220 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 16220 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-19 16:23:55.328  INFO 16220 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-19 16:23:55.391  INFO 16220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-19 16:23:55.391  INFO 16220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-19 16:23:56.223  INFO 16220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-19 16:23:56.223  INFO 16220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-19 16:23:56.254  INFO 16220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-19 16:23:56.945  INFO 16220 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-19 16:23:57.039  INFO 16220 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-19 16:23:57.039  INFO 16220 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1648 ms
+2022-03-19 16:23:57.228  INFO 16220 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-19 16:23:57.306  INFO 16220 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-19 16:23:59.558  INFO 16220 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-19 16:23:59.737  INFO 16220 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-19 16:24:00.229  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-19 16:24:00.276  INFO 16220 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@268c85eb, org.springframework.security.web.context.SecurityContextPersistenceFilter@68009f06, org.springframework.security.web.header.HeaderWriterFilter@7bef0f46, org.springframework.security.web.authentication.logout.LogoutFilter@4b2ccc52, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@7ca112f4, org.springframework.security.web.session.ConcurrentSessionFilter@13d44878, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62da4522, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64ff52af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30d6d3eb, org.springframework.security.web.session.SessionManagementFilter@7e91527c, org.springframework.security.web.access.ExceptionTranslationFilter@6aff971d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d5f15bb]
+2022-03-19 16:24:00.421  INFO 16220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-19 16:24:00.421  INFO 16220 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-19 16:24:00.437  INFO 16220 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-19 16:24:00.502  INFO 16220 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-19 16:24:00.610  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.643  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.659  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:24:00.659  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-19 16:24:00.675  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-03-19 16:24:00.675  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-03-19 16:24:00.690  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.690  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-03-19 16:24:00.690  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-03-19 16:24:00.706  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.722  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-19 16:24:00.737  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:24:00.769  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.769  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-19 16:24:00.784  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.784  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-19 16:24:00.784  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.784  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-19 16:24:00.803  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.816  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.816  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-19 16:24:00.816  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.832  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-19 16:24:00.832  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-19 16:24:00.832  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.832  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-19 16:24:00.832  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-19 16:24:00.832  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-19 16:24:00.847  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 16:24:00.847  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-19 16:24:00.847  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-19 16:24:00.847  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-19 16:24:00.847  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-19 16:24:00.847  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-19 16:24:00.847  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-19 16:24:00.863  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-19 16:24:00.863  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-19 16:24:00.863  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.863  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-19 16:24:00.879  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.879  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-19 16:24:00.894  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.894  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.894  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-03-19 16:24:00.894  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-19 16:24:00.903  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-19 16:24:00.959  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-03-19 16:24:00.975  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-03-19 16:24:00.975  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:00.975  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-03-19 16:24:00.990  INFO 16220 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-03-19 16:24:01.002  WARN 16220 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 16:24:01.012  INFO 16220 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-19 16:24:01.012  INFO 16220 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2854fb6d]]
+2022-03-19 16:24:01.012  INFO 16220 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-19 16:24:01.012  INFO 16220 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 6.154 seconds (JVM running for 7.263)
+2022-03-19 16:24:08.929  INFO 16220 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-19 16:24:08.929  INFO 16220 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-19 16:24:08.932  INFO 16220 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-03-19 16:24:59.616  INFO 16220 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 5]
+2022-03-19 17:21:55.685  INFO 7468 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 7468 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-03-19 17:21:55.685  INFO 7468 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-03-19 17:21:55.748  INFO 7468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-19 17:21:55.748  INFO 7468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-19 17:21:56.705  INFO 7468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-19 17:21:56.720  INFO 7468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-19 17:21:56.752  INFO 7468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2022-03-19 17:21:57.458  INFO 7468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-19 17:21:57.473  INFO 7468 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-03-19 17:21:57.546  INFO 7468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-19 17:21:57.546  INFO 7468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1798 ms
+2022-03-19 17:21:57.724  INFO 7468 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-03-19 17:21:57.803  INFO 7468 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-19 17:22:00.183  INFO 7468 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-19 17:22:00.388  INFO 7468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-03-19 17:22:00.859  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-03-19 17:22:00.891  INFO 7468 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74e15f4e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e681f3, org.springframework.security.web.header.HeaderWriterFilter@8544949, org.springframework.security.web.authentication.logout.LogoutFilter@230f64c9, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@131d5644, org.springframework.security.web.session.ConcurrentSessionFilter@3b7e72f3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26e6c8ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66094865, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45eeb65b, org.springframework.security.web.session.SessionManagementFilter@dde51e1, org.springframework.security.web.access.ExceptionTranslationFilter@d378c07, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@f0d4e84]
+2022-03-19 17:22:01.020  INFO 7468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-19 17:22:01.020  INFO 7468 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-19 17:22:01.020  INFO 7468 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-19 17:22:01.099  INFO 7468 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-19 17:22:01.203  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.244  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.244  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 17:22:01.244  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-03-19 17:22:01.258  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-03-19 17:22:01.258  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-03-19 17:22:01.258  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.258  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-03-19 17:22:01.258  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-03-19 17:22:01.289  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.289  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-03-19 17:22:01.305  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 17:22:01.344  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.344  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-03-19 17:22:01.352  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.352  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-03-19 17:22:01.352  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.368  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-03-19 17:22:01.368  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.383  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.399  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-03-19 17:22:01.399  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.399  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-03-19 17:22:01.399  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-03-19 17:22:01.399  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.399  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-03-19 17:22:01.414  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-03-19 17:22:01.414  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-03-19 17:22:01.414  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-03-19 17:22:01.414  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-03-19 17:22:01.414  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-03-19 17:22:01.414  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-03-19 17:22:01.430  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-03-19 17:22:01.430  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-03-19 17:22:01.430  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-03-19 17:22:01.430  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: maxWorkIDUsingGET_1
+2022-03-19 17:22:01.430  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-03-19 17:22:01.445  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.446  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-03-19 17:22:01.446  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.446  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-03-19 17:22:01.462  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.462  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.462  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-03-19 17:22:01.462  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-03-19 17:22:01.462  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-03-19 17:22:01.526  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-03-19 17:22:01.541  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-03-19 17:22:01.552  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.552  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-03-19 17:22:01.557  INFO 7468 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-03-19 17:22:01.557  WARN 7468 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-03-19 17:22:01.573  INFO 7468 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-03-19 17:22:01.573  INFO 7468 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@12a7790c]]
+2022-03-19 17:22:01.573  INFO 7468 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-03-19 17:22:01.588  INFO 7468 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 6.48 seconds (JVM running for 7.727)
+2022-03-19 17:22:22.996  INFO 7468 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-19 17:22:22.996  INFO 7468 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-19 17:22:22.996  INFO 7468 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-19 17:23:00.243  INFO 7468 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-03-19 17:53:00.257  INFO 7468 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 187]
+2022-03-19 18:23:00.280  INFO 7468 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 368]
