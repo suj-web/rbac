@@ -423,4 +423,33 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         }
         return respEmployeeRecordBeans;
     }
+
+    /**
+     * 合同到期提醒
+     * @param currentPage
+     * @param size
+     * @return
+     */
+    @Override
+    public RespPageBean getContractExpire(Integer currentPage, Integer size) {
+        Page<Employee> page = new Page<>(currentPage, size);
+        IPage<Employee> employeePage = employeeMapper.selectPage(page, new QueryWrapper<Employee>().lt("end_contract", LocalDate.now()));
+        RespPageBean respPageBean = new RespPageBean(employeePage.getTotal(), employeePage.getRecords());
+        return respPageBean;
+    }
+
+    /**
+     * 生日提醒
+     * @param currentPage
+     * @param size
+     * @return
+     */
+//    @Override
+//    public RespPageBean getBirthday(Integer currentPage, Integer size) {
+//        Page<Employee> page = new Page<>(currentPage, size);
+//        IPage<Employee> employeePage = employeeMapper.
+//        RespPageBean respPageBean = new RespPageBean(employeePage.getTotal(), employeePage.getRecords());
+//        return respPageBean;
+//    }
+
 }

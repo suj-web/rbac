@@ -218,4 +218,20 @@ public interface IEmployeeService extends IService<Employee> {
      * @return
      */
     List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate);
+
+    /**
+     * 合同到期提醒
+     * @param currentPage
+     * @param size
+     * @return
+     */
+    RespPageBean getContractExpire(Integer currentPage, Integer size);
+
+    /**
+     * 生日提醒
+     * @param currentPage
+     * @param size
+     * @return
+     */
+//    RespPageBean getBirthday(Integer currentPage, Integer size);
 }

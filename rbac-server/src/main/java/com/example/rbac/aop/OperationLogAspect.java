@@ -4,7 +4,7 @@ import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.mapper.OplogMapper;
 import com.example.rbac.pojo.Oplog;
 import com.example.rbac.pojo.RespBean;
-import com.example.rbac.utils.IpUtil;
+import com.example.rbac.utils.ClientUtils;
 import com.example.rbac.utils.UserUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -73,7 +73,7 @@ public class OperationLogAspect {
             //操作用户
             oplog.setOperator(UserUtils.getCurrentUser().getUsername());
             //操作ip
-            oplog.setIp(IpUtil.getIpAddress(request));
+            oplog.setIp(ClientUtils.getIpAddress(request));
             //返回值信息
             oplog.setResult(respBean.getMessage());
             //保存日志

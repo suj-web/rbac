@@ -14,7 +14,7 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- *
+ * 资源控制器
  * @author suj
  * @since 2022-01-05
  */

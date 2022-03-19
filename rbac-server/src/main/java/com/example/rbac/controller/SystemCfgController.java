@@ -1,18 +1,26 @@
 package com.example.rbac.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.annotation.OperationLogAnnotation;
-import com.example.rbac.pojo.RespBean;
-import com.example.rbac.pojo.RespPageBean;
-import com.example.rbac.pojo.SysMsg;
-import com.example.rbac.service.IOplogService;
+import com.example.rbac.pojo.*;
 import com.example.rbac.service.ISysMsgService;
-import io.swagger.annotations.Api;
+import com.example.rbac.utils.ClientUtils;
+import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.session.SessionInformation;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.Path;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 系统管理-系统管理
@@ -25,6 +33,15 @@ public class SystemCfgController {
 
     @Autowired
     private ISysMsgService sysMsgService;
+
+    @Autowired
+    private SessionRegistry sessionRegistry;
+
+    @ApiOperation(value = "查询系统公告(用于首页轮播)")
+    @GetMapping("/system/message")
+    public List<SysMsg> getSysMsg() {
+        return sysMsgService.list(new QueryWrapper<SysMsg>().eq("enable", false));
+    }
 
     @OperationLogAnnotation(operModul = "系统管理-系统管理", operType = "查询", operDesc = "查询系统公告")
     @ApiOperation(value = "查询系统公告")
@@ -75,4 +92,24 @@ public class SystemCfgController {
         return RespBean.error("删除失败");
     }
 
+    @ApiOperation(value = "在线用户")
+    @GetMapping("/online/user")
+    public List<OnlineUser> getOnlineCount(HttpServletRequest request) {
+        List<OnlineUser> users = new ArrayList<>();
+        //获取principals
+        List<Object> principals = sessionRegistry.getAllPrincipals();
+        for (Object o : principals) {
+            List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
+            OnlineUser user = new OnlineUser();
+            user.setLoginName(UserUtils.getCurrentUser().getUsername());
+            user.setIp(ClientUtils.getIpAddress(request));
+            user.setBrowser(ClientUtils.getBrowserType(request));
+            user.setOs(ClientUtils.getOs(request));
+            user.setAddress(ClientUtils.getAddress(request));
+            user.setSessionId(sessionInformation.get(0).getSessionId());
+
+            users.add(user);
+        }
+        return users;
+    }
 }

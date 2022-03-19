@@ -38,7 +38,6 @@ public class LoginServiceImpl implements LoginService {
     @Value("${jwt.tokenHead}")
     private String tokenHead;
 
-
     /**
      * 用户登录
      * @param username
@@ -68,6 +67,8 @@ public class LoginServiceImpl implements LoginService {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+
+
 
         //生成token
         String token = jwtTokenUtil.generateToken(userDetails);

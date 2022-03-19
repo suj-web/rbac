@@ -5,6 +5,7 @@ import com.example.rbac.pojo.Admin;
 import com.example.rbac.service.IAdminService;
 import com.example.rbac.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
@@ -13,18 +14,24 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.servlet.http.HttpSessionListener;
 
 /**
  * @Author suj
  * @create 2022/1/5
  */
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
 //    @Autowired
 //    private IUserService userService;
@@ -75,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf()
                 .disable()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) //修改session策略
                 .and()
                 .authorizeRequests()
                 .anyRequest()
@@ -100,6 +107,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling()
                 .authenticationEntryPoint(restAuthorizationEntryPoint)
                 .accessDeniedHandler(restfulAccessDeniedHandler);
+
+        // 配置spring security
+        http.sessionManagement()
+                .maximumSessions(1) // 控制并发的数量
+                .maxSessionsPreventsLogin(true) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来
+                .sessionRegistry(sessionRegistry());
     }
 
     @Bean
@@ -139,6 +152,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public JwtAuthorizationTokenFilter jwtAuthorizationTokenFilter(){
         return new JwtAuthorizationTokenFilter();
+    }
+
+    //统计在线用户
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }
+
+    @Bean
+    public ServletListenerRegistrationBean<HttpSessionListener> sessionListenerWithMetrics() {
+        ServletListenerRegistrationBean<HttpSessionListener> listenerRegBean = new ServletListenerRegistrationBean<>();
+        listenerRegBean.setListener(new HttpSessionEventPublisher());
+        return listenerRegBean;
     }
 
 }
