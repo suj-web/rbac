@@ -42,6 +42,7 @@ public class CaptchaController {
         System.out.println("text = " + text);
         //将验证码放入session中
         request.getSession().setAttribute("captcha",text);
+        request.getSession().setMaxInactiveInterval(60);
         //根据文本内容创建图像验证码
         BufferedImage image = defaultKaptcha.createImage(text);
         ServletOutputStream outputStream = null;

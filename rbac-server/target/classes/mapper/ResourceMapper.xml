@@ -59,7 +59,7 @@
 
     <select id="getResourcesByAdminId" resultMap="Resources">
         SELECT DISTINCT
-            re1.*, re2.id AS id2,
+            re1.*,
             re2.id AS id2,
             re2.url AS url2,
             re2.path AS path2,
@@ -85,11 +85,10 @@
         AND rr.resource_id = re2.id
         AND re2.enabled = TRUE
         AND r.is_delete = FALSE
-        AND re1.type != 2
         AND re2.type != 2
         AND ar.admin_id = #{adminId}
         ORDER BY
-            re2.id
+            re1.id, re2.id
     </select>
 
     <select id="getResourcesWithRole" resultMap="ResourcesWithRole">
