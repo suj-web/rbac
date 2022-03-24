@@ -86,6 +86,7 @@
         AND re2.enabled = TRUE
         AND r.is_delete = FALSE
         AND re2.type != 2
+        AND re1.type != -1
         AND ar.admin_id = #{adminId}
         ORDER BY
             re1.id, re2.id
@@ -134,7 +135,7 @@
 
     <select id="getAllResources" resultMap="AllResources">
         SELECT
-            <include refid="Base_Column_List" />
+            id, `name`
         FROM t_resource res
         WHERE
             res.parent_id = #{parentId}

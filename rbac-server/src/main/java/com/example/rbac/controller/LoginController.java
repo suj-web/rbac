@@ -5,12 +5,17 @@ import com.example.rbac.pojo.*;
 import com.example.rbac.service.IAdminService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.LoginService;
+import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.bytebuddy.asm.Advice;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +53,11 @@ public class LoginController {
     @OperationLogAnnotation(operModul = "登录",operType = "登录",operDesc = "退出登录")
     @ApiOperation(value = "退出登录")
     @PostMapping("/logout")
-    public RespBean logout(){
+    public RespBean logout(HttpServletRequest request, HttpServletResponse response){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(null != auth) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
         return RespBean.success("退出成功");
     }
 }

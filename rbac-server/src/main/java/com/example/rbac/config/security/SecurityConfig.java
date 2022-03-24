@@ -82,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         http.csrf()
                 .disable()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) //修改session策略
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //修改session策略
                 .and()
                 .authorizeRequests()
                 .anyRequest()
@@ -108,11 +108,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .authenticationEntryPoint(restAuthorizationEntryPoint)
                 .accessDeniedHandler(restfulAccessDeniedHandler);
 
-        // 配置spring security
-        http.sessionManagement()
-                .maximumSessions(1) // 控制并发的数量
-                .maxSessionsPreventsLogin(true) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来
-                .sessionRegistry(sessionRegistry());
+//        // 配置spring security
+//        http.sessionManagement()
+//                .maximumSessions(2) // 控制并发的数量
+//                .maxSessionsPreventsLogin(true) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来
+//                .sessionRegistry(sessionRegistry());
     }
 
     @Bean
@@ -154,17 +154,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         return new JwtAuthorizationTokenFilter();
     }
 
-    //统计在线用户
-    @Bean
-    public SessionRegistry sessionRegistry() {
-        return new SessionRegistryImpl();
-    }
-
-    @Bean
-    public ServletListenerRegistrationBean<HttpSessionListener> sessionListenerWithMetrics() {
-        ServletListenerRegistrationBean<HttpSessionListener> listenerRegBean = new ServletListenerRegistrationBean<>();
-        listenerRegBean.setListener(new HttpSessionEventPublisher());
-        return listenerRegBean;
-    }
+//    //统计在线用户
+//    @Bean
+//    public SessionRegistry sessionRegistry() {
+//        return new SessionRegistryImpl();
+//    }
+//
+//    @Bean
+//    public ServletListenerRegistrationBean<HttpSessionListener> sessionListenerWithMetrics() {
+//        ServletListenerRegistrationBean<HttpSessionListener> listenerRegBean = new ServletListenerRegistrationBean<>();
+//        listenerRegBean.setListener(new HttpSessionEventPublisher());
+//        return listenerRegBean;
+//    }
 
 }

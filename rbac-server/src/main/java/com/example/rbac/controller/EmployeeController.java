@@ -6,6 +6,7 @@ import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
 import com.example.rbac.service.*;
@@ -70,7 +71,7 @@ public class EmployeeController {
     @ApiOperation(value = "获取所有职称")
     @GetMapping("/joblevels")
     public List<Joblevel> getAllJoblevel(){
-        return joblevelService.list();
+        return joblevelService.list(new QueryWrapper<Joblevel>().eq("enabled",true));
     }
 
     @ApiOperation(value = "获取所有民族")
@@ -82,7 +83,7 @@ public class EmployeeController {
     @ApiOperation(value = "获取所有职位")
     @GetMapping("/positions")
     public List<Position> getAllPositions(){
-        return positionService.list();
+        return positionService.list(new QueryWrapper<Position>().eq("enabled",true));
     }
 
     @ApiOperation(value = "获取所有部门")

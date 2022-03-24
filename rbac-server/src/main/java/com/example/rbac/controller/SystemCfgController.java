@@ -34,8 +34,8 @@ public class SystemCfgController {
     @Autowired
     private ISysMsgService sysMsgService;
 
-    @Autowired
-    private SessionRegistry sessionRegistry;
+//    @Autowired
+//    private SessionRegistry sessionRegistry;
 
     @ApiOperation(value = "查询系统公告(用于首页轮播)")
     @GetMapping("/system/message")
@@ -92,24 +92,24 @@ public class SystemCfgController {
         return RespBean.error("删除失败");
     }
 
-    @ApiOperation(value = "在线用户")
-    @GetMapping("/online/user")
-    public List<OnlineUser> getOnlineCount(HttpServletRequest request) {
-        List<OnlineUser> users = new ArrayList<>();
-        //获取principals
-        List<Object> principals = sessionRegistry.getAllPrincipals();
-        for (Object o : principals) {
-            List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
-            OnlineUser user = new OnlineUser();
-            user.setLoginName(UserUtils.getCurrentUser().getUsername());
-            user.setIp(ClientUtils.getIpAddress(request));
-            user.setBrowser(ClientUtils.getBrowserType(request));
-            user.setOs(ClientUtils.getOs(request));
-            user.setAddress(ClientUtils.getAddress(request));
-            user.setSessionId(sessionInformation.get(0).getSessionId());
-
-            users.add(user);
-        }
-        return users;
-    }
+//    @ApiOperation(value = "在线用户")
+//    @GetMapping("/online/user")
+//    public List<OnlineUser> getOnlineCount(HttpServletRequest request) {
+//        List<OnlineUser> users = new ArrayList<>();
+//        //获取principals
+//        List<Object> principals = sessionRegistry.getAllPrincipals();
+//        for (Object o : principals) {
+//            List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
+//            OnlineUser user = new OnlineUser();
+//            user.setLoginName(UserUtils.getCurrentUser().getUsername());
+//            user.setIp(ClientUtils.getIpAddress(request));
+//            user.setBrowser(ClientUtils.getBrowserType(request));
+//            user.setOs(ClientUtils.getOs(request));
+//            user.setAddress(ClientUtils.getAddress(request));
+//            user.setSessionId(sessionInformation.get(0).getSessionId());
+//
+//            users.add(user);
+//        }
+//        return users;
+//    }
 }

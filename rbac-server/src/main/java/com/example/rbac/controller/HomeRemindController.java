@@ -30,8 +30,8 @@ public class HomeRemindController {
     @Autowired
     private IEmployeeService employeeService;
 
-    @Autowired
-    private SessionRegistry sessionRegistry;
+//    @Autowired
+//    private SessionRegistry sessionRegistry;
 
     @ApiOperation(value = "合同到期提醒")
     @GetMapping("/contract/expire")
@@ -60,9 +60,9 @@ public class HomeRemindController {
     }
 
 
-    @ApiOperation(value = "在线人数")
-    @GetMapping("/online/count")
-    public Integer getOnlineCount() {
-        return sessionRegistry.getAllPrincipals().size();
-    }
+//    @ApiOperation(value = "在线人数")
+//    @GetMapping("/online/count")
+//    public Integer getOnlineCount() {
+//        return sessionRegistry.getAllPrincipals().size();
+//    }
 }

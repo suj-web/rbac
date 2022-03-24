@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
 import com.example.rbac.service.*;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +44,7 @@ public class PermissionController {
 
     @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "添加",operDesc = "添加角色")
     @ApiOperation(value = "添加角色")
-    @PostMapping("/")
+    @PostMapping("/role")
     public RespBean addRole(@RequestBody Role role) {
         if(!role.getName().startsWith("ROLE_")){
             role.setName("ROLE_"+role.getName());
@@ -54,7 +57,7 @@ public class PermissionController {
 
     @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "删除",operDesc = "删除角色")
     @ApiOperation(value = "删除角色")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/role/{id}")
     public RespBean deleteRole(@PathVariable Integer id){
         List<AdminRole> adminRoles = adminRoleService.list(new QueryWrapper<AdminRole>().eq("role_id", id));
         if(adminRoles.size() > 0) {
@@ -75,15 +78,24 @@ public class PermissionController {
     }
 
     @ApiOperation(value = "通过角色id获取资源id")
+    @ApiImplicitParam(name = "rid",value = "角色id")
     @GetMapping("/resId/{rid}")
     public List<Integer> getResIdByRoleId(@PathVariable Integer rid){
         return roleResourceService.list(new QueryWrapper<RoleResource>().eq("role_id",rid))
                 .stream().map(RoleResource::getResourceId).collect(Collectors.toList());
     }
 
+    @ApiOperation(value = "获取所有资源id")
+    @GetMapping("/resId")
+    public List<Integer> getAllResId() {
+        return resourceService.list().stream().map(Resource::getId).collect(Collectors.toList());
+    }
+
+    @PutMapping("/")
     @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "更新",operDesc = "更新角色菜单列表")
     @ApiOperation(value = "更新角色菜单列表")
-    @PutMapping("/")
+    @ApiImplicitParams({@ApiImplicitParam(name = "roleId",value = "角色id")
+                        ,@ApiImplicitParam(name = "ids",value = "资源id")})
     public RespBean updateRoleResource(Integer roleId, Integer[] ids){
         return roleResourceService.updateRoleResource(roleId, ids);
     }

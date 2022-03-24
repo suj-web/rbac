@@ -52,6 +52,7 @@
         <association property="position" javaType="com.example.rbac.pojo.Position">
             <id column="posid" property="id"/>
             <result column="posname" property="name"/>
+            <result column="posenabled" property="enabled"></result>
         </association>
         <association property="nation" javaType="com.example.rbac.pojo.Nation">
             <id column="natid" property="id"/>
@@ -64,6 +65,7 @@
         <association property="joblevel" javaType="com.example.rbac.pojo.Joblevel">
             <id column="jobid" property="id"/>
             <result column="jobname" property="name"/>
+            <result column="jobenabled" property="enabled"></result>
         </association>
     </resultMap>
 
@@ -141,12 +143,14 @@
             dep.`name` AS depname,
             pos.id AS posid,
             pos.`name` AS posname,
+            pos.enabled AS posenabled,
             nat.id AS natid,
             nat.`name` AS natname,
             ps.id AS psid,
             ps.`name` AS psname,
             job.id AS jobid,
-            job.`name` AS jobname
+            job.`name` AS jobname,
+            job.enabled AS jobenabled
         FROM
             t_employee emp,
             t_department dep,

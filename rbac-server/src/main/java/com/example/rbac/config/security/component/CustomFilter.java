@@ -33,6 +33,9 @@ public class CustomFilter implements FilterInvocationSecurityMetadataSource {
         //根据角色获取资源
         List<Resource> resources = resourceService.getResourcesWithRole();
         for(Resource resource : resources){
+            if(resource.getUrl().equals("/")){
+                continue;
+            }
             if(antPathMatcher.match(resource.getUrl(),requestUrl)){
                 String[] str = resource.getRoles().stream().map(Role::getName).toArray(String[]::new);
                 return SecurityConfig.createList(str);

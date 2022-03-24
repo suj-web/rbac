@@ -78,6 +78,6 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
      */
     @Override
     public List<Resource> getAllResources() {
-        return resourceMapper.getAllResources(-1);
+        return resourceMapper.getAllResources(1);
     }
 }

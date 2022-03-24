@@ -37,12 +37,12 @@ public class RoleResourceServiceImpl extends ServiceImpl<RoleResourceMapper, Rol
     public RespBean updateRoleResource(Integer roleId, Integer[] ids) {
         roleResourceMapper.delete(new QueryWrapper<RoleResource>().eq("role_id",roleId));
         if(null == ids || 0 == ids.length){
-            redisTemplate.delete(redisTemplate.keys("menu_*"));
+            redisTemplate.delete(redisTemplate.keys("menu_admin_*"));
             return RespBean.success("更新成功");
         }
         Integer result = roleResourceMapper.insertRecord(roleId, ids);
         if(result == ids.length){
-            redisTemplate.delete(redisTemplate.keys("menu_*"));
+            redisTemplate.delete(redisTemplate.keys("menu_admin_*"));
             return RespBean.success("更新成功");
         }
         return RespBean.error("更新失败");
