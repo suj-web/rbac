@@ -93,8 +93,8 @@ public class EmployeeController {
     }
 
     @ApiOperation(value = "获取最大工号")
-    @GetMapping("/maxWorkID")
-    public RespBean maxWorkID(){
+    @GetMapping("/maxWorkId")
+    public RespBean maxWorkId(){
         return employeeService.maxWorkID();
     }
 
@@ -161,13 +161,14 @@ public class EmployeeController {
         }
     }
 
-    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "导入数据",operDesc = "导入员工数据")
+//    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "导入数据",operDesc = "导入员工数据")
     @ApiOperation(value = "导入员工数据")
     @PostMapping("/import")
     public RespBean importEmployee(MultipartFile file) {
         ImportParams params = new ImportParams();
         //去掉标题行
         params.setTitleRows(1);
+        params.setStartRows(1);
         List<Department> departments = departmentService.list();
         List<Nation> nations = nationService.list();
         List<PoliticsStatus> politicsStatuses = politicsStatusService.list();
@@ -199,4 +200,5 @@ public class EmployeeController {
         }
         return RespBean.error("导入失败");
     }
+
 }

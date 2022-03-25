@@ -1,5 +1,6 @@
 package com.example.rbac.task;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.pojo.Employee;
 import com.example.rbac.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -21,12 +24,22 @@ public class EmployeeWorkAgeTask {
     @Autowired
     private IEmployeeService employeeService;
 
-    @Scheduled(cron = "0 0 0 1 1 ?")
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
+
+    @Scheduled(cron = "0 0 20 * * ?")
     public void employeeWorkAgeTask() {
-        List<Employee> employees = employeeService.list();
+        LocalDate localDate = LocalDate.now();
+        List<Employee> employees = employeeService.list(new QueryWrapper<Employee>().eq("work_state","在职"));
         for(Employee employee: employees) {
-            employee.setWorkAge(employee.getWorkAge() + 1);
-            employeeService.updateById(employee);
+            if(localDate.getYear() > employee.getBeginDate().getYear()) {
+                if(formatter.format(localDate).equals(formatter.format(employee.getBeginDate()))) {
+                    if(null == employee.getWorkAge()) {
+                        employee.setWorkAge(0);
+                    }
+                    employee.setWorkAge(employee.getWorkAge() + 1);
+                    employeeService.updateById(employee);
+                }
+            }
         }
     }
 

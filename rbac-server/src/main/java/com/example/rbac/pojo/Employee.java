@@ -52,35 +52,33 @@ public class Employee implements Serializable{
     private String workId;
 
     @ApiModelProperty(value = "姓名")
-    @Excel(name = "姓名")
+    @Excel(name = "员工姓名")
     private String name;
 
     @ApiModelProperty(value = "用户名")
-    @Excel(name = "用户名")
     private String username;
 
     @ApiModelProperty(value = "密码")
     private String password;
 
     @ApiModelProperty(value = "手机号码")
-    @Excel(name = "手机号码",width = 20)
+    @Excel(name = "电话号码",width = 15)
     private String phone;
 
     @ApiModelProperty(value = "住宅号码")
-    @Excel(name = "住宅号码",width = 20)
     private String telephone;
 
     @ApiModelProperty(value = "邮箱")
-    @Excel(name = "邮箱",width = 20)
+    @Excel(name = "邮箱",width = 30)
     private String email;
 
     @ApiModelProperty(value = "联系地址")
-    @Excel(name = "联系地址",width = 35)
+    @Excel(name = "联系地址",width = 40)
     private String address;
 
     @ApiModelProperty(value = "出生日期")
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
-    @Excel(name = "出生日期",width = 20)
+    @Excel(name = "出生日期", width = 20, format = "yyyy-MM-dd")
     private LocalDate birthday;
 
     @ApiModelProperty(value = "婚姻状况")
@@ -107,7 +105,7 @@ public class Employee implements Serializable{
 
     @ApiModelProperty(value = "籍贯")
     @TableField("native_place")
-    @Excel(name = "籍贯")
+    @Excel(name = "籍贯",width = 25)
     private String nativePlace;
 
     @ApiModelProperty(value = "政治面貌id")
@@ -129,7 +127,7 @@ public class Employee implements Serializable{
     private String tiptopDegree;
 
     @ApiModelProperty(value = "所属专业")
-    @Excel(name = "所属专业",width = 26)
+    @Excel(name = "所属专业",width = 20)
     private String specialty;
 
     @ApiModelProperty(value = "毕业院校")
@@ -167,7 +165,7 @@ public class Employee implements Serializable{
 
     @ApiModelProperty(value = "合同期限")
     @TableField("contract_term")
-    @Excel(name = "合同期限")
+    @Excel(name = "合同期限",suffix = "年")
     private Double contractTerm;
 
     @ApiModelProperty(value = "转正日期")

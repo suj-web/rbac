@@ -39,4 +39,6 @@ public interface IResourceService extends IService<Resource> {
      * @return
      */
     List<Resource> getAllResources();
+
+    List<Resource> getParentResource();
 }

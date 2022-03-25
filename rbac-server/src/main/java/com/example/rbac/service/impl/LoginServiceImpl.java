@@ -58,7 +58,6 @@ public class LoginServiceImpl implements LoginService {
         }
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        System.out.println(userDetails);
         if(null==userDetails || !passwordEncoder.matches(password,userDetails.getPassword())){
             return RespBean.error("用户名或密码不正确");
         }

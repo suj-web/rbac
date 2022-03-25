@@ -52,6 +52,12 @@
         </collection>
     </resultMap>
 
+    <resultMap id="ParentResourceResultMap" type="com.example.rbac.pojo.Resource" extends="BaseResultMap">
+        <association property="parent" javaType="com.example.rbac.pojo.Resource" column="parent_id"
+            select="com.example.rbac.mapper.ResourceMapper.getParentResource">
+        </association>
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, name, type, url, path, component, icon_cls, parent_id, enabled, is_delete, gmt_create, gmt_modified
@@ -135,10 +141,22 @@
 
     <select id="getAllResources" resultMap="AllResources">
         SELECT
-            id, `name`
+            id, `name`,parent_id
         FROM t_resource res
         WHERE
             res.parent_id = #{parentId}
+        ORDER BY res.id
+    </select>
+
+<!--    根据当前资源id获取所有父级资源id-->
+    <select id="getParentResource" resultMap="ParentResourceResultMap">
+        SELECT
+            id, `name`, parent_id
+        FROM t_resource res
+        WHERE 1 = 1
+        <if test="null != parentId">
+            AND res.id = #{parentId}
+        </if>
         ORDER BY res.id
     </select>
 </mapper>

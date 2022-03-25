@@ -92,4 +92,8 @@ public class Resource implements Serializable {
     @ApiModelProperty(value = "角色列表")
     @TableField(exist = false)
     private List<Role> roles;
+
+    @ApiModelProperty(value = "父菜单")
+    @TableField(exist = false)
+    private Resource parent;
 }

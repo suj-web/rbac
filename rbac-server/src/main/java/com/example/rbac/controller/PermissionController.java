@@ -12,6 +12,7 @@ import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -78,7 +79,6 @@ public class PermissionController {
     }
 
     @ApiOperation(value = "通过角色id获取资源id")
-    @ApiImplicitParam(name = "rid",value = "角色id")
     @GetMapping("/resId/{rid}")
     public List<Integer> getResIdByRoleId(@PathVariable Integer rid){
         return roleResourceService.list(new QueryWrapper<RoleResource>().eq("role_id",rid))
@@ -91,11 +91,16 @@ public class PermissionController {
         return resourceService.list().stream().map(Resource::getId).collect(Collectors.toList());
     }
 
-    @PutMapping("/")
+    @ApiOperation(value = "获取所有父级资源")
+    @GetMapping("/parent")
+    public List<Resource> getParentResource() {
+        return resourceService.getParentResource();
+    }
+
+
     @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "更新",operDesc = "更新角色菜单列表")
     @ApiOperation(value = "更新角色菜单列表")
-    @ApiImplicitParams({@ApiImplicitParam(name = "roleId",value = "角色id")
-                        ,@ApiImplicitParam(name = "ids",value = "资源id")})
+    @PutMapping("/")
     public RespBean updateRoleResource(Integer roleId, Integer[] ids){
         return roleResourceService.updateRoleResource(roleId, ids);
     }
