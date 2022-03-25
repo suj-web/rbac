@@ -182,13 +182,13 @@
             AND emp.position_id = #{employee.positionId}
         </if>
         <if test="null!=employee.engageForm and ''!=employee.engageForm">
-            AND e.engage_form= #{employee.engageForm}
+            AND emp.engage_form= #{employee.engageForm}
         </if>
         <if test="null!=employee.departmentId">
-            AND e.department_id = #{employee.departmentId}
+            AND emp.department_id = #{employee.departmentId}
         </if>
         <if test="null!=beginDateScope and 2==beginDateScope.length">
-            AND e.begin_date BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
+            AND emp.begin_date BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
         </if>
         ORDER BY
             emp.id
