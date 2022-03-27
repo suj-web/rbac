@@ -3,9 +3,7 @@ package com.example.rbac.config.security;
 import com.example.rbac.config.security.component.*;
 import com.example.rbac.pojo.Admin;
 import com.example.rbac.service.IAdminService;
-import com.example.rbac.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
@@ -21,11 +19,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import javax.servlet.http.HttpSessionListener;
 
 /**
  * @Author suj
@@ -34,14 +30,11 @@ import javax.servlet.http.HttpSessionListener;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
-//    @Autowired
-//    private IUserService userService;
-
     @Autowired
     private IAdminService adminService;
 
     @Autowired
-    private IEmployeeService employeeService;
+    private SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
 
     @Autowired
     private RestAuthorizationEntryPoint restAuthorizationEntryPoint;
@@ -112,6 +105,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         // 配置spring security
         http.sessionManagement()
                 .maximumSessions(1) // 控制并发的数量
+                .expiredSessionStrategy(sessionInformationExpiredStrategy)
                 .maxSessionsPreventsLogin(false) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来
                 .sessionRegistry(sessionRegistry());
     }
