@@ -5,6 +5,7 @@ import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.SalaryTable;
 import com.example.rbac.service.IEmployeeEcService;
 import com.example.rbac.service.IEmployeeService;
+import com.example.rbac.service.ILoginLogService;
 import com.example.rbac.service.ISalaryTableService;
 import com.example.rbac.utils.ScoreUtils;
 import org.apache.tomcat.jni.Local;
@@ -32,6 +33,14 @@ class RbacApplicationTests {
     void contextLoads() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         System.out.println(encoder.encode("admin"));
+    }
+
+    @Autowired
+    private ILoginLogService loginLogService;
+
+    @Test
+    public void test6() {
+        System.out.println(loginLogService.list());
     }
 
     @Test

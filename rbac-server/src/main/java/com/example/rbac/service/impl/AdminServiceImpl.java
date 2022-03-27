@@ -91,11 +91,11 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
             admin.setPassword(encoder.encode(pass));
             int result = adminMapper.updateById(admin);
             if(1==result){
-                return RespBean.success("更新成功!");
+                return RespBean.success("注销成功!");
             }
         }
 
-        return RespBean.error("更新失败!");
+        return RespBean.error("注销失败!");
     }
 
     /**

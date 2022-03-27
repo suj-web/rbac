@@ -84,7 +84,7 @@
             <result column="saccumulation_fund_per" property="accumulationFundPer"/>
         </association>
         <association property="department" javaType="com.example.rbac.pojo.Department">
-            <result column="depname" property="name"/>
+            <result column="dep_name" property="name"/>
         </association>
     </resultMap>
 
@@ -221,7 +221,6 @@
         AND emp.politic_id = ps.id
         AND emp.job_level_id = job.id
         AND emp.is_delete = FALSE
-        AND emp.work_state = '在职'
         <if test="null != employeeId">
             AND emp.id = #{employeeId}
         </if>
@@ -232,7 +231,7 @@
     <select id="getEmployeeWithSalary" resultMap="EmployeeWithSalary">
         SELECT
             emp.*,
-            dep.name AS dname,
+            dep.name AS dep_name,
             sal.id AS sid,
             sal.`name` AS sname,
             sal.basic_salary AS sbasic_salary,
@@ -252,7 +251,7 @@
             emp.is_delete = FALSE
         AND emp.work_state = '在职'
         <if test="null!=name and ''!=name">
-            AND emp. NAME LIKE CONCAT('%', #{name}, '%')
+            AND emp.`name` LIKE CONCAT('%', #{name}, '%')
         </if>
             ORDER BY emp.id
     </select>

@@ -1,6 +1,7 @@
 package com.example.rbac.controller;
 
 
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
 import com.example.rbac.service.IAttendanceService;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +24,7 @@ public class AttendanceController {
     @Autowired
     private IAttendanceService attendanceService;
 
+    @OperationLogAnnotation(operModul = "人事管理-员工考勤",operType = "查询",operDesc = "查询员工考勤信息")
     @ApiOperation(value = "查询员工考勤信息")
     @GetMapping("/list")
     public RespPageBean getAttendances(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -31,6 +33,7 @@ public class AttendanceController {
         return attendanceService.getAttendances(currentPage, size, beginDateScope);
     }
 
+    @OperationLogAnnotation(operModul = "人事管理-员工考勤",operType = "添加",operDesc = "添加员工考勤信息")
     @ApiOperation(value = "添加员工考勤信息")
     @PostMapping("/")
     public RespBean addEcRule(@RequestBody Attendance attendance) {
@@ -40,6 +43,7 @@ public class AttendanceController {
         return RespBean.error("添加失败");
     }
 
+    @OperationLogAnnotation(operModul = "人事管理-员工考勤",operType = "修改",operDesc = "修改员工考勤信息")
     @ApiOperation(value = "修改员工考勤信息")
     @PutMapping("/")
     public RespBean updateEcRule(@RequestBody Attendance attendance) {
@@ -49,6 +53,7 @@ public class AttendanceController {
         return RespBean.error("修改失败");
     }
 
+    @OperationLogAnnotation(operModul = "人事管理-员工考勤",operType = "删除",operDesc = "删除员工考勤信息")
     @ApiOperation(value = "删除员工考勤信息")
     @DeleteMapping("/{id}")
     public RespBean deleteEcRuleById(@PathVariable Integer id) {
@@ -58,6 +63,7 @@ public class AttendanceController {
         return RespBean.error("删除失败");
     }
 
+    @OperationLogAnnotation(operModul = "人事管理-员工考勤",operType = "删除",operDesc = "批量删除员工考勤信息")
     @ApiOperation(value = "批量删除员工考勤信息")
     @DeleteMapping("/")
     public RespBean deleteEcRuleByIds(Integer[] ids) {

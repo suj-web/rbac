@@ -161,7 +161,7 @@ public class EmployeeController {
         }
     }
 
-//    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "导入数据",operDesc = "导入员工数据")
+    @OperationLogAnnotation(operModul = "员工资料-员工基本资料",operType = "导入数据",operDesc = "导入员工数据")
     @ApiOperation(value = "导入员工数据")
     @PostMapping("/import")
     public RespBean importEmployee(MultipartFile file) {

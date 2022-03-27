@@ -1,22 +1,29 @@
 package com.example.rbac.controller;
 
-import com.example.rbac.pojo.Admin;
-import com.example.rbac.pojo.RespBean;
-import com.example.rbac.pojo.RespPageBean;
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
+import cn.afterturn.easypoi.excel.entity.ExportParams;
+import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.rbac.annotation.OperationLogAnnotation;
+import com.example.rbac.pojo.*;
 import com.example.rbac.service.IEcRuleService;
 import com.example.rbac.service.IEmployeeService;
+import com.example.rbac.service.ILoginLogService;
 import io.swagger.annotations.ApiOperation;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionInformation;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.net.URLEncoder;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,8 +37,17 @@ public class HomeRemindController {
     @Autowired
     private IEmployeeService employeeService;
 
-//    @Autowired
-//    private SessionRegistry sessionRegistry;
+    @Autowired
+    private SessionRegistry sessionRegistry;
+
+    @Autowired
+    private ILoginLogService loginLogService;
+
+    @ApiOperation(value = "在职员工数量")
+    @GetMapping("/employee/count")
+    public Integer getEmployeeCount() {
+        return employeeService.list(new QueryWrapper<Employee>().eq("work_state","在职")).size();
+    }
 
     @ApiOperation(value = "合同到期提醒")
     @GetMapping("/contract/expire")
@@ -60,9 +76,54 @@ public class HomeRemindController {
     }
 
 
-//    @ApiOperation(value = "在线人数")
-//    @GetMapping("/online/count")
-//    public Integer getOnlineCount() {
-//        return sessionRegistry.getAllPrincipals().size();
-//    }
+    @ApiOperation(value = "在线人数")
+    @GetMapping("/online/count")
+    public Integer getOnlineCount() {
+        return sessionRegistry.getAllPrincipals().size();
+    }
+
+    @OperationLogAnnotation(operModul = "首页展示",operType = "查询",operDesc = "查询登录日志")
+    @ApiOperation(value = "查询登录日志")
+    @GetMapping("/login/log")
+    public RespPageBean getLoginLogs(@RequestParam(defaultValue = "1") Integer currentPage,
+                                     @RequestParam(defaultValue = "10") Integer size,
+                                     LoginLog loginLog, LocalDateTime[] loginDateTimeScope) {
+        return loginLogService.getLoginLogs(currentPage, size, loginLog, loginDateTimeScope);
+    }
+
+    @OperationLogAnnotation(operModul = "首页展示",operType = "删除",operDesc = "删除登录日志")
+    @ApiOperation(value = "删除登录日志")
+    @DeleteMapping("/login/log")
+    public RespBean deleteLoginLog(Integer[] logIds) {
+        if(loginLogService.removeByIds(Arrays.asList(logIds))) {
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
+
+    @OperationLogAnnotation(operModul = "首页展示",operType = "导出数据",operDesc = "导出登录日志")
+    @ApiOperation(value = "导出登录日志")
+    @GetMapping(value = "/login/log/export", produces = "application/octet-stream")
+    public void exportEmployee(HttpServletResponse response){
+        List<LoginLog> list = loginLogService.list();
+        ExportParams params = new ExportParams("登录日志表","登录日志表", ExcelType.HSSF);
+        Workbook workbook = ExcelExportUtil.exportExcel(params, LoginLog.class, list);
+        ServletOutputStream outputStream = null;
+        try {
+            response.setHeader("content-type","application/octet-stream");
+            response.setHeader("content-disposition","attachment;filename=" + URLEncoder.encode("登录日志表.xls","UTF-8"));
+            outputStream = response.getOutputStream();
+            workbook.write(outputStream);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if(null!=outputStream) {
+                try {
+                    outputStream.close();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

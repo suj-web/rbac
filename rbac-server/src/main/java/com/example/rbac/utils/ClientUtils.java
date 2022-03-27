@@ -73,14 +73,25 @@ public class ClientUtils {
         String address = "";
         System.out.println(data);
         if(null != map) {
-            address = map.get("country") + " " + map.get("region") + " " + map.get("city");
+            if (null != map.get("country")) {
+                address += map.get("country");
+            }
+            if (null != map.get("region")) {
+                address += map.get("region");
+            }
+            if (null != map.get("city")) {
+                address += map.get("city");
+            }
+            if("".equals(address)) {
+                address = "未知地点";
+            }
         }
         return address;
     }
 
     public static String getAddress1(String ip) {
         if("0:0:0:0:0:0:0:1".equals(ip)) {
-            ip = "192.168.43.1";
+            ip = "localhost";
         }
 
         String path = "https://ip.taobao.com/outGetIpInfo?ip=" + ip + "&accessKey=alibaba-inc";

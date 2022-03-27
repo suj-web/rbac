@@ -21,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -108,11 +109,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .authenticationEntryPoint(restAuthorizationEntryPoint)
                 .accessDeniedHandler(restfulAccessDeniedHandler);
 
-//        // 配置spring security
-//        http.sessionManagement()
-//                .maximumSessions(2) // 控制并发的数量
-//                .maxSessionsPreventsLogin(true) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来
-//                .sessionRegistry(sessionRegistry());
+        // 配置spring security
+        http.sessionManagement()
+                .maximumSessions(1) // 控制并发的数量
+                .maxSessionsPreventsLogin(false) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来
+                .sessionRegistry(sessionRegistry());
     }
 
     @Bean
@@ -154,17 +155,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         return new JwtAuthorizationTokenFilter();
     }
 
-//    //统计在线用户
-//    @Bean
-//    public SessionRegistry sessionRegistry() {
-//        return new SessionRegistryImpl();
-//    }
-//
-//    @Bean
-//    public ServletListenerRegistrationBean<HttpSessionListener> sessionListenerWithMetrics() {
-//        ServletListenerRegistrationBean<HttpSessionListener> listenerRegBean = new ServletListenerRegistrationBean<>();
-//        listenerRegBean.setListener(new HttpSessionEventPublisher());
-//        return listenerRegBean;
-//    }
+    //统计在线用户
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }
+
+    @Bean
+    public HttpSessionEventPublisher httpSessionEventPublisher() {
+        return new HttpSessionEventPublisher();
+    }
 
 }
