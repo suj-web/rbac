@@ -105,7 +105,6 @@ public class HomeRemindController {
         return users;
     }
 
-    @OperationLogAnnotation(operModul = "首页展示",operType = "查询",operDesc = "查询登录日志")
     @ApiOperation(value = "查询登录日志")
     @GetMapping("/login/log")
     public RespPageBean getLoginLogs(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -124,7 +123,7 @@ public class HomeRemindController {
         return RespBean.error("删除失败");
     }
 
-    @OperationLogAnnotation(operModul = "首页展示",operType = "导出数据",operDesc = "导出登录日志")
+    @OperationLogAnnotation(operModul = "首页展示",operType = "导出",operDesc = "导出登录日志")
     @ApiOperation(value = "导出登录日志")
     @GetMapping(value = "/login/log/export", produces = "application/octet-stream")
     public void exportEmployee(HttpServletResponse response){

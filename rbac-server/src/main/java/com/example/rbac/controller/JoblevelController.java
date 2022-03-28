@@ -29,14 +29,14 @@ public class JoblevelController {
     @Autowired
     private IEmployeeService employeeService;
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职称管理",operType = "查询",operDesc = "获取所有职称")
+    @OperationLogAnnotation(operModul = "职称管理",operType = "查询",operDesc = "获取所有职称")
     @ApiOperation(value = "获取所有职称")
     @GetMapping("/")
     public List<Joblevel> getAllJoblevels(){
         return joblevelService.list();
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职称管理",operType = "添加",operDesc = "添加职称")
+    @OperationLogAnnotation(operModul = "职称管理",operType = "添加",operDesc = "添加职称")
     @ApiOperation(value = "添加职称")
     @PostMapping("/")
     public RespBean addJoblevel(@RequestBody Joblevel joblevel){
@@ -46,7 +46,7 @@ public class JoblevelController {
         return RespBean.error("添加失败!");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职称管理",operType = "更新",operDesc = "更新职称")
+    @OperationLogAnnotation(operModul = "职称管理",operType = "更新",operDesc = "更新职称")
     @ApiOperation(value = "更新职称")
     @PutMapping("/")
     public RespBean updateJoblevel(@RequestBody Joblevel joblevel){
@@ -56,7 +56,7 @@ public class JoblevelController {
         return RespBean.error("更新失败!");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职称管理",operType = "删除",operDesc = "删除职称")
+    @OperationLogAnnotation(operModul = "职称管理",operType = "删除",operDesc = "删除职称")
     @ApiOperation(value = "删除职称")
     @DeleteMapping("/{id}")
     public RespBean deleteJoblevel(@PathVariable Integer id){
@@ -70,7 +70,7 @@ public class JoblevelController {
         return RespBean.error("删除失败!");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职称管理",operType = "删除",operDesc = "批量删除职称")
+    @OperationLogAnnotation(operModul = "职称管理",operType = "删除",operDesc = "批量删除职称")
     @ApiOperation(value = "批量删除职称")
     @DeleteMapping("/")
     public RespBean deleteJoblevelByIds(Integer[] ids){

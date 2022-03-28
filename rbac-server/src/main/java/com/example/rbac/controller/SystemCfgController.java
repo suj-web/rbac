@@ -140,6 +140,7 @@ public class SystemCfgController {
     }
 
 
+    @OperationLogAnnotation(operModul = "在线用户",operType = "强退",operDesc = "强制退出用户")
     @ApiOperation(value = "强制退出")
     @PutMapping("/online/quit")
     public RespBean onlineQuit(String username) {

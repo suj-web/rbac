@@ -42,7 +42,6 @@ public class LoginController {
     @Autowired
     private ILoginLogService loginLogService;
 
-    @OperationLogAnnotation(operModul = "用户登录",operType = "登录",operDesc = "登录之后返回token")
     @ApiOperation(value = "登录之后返回token")
     @PostMapping("/login")
     public RespBean login(@RequestBody UserLoginParam user, HttpServletRequest request) {
@@ -74,7 +73,6 @@ public class LoginController {
         return loginService.getAdminInfo(principal.getName());
     }
 
-    @OperationLogAnnotation(operModul = "登录",operType = "注销",operDesc = "退出登录")
     @ApiOperation(value = "退出登录")
     @PostMapping("/logout")
     public RespBean logout(HttpServletRequest request, HttpServletResponse response){

@@ -31,14 +31,14 @@ public class PositionController {
     @Autowired
     private IEmployeeService employeeService;
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职位管理",operType = "查询",operDesc = "获取所有职位信息")
+    @OperationLogAnnotation(operModul = "职位管理",operType = "查询",operDesc = "获取所有职位信息")
     @ApiOperation(value = "获取所有职位信息")
     @GetMapping("/")
     public List<Position> getAllPositions(){
         return positionService.list();
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职位管理",operType = "添加",operDesc = "添加职位信息")
+    @OperationLogAnnotation(operModul = "职位管理",operType = "添加",operDesc = "添加职位信息")
     @ApiOperation(value = "添加职位信息")
     @PostMapping("/")
     public RespBean addPosition(@RequestBody Position position){
@@ -48,7 +48,7 @@ public class PositionController {
         return RespBean.error("添加失败!");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职位管理",operType = "更新",operDesc = "更新职位信息")
+    @OperationLogAnnotation(operModul = "职位管理",operType = "更新",operDesc = "更新职位信息")
     @ApiOperation(value = "更新职位信息")
     @PutMapping("/")
     public RespBean updatePosition(@RequestBody Position position){
@@ -58,7 +58,7 @@ public class PositionController {
         return RespBean.error("更新失败!");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职位管理",operType = "删除",operDesc = "删除职位信息")
+    @OperationLogAnnotation(operModul = "职位管理",operType = "删除",operDesc = "删除职位信息")
     @ApiOperation(value = "删除职位信息")
     @DeleteMapping("/{id}")
     public RespBean deletePosition(@PathVariable Integer id){
@@ -72,7 +72,7 @@ public class PositionController {
         return RespBean.error("删除失败!");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-职位管理",operType = "删除",operDesc = "批量删除职位信息")
+    @OperationLogAnnotation(operModul = "职位管理",operType = "删除",operDesc = "批量删除职位信息")
     @ApiOperation(value = "批量删除职位信息")
     @DeleteMapping("/")
     public RespBean deletePositionByIds(Integer[] ids){

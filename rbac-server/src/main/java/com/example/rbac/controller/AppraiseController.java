@@ -26,7 +26,7 @@ public class AppraiseController {
     @Autowired
     private IAppraiseService appraiseService;
 
-    @OperationLogAnnotation(operModul = "人事管理-员工考评",operType = "查询",operDesc = "查询员工考评信息")
+    @OperationLogAnnotation(operModul = "员工考评",operType = "查询",operDesc = "查询员工考评信息")
     @ApiOperation(value = "查询员工考评信息")
     @GetMapping("/")
     public RespPageBean getAllAppraises(@RequestParam(defaultValue = "1") Integer currentPage,

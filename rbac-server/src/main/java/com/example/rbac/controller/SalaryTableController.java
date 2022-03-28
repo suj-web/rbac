@@ -45,7 +45,7 @@ public class SalaryTableController {
         return departmentService.list();
     }
 
-    @OperationLogAnnotation(operModul = "薪资管理-工资表管理",operType = "查询",operDesc = "获取所有员工当月工资信息")
+    @OperationLogAnnotation(operModul = "工资表管理",operType = "查询",operDesc = "获取所有员工当月工资信息")
     @ApiOperation(value = "获取所有员工当月工资信息")
     @GetMapping("/")
     public RespPageBean getAllEmployeeWithSalaryTable(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -54,7 +54,7 @@ public class SalaryTableController {
         return employeeService.getAllEmployeeWithSalaryTable(currentPage, size, depId);
     }
 
-    @OperationLogAnnotation(operModul = "薪资管理-工资表管理",operType = "更新",operDesc = "更新员工工资")
+    @OperationLogAnnotation(operModul = "工资表管理",operType = "更新",operDesc = "更新员工工资")
     @ApiOperation(value = "更新员工工资(实际上是修改员工账套)")
     @PutMapping("/")
     public RespBean updateSalaryTable(Integer employeeId, Integer salaryId) {

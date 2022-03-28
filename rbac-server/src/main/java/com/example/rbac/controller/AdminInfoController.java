@@ -34,7 +34,7 @@ public class AdminInfoController {
         return UserUtils.getCurrentUser();
     }
 
-    @OperationLogAnnotation(operModul = "用户信息",operType = "更新",operDesc = "更新当前操作员信息")
+    @OperationLogAnnotation(operModul = "当前用户信息",operType = "更新",operDesc = "更新当前操作员信息")
     @ApiOperation(value = "更新当前操作员信息")
     @PutMapping("/admin/info")
     public RespBean updateAdminInfo(@RequestBody Admin admin, Authentication authentication) {
@@ -47,7 +47,7 @@ public class AdminInfoController {
         return RespBean.error("更新失败");
     }
 
-    @OperationLogAnnotation(operModul = "用户信息",operType = "更新",operDesc = "更新当前操作员密码")
+    @OperationLogAnnotation(operModul = "当前用户信息",operType = "更新",operDesc = "更新当前操作员密码")
     @ApiOperation(value = "更新操作员密码")
     @PutMapping("/admin/pass")
     public RespBean updateUserPass(@RequestBody Map<String, String> info) {
@@ -57,7 +57,7 @@ public class AdminInfoController {
         return adminService.updateAdminPassword(oldPass, pass, adminId);
     }
 
-    @OperationLogAnnotation(operModul = "用户信息",operType = "更新",operDesc = "更新当前操作员头像")
+    @OperationLogAnnotation(operModul = "当前用户信息",operType = "更新",operDesc = "更新当前操作员头像")
     @ApiOperation(value = "更新操作员头像")
     @PostMapping("/admin/userface")
     public RespBean updateUserFace(MultipartFile file, Integer id, Authentication authentication) {

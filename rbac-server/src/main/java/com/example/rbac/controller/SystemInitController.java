@@ -1,5 +1,6 @@
 package com.example.rbac.controller;
 
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.Table;
 import com.example.rbac.service.ITableService;
@@ -31,7 +32,8 @@ public class SystemInitController {
         return tableService.list();
     }
 
-    @ApiOperation(value = "删除数据表")
+    @OperationLogAnnotation(operModul = "初始化数据库",operType = "初始化",operDesc = "初始化数据表")
+    @ApiOperation(value = "初始化数据表")
     @DeleteMapping("/{id}")
     public RespBean deleteTableById(@PathVariable Integer id) {
         Table table = tableService.getById(id);
@@ -44,7 +46,8 @@ public class SystemInitController {
         return RespBean.error("初始化失败");
     }
 
-    @ApiOperation(value = "批量删除数据表")
+    @OperationLogAnnotation(operModul = "初始化数据库",operType = "初始化",operDesc = "批量初始化数据表")
+    @ApiOperation(value = "批量初始化数据表")
     @DeleteMapping("/")
     public RespBean deleteTableByIds(Integer[] ids) {
         try {

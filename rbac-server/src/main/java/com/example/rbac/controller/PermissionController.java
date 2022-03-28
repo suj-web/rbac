@@ -43,7 +43,7 @@ public class PermissionController {
         return roleService.list();
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "添加",operDesc = "添加角色")
+    @OperationLogAnnotation(operModul = "权限组",operType = "添加",operDesc = "添加角色")
     @ApiOperation(value = "添加角色")
     @PostMapping("/role")
     public RespBean addRole(@RequestBody Role role) {
@@ -56,7 +56,7 @@ public class PermissionController {
         return RespBean.error("添加失败");
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "删除",operDesc = "删除角色")
+    @OperationLogAnnotation(operModul = "权限组",operType = "删除",operDesc = "删除角色")
     @ApiOperation(value = "删除角色")
     @DeleteMapping("/role/{id}")
     public RespBean deleteRole(@PathVariable Integer id){
@@ -98,7 +98,7 @@ public class PermissionController {
     }
 
 
-    @OperationLogAnnotation(operModul = "系统管理-基础信息设置-权限组",operType = "更新",operDesc = "更新角色菜单列表")
+    @OperationLogAnnotation(operModul = "权限组",operType = "更新",operDesc = "更新角色菜单列表")
     @ApiOperation(value = "更新角色菜单列表")
     @PutMapping("/")
     public RespBean updateRoleResource(Integer roleId, Integer[] ids){

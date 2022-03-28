@@ -36,7 +36,7 @@ public class SalaryMonthController {
     @Autowired
     private IEmployeeService employeeService;
 
-    @OperationLogAnnotation(operModul = "人事管理-月末处理",operType = "查询",operDesc = "获取所有员工当月工资信息")
+    @OperationLogAnnotation(operModul = "月末处理",operType = "查询",operDesc = "获取所有员工当月工资信息")
     @ApiOperation(value = "获取所有员工当月工资信息")
     @GetMapping("/")
     public RespPageBean getAllEmployeeWithSalaryTable(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -45,7 +45,7 @@ public class SalaryMonthController {
         return employeeService.getAllEmployeeWithSalaryTable(currentPage, size, depId);
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-月末处理",operType = "更新",operDesc = "锁定当月账单")
+    @OperationLogAnnotation(operModul = "月末处理",operType = "更新",operDesc = "锁定当月账单")
     @ApiOperation(value = "锁定当月账单")
     @PutMapping("/lock")
     public RespBean lockSalaryTable(Integer[] ids) {
@@ -61,7 +61,7 @@ public class SalaryMonthController {
         }
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-月末处理",operType = "更新",operDesc = "解锁当月账单")
+    @OperationLogAnnotation(operModul = "月末处理",operType = "更新",operDesc = "解锁当月账单")
     @ApiOperation(value = "解锁当月账单")
     @PutMapping("/unlock")
     public RespBean unlockSalaryTable(Integer[] ids) {

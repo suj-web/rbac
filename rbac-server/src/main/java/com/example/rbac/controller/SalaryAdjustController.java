@@ -27,7 +27,7 @@ public class SalaryAdjustController {
     @Autowired
     private ISalaryAdjustService salaryAdjustService;
 
-    @OperationLogAnnotation(operModul = "人事管理-员工调薪",operType = "查询",operDesc = "获取所有员工调薪信息")
+    @OperationLogAnnotation(operModul = "员工调薪",operType = "查询",operDesc = "获取所有员工调薪信息")
     @ApiOperation(value = "获取所有员工调薪信息")
     @GetMapping("/")
     public RespPageBean getAllSalaryAdjust(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -37,7 +37,7 @@ public class SalaryAdjustController {
 
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工调薪",operType = "添加",operDesc = "添加员工调薪信息")
+    @OperationLogAnnotation(operModul = "员工调薪",operType = "添加",operDesc = "添加员工调薪信息")
     @ApiOperation(value = "添加员工调薪信息")
     @PostMapping("/")
     public RespBean addSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
@@ -47,7 +47,7 @@ public class SalaryAdjustController {
         return RespBean.error("添加失败");
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工调薪",operType = "更新",operDesc = "修改员工调薪信息")
+    @OperationLogAnnotation(operModul = "员工调薪",operType = "更新",operDesc = "修改员工调薪信息")
     @ApiOperation(value = "修改员工调薪信息")
     @PutMapping("/")
     public RespBean updateSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
@@ -57,7 +57,7 @@ public class SalaryAdjustController {
         return RespBean.error("修改失败");
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工调薪",operType = "删除",operDesc = "删除员工调薪信息")
+    @OperationLogAnnotation(operModul = "员工调薪",operType = "删除",operDesc = "删除员工调薪信息")
     @ApiOperation(value = "删除员工调薪信息")
     @DeleteMapping("/{id}")
     public RespBean deleteSalaryAdjust(@PathVariable Integer id) {
@@ -67,7 +67,7 @@ public class SalaryAdjustController {
         return RespBean.error("删除失败");
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工调薪",operType = "删除",operDesc = "批量删除员工调薪信息")
+    @OperationLogAnnotation(operModul = "员工调薪",operType = "删除",operDesc = "批量删除员工调薪信息")
     @ApiOperation(value = "批量删除员工调薪信息")
     @DeleteMapping("/")
     public RespBean deleteManySalaryAdjust(Integer[] ids) {

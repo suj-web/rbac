@@ -24,7 +24,7 @@ public class EmployeeEcController {
     @Autowired
     private IEmployeeEcService employeeEcService;
 
-    @OperationLogAnnotation(operModul = "人事管理-员工奖惩",operType = "查询",operDesc = "获取所有奖惩人员信息")
+    @OperationLogAnnotation(operModul = "员工奖惩",operType = "查询",operDesc = "获取所有奖惩人员信息")
     @ApiOperation(value = "获取所有奖惩人员信息")
     @GetMapping("/")
     public RespPageBean getAllEmployeeEc(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -33,7 +33,7 @@ public class EmployeeEcController {
         return employeeEcService.getAllEmployeeEc(currentPage, size, name, localDate);
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工奖惩",operType = "添加",operDesc = "添加奖惩人员信息")
+    @OperationLogAnnotation(operModul = "员工奖惩",operType = "添加",operDesc = "添加奖惩人员信息")
     @ApiOperation(value = "添加奖惩人员信息")
     @PostMapping("/")
     public RespBean addEmployeeEc(@RequestBody EmployeeEc employeeEc) {
@@ -43,7 +43,7 @@ public class EmployeeEcController {
         return RespBean.error("添加失败");
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工奖惩",operType = "更新",operDesc = "更新奖惩人员信息")
+    @OperationLogAnnotation(operModul = "员工奖惩",operType = "更新",operDesc = "更新奖惩人员信息")
     @ApiOperation(value = "更新奖惩人员信息")
     @PutMapping("/")
     public RespBean updateEmployeeEc(@RequestBody EmployeeEc employeeEc) {
@@ -53,7 +53,7 @@ public class EmployeeEcController {
         return RespBean.error("修改失败");
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工奖惩",operType = "删除",operDesc = "删除奖惩人员信息")
+    @OperationLogAnnotation(operModul = "员工奖惩",operType = "删除",operDesc = "删除奖惩人员信息")
     @ApiOperation(value = "删除奖惩人员信息")
     @DeleteMapping("/{id}")
     public RespBean deleteEmployeeEc(@PathVariable Integer id) {
@@ -63,7 +63,7 @@ public class EmployeeEcController {
         return RespBean.error("删除失败");
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-员工奖惩",operType = "删除",operDesc = "批量删除奖惩人员信息")
+    @OperationLogAnnotation(operModul = "员工奖惩",operType = "删除",operDesc = "批量删除奖惩人员信息")
     @ApiOperation(value = "批量删除奖惩人员信息")
     @DeleteMapping("/")
     public RespBean deleteManyEmployeeEc(Integer[] ids) {

@@ -37,7 +37,7 @@ public class SalarySearchController {
         return departmentService.list();
     }
 
-    @OperationLogAnnotation(operModul = "人事管理-工资表查询",operType = "查询",operDesc = "获取所有工资表信息")
+    @OperationLogAnnotation(operModul = "工资表查询",operType = "查询",operDesc = "获取所有工资表信息")
     @ApiOperation(value = "获取所有工资表信息")
     @GetMapping("/list")
     public RespPageBean getAllSalaryTables(@RequestParam(defaultValue = "1") Integer currentPage,

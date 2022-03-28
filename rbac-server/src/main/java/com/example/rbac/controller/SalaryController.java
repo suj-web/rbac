@@ -29,14 +29,14 @@ public class SalaryController {
     @Autowired
     private IEmployeeService employeeService;
 
-    @OperationLogAnnotation(operModul = "工资账套管理",operType = "查询",operDesc = "获取所有工资账套")
+    @OperationLogAnnotation(operModul = "工资账套",operType = "查询",operDesc = "获取所有工资账套")
     @ApiOperation(value = "获取所有工资账套")
     @GetMapping("/")
     public List<Salary> getAllSalaries(){
         return salaryService.list();
     }
 
-    @OperationLogAnnotation(operModul = "工资账套管理",operType = "添加",operDesc = "添加工资账套")
+    @OperationLogAnnotation(operModul = "工资账套",operType = "添加",operDesc = "添加工资账套")
     @ApiOperation(value = "添加工资账套")
     @PostMapping("/")
     public RespBean addSalary(@RequestBody Salary salary){
@@ -46,7 +46,7 @@ public class SalaryController {
         return RespBean.error("添加失败!");
     }
 
-    @OperationLogAnnotation(operModul = "工资账套管理",operType = "更新",operDesc = "更新工资账套")
+    @OperationLogAnnotation(operModul = "工资账套",operType = "更新",operDesc = "更新工资账套")
     @ApiOperation(value = "更新工资账套")
     @PutMapping("/")
     public RespBean updateSalary(@RequestBody Salary salary){
@@ -56,7 +56,7 @@ public class SalaryController {
         return RespBean.error("更新失败!");
     }
 
-    @OperationLogAnnotation(operModul = "工资账套管理",operType = "删除",operDesc = "删除工资账套")
+    @OperationLogAnnotation(operModul = "工资账套",operType = "删除",operDesc = "删除工资账套")
     @ApiOperation(value = "删除工资账套")
     @DeleteMapping("/{id}")
     public RespBean deleteSalary(@PathVariable Integer id){

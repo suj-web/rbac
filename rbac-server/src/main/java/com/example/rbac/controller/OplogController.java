@@ -27,7 +27,7 @@ public class OplogController {
     @Autowired
     private IOplogService oplogService;
 
-    @OperationLogAnnotation(operModul = "系统管理-操作日志管理", operType = "查询", operDesc = "查询操作日志")
+    @OperationLogAnnotation(operModul = "操作日志", operType = "查询", operDesc = "查询操作日志")
     @ApiOperation(value = "查询操作日志")
     @GetMapping("/")
     public RespPageBean getAllOplogs(@RequestParam(defaultValue = "1") Integer currentPage,
@@ -36,7 +36,7 @@ public class OplogController {
         return oplogService.getAllOplogs(currentPage, size, name);
     }
 
-    @OperationLogAnnotation(operModul = "系统管理-操作日志管理", operType = "删除", operDesc = "删除操作日志")
+    @OperationLogAnnotation(operModul = "操作日志", operType = "删除", operDesc = "删除操作日志")
     @ApiOperation(value = "删除操作日志")
     @DeleteMapping("/")
     public RespBean deleteByIds(Integer[] ids) {
