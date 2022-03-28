@@ -9,6 +9,8 @@ import com.example.rbac.pojo.*;
 import com.example.rbac.service.IEcRuleService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.ILoginLogService;
+import com.example.rbac.utils.ClientUtils;
+import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.ApiOperation;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
@@ -80,6 +83,26 @@ public class HomeRemindController {
     @GetMapping("/online/count")
     public Integer getOnlineCount() {
         return sessionRegistry.getAllPrincipals().size();
+    }
+
+    @ApiOperation(value = "在线用户")
+    @GetMapping("/online/user")
+    public List<OnlineUser> getOnlineUser(HttpServletRequest request) {
+        List<OnlineUser> users = new ArrayList<>();
+        //获取principals
+        List<Object> principals = sessionRegistry.getAllPrincipals();
+        for (Object o : principals) {
+            List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
+            OnlineUser user = new OnlineUser();
+            user.setLoginName(UserUtils.getCurrentUser().getUsername());
+            user.setIp(ClientUtils.getIpAddress(request));
+            user.setBrowser(ClientUtils.getBrowserType(request));
+            user.setOs(ClientUtils.getOs(request));
+            user.setAddress(ClientUtils.getAddress(request));
+            user.setSessionId(sessionInformation.get(0).getSessionId());
+            users.add(user);
+        }
+        return users;
     }
 
     @OperationLogAnnotation(operModul = "首页展示",operType = "查询",operDesc = "查询登录日志")

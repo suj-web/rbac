@@ -33,7 +33,7 @@ public class ResourceController {
 
     @ApiOperation(value = "通过path查询用户在当前页面下的可执行的操作资源")
     @GetMapping("/action")
-    public List<Resource> getActionResourceByPath(String currentActivePath){
+    public List<String> getActionResourceByPath(String currentActivePath){
         return resourceService.getActionResourceByPath(currentActivePath);
     }
 }

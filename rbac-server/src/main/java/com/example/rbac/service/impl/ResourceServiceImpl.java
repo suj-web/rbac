@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -66,10 +67,10 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
      * @return
      */
     @Override
-    public List<Resource> getActionResourceByPath(String currentActivePath) {
+    public List<String> getActionResourceByPath(String currentActivePath) {
         Integer parentId = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("path",currentActivePath)).getId();
         Integer userId = UserUtils.getCurrentUser().getId();
-        return resourceMapper.getAdminActionByPath(userId, parentId);
+        return resourceMapper.getAdminActionByPath(userId, parentId).stream().map(Resource::getComponent).collect(Collectors.toList());
     }
 
     /**

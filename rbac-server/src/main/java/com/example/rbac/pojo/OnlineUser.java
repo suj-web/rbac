@@ -40,8 +40,14 @@ public class OnlineUser {
      * 操作系统
      */
     private String os;
+
     /**
      * 登录时间
      */
     private LocalDateTime loginTime;
+
+    /**
+     * 最后访问时间
+     */
+    private LocalDateTime lastRequestTime;
 }

@@ -32,7 +32,7 @@ public interface IResourceService extends IService<Resource> {
      * @param currentActivePath
      * @return
      */
-    List<Resource> getActionResourceByPath(String currentActivePath);
+    List<String> getActionResourceByPath(String currentActivePath);
 
     /**
      * 获取所有资源

@@ -8,6 +8,8 @@ import com.example.rbac.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cglib.beans.BeanCopier;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,6 +41,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Value("${jwt.tokenHead}")
     private String tokenHead;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * 用户登录
@@ -78,6 +83,10 @@ public class LoginServiceImpl implements LoginService {
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token",token);
         tokenMap.put("tokenHead",tokenHead);
+
+        //将token保存在redis中(实现强制用户退出)
+        ValueOperations<String, Object> valueOperations = redisTemplate.opsForValue();
+        valueOperations.set("token_admin_" + ((Admin)userDetails).getId(), token);
 
         return RespBean.success("登录成功",tokenMap);
     }

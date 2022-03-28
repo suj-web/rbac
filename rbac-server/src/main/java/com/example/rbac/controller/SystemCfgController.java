@@ -3,11 +3,14 @@ package com.example.rbac.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
+import com.example.rbac.service.IAdminService;
 import com.example.rbac.service.ISysMsgService;
 import com.example.rbac.utils.ClientUtils;
 import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionInformation;
@@ -18,8 +21,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.time.Instant;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,8 +40,14 @@ public class SystemCfgController {
     @Autowired
     private ISysMsgService sysMsgService;
 
-//    @Autowired
-//    private SessionRegistry sessionRegistry;
+    @Autowired
+    private SessionRegistry sessionRegistry;
+
+    @Autowired
+    private IAdminService adminService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @ApiOperation(value = "查询系统公告(用于首页轮播)")
     @GetMapping("/system/message")
@@ -92,24 +104,70 @@ public class SystemCfgController {
         return RespBean.error("删除失败");
     }
 
-//    @ApiOperation(value = "在线用户")
-//    @GetMapping("/online/user")
-//    public List<OnlineUser> getOnlineCount(HttpServletRequest request) {
-//        List<OnlineUser> users = new ArrayList<>();
-//        //获取principals
-//        List<Object> principals = sessionRegistry.getAllPrincipals();
-//        for (Object o : principals) {
-//            List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
-//            OnlineUser user = new OnlineUser();
-//            user.setLoginName(UserUtils.getCurrentUser().getUsername());
-//            user.setIp(ClientUtils.getIpAddress(request));
-//            user.setBrowser(ClientUtils.getBrowserType(request));
-//            user.setOs(ClientUtils.getOs(request));
-//            user.setAddress(ClientUtils.getAddress(request));
-//            user.setSessionId(sessionInformation.get(0).getSessionId());
-//
-//            users.add(user);
-//        }
-//        return users;
-//    }
+    //资源 增删改查(菜单管理)
+
+    @ApiOperation(value = "在线用户")
+    @GetMapping("/online/user")
+    public List<OnlineUser> getOnlineCount(HttpServletRequest request) {
+        List<OnlineUser> users = new ArrayList<>();
+        //获取principals
+        List<Object> principals = sessionRegistry.getAllPrincipals();
+        for (Object o : principals) {
+            List<SessionInformation> sessionInformations = sessionRegistry.getAllSessions(o, false);
+            if (!(o instanceof Admin)) {
+                continue;
+            }
+
+            OnlineUser user = new OnlineUser();
+
+            user.setLoginTime(Instant.ofEpochMilli(sessionInformations.get(0).getLastRequest().getTime())
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime());
+            user.setLoginName(((Admin) o).getUsername());
+
+            SessionInformation sessionInformation = sessionInformations.get(sessionInformations.size()-1);
+            user.setIp(ClientUtils.getIpAddress(request));
+            user.setBrowser(ClientUtils.getBrowserType(request));
+            user.setOs(ClientUtils.getOs(request));
+            user.setAddress(ClientUtils.getAddress(request));
+            user.setSessionId(sessionInformation.getSessionId());
+            user.setLastRequestTime(Instant.ofEpochMilli(sessionInformation.getLastRequest().getTime())
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDateTime());
+            users.add(user);
+        }
+        return users;
+    }
+
+
+    @ApiOperation(value = "强制退出")
+    @PutMapping("/online/quit")
+    public RespBean onlineQuit(String username) {
+        //移除用户的session
+        List<Object> principals = sessionRegistry.getAllPrincipals();
+        for (Object o : principals) {
+            if (!(o instanceof Admin)) {
+                continue;
+            }
+            if(((Admin) o).getUsername().equals(username)) {
+                List<SessionInformation> sessionInformations = sessionRegistry.getAllSessions(o, false);
+                for(SessionInformation sessionInformation: sessionInformations) {
+                    sessionInformation.expireNow();
+                    sessionRegistry.removeSessionInformation(sessionInformation.getSessionId());
+                }
+            }
+        }
+
+        //将redis中的token设置为""
+        String currentUserName = UserUtils.getCurrentUser().getUsername();
+        if(null != username && !username.equals(currentUserName)) {
+            ValueOperations valueOperations = redisTemplate.opsForValue();
+            Integer adminId = adminService.getAdminByUserName(username).getId();
+            if (null != valueOperations.get("token_admin_" + adminId)) {
+                valueOperations.set("token_admin_" + adminId, "");
+            }
+            return RespBean.success("操作成功");
+        }
+        return RespBean.error("当前登录用户无法强退");
+    }
 }

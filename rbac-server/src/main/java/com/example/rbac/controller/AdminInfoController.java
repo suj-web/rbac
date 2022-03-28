@@ -6,6 +6,7 @@ import com.example.rbac.pojo.RespBean;
 import com.example.rbac.service.IAdminService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.utils.FastDFSUtils;
+import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,6 +27,12 @@ import java.util.Map;
 public class AdminInfoController {
     @Autowired
     private IAdminService adminService;
+
+    @ApiOperation(value = "获取当前用户信息")
+    @GetMapping("/get/info")
+    public Admin getAdminInfo() {
+        return UserUtils.getCurrentUser();
+    }
 
     @OperationLogAnnotation(operModul = "用户信息",operType = "更新",operDesc = "更新当前操作员信息")
     @ApiOperation(value = "更新当前操作员信息")

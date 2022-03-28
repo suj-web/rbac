@@ -13,6 +13,8 @@ import io.swagger.annotations.ApiOperation;
 import net.bytebuddy.asm.Advice;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -40,15 +42,13 @@ public class LoginController {
     @Autowired
     private ILoginLogService loginLogService;
 
-    @Autowired
-    private SessionRegistry sessionRegistry;
-
     @OperationLogAnnotation(operModul = "用户登录",operType = "登录",operDesc = "登录之后返回token")
     @ApiOperation(value = "登录之后返回token")
     @PostMapping("/login")
     public RespBean login(@RequestBody UserLoginParam user, HttpServletRequest request) {
         RespBean respBean = loginService.login(user.getUsername(), user.getPassword(),user.getCode(),request);
 
+        //插入登录日志
         LoginLog loginLog = new LoginLog();
         loginLog.setSessionId(request.getRequestedSessionId());
         loginLog.setName(user.getUsername());
@@ -78,7 +78,6 @@ public class LoginController {
     @ApiOperation(value = "退出登录")
     @PostMapping("/logout")
     public RespBean logout(HttpServletRequest request, HttpServletResponse response){
-//        sessionRegistry.g
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(null != auth) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
