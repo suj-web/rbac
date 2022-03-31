@@ -54,6 +54,13 @@ public interface ResourceMapper extends BaseMapper<Resource> {
 
     List<Resource> getParentResource(Integer parentId);
 
+    /**
+     * 获取所有资源(菜单管理)
+     * @param parentId
+     * @return
+     */
+    List<Resource> getResources(Integer parentId);
+
 //    /**
 //     * 根据userId和parentId获取员工当前页面下可执行的操作
 //     * @param userId

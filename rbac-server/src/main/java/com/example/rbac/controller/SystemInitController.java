@@ -34,26 +34,17 @@ public class SystemInitController {
 
     @OperationLogAnnotation(operModul = "初始化数据库",operType = "初始化",operDesc = "初始化数据表")
     @ApiOperation(value = "初始化数据表")
-    @DeleteMapping("/{id}")
-    public RespBean deleteTableById(@PathVariable Integer id) {
-        Table table = tableService.getById(id);
-        if(null != table) {
-            int i = jdbcTemplate.update("delete from t_" + table.getTableName());
-            if(i > 0) {
-                return RespBean.success("初始化成功");
-            }
-        }
-        return RespBean.error("初始化失败");
-    }
-
-    @OperationLogAnnotation(operModul = "初始化数据库",operType = "初始化",operDesc = "批量初始化数据表")
-    @ApiOperation(value = "批量初始化数据表")
     @DeleteMapping("/")
     public RespBean deleteTableByIds(Integer[] ids) {
+        for(Integer id: ids) {
+            if(id < 12) {
+                return RespBean.error("服务器上设置了清除保护设置,无法执行该操作");
+            }
+        }
         try {
             List<Table> tables = tableService.listByIds(Arrays.asList(ids));
             for (Table table : tables) {
-                jdbcTemplate.update("delete from t_" + table.getTableName());
+                jdbcTemplate.update("delete from " + table.getTableName());
             }
             return RespBean.success("初始化成功");
         } catch (Exception e) {

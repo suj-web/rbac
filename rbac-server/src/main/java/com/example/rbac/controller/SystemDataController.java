@@ -5,15 +5,24 @@ import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.Backup;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.service.IBackupService;
+import com.example.rbac.utils.FastDFSUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
+import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.security.core.parameters.P;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 系统管理-备份恢复数据库
@@ -34,17 +43,43 @@ public class SystemDataController {
         return backupService.list();
     }
 
+    @OperationLogAnnotation(operModul = "备份恢复数据库", operType = "删除",operDesc = "删除备份文件")
+    @ApiOperation(value = "删除备份文件")
+    @DeleteMapping("/{id}")
+    public RespBean deleteBackupFile(@PathVariable Integer id) {
+        if(backupService.removeById(id)) {
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
+
+    @OperationLogAnnotation(operModul = "备份恢复数据库", operType = "删除",operDesc = "批量删除备份文件")
+    @ApiOperation(value = "批量删除备份文件")
+    @DeleteMapping("/")
+    public RespBean deleteBackupFile(Integer[] ids) {
+        if(backupService.removeByIds(Arrays.asList(ids))) {
+            return RespBean.success("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
+
     @OperationLogAnnotation(operModul = "备份恢复数据库", operType = "备份数据", operDesc = "备份数据")
     @ApiOperation(value = "备份数据")
     @GetMapping("/backup")
     public RespBean backup(String savePath) {
         String command = "mysqldump -hlocalhost -uroot -p12345678 test";
-        if(backup(command,savePath)) {
-            String[] path = savePath.split("/");
+        File file = new File(savePath);
+        File parentFile = new File(file.getParent());
+        if(!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        String filePath = backup(command, savePath);
+        if(null != filePath) {
+            String[] split = filePath.split("/");
             double size = FileUtil.size(new File(savePath)) / 1024.0 / 1024.0;
             Backup backup = new Backup();
-            backup.setName(path[path.length-1]);
-            backup.setPath(savePath);
+            backup.setName(split[split.length-1]);
+            backup.setPath(filePath);
             backup.setSize(size);
             if(backupService.save(backup)) {
                 return RespBean.success("备份成功");
@@ -55,12 +90,11 @@ public class SystemDataController {
 
     @OperationLogAnnotation(operModul = "系统管理-备份恢复数据库", operType = "恢复数据", operDesc = "恢复数据")
     @ApiOperation(value = "恢复数据")
-    @GetMapping("/recover")
-    public RespBean recover(Integer id) {
-        Backup backup = backupService.getById(id);
+    @PostMapping("/recover")
+    public RespBean recover(MultipartFile file) {
         String command = "mysql -hlocalhost -uroot -p12345678 --default-character-set=utf8 test";
-        if(null != backup) {
-            if(recover(command, backup.getPath())) {
+        if(null != file) {
+            if(recover(command, file)) {
                 return RespBean.success("恢复成功");
             }
         }
@@ -75,8 +109,7 @@ public class SystemDataController {
      * @param savePath 备份路径
      * @return
      */
-    private boolean backup(String command, String savePath) {
-        boolean flag;
+    private String backup(String command, String savePath) {
         // 获得与当前应用程序关联的Runtime对象
         Runtime r = Runtime.getRuntime();
         BufferedReader br = null;
@@ -105,13 +138,16 @@ public class SystemDataController {
             bw = new BufferedWriter(osw);
             bw.write(s);
             bw.flush();
-            flag = true;
+
+            File file = new File(savePath);
+            FileInputStream input = new FileInputStream(file);
+            MultipartFile multipartFile =new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
+            String[] filePath = FastDFSUtils.upload(multipartFile);
+            String url = FastDFSUtils.getTrackerUrl() + filePath[0]  + "/" + filePath[1];
+            return url;
         } catch (IOException e) {
-            flag = false;
             e.printStackTrace();
         } finally {
-            //由于输入输出流使用的是装饰器模式，所以在关闭流时只需要调用外层装饰类的close()方法即可，
-            //它会自动调用内层流的close()方法
             try {
                 if (null != bw) {
                     bw.close();
@@ -128,17 +164,17 @@ public class SystemDataController {
                 e.printStackTrace();
             }
         }
-        return flag;
+        return null;
     }
 
     /**
      * mysql的还原方法
      *
      * @param command  命令行
-     * @param savePath 还原路径
+     * @param file 上传下载的备份文件
      * @return
      */
-    private boolean recover(String command, String savePath) {
+    private boolean recover(String command, MultipartFile file) {
         boolean flag;
         Runtime r = Runtime.getRuntime();
         BufferedReader br = null;
@@ -146,8 +182,7 @@ public class SystemDataController {
         try {
             Process p = r.exec(command);
             OutputStream os = p.getOutputStream();
-            FileInputStream fis = new FileInputStream(savePath);
-            InputStreamReader isr = new InputStreamReader(fis, "utf-8");
+            InputStreamReader isr = new InputStreamReader(file.getInputStream(), "utf-8");
             br = new BufferedReader(isr);
             String s;
             StringBuffer sb = new StringBuffer("");
@@ -182,4 +217,5 @@ public class SystemDataController {
         }
         return flag;
     }
+
 }

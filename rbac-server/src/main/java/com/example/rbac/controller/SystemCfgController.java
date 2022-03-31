@@ -52,7 +52,7 @@ public class SystemCfgController {
     @ApiOperation(value = "查询系统公告(用于首页轮播)")
     @GetMapping("/system/message")
     public List<SysMsg> getSysMsg() {
-        return sysMsgService.list(new QueryWrapper<SysMsg>().eq("enable", false));
+        return sysMsgService.list(new QueryWrapper<SysMsg>().eq("enabled", false));
     }
 
     @OperationLogAnnotation(operModul = "系统管理-系统管理", operType = "查询", operDesc = "查询系统公告")
@@ -68,6 +68,7 @@ public class SystemCfgController {
     @ApiOperation(value = "添加系统公告")
     @PostMapping("/system/message")
     public RespBean addSystemMessage(@RequestBody SysMsg sysMsg) {
+        sysMsg.setCreator(UserUtils.getCurrentUser().getUsername());
         if(sysMsgService.save(sysMsg)) {
             return RespBean.success("添加成功");
         }

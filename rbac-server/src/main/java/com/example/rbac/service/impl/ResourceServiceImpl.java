@@ -86,4 +86,13 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     public List<Resource> getParentResource() {
         return resourceMapper.getParentResource(null);
     }
+
+    /**
+     * 获取所有资源(菜单管理)
+     * @return
+     */
+    @Override
+    public List<Resource> getResources() {
+        return resourceMapper.getResources(-1);
+    }
 }

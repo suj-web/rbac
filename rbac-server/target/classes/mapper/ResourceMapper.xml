@@ -52,6 +52,12 @@
         </collection>
     </resultMap>
 
+    <resultMap id="AllResourcesResultMap" type="com.example.rbac.pojo.Resource" extends="BaseResultMap">
+        <collection property="children" ofType="com.example.rbac.pojo.Resource"
+                    select="com.example.rbac.mapper.ResourceMapper.getResources" column="id">
+        </collection>
+    </resultMap>
+
     <resultMap id="ParentResourceResultMap" type="com.example.rbac.pojo.Resource" extends="BaseResultMap">
         <association property="parent" javaType="com.example.rbac.pojo.Resource" column="parent_id"
             select="com.example.rbac.mapper.ResourceMapper.getParentResource">
@@ -90,6 +96,9 @@
         AND r.id = rr.role_id
         AND rr.resource_id = re2.id
         AND re2.enabled = TRUE
+        AND re1.enabled = TRUE
+        AND re2.is_delete = FALSE
+        AND re2.is_delete = FALSE
         AND r.is_delete = FALSE
         AND re2.type != 2
         AND re1.type != -1
@@ -114,6 +123,7 @@
             r.id = rr.role_id
         AND rr.resource_id = res.id
         AND res.enabled = TRUE
+        AND res.is_delete = FALSE
         AND r.is_delete = FALSE
         ORDER BY
             res.id
@@ -132,6 +142,7 @@
         AND r.id = rr.role_id
         AND rr.resource_id = res.id
         AND res.enabled = TRUE
+        AND res.is_delete = FALSE
         AND r.is_delete = FALSE
         AND res.type = 2
         AND res.parent_id = #{parentId}
@@ -143,20 +154,31 @@
         SELECT
             id, `name`,parent_id
         FROM t_resource res
-        WHERE
-            res.parent_id = #{parentId}
+        WHERE res.is_delete = FALSE
+        AND res.enabled = TRUE
+        AND res.parent_id = #{parentId}
         ORDER BY res.id
     </select>
 
-<!--    根据当前资源id获取所有父级资源id-->
+<!--    获取每个资源的所有父级资源-->
     <select id="getParentResource" resultMap="ParentResourceResultMap">
         SELECT
             id, `name`, parent_id
         FROM t_resource res
-        WHERE 1 = 1
+        WHERE res.is_delete = FALSE
+        AND res.enabled = TRUE
         <if test="null != parentId">
             AND res.id = #{parentId}
         </if>
+        ORDER BY res.id
+    </select>
+
+    <select id="getResources" resultMap="AllResourcesResultMap">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM t_resource res
+        WHERE res.is_delete = FALSE
+        AND res.parent_id = #{parentId}
         ORDER BY res.id
     </select>
 </mapper>

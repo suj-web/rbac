@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * 操作日志
  * @author suj
@@ -25,13 +27,14 @@ public class OplogServiceImpl extends ServiceImpl<OplogMapper, Oplog> implements
      * 查询操作日志
      * @param currentPage
      * @param size
-     * @param name
+     * @param oplog
+     * @param operDateScope
      * @return
      */
     @Override
-    public RespPageBean getAllOplogs(Integer currentPage, Integer size, String name) {
+    public RespPageBean getAllOplogs(Integer currentPage, Integer size, Oplog oplog, LocalDate[] operDateScope) {
         Page<Oplog> page = new Page<>(currentPage, size);
-        IPage<Oplog> oplogIPage = oplogMapper.getAllOplogs(page, name);
+        IPage<Oplog> oplogIPage = oplogMapper.getAllOplogs(page, oplog, operDateScope);
         return new RespPageBean(oplogIPage.getTotal(), oplogIPage.getRecords());
     }
 

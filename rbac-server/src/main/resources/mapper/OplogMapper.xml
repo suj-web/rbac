@@ -28,8 +28,20 @@
             t_oplog op
         WHERE
             op.is_delete = FALSE
-        <if test="null!=name and ''!=name">
-            AND op.operator LIKE concat('%',#{name},'%')
+        <if test="null!=oplog.model and ''!=oplog.model">
+            AND op.model LIKE concat('%',#{oplog.model},'%')
+        </if>
+        <if test="null!=oplog.operator and ''!=oplog.operator">
+            AND op.operator LIKE concat('%',#{oplog.operator},'%')
+        </if>
+        <if test="null!=oplog.type and ''!=oplog.type">
+            AND op.type = #{oplog.type}
+        </if>
+        <if test="null!=oplog.result">
+            AND op.result = #{oplog.result}
+        </if>
+        <if test="null!=operDateScope and 2==operDateScope.length">
+            AND op.gmt_create BETWEEN #{operDateScope[0]} AND #{operDateScope[1]}
         </if>
         ORDER BY
             op.id

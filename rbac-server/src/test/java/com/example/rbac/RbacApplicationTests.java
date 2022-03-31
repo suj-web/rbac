@@ -7,6 +7,7 @@ import com.example.rbac.service.IEmployeeEcService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.ILoginLogService;
 import com.example.rbac.service.ISalaryTableService;
+import com.example.rbac.utils.FastDFSUtils;
 import com.example.rbac.utils.ScoreUtils;
 import org.apache.tomcat.jni.Local;
 import org.junit.jupiter.api.Test;
@@ -14,9 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
@@ -33,6 +32,28 @@ class RbacApplicationTests {
     void contextLoads() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         System.out.println(encoder.encode("admin"));
+    }
+
+    @Test
+    public void test8() {
+        File file = new File("F:/aab/acde/a.txt");
+        System.out.println(file.getName());
+        System.out.println(file.getPath());
+        System.out.println(file.getParent());
+        System.out.println(file.getAbsolutePath());
+    }
+
+    @Test
+    public void test7() throws IOException {
+        FileInputStream fis = new FileInputStream("http://47.100.78.245:8888/group1/M00/00/00/rBgX5WJDHaWAQR7AAbb0DHGwk6A281.sql");
+        FileOutputStream fos = new FileOutputStream("F:/test.sql");
+        byte[] data = new byte[1024];
+        while ((fis.read(data)) != -1) {
+            fos.write(data);
+        }
+        fos.flush();
+        fos.close();
+        fis.close();
     }
 
     @Autowired

@@ -4,6 +4,7 @@ import com.example.rbac.pojo.Oplog;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.rbac.pojo.RespPageBean;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -20,8 +21,9 @@ public interface IOplogService extends IService<Oplog> {
      * 查询操作日志
      * @param currentPage
      * @param size
-     * @param name
+     * @param oplog
+     * @param operDateTime
      * @return
      */
-    RespPageBean getAllOplogs(Integer currentPage, Integer size, String name);
+    RespPageBean getAllOplogs(Integer currentPage, Integer size, Oplog oplog, LocalDate[] operDateTime);
 }

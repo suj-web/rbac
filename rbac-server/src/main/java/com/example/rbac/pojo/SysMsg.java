@@ -46,7 +46,7 @@ public class SysMsg implements Serializable {
     private String creator;
 
     @ApiModelProperty(value = "是否发布公告 0发布 1不发布")
-    private Boolean enable;
+    private Boolean enabled;
 
     @ApiModelProperty(value = "逻辑删除")
     @TableField("is_delete")

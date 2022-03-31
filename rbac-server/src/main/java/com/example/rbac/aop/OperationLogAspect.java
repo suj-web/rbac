@@ -4,6 +4,7 @@ import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.mapper.OplogMapper;
 import com.example.rbac.pojo.Oplog;
 import com.example.rbac.pojo.RespBean;
+import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.utils.ClientUtils;
 import com.example.rbac.utils.UserUtils;
 import org.aspectj.lang.JoinPoint;
@@ -52,11 +53,13 @@ public class OperationLogAspect {
         //从RequestAttributes中获取HttpServletRequest的信息
         HttpServletRequest request = (HttpServletRequest) requestAttributes.resolveReference(RequestAttributes.REFERENCE_REQUEST);
         try {
-            RespBean respBean;
+            RespBean respBean = null;
             try {
-                respBean = (RespBean) request;
+                if(result instanceof RespBean) {
+                    respBean = (RespBean) result;
+                }
             } catch (Exception e) {
-                respBean = RespBean.success("操作成功");
+                respBean = RespBean.error("操作失败");
             }
             Oplog oplog = new Oplog();
             //从切面切入点处通过反射机制获取织入点处的方法
@@ -75,7 +78,11 @@ public class OperationLogAspect {
             //操作ip
             oplog.setIp(ClientUtils.getIpAddress(request));
             //返回值信息
-            oplog.setResult(respBean.getMessage());
+            if(null != respBean) {
+                oplog.setResult((int)respBean.getCode());
+            } else {
+                oplog.setResult(200);
+            }
             //保存日志
             oplogMapper.insert(oplog);
         } catch (Exception e) {

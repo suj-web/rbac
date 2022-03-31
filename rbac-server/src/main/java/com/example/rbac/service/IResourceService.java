@@ -41,4 +41,10 @@ public interface IResourceService extends IService<Resource> {
     List<Resource> getAllResources();
 
     List<Resource> getParentResource();
+
+    /**
+     * 获取所有资源(菜单管理)
+     * @return
+     */
+    List<Resource> getResources();
 }

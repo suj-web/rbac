@@ -9,7 +9,7 @@
         <result column="content" property="content" />
         <result column="type" property="type" />
         <result column="creator" property="creator" />
-        <result column="enable" property="enable" />
+        <result column="enabled" property="enabled" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
@@ -17,7 +17,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, content, type, creator, enable, is_delete, gmt_create, gmt_modified
+        id, title, content, type, creator, enabled, is_delete, gmt_create, gmt_modified
     </sql>
 
     <select id="getAllSystemMessage" resultMap="BaseResultMap">

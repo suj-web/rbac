@@ -44,7 +44,7 @@ public class Resource implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "资源类型 0目录 1菜单 2按钮")
-    private Boolean type;
+    private Integer type;
 
     @ApiModelProperty(value = "url")
     private String url;

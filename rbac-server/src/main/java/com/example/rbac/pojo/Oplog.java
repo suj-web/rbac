@@ -1,5 +1,6 @@
 package com.example.rbac.pojo;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.time.LocalDateTime;
@@ -27,25 +28,31 @@ public class Oplog implements Serializable {
 
     @ApiModelProperty(value = "id")
     @TableId(value = "id", type = IdType.AUTO)
+    @Excel(name = "日志编号")
     private Integer id;
 
     @ApiModelProperty(value = "操作员")
+    @Excel(name = "操作人员")
     private String operator;
 
     @ApiModelProperty(value = "操作员ip地址")
+    @Excel(name = "主机地址",width = 24)
     private String ip;
 
     @ApiModelProperty(value = "操作类型")
+    @Excel(name = "操作类型")
     private String type;
 
     @ApiModelProperty(value = "操作内容")
     private String description;
 
     @ApiModelProperty(value = "操作模块")
+    @Excel(name = "操作模块",width = 30)
     private String model;
 
     @ApiModelProperty(value = "操作结果")
-    private String result;
+    @Excel(name = "操作结果",replace = {"成功_200","失败_500"})
+    private Integer result;
 
     @ApiModelProperty(value = "逻辑删除 1删除 0未删除")
     @TableField("is_delete")
@@ -55,6 +62,7 @@ public class Oplog implements Serializable {
     @ApiModelProperty(value = "创建时间")
     @TableField(value = "gmt_create", fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
+    @Excel(name = "操作时间",format = "yyyy-MM-dd",width = 20)
     private LocalDateTime gmtCreate;
 
     @ApiModelProperty(value = "更新时间")
