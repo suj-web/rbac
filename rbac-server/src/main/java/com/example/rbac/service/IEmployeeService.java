@@ -246,4 +246,18 @@ public interface IEmployeeService extends IService<Employee> {
      * @return
      */
     Integer getBirthdayRemindCount();
+
+    /**
+     * 员工转正提醒
+     * @param currentPage
+     * @param size
+     * @return
+     */
+    RespPageBean getConversionRemind(Integer currentPage, Integer size);
+
+    /**
+     * 员工转正提醒数量
+     * @return
+     */
+    Integer getConversionRemindCount();
 }

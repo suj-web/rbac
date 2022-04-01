@@ -78,6 +78,19 @@ public class HomeRemindController {
         return employeeService.getBirthdayRemindCount();
     }
 
+    @ApiOperation(value = "员工转正提醒")
+    @GetMapping("/conversion/remind")
+    public RespPageBean getConversionRemind(@RequestParam(defaultValue = "1") Integer currentPage,
+                                             @RequestParam(defaultValue = "10") Integer size) {
+        return employeeService.getConversionRemind(currentPage, size);
+    }
+
+    @ApiOperation(value = "员工转正提醒数量")
+    @GetMapping("/conversion/remind/count")
+    public Integer getConversionRemindCount() {
+        return employeeService.getConversionRemindCount();
+    }
+
 
     @ApiOperation(value = "在线人数")
     @GetMapping("/online/count")

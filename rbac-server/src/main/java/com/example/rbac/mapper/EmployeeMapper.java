@@ -205,4 +205,17 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @return
      */
     Integer getBirthdayRemindCount();
+
+    /**
+     * 员工转正提醒
+     * @param page
+     * @return
+     */
+    IPage<Employee> getConversionRemind(Page<Employee> page);
+
+    /**
+     * 员工转正提醒数量
+     * @return
+     */
+    Integer getConversionRemindCount();
 }

@@ -716,6 +716,7 @@
         ]]>
     </select>
 
+<!--    生日提醒的员工数量-->
     <select id="getBirthdayRemindCount" resultType="java.lang.Integer">
         SELECT
             count(*) AS `count`
@@ -727,6 +728,36 @@
         <![CDATA[
         AND DATE_FORMAT(birthday, '%m-%d') >= DATE_FORMAT(NOW(), '%m-%d')
         AND DATE_FORMAT(birthday, '%m-%d') <= DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 WEEK),'%m-%d')
+        ]]>
+    </select>
+
+    <select id="getConversionRemind" resultMap="ContractExpireResultMap">
+        SELECT
+            emp.*, dep.`name` AS dep_name
+        FROM
+            t_employee emp,
+            t_department dep
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.department_id = dep.id
+        AND emp.conversion_time IS NULL
+        <![CDATA[
+        AND DATE_FORMAT(NOW(), '%y-%m-%d') >= DATE_FORMAT(DATE_ADD(emp.begin_date, INTERVAL 1 MONTH),'%y-%m-%d')
+        ]]>
+    </select>
+
+    <select id="getConversionRemindCount" resultType="java.lang.Integer">
+        SELECT
+            count(*) AS `count`
+        FROM
+            t_employee emp
+        WHERE
+            emp.is_delete = FALSE
+        AND emp.work_state = '在职'
+        AND emp.conversion_time IS NULL
+        <![CDATA[
+        AND DATE_FORMAT(NOW(), '%y-%m-%d') >= DATE_FORMAT(DATE_ADD(emp.begin_date, INTERVAL 1 MONTH),'%y-%m-%d')
         ]]>
     </select>
 </mapper>

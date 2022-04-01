@@ -469,4 +469,27 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public Integer getBirthdayRemindCount() {
         return employeeMapper.getBirthdayRemindCount();
     }
+
+    /**
+     * 员工转正提醒
+     * @param currentPage
+     * @param size
+     * @return
+     */
+    @Override
+    public RespPageBean getConversionRemind(Integer currentPage, Integer size) {
+        Page<Employee> page = new Page<>(currentPage, size);
+        IPage<Employee> employeePage = employeeMapper.getConversionRemind(page);
+        RespPageBean respPageBean = new RespPageBean(employeePage.getTotal(), employeePage.getRecords());
+        return respPageBean;
+    }
+
+    /**
+     * 员工转正提醒数量
+     * @return
+     */
+    @Override
+    public Integer getConversionRemindCount() {
+        return employeeMapper.getConversionRemindCount();
+    }
 }

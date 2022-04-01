@@ -1,17 +1,402 @@
-2022-03-31 00:19:58.270  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:22:23.930  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:23:38.378  INFO 17780 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 12 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(12)-CONNECTED(12)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 84], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 22], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 1950]
-2022-03-31 00:24:39.043  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:24:42.327  INFO 17780 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:39:14.367  INFO 17780 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:41:07.479  INFO 17780 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:43:21.199  INFO 17780 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:44:09.485  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:49:12.665  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 00:53:38.395  INFO 17780 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 26 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(26)-CONNECTED(26)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 189], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 50], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 2629]
-2022-03-31 00:54:16.595  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 03:54:42.396  INFO 17780 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 28 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(28)-CONNECTED(28)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 210], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 56], sockJsScheduler[pool size = 8, active threads = 2, queued tasks = 3, completed tasks = 2658]
-2022-03-31 03:54:43.836  INFO 17780 --- [lettuce-nioEventLoop-4-1] io.lettuce.core.protocol.CommandHandler  : null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2022-04-01 09:54:52.548  INFO 8760 --- [lettuce-eventExecutorLoop-1-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 47.100.78.245:6379
+2022-04-01 09:54:52.978  WARN 8760 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [47.100.78.245:6379]: No route to host: no further information: /47.100.78.245:6379
+
+io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: no further information: /47.100.78.245:6379
+Caused by: java.net.NoRouteToHostException: No route to host: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_201]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[na:1.8.0_201]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_201]
+
+2022-04-01 09:54:53.257  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.366  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.460  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.601  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.664  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.730  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.806  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.869  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.930  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:53.980  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.027  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.058  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.184  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.247  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.294  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.341  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.388  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.435  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.482  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.531  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.576  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.631  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.733  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:54.984  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.031  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.078  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.149  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.196  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.243  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.306  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.353  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.401  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.532  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.668  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.715  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.763  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.810  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.857  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.919  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:55.967  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.014  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.064  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.111  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.156  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.199  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.246  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.293  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.340  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.394  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.448  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.495  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.542  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.589  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.652  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.699  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.746  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.793  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.840  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:56.856  INFO 8760 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 36 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(36)-CONNECTED(36)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 270], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 72], sockJsScheduler[pool size = 8, active threads = 5, queued tasks = 1, completed tasks = 9836]
+2022-04-01 09:54:56.887  INFO 8760 --- [MessageBroker-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 09:54:57.044  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.106  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.216  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.248  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.279  INFO 8760 --- [lettuce-nioEventLoop-4-5] i.l.core.protocol.ReconnectionHandler    : Reconnected to 47.100.78.245:6379
+2022-04-01 09:54:57.295  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.357  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.404  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.452  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.498  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.546  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.734  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.782  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.835  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.891  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:57.954  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.001  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.049  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.080  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.135  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.206  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.441  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.519  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.613  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.661  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.707  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.755  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:58.880  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.021  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.069  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.117  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.164  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.211  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.337  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.384  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.437  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.483  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.525  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.572  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.637  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.682  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.730  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.776  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.837  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.902  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.949  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:54:59.996  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.044  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.090  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.138  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.185  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.238  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.357  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.404  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.452  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.498  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.546  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.593  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.640  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.687  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.734  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.765  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.813  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.860  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.907  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:00.954  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.001  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.049  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.096  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.143  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.190  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.240  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.284  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.340  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.379  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.441  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.488  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.551  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.598  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.645  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.692  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.741  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.787  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.841  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.881  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.928  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:01.976  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.022  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.070  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.117  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.164  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.211  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.259  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.305  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.353  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.400  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.447  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.494  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.543  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.588  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.635  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.682  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 09:55:02.808  INFO 8760 --- [MessageBroker-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 10:24:56.860  INFO 8760 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 36 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(36)-CONNECTED(36)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 270], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 72], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 5, completed tasks = 18494]
+2022-04-01 10:45:35.321  INFO 5328 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 5328 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-04-01 10:45:35.321  INFO 5328 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-04-01 10:45:35.384  INFO 5328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-01 10:45:35.384  INFO 5328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-01 10:45:39.857  INFO 5328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-01 10:45:39.858  INFO 5328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-01 10:45:39.902  INFO 5328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
+2022-04-01 10:45:41.314  INFO 5328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-01 10:45:41.338  INFO 5328 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-01 10:45:41.339  INFO 5328 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-04-01 10:45:41.342  INFO 5328 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-04-01 10:45:41.342  INFO 5328 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-04-01 10:45:41.342  INFO 5328 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-04-01 10:45:41.343  INFO 5328 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-01 10:45:41.348  INFO 5328 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-04-01 10:45:41.482  INFO 5328 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-01 10:45:41.482  INFO 5328 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6098 ms
+2022-04-01 10:45:41.703  INFO 5328 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-01 10:45:41.882  INFO 5328 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-01 10:45:45.403  INFO 5328 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-01 10:45:45.677  INFO 5328 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-01 10:45:46.280  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-01 10:45:46.281  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-01 10:45:46.281  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-01 10:45:46.281  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-01 10:45:46.281  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-01 10:45:46.281  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-01 10:45:46.281  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-01 10:45:46.282  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-01 10:45:46.282  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-01 10:45:46.282  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-01 10:45:46.282  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-01 10:45:46.282  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-01 10:45:46.316  INFO 5328 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b75b06e, org.springframework.security.web.context.SecurityContextPersistenceFilter@59887b02, org.springframework.security.web.header.HeaderWriterFilter@5c6f59df, org.springframework.security.web.authentication.logout.LogoutFilter@345a85d0, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@545577d0, org.springframework.security.web.session.ConcurrentSessionFilter@75b5d161, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a4e340b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78bbe515, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@cfd80ba, org.springframework.security.web.session.SessionManagementFilter@3c245d6d, org.springframework.security.web.access.ExceptionTranslationFilter@51fcad29, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3f5cbc47]
+2022-04-01 10:45:46.460  INFO 5328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-01 10:45:46.461  INFO 5328 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-01 10:45:46.475  INFO 5328 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-01 10:45:46.562  INFO 5328 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-01 10:45:46.706  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.763  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.765  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:45:46.772  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-01 10:45:46.784  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-01 10:45:46.785  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-01 10:45:46.786  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.787  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-01 10:45:46.790  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-01 10:45:46.814  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.821  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-01 10:45:46.842  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:45:46.876  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.878  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-01 10:45:46.887  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.889  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-01 10:45:46.897  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.899  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-01 10:45:46.903  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.906  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-01 10:45:46.921  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-01 10:45:46.930  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.935  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-01 10:45:46.939  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.941  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-01 10:45:46.942  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-01 10:45:46.944  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:45:46.959  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-01 10:45:46.965  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.973  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-01 10:45:46.976  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-01 10:45:46.978  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:46.980  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-01 10:45:46.982  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-01 10:45:46.986  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-01 10:45:46.991  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:45:46.993  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-01 10:45:46.997  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-01 10:45:47.001  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-01 10:45:47.004  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-01 10:45:47.008  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-01 10:45:47.010  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-01 10:45:47.016  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-01 10:45:47.020  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.022  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-01 10:45:47.035  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-01 10:45:47.044  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.049  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-01 10:45:47.059  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.060  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.063  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-01 10:45:47.066  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-01 10:45:47.072  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-01 10:45:47.141  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-01 10:45:47.159  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-01 10:45:47.169  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.170  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-01 10:45:47.176  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-01 10:45:47.185  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.188  INFO 5328 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-01 10:45:47.193  WARN 5328 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:45:47.205  INFO 5328 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-01 10:45:47.205  INFO 5328 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@332adb4f]]
+2022-04-01 10:45:47.205  INFO 5328 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-01 10:45:47.219  INFO 5328 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 12.517 seconds (JVM running for 14.384)
+2022-04-01 10:46:45.527  INFO 5328 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-04-01 10:50:57.412  INFO 5328 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-01 10:50:57.412  INFO 5328 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-01 10:50:57.413  INFO 5328 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-01 10:56:16.060  INFO 15412 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 15412 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-04-01 10:56:16.063  INFO 15412 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-04-01 10:56:16.155  INFO 15412 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-01 10:56:16.164  INFO 15412 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-01 10:56:17.680  INFO 15412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-01 10:56:17.696  INFO 15412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-01 10:56:17.760  INFO 15412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
+2022-04-01 10:56:19.078  INFO 15412 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-01 10:56:19.107  INFO 15412 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-01 10:56:19.108  INFO 15412 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-04-01 10:56:19.111  INFO 15412 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-04-01 10:56:19.112  INFO 15412 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-04-01 10:56:19.112  INFO 15412 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-04-01 10:56:19.113  INFO 15412 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-01 10:56:19.119  INFO 15412 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-04-01 10:56:19.279  INFO 15412 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-01 10:56:19.286  INFO 15412 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3121 ms
+2022-04-01 10:56:19.624  INFO 15412 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-01 10:56:19.779  INFO 15412 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-01 10:56:24.417  INFO 15412 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-01 10:56:24.768  INFO 15412 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-01 10:56:25.526  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-01 10:56:25.530  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-01 10:56:25.530  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-01 10:56:25.530  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-01 10:56:25.530  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-01 10:56:25.530  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-01 10:56:25.530  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-01 10:56:25.531  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-01 10:56:25.531  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-01 10:56:25.531  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-01 10:56:25.531  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-01 10:56:25.531  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-01 10:56:25.561  INFO 15412 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c91ebd0, org.springframework.security.web.context.SecurityContextPersistenceFilter@51e20df2, org.springframework.security.web.header.HeaderWriterFilter@11696439, org.springframework.security.web.authentication.logout.LogoutFilter@5ed24212, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@33b54954, org.springframework.security.web.session.ConcurrentSessionFilter@1233eec4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44edef3d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3280bd24, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d3fbece, org.springframework.security.web.session.SessionManagementFilter@69862e12, org.springframework.security.web.access.ExceptionTranslationFilter@2d86fbc9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c0a5c6c]
+2022-04-01 10:56:25.779  INFO 15412 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-01 10:56:25.780  INFO 15412 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-01 10:56:25.783  INFO 15412 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-01 10:56:25.920  INFO 15412 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-01 10:56:26.071  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.159  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.163  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:56:26.170  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-01 10:56:26.186  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-01 10:56:26.188  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-01 10:56:26.190  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.192  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-01 10:56:26.197  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-01 10:56:26.229  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.240  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-01 10:56:26.272  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:56:26.325  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.329  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-01 10:56:26.346  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.349  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-01 10:56:26.361  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.366  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-01 10:56:26.373  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.377  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-01 10:56:26.401  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-01 10:56:26.415  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.422  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-01 10:56:26.429  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.432  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-01 10:56:26.433  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-01 10:56:26.437  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:56:26.459  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-01 10:56:26.467  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.474  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-01 10:56:26.478  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-01 10:56:26.481  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.483  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-01 10:56:26.485  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-01 10:56:26.489  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-01 10:56:26.498  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 10:56:26.499  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-01 10:56:26.503  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-01 10:56:26.507  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-01 10:56:26.511  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-01 10:56:26.515  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-01 10:56:26.519  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-01 10:56:26.527  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-01 10:56:26.535  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.538  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-01 10:56:26.556  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-01 10:56:26.574  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.579  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-01 10:56:26.598  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.600  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.603  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-01 10:56:26.608  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-01 10:56:26.611  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-01 10:56:26.706  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-01 10:56:26.725  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-01 10:56:26.743  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.744  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-01 10:56:26.752  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-01 10:56:26.766  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.769  INFO 15412 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-01 10:56:26.776  WARN 15412 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 10:56:26.792  INFO 15412 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-01 10:56:26.792  INFO 15412 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@35604a9c]]
+2022-04-01 10:56:26.792  INFO 15412 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-01 10:56:26.808  INFO 15412 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 11.464 seconds (JVM running for 13.228)
+2022-04-01 10:56:39.975  INFO 15412 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-01 10:56:39.975  INFO 15412 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-01 10:56:39.978  INFO 15412 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-04-01 10:57:24.536  INFO 15412 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-04-01 11:27:24.537  INFO 15412 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 187]
+2022-04-01 11:27:44.237  INFO 15412 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /47.100.78.245:6379
+2022-04-01 11:27:44.260 ERROR 15412 --- [http-nio-8081-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。] with root cause
 
 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_201]
@@ -23,60 +408,23 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.65.Final.jar:4.1.65.Final]
 	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
 	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719) [netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) [netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) [netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) [netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
 
-2022-03-31 03:54:43.891  INFO 17780 --- [lettuce-eventExecutorLoop-1-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /47.100.78.245:6379
-2022-03-31 03:54:43.963  WARN 17780 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [47.100.78.245:6379]: No route to host: no further information: /47.100.78.245:6379
+2022-04-01 11:27:44.426  INFO 15412 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ReconnectionHandler    : Reconnected to 47.100.78.245:6379
+2022-04-01 11:27:55.688  INFO 15412 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 11:28:08.723  INFO 15412 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 11:28:08.801  INFO 15412 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 11:29:20.966 ERROR 15412 --- [http-nio-8081-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 
-io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: no further information: /47.100.78.245:6379
-Caused by: java.net.NoRouteToHostException: No route to host: no further information
-	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_201]
-	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[na:1.8.0_201]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_201]
-
-2022-03-31 09:52:54.546  INFO 17780 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 47.100.78.245:6379
-2022-03-31 09:52:54.546  WARN 17780 --- [lettuce-nioEventLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [47.100.78.245:6379]: No route to host: no further information: /47.100.78.245:6379
-
-io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: no further information: /47.100.78.245:6379
-Caused by: java.net.NoRouteToHostException: No route to host: no further information
-	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_201]
-	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717) ~[na:1.8.0_201]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
-	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_201]
-
-2022-03-31 09:52:55.869  INFO 17780 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 28 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(28)-CONNECTED(28)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 210], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 56], sockJsScheduler[pool size = 8, active threads = 2, queued tasks = 3, completed tasks = 4817]
-2022-03-31 09:53:16.968  INFO 17780 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 47.100.78.245:6379
-2022-03-31 09:53:26.974  WARN 17780 --- [lettuce-nioEventLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [47.100.78.245:6379]: connection timed out: /47.100.78.245:6379
-2022-03-31 09:53:43.466  INFO 17780 --- [lettuce-eventExecutorLoop-1-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 47.100.78.245:6379
-2022-03-31 09:53:53.474  WARN 17780 --- [lettuce-nioEventLoop-4-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [47.100.78.245:6379]: connection timed out: /47.100.78.245:6379
-2022-03-31 09:54:21.991 ERROR 17780 --- [http-nio-8081-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-
-org.springframework.dao.QueryTimeoutException: Redis command timed out; nested exception is io.lettuce.core.RedisCommandTimeoutException: Command timed out after 10 second(s)
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:70) ~[spring-data-redis-2.5.2.jar:2.5.2]
+org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74) ~[spring-data-redis-2.5.2.jar:2.5.2]
 	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41) ~[spring-data-redis-2.5.2.jar:2.5.2]
 	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44) ~[spring-data-redis-2.5.2.jar:2.5.2]
 	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42) ~[spring-data-redis-2.5.2.jar:2.5.2]
@@ -143,353 +491,417 @@ org.springframework.dao.QueryTimeoutException: Redis command timed out; nested e
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.48.jar:9.0.48]
 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
-Caused by: io.lettuce.core.RedisCommandTimeoutException: Command timed out after 10 second(s)
-	at io.lettuce.core.internal.ExceptionFactory.createTimeoutException(ExceptionFactory.java:53) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
-	at io.lettuce.core.internal.Futures.awaitOrCancel(Futures.java:246) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
+Caused by: io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at io.lettuce.core.internal.Exceptions.bubble(Exceptions.java:83) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
+	at io.lettuce.core.internal.Futures.awaitOrCancel(Futures.java:250) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
 	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:74) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
 	at org.springframework.data.redis.connection.lettuce.LettuceConnection.await(LettuceConnection.java:1060) ~[spring-data-redis-2.5.2.jar:2.5.2]
 	... 61 common frames omitted
+Caused by: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_201]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_201]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_201]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_201]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_201]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253) ~[netty-buffer-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	... 1 common frames omitted
 
-2022-03-31 09:54:23.568  INFO 17780 --- [lettuce-eventExecutorLoop-1-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 47.100.78.245:6379
-2022-03-31 09:54:23.699  INFO 17780 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ReconnectionHandler    : Reconnected to 47.100.78.245:6379
-2022-03-31 09:54:24.834  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 09:54:45.960  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 09:59:39.296  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:04:26.594  INFO 17780 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:05:05.268  INFO 17780 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:13:05.815  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:14:43.650  INFO 17780 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:22:55.875  INFO 17780 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 40 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(40)-CONNECTED(40)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 294], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 78], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 9788]
-2022-03-31 10:23:17.724  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:24:18.937  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:28:03.321  INFO 17780 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:33:31.540  INFO 17780 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:35:27.750  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:36:21.009  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:39:17.638  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:39:17.741  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:39:17.943  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:39:32.293  INFO 17780 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:39:32.446  INFO 17780 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:39:32.606  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:40:00.723  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:42:25.068  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:42:42.480  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:42:42.635  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:42:42.787  INFO 17780 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:42:53.859  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:42:53.988  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:42:54.148  INFO 17780 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:43:03.291  INFO 17780 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:43:43.274  INFO 17780 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:44:14.422  INFO 17780 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:44:14.600  INFO 17780 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:44:14.783  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:45:03.437  INFO 17780 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:45:13.675  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:45:13.818  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:45:13.994  INFO 17780 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:45:30.683  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:45:41.835  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:45:41.985  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:45:42.176  INFO 17780 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:46:06.731  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:46:16.553  INFO 17780 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:46:16.717  INFO 17780 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:46:16.895  INFO 17780 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:52:55.887  INFO 17780 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 48 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(48)-CONNECTED(48)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 354], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 94], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 10467]
-2022-03-31 10:54:10.337  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:54:18.251  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 10:54:18.439  INFO 17780 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:54:18.987  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 10:58:23.224  INFO 17780 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:01:44.215  INFO 17780 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:02:55.421  INFO 17780 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:03:09.643  INFO 17780 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:10:41.175  INFO 17780 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:18:14.365  INFO 10216 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 10216 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
-2022-03-31 11:18:14.365  INFO 10216 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
-2022-03-31 11:18:14.427  INFO 10216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-31 11:18:14.427  INFO 10216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-31 11:18:18.694  INFO 10216 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-31 11:18:18.694  INFO 10216 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-03-31 11:18:18.741  INFO 10216 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
-2022-03-31 11:18:20.164  INFO 10216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2022-03-31 11:18:20.179  INFO 10216 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2022-03-31 11:18:20.273  INFO 10216 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-31 11:18:20.273  INFO 10216 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5846 ms
-2022-03-31 11:18:20.508  INFO 10216 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2022-03-31 11:18:20.664  INFO 10216 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2022-03-31 11:18:23.928  INFO 10216 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-03-31 11:18:24.181  INFO 10216 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
-2022-03-31 11:18:24.765  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
-2022-03-31 11:18:24.797  INFO 10216 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f688113, org.springframework.security.web.context.SecurityContextPersistenceFilter@5587789f, org.springframework.security.web.header.HeaderWriterFilter@7f3a4777, org.springframework.security.web.authentication.logout.LogoutFilter@245fc6a2, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@9cebbcf, org.springframework.security.web.session.ConcurrentSessionFilter@5b88dcf3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26408d80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37de197a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a5e9b10, org.springframework.security.web.session.SessionManagementFilter@34191383, org.springframework.security.web.access.ExceptionTranslationFilter@5b93590a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@350ec878]
-2022-03-31 11:18:24.940  INFO 10216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-03-31 11:18:24.940  INFO 10216 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-03-31 11:18:24.956  INFO 10216 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-03-31 11:18:25.050  INFO 10216 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-03-31 11:18:25.190  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.256  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.256  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 11:18:25.256  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
-2022-03-31 11:18:25.272  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
-2022-03-31 11:18:25.272  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
-2022-03-31 11:18:25.272  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.287  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
-2022-03-31 11:18:25.287  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
-2022-03-31 11:18:25.319  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.319  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
-2022-03-31 11:18:25.350  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 11:18:25.381  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.381  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
-2022-03-31 11:18:25.397  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.397  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
-2022-03-31 11:18:25.412  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.412  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
-2022-03-31 11:18:25.412  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.412  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
-2022-03-31 11:18:25.428  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
-2022-03-31 11:18:25.444  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.444  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
-2022-03-31 11:18:25.459  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.459  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
-2022-03-31 11:18:25.459  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
-2022-03-31 11:18:25.459  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 11:18:25.475  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
-2022-03-31 11:18:25.490  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.490  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
-2022-03-31 11:18:25.490  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
-2022-03-31 11:18:25.490  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.506  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
-2022-03-31 11:18:25.506  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
-2022-03-31 11:18:25.506  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
-2022-03-31 11:18:25.506  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 11:18:25.506  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
-2022-03-31 11:18:25.506  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
-2022-03-31 11:18:25.522  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
-2022-03-31 11:18:25.522  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
-2022-03-31 11:18:25.522  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
-2022-03-31 11:18:25.522  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
-2022-03-31 11:18:25.540  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
-2022-03-31 11:18:25.542  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.542  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
-2022-03-31 11:18:25.557  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
-2022-03-31 11:18:25.573  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.573  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
-2022-03-31 11:18:25.588  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.588  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.588  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
-2022-03-31 11:18:25.588  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
-2022-03-31 11:18:25.588  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
-2022-03-31 11:18:25.656  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
-2022-03-31 11:18:25.672  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
-2022-03-31 11:18:25.688  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.688  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
-2022-03-31 11:18:25.688  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
-2022-03-31 11:18:25.703  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.719  INFO 10216 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
-2022-03-31 11:18:25.719  WARN 10216 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 11:18:25.719  INFO 10216 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2022-03-31 11:18:25.719  INFO 10216 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@58e06458]]
-2022-03-31 11:18:25.719  INFO 10216 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2022-03-31 11:18:25.734  INFO 10216 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 11.835 seconds (JVM running for 13.352)
-2022-03-31 11:18:30.587  INFO 10216 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-31 11:18:30.587  INFO 10216 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-31 11:18:30.587  INFO 10216 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2022-03-31 11:19:24.047  INFO 10216 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
-2022-03-31 11:22:11.628  INFO 10216 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:23:20.896  INFO 10216 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:37:12.320  INFO 10216 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:37:22.207  INFO 10216 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:38:21.142  INFO 10216 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:45:37.085  INFO 10216 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 11:49:24.057  INFO 10216 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 12 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(12)-CONNECTED(12)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 84], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 22], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 640]
-2022-03-31 12:19:24.064  INFO 10216 --- [MessageBroker-7] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 12 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(12)-CONNECTED(12)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 84], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 22], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 1325]
-2022-03-31 12:20:25.584  INFO 10216 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 12:20:32.747  INFO 10216 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 12:21:44.375  INFO 10216 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 12:49:24.076  INFO 10216 --- [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 18 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(18)-CONNECTED(18)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 129], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 34], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 2006]
-2022-03-31 12:56:22.746  INFO 10216 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:00:38.659  INFO 10216 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:01:09.412  INFO 10216 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:01:19.893  INFO 10216 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:02:22.438  INFO 8760 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 8760 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
-2022-03-31 13:02:22.454  INFO 8760 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
-2022-03-31 13:02:22.516  INFO 8760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-03-31 13:02:22.516  INFO 8760 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-03-31 13:02:25.877  INFO 8760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-03-31 13:02:25.877  INFO 8760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-03-31 13:02:25.924  INFO 8760 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 Redis repository interfaces.
-2022-03-31 13:02:27.143  INFO 8760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-03-31 13:02:27.174  INFO 8760 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-03-31 13:02:27.174  INFO 8760 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
-2022-03-31 13:02:27.205  INFO 8760 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
-2022-03-31 13:02:27.205  INFO 8760 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
-2022-03-31 13:02:27.205  INFO 8760 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
-2022-03-31 13:02:27.205  INFO 8760 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2022-03-31 13:02:27.205  INFO 8760 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
-2022-03-31 13:02:27.314  INFO 8760 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-03-31 13:02:27.314  INFO 8760 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4798 ms
-2022-03-31 13:02:27.580  INFO 8760 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2022-03-31 13:02:27.783  INFO 8760 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2022-03-31 13:02:31.229  INFO 8760 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-03-31 13:02:31.464  INFO 8760 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-03-31 13:02:32.060  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
-2022-03-31 13:02:32.075  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
-2022-03-31 13:02:32.107  INFO 8760 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d175e44, org.springframework.security.web.context.SecurityContextPersistenceFilter@236ad833, org.springframework.security.web.header.HeaderWriterFilter@6289a5b4, org.springframework.security.web.authentication.logout.LogoutFilter@1dc6ba3, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@3fc0cf09, org.springframework.security.web.session.ConcurrentSessionFilter@547f682d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42ccf3e4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@485cfd83, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@313f3384, org.springframework.security.web.session.SessionManagementFilter@2b498077, org.springframework.security.web.access.ExceptionTranslationFilter@9603334, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@681882a7]
-2022-03-31 13:02:32.261  INFO 8760 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-03-31 13:02:32.262  INFO 8760 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-03-31 13:02:32.275  INFO 8760 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-03-31 13:02:32.354  INFO 8760 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-03-31 13:02:32.494  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.543  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.546  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 13:02:32.552  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
-2022-03-31 13:02:32.562  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
-2022-03-31 13:02:32.564  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
-2022-03-31 13:02:32.564  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.565  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
-2022-03-31 13:02:32.568  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
-2022-03-31 13:02:32.589  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.597  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
-2022-03-31 13:02:32.614  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 13:02:32.655  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.658  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
-2022-03-31 13:02:32.666  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.669  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
-2022-03-31 13:02:32.677  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.679  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
-2022-03-31 13:02:32.683  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.686  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
-2022-03-31 13:02:32.701  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
-2022-03-31 13:02:32.710  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.715  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
-2022-03-31 13:02:32.722  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.723  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
-2022-03-31 13:02:32.725  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
-2022-03-31 13:02:32.728  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 13:02:32.747  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
-2022-03-31 13:02:32.757  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.766  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
-2022-03-31 13:02:32.772  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
-2022-03-31 13:02:32.774  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.777  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
-2022-03-31 13:02:32.781  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
-2022-03-31 13:02:32.785  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
-2022-03-31 13:02:32.792  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-03-31 13:02:32.794  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
-2022-03-31 13:02:32.798  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
-2022-03-31 13:02:32.802  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
-2022-03-31 13:02:32.804  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
-2022-03-31 13:02:32.807  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
-2022-03-31 13:02:32.810  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
-2022-03-31 13:02:32.816  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
-2022-03-31 13:02:32.820  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.822  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
-2022-03-31 13:02:32.836  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
-2022-03-31 13:02:32.846  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.849  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
-2022-03-31 13:02:32.861  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.862  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.865  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
-2022-03-31 13:02:32.868  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
-2022-03-31 13:02:32.873  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
-2022-03-31 13:02:32.932  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
-2022-03-31 13:02:32.947  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
-2022-03-31 13:02:32.958  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.959  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
-2022-03-31 13:02:32.965  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
-2022-03-31 13:02:32.977  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:32.980  INFO 8760 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
-2022-03-31 13:02:32.986  WARN 8760 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-03-31 13:02:33.000  INFO 8760 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2022-03-31 13:02:33.000  INFO 8760 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4cd1ac3]]
-2022-03-31 13:02:33.001  INFO 8760 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2022-03-31 13:02:33.014  INFO 8760 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 11.944 seconds (JVM running for 14.875)
-2022-03-31 13:02:50.512  INFO 8760 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-03-31 13:02:50.512  INFO 8760 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-03-31 13:02:50.514  INFO 8760 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-03-31 13:03:01.867  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:03:31.344  INFO 8760 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
-2022-03-31 13:04:32.780  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:04:38.979  INFO 8760 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:04:45.627  INFO 8760 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:07:17.205  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:07:22.506  INFO 8760 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:08:34.326  INFO 8760 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:11:02.548  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:14:16.324  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:14:42.888  INFO 8760 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:30:18.516  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:30:54.094  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:31:33.796  INFO 8760 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:33:31.348  INFO 8760 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 4 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(4)-CONNECTED(4)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 6], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 673]
-2022-03-31 13:36:41.687  INFO 8760 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:36:59.480  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:37:41.390  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:37:41.468  INFO 8760 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:37:41.472  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:00.327  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:07.003  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:07.005  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:07.014  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:48.526  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:51.761  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:51.761  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:38:51.772  INFO 8760 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:44:40.529  INFO 8760 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:44:49.584  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:44:53.440  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:45:01.927  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:45:06.399  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:47:44.247  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:48:09.312  INFO 8760 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:48:13.407  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:48:53.426  INFO 8760 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:49:02.992  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:49:49.608  INFO 8760 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:50:10.693  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:50:21.017  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:50:43.814  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:50:52.691  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:50:57.033  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:51:13.884  INFO 8760 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:51:20.114  INFO 8760 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : update fill
-2022-03-31 13:51:23.999  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:52:05.912  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:54:15.958  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:26.039  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:26.334  INFO 8760 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:26.361  INFO 8760 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:27.772  INFO 8760 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:29.007  INFO 8760 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:30.830  INFO 8760 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 13:55:32.476  INFO 8760 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
-2022-03-31 14:03:31.351  INFO 8760 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 36 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(36)-CONNECTED(36)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 264], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 70], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 1338]
+2022-04-01 11:29:21.009  INFO 15412 --- [lettuce-eventExecutorLoop-1-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /47.100.78.245:6379
+2022-04-01 11:29:21.228  INFO 15412 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ReconnectionHandler    : Reconnected to 47.100.78.245:6379
+2022-04-01 11:30:21.599  INFO 15412 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 11:30:21.747  INFO 15412 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 11:31:45.345  WARN 15412 --- [http-nio-8081-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T03:31:44.936Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T03:31:44.936Z' could not be parsed, unparsed text found at index 10; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T03:31:44.936Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T03:31:44.936Z' could not be parsed, unparsed text found at index 10
+ at [Source: (PushbackInputStream); line: 1, column: 707] (through reference chain: com.example.rbac.pojo.Employee["conversionTime"])]
+2022-04-01 11:31:48.308  WARN 15412 --- [http-nio-8081-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T03:31:48.197Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T03:31:48.197Z' could not be parsed, unparsed text found at index 10; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T03:31:48.197Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T03:31:48.197Z' could not be parsed, unparsed text found at index 10
+ at [Source: (PushbackInputStream); line: 1, column: 707] (through reference chain: com.example.rbac.pojo.Employee["conversionTime"])]
+2022-04-01 11:32:01.296  WARN 15412 --- [http-nio-8081-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T03:32:00.885Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T03:32:00.885Z' could not be parsed, unparsed text found at index 10; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T03:32:00.885Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T03:32:00.885Z' could not be parsed, unparsed text found at index 10
+ at [Source: (PushbackInputStream); line: 1, column: 707] (through reference chain: com.example.rbac.pojo.Employee["conversionTime"])]
+2022-04-01 11:43:04.633  INFO 6060 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 6060 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-04-01 11:43:04.648  INFO 6060 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-04-01 11:43:04.945  INFO 6060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-01 11:43:04.945  INFO 6060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-01 11:43:15.178  INFO 6060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-01 11:43:15.178  INFO 6060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-01 11:43:15.287  INFO 6060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2022-04-01 11:43:19.223  INFO 6060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-01 11:43:19.271  INFO 6060 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-01 11:43:19.271  INFO 6060 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-04-01 11:43:19.286  INFO 6060 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-04-01 11:43:19.286  INFO 6060 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-04-01 11:43:19.286  INFO 6060 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-04-01 11:43:19.286  INFO 6060 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-01 11:43:19.489  INFO 6060 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-04-01 11:43:19.645  INFO 6060 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-01 11:43:19.645  INFO 6060 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 14700 ms
+2022-04-01 11:43:20.348  INFO 6060 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-01 11:43:21.410  INFO 6060 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-01 11:43:30.403  INFO 6060 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-01 11:43:31.331  INFO 6060 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-01 11:43:33.382  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-01 11:43:33.444  INFO 6060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ed1db0f, org.springframework.security.web.context.SecurityContextPersistenceFilter@43186df6, org.springframework.security.web.header.HeaderWriterFilter@6883c7d, org.springframework.security.web.authentication.logout.LogoutFilter@3495b553, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@1626f783, org.springframework.security.web.session.ConcurrentSessionFilter@6479471e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4292fb98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b2d9b3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6aef99c3, org.springframework.security.web.session.SessionManagementFilter@47379ed9, org.springframework.security.web.access.ExceptionTranslationFilter@35e05a48, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3de380e5]
+2022-04-01 11:43:33.687  INFO 6060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-01 11:43:33.687  INFO 6060 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-01 11:43:33.813  INFO 6060 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-01 11:43:33.956  INFO 6060 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-01 11:43:34.256  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.303  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.303  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 11:43:34.318  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-01 11:43:34.318  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-01 11:43:34.318  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-01 11:43:34.318  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.318  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-01 11:43:34.334  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-01 11:43:34.349  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.349  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-01 11:43:34.365  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 11:43:34.396  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.396  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-01 11:43:34.412  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.412  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-01 11:43:34.428  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.428  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-01 11:43:34.428  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.428  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-01 11:43:34.443  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-01 11:43:34.459  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.459  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-01 11:43:34.459  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.459  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-01 11:43:34.459  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-01 11:43:34.474  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 11:43:34.490  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-01 11:43:34.490  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.506  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-01 11:43:34.506  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-01 11:43:34.506  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.506  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-01 11:43:34.521  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-01 11:43:34.521  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-01 11:43:34.521  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 11:43:34.521  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-01 11:43:34.537  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-01 11:43:34.537  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-01 11:43:34.537  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-01 11:43:34.537  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-01 11:43:34.556  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-01 11:43:34.556  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-01 11:43:34.556  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.556  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-01 11:43:34.571  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-01 11:43:34.587  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.603  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-01 11:43:34.603  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.603  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.603  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-01 11:43:34.618  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-01 11:43:34.618  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-01 11:43:34.665  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-01 11:43:34.681  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-01 11:43:34.696  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.696  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-01 11:43:34.696  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-01 11:43:34.712  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.712  INFO 6060 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-01 11:43:34.728  WARN 6060 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 11:43:34.743  INFO 6060 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-01 11:43:34.743  INFO 6060 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7546bb6e]]
+2022-04-01 11:43:34.743  INFO 6060 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-01 11:43:34.759  INFO 6060 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 32.582 seconds (JVM running for 39.529)
+2022-04-01 11:44:30.820  INFO 6060 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 4, completed tasks = 6]
+2022-04-01 12:01:25.975  INFO 6060 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-01 12:01:25.975  INFO 6060 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-01 12:01:25.975  INFO 6060 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-01 12:01:36.788  INFO 6060 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:05:28.459  WARN 6060 --- [http-nio-8081-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T04:05:28.345Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T04:05:28.345Z' could not be parsed, unparsed text found at index 10; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "2022-04-01T04:05:28.345Z": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-04-01T04:05:28.345Z' could not be parsed, unparsed text found at index 10
+ at [Source: (PushbackInputStream); line: 1, column: 707] (through reference chain: com.example.rbac.pojo.Employee["conversionTime"])]
+2022-04-01 12:07:46.246  WARN 6060 --- [http-nio-8081-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "2022-3-5": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-3-5' could not be parsed at index 5; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "2022-3-5": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '2022-3-5' could not be parsed at index 5
+ at [Source: (PushbackInputStream); line: 1, column: 707] (through reference chain: com.example.rbac.pojo.Employee["conversionTime"])]
+2022-04-01 12:12:21.369  INFO 6060 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /47.100.78.245:6379
+2022-04-01 12:12:21.382 ERROR 6060 --- [http-nio-8081-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:271) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.await(LettuceConnection.java:1062) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.lambda$doInvoke$4(LettuceConnection.java:919) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceInvoker$Synchronizer.invoke(LettuceInvoker.java:665) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceInvoker.just(LettuceInvoker.java:94) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceStringCommands.get(LettuceStringCommands.java:55) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.get(DefaultedRedisConnection.java:267) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:57) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:60) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:222) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:189) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:96) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:53) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	at com.example.rbac.config.security.component.JwtAuthorizationTokenFilter.doFilterInternal(JwtAuthorizationTokenFilter.java:65) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.5.1.jar:5.5.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.8.jar:5.3.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:190) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:163) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1723) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_201]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.48.jar:9.0.48]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_201]
+Caused by: io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at io.lettuce.core.internal.Exceptions.bubble(Exceptions.java:83) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
+	at io.lettuce.core.internal.Futures.awaitOrCancel(Futures.java:250) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:74) ~[lettuce-core-6.1.3.RELEASE.jar:6.1.3.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.await(LettuceConnection.java:1060) ~[spring-data-redis-2.5.2.jar:2.5.2]
+	... 61 common frames omitted
+Caused by: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_201]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_201]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_201]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_201]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[na:1.8.0_201]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253) ~[netty-buffer-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.65.Final.jar:4.1.65.Final]
+	... 1 common frames omitted
+
+2022-04-01 12:12:27.444  INFO 6060 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ReconnectionHandler    : Reconnected to 47.100.78.245:6379
+2022-04-01 12:12:31.065  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:12:31.281  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:13:35.113  INFO 6060 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:13:35.206  INFO 6060 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:13:37.100  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:13:37.333  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:14:30.826  INFO 6060 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 6 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(6)-CONNECTED(6)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 51], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 11], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 6, completed tasks = 371]
+2022-04-01 12:15:09.311  INFO 6060 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:09.312  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:09.374  INFO 6060 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:10.514  INFO 6060 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:11.332  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:11.618  INFO 6060 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:11.656  INFO 6060 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:25.544  INFO 6060 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:51.128  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:15:51.334  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:15:51.500  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:16:03.151  INFO 6060 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:16:53.914  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:16:55.197  INFO 6060 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:16:56.143  INFO 6060 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:16:57.208  INFO 6060 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:17:12.098  INFO 6060 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:18:46.505  INFO 6060 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:19:24.177  INFO 6060 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:19:34.653  INFO 6060 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:19:34.847  INFO 6060 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:19:35.012  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:19:50.965  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:19:51.202  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:19:51.349  INFO 6060 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:21:09.403  INFO 6060 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:21:27.462  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:21:53.845  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:21:53.905  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:21:54.332  INFO 6060 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:01.605  INFO 6060 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:22:01.694  INFO 6060 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:02.135  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:07.447  INFO 6060 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:22:07.535  INFO 6060 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:07.961  INFO 6060 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:19.578  INFO 6060 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:22:19.743  INFO 6060 --- [http-nio-8081-exec-6] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:20.169  INFO 6060 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:42.797  INFO 6060 --- [http-nio-8081-exec-9] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:48.440  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:22:48.636  INFO 6060 --- [http-nio-8081-exec-1] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:22:49.086  INFO 6060 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:24:09.643  INFO 8408 --- [restartedMain] com.example.rbac.RbacApplication         : Starting RbacApplication using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 8408 (D:\USERPROG\JavaEE\folder\rbac\rbac-server\target\classes started by Lenovo in D:\USERPROG\JavaEE\folder\rbac)
+2022-04-01 12:24:09.643  INFO 8408 --- [restartedMain] com.example.rbac.RbacApplication         : No active profile set, falling back to default profiles: default
+2022-04-01 12:24:09.674  INFO 8408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-01 12:24:09.674  INFO 8408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-01 12:24:11.252  INFO 8408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-01 12:24:11.252  INFO 8408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-01 12:24:11.299  INFO 8408 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-04-01 12:24:12.173  INFO 8408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-01 12:24:12.267  INFO 8408 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-04-01 12:24:12.345  INFO 8408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-01 12:24:12.345  INFO 8408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2671 ms
+2022-04-01 12:24:12.564  INFO 8408 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-01 12:24:12.642  INFO 8408 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-01 12:24:15.300  INFO 8408 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-01 12:24:15.475  INFO 8408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-01 12:24:15.928  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-01 12:24:15.959  INFO 8408 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4098f520, org.springframework.security.web.context.SecurityContextPersistenceFilter@21fc9a8c, org.springframework.security.web.header.HeaderWriterFilter@8ec7ae9, org.springframework.security.web.authentication.logout.LogoutFilter@6173484e, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@30127ed1, org.springframework.security.web.session.ConcurrentSessionFilter@35fa5e2b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34b7225, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@171b6378, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c0c4e9f, org.springframework.security.web.session.SessionManagementFilter@1e29238b, org.springframework.security.web.access.ExceptionTranslationFilter@1f9599f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@377ace45]
+2022-04-01 12:24:16.068  INFO 8408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-01 12:24:16.068  INFO 8408 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-01 12:24:16.084  INFO 8408 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-01 12:24:16.146  INFO 8408 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-01 12:24:16.256  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.291  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.291  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 12:24:16.306  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-01 12:24:16.306  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-01 12:24:16.306  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-01 12:24:16.306  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.306  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-01 12:24:16.322  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-01 12:24:16.338  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.338  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-01 12:24:16.369  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 12:24:16.400  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.400  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-01 12:24:16.416  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.416  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-01 12:24:16.416  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.431  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-01 12:24:16.431  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.431  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-01 12:24:16.447  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-01 12:24:16.463  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.463  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-01 12:24:16.478  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.478  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-01 12:24:16.478  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-01 12:24:16.478  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 12:24:16.494  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-01 12:24:16.494  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.509  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-01 12:24:16.509  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-01 12:24:16.509  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.509  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-01 12:24:16.509  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-01 12:24:16.509  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-01 12:24:16.509  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-01 12:24:16.525  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-01 12:24:16.525  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-01 12:24:16.525  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-01 12:24:16.525  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-01 12:24:16.525  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-01 12:24:16.525  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-01 12:24:16.541  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-01 12:24:16.541  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.541  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-01 12:24:16.556  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-01 12:24:16.572  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.575  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-01 12:24:16.575  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.575  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.591  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-01 12:24:16.591  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-01 12:24:16.591  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-01 12:24:16.653  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-01 12:24:16.669  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-01 12:24:16.669  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.669  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-01 12:24:16.684  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-01 12:24:16.684  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.684  INFO 8408 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-01 12:24:16.700  WARN 8408 --- [restartedMain] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-01 12:24:16.700  INFO 8408 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-01 12:24:16.700  INFO 8408 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6f1f27d4]]
+2022-04-01 12:24:16.700  INFO 8408 --- [restartedMain] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-01 12:24:16.716  INFO 8408 --- [restartedMain] com.example.rbac.RbacApplication         : Started RbacApplication in 7.414 seconds (JVM running for 8.788)
+2022-04-01 12:24:54.128  INFO 8408 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-01 12:24:54.128  INFO 8408 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-01 12:24:54.128  INFO 8408 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-04-01 12:24:55.615  INFO 8408 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:07.389  INFO 8408 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:25:07.579  INFO 8408 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:07.738  INFO 8408 --- [http-nio-8081-exec-10] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:13.029  INFO 8408 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:25:13.186  INFO 8408 --- [http-nio-8081-exec-7] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:13.328  INFO 8408 --- [http-nio-8081-exec-2] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:15.354  INFO 8408 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 7, completed tasks = 10]
+2022-04-01 12:25:18.523  INFO 8408 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:25:18.612  INFO 8408 --- [http-nio-8081-exec-5] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:18.778  INFO 8408 --- [http-nio-8081-exec-3] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:28.733  INFO 8408 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-01 12:25:28.896  INFO 8408 --- [http-nio-8081-exec-8] c.e.rbac.handler.MyMetaObjectHandler     : insert fill
+2022-04-01 12:25:29.029  INFO 8408 --- [http-nio-8081-exec-4] c.e.rbac.handler.MyMetaObjectHandler     : insert fill

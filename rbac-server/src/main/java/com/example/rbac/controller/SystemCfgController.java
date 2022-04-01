@@ -52,7 +52,7 @@ public class SystemCfgController {
     @ApiOperation(value = "查询系统公告(用于首页轮播)")
     @GetMapping("/system/message")
     public List<SysMsg> getSysMsg() {
-        return sysMsgService.list(new QueryWrapper<SysMsg>().eq("enabled", false));
+        return sysMsgService.list(new QueryWrapper<SysMsg>().eq("enabled", true));
     }
 
     @OperationLogAnnotation(operModul = "系统管理-系统管理", operType = "查询", operDesc = "查询系统公告")
