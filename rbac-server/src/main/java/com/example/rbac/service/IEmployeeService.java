@@ -215,9 +215,10 @@ public interface IEmployeeService extends IService<Employee> {
     /**
      * 员工异动信息统计
      * @param localDate
+     * @param depId
      * @return
      */
-    List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate);
+    List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate, Integer depId);
 
     /**
      * 合同到期提醒

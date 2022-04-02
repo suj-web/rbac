@@ -20,9 +20,9 @@ public interface ISalaryAdjustService extends IService<SalaryAdjust> {
      * 获取所有员工调薪信息
      * @param currentPage
      * @param size
-     * @param name
+     * @param depId
      * @param localDate
      * @return
      */
-    RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, String name, String localDate);
+    RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, Integer depId, String localDate);
 }

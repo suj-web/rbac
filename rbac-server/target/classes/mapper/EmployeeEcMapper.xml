@@ -24,7 +24,8 @@
 
     <resultMap id="ChartResultMap" type="com.example.rbac.pojo.RespChartBean">
         <result column="name" property="name" />
-        <result column="count" property="count" />
+        <result column="value" property="value" />
+        <result column="average" property="average" />
     </resultMap>
 
     <resultMap id="ScoreRankResultMap" type="com.example.rbac.pojo.EmployeeEc" extends="BaseResultMap">
@@ -71,28 +72,28 @@
     <select id="getScoreStatistic" resultMap="ChartResultMap">
         SELECT
             scoredj AS `name`,
-            COUNT(empId) AS `count`
+            COUNT(empId) AS `value`
         FROM
             (
                 SELECT
                     CASE
                 <![CDATA[
                 WHEN score < 0 THEN
-                '<0'
+                '0分以下'
                 WHEN score >= 0
                 AND score < 20 THEN
-                '0-20'
+                '0~20分'
                 WHEN score >= 20
                 AND score < 40 THEN
-                '20-40'
+                '20~40分'
                 WHEN score >= 40
                 AND score < 60 THEN
-                '40-60'
+                '40~60分'
                 WHEN score >= 60
                 AND score < 80 THEN
-                '60-80'
+                '60~80分'
                 WHEN score >= 80 THEN
-                '>80'
+                '80分以上'
                 ]]>
                 END AS scoredj,
                     empId
@@ -132,7 +133,8 @@
             emp.work_id AS emp_work_id,
             dep.`name` AS dep_name,
             SUM(er.score) AS score,
-            ee.id
+            ee.id,
+            ee.ec_date
         FROM
             t_employee emp,
             t_employee_ec ee,

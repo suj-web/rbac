@@ -121,7 +121,8 @@
 
     <resultMap id="ChartResultMap" type="com.example.rbac.pojo.RespChartBean">
         <result column="name" property="name" />
-        <result column="count" property="count" />
+        <result column="value" property="value" />
+        <result column="average" property="average" />
     </resultMap>
 
     <resultMap id="ContractExpireResultMap" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
@@ -165,7 +166,6 @@
         AND emp.politic_id = ps.id
         AND emp.job_level_id = job.id
         AND emp.is_delete = FALSE
-        AND emp.work_state = '在职'
         <if test="null!=employee.name and ''!=employee.name">
             AND emp.`name` LIKE concat('%',#{employee.name},'%')
         </if>
@@ -275,6 +275,7 @@
             t_salary sal
         WHERE
             emp.salary_id = sal.id
+        AND emp.is_delete = FALSE
         AND emp.work_state = '在职'
     </select>
 
@@ -299,6 +300,7 @@
         WHERE
             emp.department_id = dep.id
         AND emp.work_state = '在职'
+        AND emp.is_delete = FALSE
         AND emp.id = st.employee_id
         <if test="null != depId">
             AND dep.id = #{depId}
@@ -332,6 +334,7 @@
         WHERE
             emp.department_id = dep.id
         AND emp.work_state = '在职'
+        AND emp.is_delete = FALSE
         AND emp.id = st.employee_id
         <if test="null != year">
             AND st.`year` = #{year}
@@ -346,7 +349,7 @@
     <select id="getPositionNumber" resultMap="ChartResultMap">
         SELECT
             pos.`name` AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp,
             t_position pos
@@ -362,7 +365,7 @@
     <select id="getDepartmentNumber" resultMap="ChartResultMap">
         SELECT
             dep.`name` AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp,
             t_department dep
@@ -378,39 +381,40 @@
     <select id="getCompositionByAge" resultMap="ChartResultMap">
         SELECT
             nnd AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
         <![CDATA[
             (
                 SELECT
                     CASE
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) < 24 THEN
-                '24以下'
+                '24岁以下'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 24
                 AND YEAR (NOW()) - YEAR (emp.birthday) < 29 THEN
-                '24-29'
+                '24~29岁'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 29
                 AND YEAR (NOW()) - YEAR (emp.birthday) < 34 THEN
-                '29-34'
+                '29~34岁'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 34
                 AND YEAR (NOW()) - YEAR (emp.birthday) < 39 THEN
-                '34-39'
+                '34~39岁'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 39
                 AND YEAR (NOW()) - YEAR (emp.birthday) < 44 THEN
-                '39-44'
+                '39~44岁'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 44
                 AND YEAR (NOW()) - YEAR (emp.birthday) < 49 THEN
-                '44-49'
+                '44~49岁'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 49
                 AND YEAR (NOW()) - YEAR (emp.birthday) < 55 THEN
-                '49-55'
+                '49~55岁'
                 WHEN YEAR (NOW()) - YEAR (emp.birthday) >= 55 THEN
-                '55以上'
+                '55岁以上'
                 END AS nnd,
                     department_id AS departmentId
                 FROM
                     t_employee emp
                 WHERE emp.work_state = '在职'
+                AND emp.is_delete = FALSE
             ) a ]]>
         WhERE 1 = 1
         <if test="null != depId">
@@ -424,30 +428,31 @@
     <select id="getCompositionByWorkAge" resultMap="ChartResultMap">
         SELECT
             gld AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
         <![CDATA[
             (
                 SELECT
                     CASE
                 WHEN emp.work_age < 1 THEN
-                '1以下'
+                '1年以下'
                 WHEN emp.work_age >= 1
                 AND emp.work_age < 2 THEN
-                '1-2'
+                '1~2年'
                 WHEN emp.work_age >= 2
                 AND emp.work_age < 5 THEN
-                '2-5'
+                '2~5年'
                 WHEN emp.work_age >= 5
                 AND emp.work_age < 10 THEN
-                '5-10'
+                '5~10年'
                 WHEN emp.work_age >= 10 THEN
-                '10以上'
+                '10年以上'
                 END AS gld,
                     department_id AS departmentId
                 FROM
                     t_employee emp
                 WHERE emp.work_state = '在职'
+                AND emp.is_delete = FALSE
             ) a ]]>
         WHERE 1 = 1
         <if test="null != depId">
@@ -461,10 +466,10 @@
     <select id="getCompositionByGender" resultMap="ChartResultMap">
         SELECT
             emp.gender AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp
-        WHERE 1 = 1
+        WHERE emp.is_delete = FALSE
         AND emp.work_state = '在职'
         <if test="null != depId">
             AND emp.department_id = #{depId}
@@ -477,10 +482,10 @@
     <select id="getCompositionByDegree" resultMap="ChartResultMap">
         SELECT
             emp.tiptop_degree AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp
-        WHERE 1 = 1
+        WHERE emp.is_delete = FALSE
         AND emp.work_state = '在职'
         <if test="null != depId">
             AND emp.department_id = #{depId}
@@ -493,7 +498,7 @@
     <select id="getSalaryDepartment" resultMap="ChartResultMap">
         SELECT
             dep.`name` AS `name`,
-            SUM(st.all_salary) / COUNT(*) AS `count`
+            SUM(st.all_salary) / COUNT(*) AS `average`
         FROM
             t_employee emp,
             t_department dep,
@@ -514,7 +519,7 @@
     <select id="getSalaryPosition" resultMap="ChartResultMap">
         SELECT
             pos.`name` AS `name`,
-            SUM(st.all_salary) / COUNT(*) AS `count`
+            SUM(st.all_salary) / COUNT(*) AS `average`
         FROM
             t_employee emp,
             t_position pos,
@@ -535,7 +540,7 @@
     <select id="getCompositionByEngageForm" resultMap="ChartResultMap">
         SELECT
             emp.engage_form AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp
         WHERE
@@ -552,7 +557,7 @@
     <select id="getCompositionByWorkState" resultMap="ChartResultMap">
         SELECT
             emp.work_state AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp
         WHERE
@@ -585,7 +590,7 @@
         SELECT
             SUM(
                 YEAR (NOW()) - YEAR (emp.birthday)
-            ) / COUNT(*) AS `count`,
+            ) / COUNT(*) AS `average`,
             dep.`name` AS `name`
         FROM
             t_employee emp,
@@ -615,7 +620,7 @@
 <!--    工龄统计-部门员工平均工龄统计-->
     <select id="getDepartmentAverageWorkAge" resultMap="ChartResultMap">
         SELECT
-            SUM(emp.work_age) / COUNT(*) AS `count`,
+            SUM(emp.work_age) / COUNT(*) AS `average`,
             dep.`name` AS `name`
         FROM
             t_employee emp,
@@ -632,7 +637,7 @@
     <select id="getWedLock" resultMap="ChartResultMap">
         SELECT
             emp.wed_lock AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp
         WHERE
@@ -649,7 +654,7 @@
     <select id="getNation" resultMap="ChartResultMap">
         SELECT
             nat.`name` AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp,
             t_nation nat
@@ -668,7 +673,7 @@
     <select id="getPoliticStatus" resultMap="ChartResultMap">
         SELECT
             ps.`name` AS `name`,
-            COUNT(*) AS `count`
+            COUNT(*) AS `value`
         FROM
             t_employee emp,
             t_politics_status ps
@@ -731,6 +736,7 @@
         ]]>
     </select>
 
+<!--    转正提醒-->
     <select id="getConversionRemind" resultMap="ContractExpireResultMap">
         SELECT
             emp.*, dep.`name` AS dep_name

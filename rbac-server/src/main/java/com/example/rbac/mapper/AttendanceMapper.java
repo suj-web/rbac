@@ -23,9 +23,10 @@ public interface AttendanceMapper extends BaseMapper<Attendance> {
      * @param page
      * @param localDate
      * @param absenteeism
+     * @param depId
      * @return
      */
-    IPage<Attendance> getAllAttendance(Page<Attendance> page, @Param("localDate") String localDate, @Param("absenteeism") Boolean absenteeism);
+    IPage<Attendance> getAllAttendance(Page<Attendance> page, @Param("localDate") String localDate, @Param("absenteeism") Boolean absenteeism, @Param("depId") Integer depId);
 
     /**
      * 人事管理-员工考勤-查询员工考勤信息

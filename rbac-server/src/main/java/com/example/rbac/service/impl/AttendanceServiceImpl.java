@@ -29,12 +29,13 @@ public class AttendanceServiceImpl extends ServiceImpl<AttendanceMapper, Attenda
      * @param size
      * @param localDate
      * @param absenteeism
+     * @param depId
      * @return
      */
     @Override
-    public RespPageBean getAllAttendance(Integer currentPage, Integer size, String localDate, Boolean absenteeism) {
+    public RespPageBean getAllAttendance(Integer currentPage, Integer size, String localDate, Boolean absenteeism, Integer depId) {
         Page<Attendance> page = new Page<>(currentPage, size);
-        IPage<Attendance> attendanceIPage = attendanceMapper.getAllAttendance(page, localDate, absenteeism);
+        IPage<Attendance> attendanceIPage = attendanceMapper.getAllAttendance(page, localDate, absenteeism, depId);
         RespPageBean respPageBean = new RespPageBean(attendanceIPage.getTotal(), attendanceIPage.getRecords());
         return respPageBean;
     }

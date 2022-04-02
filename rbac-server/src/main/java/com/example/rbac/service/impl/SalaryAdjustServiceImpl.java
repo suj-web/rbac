@@ -30,14 +30,14 @@ public class SalaryAdjustServiceImpl extends ServiceImpl<SalaryAdjustMapper, Sal
      * 获取所有员工调薪信息
      * @param currentPage
      * @param size
-     * @param name
+     * @param depId
      * @param localDate
      * @return
      */
     @Override
-    public RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, String name, String localDate) {
+    public RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, Integer depId, String localDate) {
         Page<SalaryAdjust> page = new Page<>(currentPage, size);
-        IPage<SalaryAdjust> salaryAdjustIPage = salaryAdjustMapper.getAllSalaryAdjust(page, name, localDate);
+        IPage<SalaryAdjust> salaryAdjustIPage = salaryAdjustMapper.getAllSalaryAdjust(page, depId, localDate);
         return new RespPageBean(salaryAdjustIPage.getTotal(), salaryAdjustIPage.getRecords());
     }
 }

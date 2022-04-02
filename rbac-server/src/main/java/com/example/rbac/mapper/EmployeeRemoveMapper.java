@@ -23,9 +23,9 @@ public interface EmployeeRemoveMapper extends BaseMapper<EmployeeRemove> {
     /**
      * 获取所有员工调动资料
      * @param page
-     * @param name
+     * @param remove
      * @param localDate
      * @return
      */
-    IPage<EmployeeRemove> getAllEmployeeRemove(Page<EmployeeRemove> page, @Param("name") String name, @Param("localDate") String localDate);
+    IPage<EmployeeRemove> getAllEmployeeRemove(Page<EmployeeRemove> page, @Param("remove") EmployeeRemove remove, @Param("localDate") String localDate);
 }

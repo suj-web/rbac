@@ -370,24 +370,36 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     /**
      * 员工异动信息统计
      * @param localDate
+     * @param depId
      * @return
      */
     @Override
     @Transactional
-    public List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate) {
+    public List<RespEmployeeRecordBean> getEmployeeTransaction(String localDate, Integer depId) {
         List<Department> departments = departmentMapper.selectList(null);
         List<RespEmployeeRecordBean> respEmployeeRecordBeans = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         localDate = localDate + "-01";
         for(Department department: departments) {
+            if(null != depId && department.getId() != depId){
+                continue;
+            }
             RespEmployeeRecordBean bean = new RespEmployeeRecordBean();
             bean.setName(department.getName());
+
+            //调入人数
+            Integer foldCount = employeeRemoveMapper.selectCount(new QueryWrapper<EmployeeRemove>().eq("after_department_id",department.getId()).between("remove_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setFoldCount(foldCount);
+            //调离人数
+            Integer transferCount = employeeRemoveMapper.selectCount(new QueryWrapper<EmployeeRemove>().eq("before_department_id",department.getId()).between("remove_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            bean.setTransferCount(transferCount);
+
             //期初人数
             Integer beginCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state", "在职").lt("begin_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth())));
             bean.setBeginCount(beginCount);
             //期末人数
             Integer endCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state", "在职").lt("begin_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
-            bean.setEndCount(endCount);
+            bean.setEndCount(endCount-transferCount+foldCount);
             //入职人数
             Integer entryCount = endCount - beginCount;
             bean.setEntryCount(entryCount);
@@ -403,7 +415,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             Integer conversionCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state","在职").between("conversion_time", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
             bean.setConversionCount(conversionCount);
             //离职人数
-            Integer dimissionCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state","离职").between("conversion_time", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
+            Integer dimissionCount = employeeMapper.selectCount(new QueryWrapper<Employee>().eq("department_id", department.getId()).eq("work_state","离职").between("not_work_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
             bean.setDimissionCount(dimissionCount);
             //离职率
             Double dimissionRate = dimissionCount / ((beginCount + endCount) / 2.0) * 100;
@@ -412,12 +424,6 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             } else {
                 bean.setDimissionRate(dimissionRate);
             }
-            //调入人数
-            Integer foldCount = employeeRemoveMapper.selectCount(new QueryWrapper<EmployeeRemove>().eq("after_department_id",department.getId()).between("remove_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
-            bean.setFoldCount(foldCount);
-            //调离人数
-            Integer transferCount = employeeRemoveMapper.selectCount(new QueryWrapper<EmployeeRemove>().eq("before_department_id",department.getId()).between("remove_date", LocalDate.parse(localDate, formatter).with(TemporalAdjusters.firstDayOfMonth()), LocalDate.parse(localDate, formatter).with(TemporalAdjusters.lastDayOfMonth())));
-            bean.setTransferCount(transferCount);
 
             respEmployeeRecordBeans.add(bean);
         }

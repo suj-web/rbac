@@ -1,6 +1,7 @@
 package com.example.rbac.controller;
 
 import com.example.rbac.pojo.Appraise;
+import com.example.rbac.pojo.EmployeeRemove;
 import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.pojo.Role;
 import com.example.rbac.service.*;
@@ -62,16 +63,16 @@ public class EmployeeAdvController {
     @GetMapping("/adjust")
     public RespPageBean getAllSalaryAdjust(@RequestParam(defaultValue = "1") Integer currentSize,
                                            @RequestParam(defaultValue = "10") Integer size,
-                                           String name, String localDate) {
-        return salaryAdjustService.getAllSalaryAdjust(currentSize, size, name, localDate);
+                                           Integer depId, String localDate) {
+        return salaryAdjustService.getAllSalaryAdjust(currentSize, size, depId, localDate);
     }
 
     @ApiOperation(value = "获取所有员工调动资料")
     @GetMapping("/remove")
     public RespPageBean getAllEmployeeRemove(@RequestParam(defaultValue = "1") Integer currentSize,
                                              @RequestParam(defaultValue = "10") Integer size,
-                                             String name, String localDate) {
-        return employeeRemoveService.getAllEmployeeRemove(currentSize, size, name, localDate);
+                                             EmployeeRemove remove, String localDate) {
+        return employeeRemoveService.getAllEmployeeRemove(currentSize, size, remove, localDate);
     }
 
     @ApiOperation(value = "获取所有员工工资信息")

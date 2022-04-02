@@ -21,6 +21,9 @@
             <id column="eid" property="id" />
             <result column="ename" property="name" />
             <result column="ework_id" property="workId" />
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
         </association>
     </resultMap>
 
@@ -34,16 +37,19 @@
         SELECT
             sa.*, e.id AS eid,
             e.`name` AS ename,
-            e.work_id AS ework_id
+            e.work_id AS ework_id,
+            dep.`name` AS dep_name
         FROM
             t_salary_adjust sa,
-            t_employee e
+            t_employee e,
+            t_department dep
         WHERE
             e.id = sa.employee_id
         AND e.is_delete = FALSE
         AND sa.is_delete = FALSE
-        <if test="null!=name and ''!=name">
-            AND e. NAME LIKE CONCAT('%', #{name}, '%')
+        AND e.department_id = dep.id
+        <if test="null!=depId">
+            AND dep.id = #{depId}
         </if>
         <if test="null!=localDate and ''!=localDate">
             AND date_format(sa.as_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')

@@ -43,8 +43,17 @@
             e.id = er.employee_id
         AND e.is_delete = FALSE
         AND er.is_delete = FALSE
-        <if test="null!=name and ''!=name">
-            AND e. NAME LIKE CONCAT('%', #{name}, '%')
+        <if test="null!=remove.beforeDepartmentId">
+            AND er.before_department_id = #{remove.beforeDepartmentId}
+        </if>
+        <if test="null!=remove.afterDepartmentId">
+            AND er.after_department_id = #{remove.afterDepartmentId}
+        </if>
+        <if test="null!=remove.beforePositionId">
+            AND er.before_position_id = #{remove.beforePositionId}
+        </if>
+        <if test="null!=remove.afterPositionId">
+            AND er.after_position_id = #{remove.afterPositionId}
         </if>
         <if test="null!=localDate and ''!=localDate">
             AND date_format(er.remove_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')

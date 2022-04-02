@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 统计管理-综合信息统计
@@ -42,8 +45,8 @@ public class StatisticsAllController {
     @GetMapping("/attendance/list")
     public RespPageBean getAllAttendance(@RequestParam(defaultValue = "1") Integer currentPage,
                                          @RequestParam(defaultValue = "10") Integer size,
-                                         String localDate, Boolean absenteeism) {
-        return attendanceService.getAllAttendance(currentPage, size, localDate, absenteeism);
+                                         String localDate, Boolean absenteeism, Integer depId) {
+        return attendanceService.getAllAttendance(currentPage, size, localDate, absenteeism, depId);
     }
 
     @ApiOperation(value = "职位人员统计")
@@ -74,14 +77,36 @@ public class StatisticsAllController {
 
     @ApiOperation(value = "部门薪资统计")
     @GetMapping("/salary/department")
-    public List<RespChartBean> getSalaryDepartment(String localDate) {
-        return employeeService.getSalaryDepartment(localDate);
+    public Map<String, Object> getSalaryDepartment(String localDate) {
+        List<RespChartBean> charts = employeeService.getSalaryDepartment(localDate);
+        Map<String, Object> map = new HashMap<>();
+        List<String> name = new ArrayList<>();
+        List<Double> value = new ArrayList<>();
+
+        for(RespChartBean bean : charts) {
+            name.add(bean.getName());
+            value.add(bean.getAverage());
+        }
+        map.put("name",name);
+        map.put("value",value);
+        return map;
     }
 
     @ApiOperation(value = "职位薪资统计")
     @GetMapping("/salary/position")
-    public List<RespChartBean> getSalaryPosition(String localDate) {
-        return employeeService.getSalaryPosition(localDate);
+    public Map<String, Object> getSalaryPosition(String localDate) {
+        List<RespChartBean> charts = employeeService.getSalaryPosition(localDate);
+        Map<String, Object> map = new HashMap<>();
+        List<String> name = new ArrayList<>();
+        List<Double>  value = new ArrayList<>();
+
+        for(RespChartBean bean : charts) {
+            name.add(bean.getName());
+            value.add(bean.getAverage());
+        }
+        map.put("name",name);
+        map.put("value",value);
+        return map;
     }
 
 }

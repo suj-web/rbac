@@ -32,8 +32,8 @@ public class SalaryAdjustController {
     @GetMapping("/")
     public RespPageBean getAllSalaryAdjust(@RequestParam(defaultValue = "1") Integer currentPage,
                                            @RequestParam(defaultValue = "10") Integer size,
-                                           String name, String localDate) {
-        return salaryAdjustService.getAllSalaryAdjust(currentPage, size, name, localDate);
+                                           Integer depId, String localDate) {
+        return salaryAdjustService.getAllSalaryAdjust(currentPage, size, depId, localDate);
 
     }
 
@@ -51,7 +51,7 @@ public class SalaryAdjustController {
     @ApiOperation(value = "修改员工调薪信息")
     @PutMapping("/")
     public RespBean updateSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
-        if(salaryAdjustService.saveOrUpdate(salaryAdjust)) {
+        if(salaryAdjustService.updateById(salaryAdjust)) {
             return RespBean.success("修改成功");
         }
         return RespBean.error("修改失败");

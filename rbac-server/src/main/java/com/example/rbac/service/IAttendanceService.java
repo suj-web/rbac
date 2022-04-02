@@ -22,9 +22,10 @@ public interface IAttendanceService extends IService<Attendance> {
      * @param size
      * @param localDate
      * @param absenteeism
+     * @param depId
      * @return
      */
-    RespPageBean getAllAttendance(Integer currentPage, Integer size, String localDate, Boolean absenteeism);
+    RespPageBean getAllAttendance(Integer currentPage, Integer size, String localDate, Boolean absenteeism, Integer depId);
 
     /**
      * 人事管理-员工考勤-查询员工考勤信息

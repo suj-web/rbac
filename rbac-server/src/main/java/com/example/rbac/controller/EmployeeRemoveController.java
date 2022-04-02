@@ -30,8 +30,8 @@ public class EmployeeRemoveController {
     @GetMapping("/")
     public RespPageBean getAllEmployeeRemove(@RequestParam(defaultValue = "1") Integer currentPage,
                                              @RequestParam(defaultValue = "10") Integer size,
-                                             String name, String localDate) {
-        return employeeRemoveService.getAllEmployeeRemove(currentPage, size, name, localDate);
+                                             EmployeeRemove remove, String localDate) {
+        return employeeRemoveService.getAllEmployeeRemove(currentPage, size, remove, localDate);
     }
 
     @OperationLogAnnotation(operModul = "员工调动",operType = "添加",operDesc = "添加员工调动信息")

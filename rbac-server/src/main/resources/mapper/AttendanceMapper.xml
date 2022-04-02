@@ -57,6 +57,9 @@
         <if test="null != absenteeism">
             AND att.absenteeism = #{absenteeism}
         </if>
+        <if test="null != depId">
+            AND dep.id = #{depId}
+        </if>
     </select>
 
 <!--    人事管理-员工考勤-查询员工考勤信息-->

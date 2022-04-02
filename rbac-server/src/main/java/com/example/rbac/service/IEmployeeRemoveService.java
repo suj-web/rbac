@@ -21,11 +21,11 @@ public interface IEmployeeRemoveService extends IService<EmployeeRemove> {
      * 获取所有员工调动资料
      * @param currentSize
      * @param size
-     * @param name
+     * @param remove
      * @param localDate
      * @return
      */
-    RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String localDate);
+    RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, EmployeeRemove remove, String localDate);
 
     /**
      * 添加员工调动信息

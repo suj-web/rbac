@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RespChartBean {
 
-    private String name;
-    private Double count;
-
+    private String name;//类型
+    private Integer value;//数量
+    private Double average;//平均值(平均工资, 平均工龄,平均年龄)
 }

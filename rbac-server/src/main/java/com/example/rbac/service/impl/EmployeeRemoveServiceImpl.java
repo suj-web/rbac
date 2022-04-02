@@ -38,14 +38,14 @@ public class EmployeeRemoveServiceImpl extends ServiceImpl<EmployeeRemoveMapper,
      * 获取所有员工调动资料
      * @param currentSize
      * @param size
-     * @param name
+     * @param remove
      * @param localDate
      * @return
      */
     @Override
-    public RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, String name, String localDate) {
+    public RespPageBean getAllEmployeeRemove(Integer currentSize, Integer size, EmployeeRemove remove, String localDate) {
         Page<EmployeeRemove> page = new Page<>(currentSize, size);
-        IPage<EmployeeRemove> employeeRemoveIPage = employeeRemoveMapper.getAllEmployeeRemove(page, name, localDate);
+        IPage<EmployeeRemove> employeeRemoveIPage = employeeRemoveMapper.getAllEmployeeRemove(page, remove, localDate);
         return new RespPageBean(employeeRemoveIPage.getTotal(), employeeRemoveIPage.getRecords());
     }
 
