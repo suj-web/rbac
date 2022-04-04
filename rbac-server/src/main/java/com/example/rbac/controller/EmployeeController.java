@@ -168,7 +168,6 @@ public class EmployeeController {
         ImportParams params = new ImportParams();
         //去掉标题行
         params.setTitleRows(1);
-        params.setStartRows(1);
         List<Department> departments = departmentService.list();
         List<Nation> nations = nationService.list();
         List<PoliticsStatus> politicsStatuses = politicsStatusService.list();

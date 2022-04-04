@@ -26,7 +26,7 @@ import java.util.List;
 public class SalarySearchController {
 
     @Autowired
-    private IEmployeeService employeeService;
+    private ISalaryTableService salaryTableService;
 
     @Autowired
     private IDepartmentService departmentService;
@@ -43,7 +43,7 @@ public class SalarySearchController {
     public RespPageBean getAllSalaryTables(@RequestParam(defaultValue = "1") Integer currentPage,
                                            @RequestParam(defaultValue = "10") Integer size,
                                            Integer depId,
-                                           LocalDate localDate) {
-        return employeeService.getAllSalaryTables(currentPage, size, depId, localDate);
+                                           String localDate) {
+        return salaryTableService.getAllSalaryTables(currentPage, size, depId, localDate);
     }
 }

@@ -161,47 +161,6 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     }
 
     /**
-     * 获取所有员工当月工资信息
-     * @param currentPage
-     * @param size
-     * @param depId
-     * @return
-     */
-    @Override
-    public RespPageBean getAllEmployeeWithSalaryTable(Integer currentPage, Integer size, Integer depId) {
-        Page<Employee> page = new Page<>(currentPage, size);
-        IPage<Employee> employeeIPage = employeeMapper.getAllEmployeeWithSalaryTable(page, depId, LocalDate.now().getYear(), LocalDate.now().getMonthValue());
-        RespPageBean respPageBean = new RespPageBean(employeeIPage.getTotal(), employeeIPage.getRecords());
-        return respPageBean;
-    }
-
-    /**
-     * 获取所有员工当月工资信息(不分页)
-     * @param year
-     * @param month
-     * @return
-     */
-    @Override
-    public List<Employee> getAllEmployeeWithSalaryTable2(int year, int month) {
-        return employeeMapper.getAllEmployeeWithSalaryTable2(year, month);
-    }
-
-    /**
-     * 获取所有工资表信息
-     * @param currentPage
-     * @param size
-     * @param depId
-     * @param localDate
-     * @return
-     */
-    @Override
-    public RespPageBean getAllSalaryTables(Integer currentPage, Integer size, Integer depId, LocalDate localDate) {
-        Page<Employee> page = new Page<>(currentPage, size);
-        IPage<Employee> employeeIPage = employeeMapper.getAllEmployeeWithSalaryTable(page, depId, localDate.getYear(), localDate.getMonthValue());
-        return new RespPageBean(employeeIPage.getTotal(), employeeIPage.getRecords());
-    }
-
-    /**
      * 职业人数统计
      * @return
      */
@@ -498,4 +457,5 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     public Integer getConversionRemindCount() {
         return employeeMapper.getConversionRemindCount();
     }
+
 }

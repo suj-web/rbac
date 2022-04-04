@@ -71,33 +71,6 @@ public interface IEmployeeService extends IService<Employee> {
     List<Employee> getEmployeeWithSalary2();
 
     /**
-     * 获取所有员工当月工资信息
-     * @param currentPage
-     * @param size
-     * @param depId
-     * @return
-     */
-    RespPageBean getAllEmployeeWithSalaryTable(Integer currentPage, Integer size, Integer depId);
-
-    /**
-     * 获取所有员工当月工资信息(不分页)
-     * @param year
-     * @param monthValue
-     * @return
-     */
-    List<Employee> getAllEmployeeWithSalaryTable2(int year, int monthValue);
-
-    /**
-     * 获取所有工资表信息
-     * @param currentPage
-     * @param size
-     * @param depId
-     * @param localDate
-     * @return
-     */
-    RespPageBean getAllSalaryTables(Integer currentPage, Integer size, Integer depId, LocalDate localDate);
-
-    /**
      * 职业人数统计
      * @return
      */

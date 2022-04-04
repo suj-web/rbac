@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.Appraise;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.rbac.pojo.RespChartBean;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -37,4 +39,11 @@ public interface AppraiseMapper extends BaseMapper<Appraise> {
      * @return
      */
     IPage<Appraise> getAppraiseRank(Page<Appraise> page, @Param("depId") Integer depId, @Param("localDate") String localDate);
+
+    /**
+     * 部门平均考评得分统计
+     * @param localDate
+     * @return
+     */
+    List<RespChartBean> getDepartmentAverageScore(@Param("localDate") String localDate);
 }

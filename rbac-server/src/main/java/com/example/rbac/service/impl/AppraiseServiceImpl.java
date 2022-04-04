@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.pojo.Appraise;
 import com.example.rbac.mapper.AppraiseMapper;
+import com.example.rbac.pojo.RespChartBean;
 import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.service.IAppraiseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -56,5 +58,15 @@ public class AppraiseServiceImpl extends ServiceImpl<AppraiseMapper, Appraise> i
         IPage<Appraise> appraiseIPage = appraiseMapper.getAppraiseRank(page, depId, localDate);
         RespPageBean respPageBean = new RespPageBean(appraiseIPage.getTotal(), appraiseIPage.getRecords());
         return respPageBean;
+    }
+
+    /**
+     * 部门平均考评得分统计
+     * @param localDate
+     * @return
+     */
+    @Override
+    public List<RespChartBean> getDepartmentAverageScore(String localDate) {
+        return appraiseMapper.getDepartmentAverageScore(localDate);
     }
 }

@@ -18,7 +18,9 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
 /**
@@ -49,8 +51,7 @@ public class SalaryTableTask {
         SalaryTable table = new SalaryTable();
         for(Employee employee: employees) {
             table.setEmployeeId(employee.getId());
-            table.setYear(LocalDate.now().getYear());
-            table.setMonth(LocalDate.now().getMonthValue());
+            table.setDate(LocalDateTime.now());
             double salary = SalaryUtils.getSalary(employee.getSalary());
             table.setAllSalary(salary);
             salaryTableService.save(table);
@@ -62,8 +63,7 @@ public class SalaryTableTask {
         LocalDate localDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
         List<SalaryTable> list = salaryTableService.list(new QueryWrapper<SalaryTable>()
-                .eq("year", localDate.getYear())
-                .eq("month", localDate.getMonthValue()));
+                .between("date",localDate.with(TemporalAdjusters.firstDayOfMonth()),localDate.with(TemporalAdjusters.lastDayOfMonth())));
         for (SalaryTable salaryTable: list) {
             Integer score = employeeEcService.getScoreByEmployeeId(salaryTable.getEmployeeId(), formatter.format(localDate));
             double bonus = salaryTable.getAllSalary() * 0.1 * ScoreUtils.getScoreGrade(score);

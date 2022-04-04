@@ -6,11 +6,14 @@
     <resultMap id="BaseResultMap" type="com.example.rbac.pojo.Attendance">
         <id column="id" property="id" />
         <result column="employee_id" property="employeeId" />
-        <result column="attendance_time" property="attendanceTime" />
-        <result column="closing_time" property="closingTime" />
+        <result column="punch_in_time" property="punchInTime" />
+        <result column="punch_out_time" property="punchOutTime" />
+        <result column="work_attendance_time" property="workAttendanceTime" />
+        <result column="off_duty_attendance_time" property="offDutyAttendanceTime" />
         <result column="personal_leave" property="personalLeave" />
         <result column="sick_leave" property="sickLeave" />
         <result column="absenteeism" property="absenteeism" />
+        <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
@@ -30,11 +33,40 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, employee_id, attendance_time, closing_time, personal_leave, sick_leave, absenteeism, gmt_create, gmt_modified
+        id, employee_id, punch_in_time, punch_out_time, work_attendance_time, off_duty_attendance_time, personal_leave, sick_leave, absenteeism, is_delete, gmt_create, gmt_modified
     </sql>
 
 <!--    考勤信息统计-->
-    <select id="getAllAttendance" resultMap="AttendanceResultMap">
+<!--    <select id="getAllAttendance" resultMap="AttendanceResultMap">-->
+<!--        SELECT-->
+<!--            att.*, emp.`name` AS emp_name,-->
+<!--            emp.work_id AS emp_work_id,-->
+<!--            dep.`name` AS dep_name,-->
+<!--            pos.`name` AS pos_name-->
+<!--        FROM-->
+<!--            t_attendance att,-->
+<!--            t_employee emp,-->
+<!--            t_department dep,-->
+<!--            t_position pos-->
+<!--        WHERE-->
+<!--            emp.is_delete = FALSE-->
+<!--        AND att.is_delete = FALSE-->
+<!--        AND att.employee_id = emp.id-->
+<!--        AND emp.position_id = pos.id-->
+<!--        AND emp.department_id = dep.id-->
+<!--        <if test="null != localDate and '' != localDate">-->
+<!--            AND date_format(att.gmt_create,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')-->
+<!--        </if>-->
+<!--        <if test="null != absenteeism">-->
+<!--            AND att.absenteeism = #{absenteeism}-->
+<!--        </if>-->
+<!--        <if test="null != depId">-->
+<!--            AND dep.id = #{depId}-->
+<!--        </if>-->
+<!--    </select>-->
+
+<!--    人事管理-员工考勤-查询员工考勤信息-->
+    <select id="getAttendances" resultMap="AttendanceResultMap">
         SELECT
             att.*, emp.`name` AS emp_name,
             emp.work_id AS emp_work_id,
@@ -51,19 +83,15 @@
         AND att.employee_id = emp.id
         AND emp.position_id = pos.id
         AND emp.department_id = dep.id
-        <if test="null != localDate and '' != localDate">
-            AND date_format(att.attendance_time,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
-        </if>
-        <if test="null != absenteeism">
-            AND att.absenteeism = #{absenteeism}
-        </if>
-        <if test="null != depId">
+        <if test="null!=depId">
             AND dep.id = #{depId}
+        </if>
+        <if test="null!=beginDateScope and 2==beginDateScope.length">
+            AND att.gmt_create BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
         </if>
     </select>
 
-<!--    人事管理-员工考勤-查询员工考勤信息-->
-    <select id="getAttendances" resultMap="AttendanceResultMap">
+    <select id="getAttendanceForExcel" resultMap="AttendanceResultMap">
         SELECT
             att.*, emp.`name` AS emp_name,
             emp.work_id AS emp_work_id,
@@ -76,12 +104,12 @@
             t_position pos
         WHERE
             emp.is_delete = FALSE
-            att.is_delete = FALSE
+        AND att.is_delete = FALSE
         AND att.employee_id = emp.id
         AND emp.position_id = pos.id
         AND emp.department_id = dep.id
-        <if test="null!=beginDateScope and 2==beginDateScope.length">
-            AND att.attendance_time BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
+        <if test="null!=dateScope and 2==dateScope.length">
+            AND att.gmt_create BETWEEN #{dateScope[0]} AND #{dateScope[1]}
         </if>
     </select>
 </mapper>

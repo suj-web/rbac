@@ -34,6 +34,12 @@
         </association>
     </resultMap>
 
+    <resultMap id="ChartResultMap" type="com.example.rbac.pojo.RespChartBean">
+        <result column="name" property="name" />
+        <result column="value" property="value" />
+        <result column="average" property="average" />
+    </resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, employee_id, app_date, app_result, app_content, remark, is_delete, gmt_create, gmt_modified
@@ -60,6 +66,7 @@
         ORDER BY e.id
     </select>
 
+<!--    考评得分排名-->
     <select id="getAppraiseRank" resultMap="AppraiseRankResultMap">
         SELECT
             ap.*, e.id AS eid,
@@ -82,5 +89,25 @@
             AND date_format(ap.app_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
         ORDER BY ap.app_result DESC
+    </select>
+
+<!--    部门平均考评得分统计-->
+    <select id="getDepartmentAverageScore" resultMap="ChartResultMap">
+        SELECT
+            dep.name AS `name`,
+            SUM(ap.app_result) AS `average`
+        FROM
+            t_appraise ap,
+            t_employee e,
+            t_department dep
+        WHERE
+        e.id = ap.employee_id
+        AND e.is_delete = FALSE
+        AND ap.is_delete = FALSE
+        AND e.department_id = dep.id
+        <if test="null != localDate and '' != localDate">
+            AND date_format(ap.app_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
+        </if>
+        GROUP BY dep.name
     </select>
 </mapper>

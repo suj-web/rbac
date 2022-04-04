@@ -29,6 +29,13 @@ import java.util.List;
 class RbacApplicationTests {
 
     @Test
+    public void dd() {
+        for(int i = 48; i<=101; i++) {
+            System.out.print("("+i+"),");
+        }
+    }
+
+    @Test
     void contextLoads() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         System.out.println(encoder.encode("admin"));
@@ -151,21 +158,35 @@ class RbacApplicationTests {
     }
 
     @Test
+    public void updateBonus() {
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        List<SalaryTable> list = salaryTableService.list(new QueryWrapper<SalaryTable>()
+                .between("date",localDate.with(TemporalAdjusters.firstDayOfMonth()),localDate.with(TemporalAdjusters.lastDayOfMonth())));
+//        for (SalaryTable salaryTable: list) {
+//            Integer score = employeeEcService.getScoreByEmployeeId(salaryTable.getEmployeeId(), formatter.format(localDate));
+//            double bonus = salaryTable.getAllSalary() * 0.1 * ScoreUtils.getScoreGrade(score);
+//            salaryTable.setBonus(bonus);
+//            salaryTable.setAllSalary(salaryTable.getAllSalary() + bonus);
+//            salaryTableService.updateById(salaryTable);
+//        }
+    }
+
+    @Test
     public void insert(){
         List<Employee> employees = employeeService.getEmployeeWithSalary2();
-        SalaryTable table = new SalaryTable();
-        for(Employee employee: employees) {
-            table.setEmployeeId(employee.getId());
-            table.setYear(LocalDate.now().getYear());
-            table.setMonth(LocalDate.now().getMonthValue());
-            double salary = employee.getSalary().getBasicSalary() + employee.getSalary().getLunchSalary()
-                    + employee.getSalary().getTrafficSalary() + employee.getSalary().getPensionBase()
-                    * employee.getSalary().getPensionPer() + employee.getSalary().getMedicalBase()
-                    * employee.getSalary().getMedicalPer() + employee.getSalary().getAccumulationFundBase()
-                    * employee.getSalary().getAccumulationFundPer();
-            table.setAllSalary(salary);
-            salaryTableService.save(table);
-        }
+//        SalaryTable table = new SalaryTable();
+//        for(Employee employee: employees) {
+//            table.setEmployeeId(employee.getId());
+//            table.setDate(LocalDateTime.now());
+//            double salary = employee.getSalary().getBasicSalary() + employee.getSalary().getLunchSalary()
+//                    + employee.getSalary().getTrafficSalary() + employee.getSalary().getPensionBase()
+//                    * employee.getSalary().getPensionPer() + employee.getSalary().getMedicalBase()
+//                    * employee.getSalary().getMedicalPer() + employee.getSalary().getAccumulationFundBase()
+//                    * employee.getSalary().getAccumulationFundPer();
+//            table.setAllSalary(salary);
+//            salaryTableService.save(table);
+//        }
     }
 
 }

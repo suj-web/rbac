@@ -243,8 +243,4 @@ public class Employee implements Serializable{
     @TableField(exist = false)
     private Salary salary;
 
-    @ApiModelProperty(value = "工资表")
-    @TableField(exist = false)
-    @ExcelCollection(name = "工资表")
-    private List<SalaryTable> salaryTables;
 }

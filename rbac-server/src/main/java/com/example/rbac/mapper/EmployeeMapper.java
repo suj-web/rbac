@@ -59,17 +59,17 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * 获取所有员工当月工资信息
      * @param page
      * @param depId
-     * @param year
-     * @param monthValue
+     * @param localDate
      * @return
      */
-    IPage<Employee> getAllEmployeeWithSalaryTable(Page<Employee> page, @Param("depId") Integer depId, @Param("year") Integer year, @Param("month") Integer monthValue);
+    IPage<Employee> getAllEmployeeWithSalaryTable(Page<Employee> page, @Param("depId") Integer depId, @Param("localDate") String localDate);
 
     /**
      * 获取所有员工当月工资信息(不分页)(用于导出excel)
+     * @param localDate
      * @return
      */
-    List<Employee> getAllEmployeeWithSalaryTable2(@Param("year") Integer year, @Param("month") Integer month);
+    List<Employee> getAllEmployeeWithSalaryTable2(String localDate);
 
     /**
      * 职位人员统计
@@ -218,4 +218,5 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
      * @return
      */
     Integer getConversionRemindCount();
+
 }

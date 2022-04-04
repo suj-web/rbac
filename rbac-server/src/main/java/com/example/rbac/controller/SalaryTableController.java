@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
 /**
@@ -51,19 +53,21 @@ public class SalaryTableController {
     public RespPageBean getAllEmployeeWithSalaryTable(@RequestParam(defaultValue = "1") Integer currentPage,
                                                       @RequestParam(defaultValue = "10") Integer size,
                                                       Integer depId) {
-        return employeeService.getAllEmployeeWithSalaryTable(currentPage, size, depId);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        LocalDateTime localDate = LocalDateTime.now();
+        return salaryTableService.getAllSalaryTableByCurrentMonth(currentPage, size, depId, formatter.format(localDate));
+//        return employeeService.getAllEmployeeWithSalaryTable(currentPage, size, depId, formatter.format(localDate));
     }
 
     @OperationLogAnnotation(operModul = "工资表管理",operType = "更新",operDesc = "更新员工工资")
     @ApiOperation(value = "更新员工工资(实际上是修改员工账套)")
     @PutMapping("/")
     public RespBean updateSalaryTable(Integer employeeId, Integer salaryId) {
-        LocalDate localDate = LocalDate.now();
+        LocalDateTime localDate = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
 
         SalaryTable salaryTable = salaryTableService.getOne(new QueryWrapper<SalaryTable>().eq("employee_id", employeeId)
-                .eq("year", localDate.getYear())
-                .eq("month", localDate.getMonthValue()));
+                .between("date", localDate.with(TemporalAdjusters.firstDayOfMonth()),localDate.with(TemporalAdjusters.lastDayOfMonth())));
         if(salaryTable.getEnabled()) {
             return RespBean.error("账单已锁定,不可修改");
         } else {

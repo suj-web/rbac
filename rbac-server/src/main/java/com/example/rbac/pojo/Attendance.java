@@ -34,21 +34,31 @@ public class Attendance implements Serializable {
     @TableField("employee_id")
     private Integer employeeId;
 
-    @ApiModelProperty(value = "上班时间")
-    @TableField("attendance_time")
+    @ApiModelProperty(value = "上班打卡时间")
+    @TableField("punch_in_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
-    private LocalDateTime attendanceTime;
+    private LocalDateTime punchInTime;
 
-    @ApiModelProperty(value = "下班时间")
-    @TableField("closing_time")
+    @ApiModelProperty(value = "下班打卡时间")
+    @TableField("punch_out_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
-    private LocalDateTime closingTime;
+    private LocalDateTime punchOutTime;
+
+    @ApiModelProperty(value = "上班考勤时间")
+    @TableField("work_attendance_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
+    private LocalDateTime workAttendanceTime;
+
+    @ApiModelProperty(value = "下班考勤时间")
+    @TableField("off_duty_attendance_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
+    private LocalDateTime offDutyAttendanceTime;
 
     @ApiModelProperty(value = "事假")
     @TableField("personal_leave")
     private Integer personalLeave;
 
-    @ApiModelProperty(value = "病假")
+    @ApiModelProperty(value = "病假(天)")
     @TableField("sick_leave")
     private Integer sickLeave;
 

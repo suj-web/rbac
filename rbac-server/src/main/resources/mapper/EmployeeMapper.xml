@@ -104,21 +104,6 @@
         </association>
     </resultMap>
 
-    <resultMap id="EmployeeWithSalaryTable" type="com.example.rbac.pojo.Employee" extends="BaseResultMap">
-        <association property="department" javaType="com.example.rbac.pojo.Department">
-            <id column="depId" property="id" />
-            <result column="depName" property="name"/>
-        </association>
-        <collection property="salaryTables" ofType="com.example.rbac.pojo.SalaryTable">
-            <id column="stId" property="id" />
-            <result column="stYear" property="year" />
-            <result column="stMonth" property="month" />
-            <result column="stBonus" property="bonus" />
-            <result column="stAllSalary" property="allSalary" />
-            <result column="stEnabled" property="enabled" />
-        </collection>
-    </resultMap>
-
     <resultMap id="ChartResultMap" type="com.example.rbac.pojo.RespChartBean">
         <result column="name" property="name" />
         <result column="value" property="value" />
@@ -277,72 +262,6 @@
             emp.salary_id = sal.id
         AND emp.is_delete = FALSE
         AND emp.work_state = '在职'
-    </select>
-
-<!--    获取所有员工当月工资信息-->
-    <select id="getAllEmployeeWithSalaryTable" resultMap="EmployeeWithSalaryTable">
-        SELECT
-            emp.id,
-            emp.`name`,
-            emp.work_id,
-            dep.id AS depId,
-            dep.`name` AS depName,
-            st.id AS stId,
-            st.`year` AS stYear,
-            st.`month` AS stMonth,
-            st.bonus AS stBonus,
-            st.all_salary AS stAllSalary,
-            st.enabled AS stEnabled
-        FROM
-            t_employee emp,
-            t_department dep,
-            t_salary_table st
-        WHERE
-            emp.department_id = dep.id
-        AND emp.work_state = '在职'
-        AND emp.is_delete = FALSE
-        AND emp.id = st.employee_id
-        <if test="null != depId">
-            AND dep.id = #{depId}
-        </if>
-        <if test="null != year">
-            AND st.`year` = #{year}
-        </if>
-        <if test="null != month">
-            AND st.`month` = #{month}
-        </if>
-        ORDER BY emp.id
-    </select>
-
-    <select id="getAllEmployeeWithSalaryTable2" resultMap="EmployeeWithSalaryTable">
-        SELECT
-            emp.id,
-            emp.`name`,
-            emp.work_id,
-            dep.id AS depId,
-            dep.`name` AS depName,
-            st.id AS stId,
-            st.`year` AS stYear,
-            st.`month` AS stMonth,
-            st.bonus AS stBonus,
-            st.all_salary AS stAllSalary,
-            st.enabled AS stEnabled
-        FROM
-            t_employee emp,
-            t_department dep,
-            t_salary_table st
-        WHERE
-            emp.department_id = dep.id
-        AND emp.work_state = '在职'
-        AND emp.is_delete = FALSE
-        AND emp.id = st.employee_id
-        <if test="null != year">
-            AND st.`year` = #{year}
-        </if>
-        <if test="null != month">
-            AND st.`month` = #{month}
-        </if>
-        ORDER BY emp.id
     </select>
 
 <!--    职业人数统计-->

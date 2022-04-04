@@ -3,10 +3,9 @@ package com.example.rbac.controller;
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
-import com.example.rbac.service.IEmployeeService;
+import com.example.rbac.service.IDepartmentService;
 import com.example.rbac.service.ISalaryTableService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -16,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,9 +32,14 @@ public class SalaryMonthController {
 
     @Autowired
     private ISalaryTableService salaryTableService;
-
     @Autowired
-    private IEmployeeService employeeService;
+    private IDepartmentService departmentService;
+
+    @ApiOperation(value = "获取所有部门信息")
+    @GetMapping("/department")
+    public List<Department> getAllDepartment() {
+        return departmentService.list();
+    }
 
     @OperationLogAnnotation(operModul = "月末处理",operType = "查询",operDesc = "获取所有员工当月工资信息")
     @ApiOperation(value = "获取所有员工当月工资信息")
@@ -42,7 +47,9 @@ public class SalaryMonthController {
     public RespPageBean getAllEmployeeWithSalaryTable(@RequestParam(defaultValue = "1") Integer currentPage,
                                                       @RequestParam(defaultValue = "10") Integer size,
                                                       Integer depId) {
-        return employeeService.getAllEmployeeWithSalaryTable(currentPage, size, depId);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        LocalDateTime localDate = LocalDateTime.now();
+        return salaryTableService.getAllSalaryTableByCurrentMonth(currentPage, size, depId, formatter.format(localDate));
     }
 
     @OperationLogAnnotation(operModul = "月末处理",operType = "更新",operDesc = "锁定当月账单")
@@ -81,28 +88,28 @@ public class SalaryMonthController {
     @ApiOperation(value = "导出当月账单")
     @GetMapping(value = "/export", produces = "application/octet-stream")
     public void exportSalaryTable(HttpServletResponse response) {
-        int year = LocalDate.now().getYear();
-        int month = LocalDate.now().getMonthValue();
-        List<Employee> list = employeeService.getAllEmployeeWithSalaryTable2(year, month);
-        List<ExportSalaryTable> salaryTables = new ArrayList<>();
-        for(Employee item: list) {
-            ExportSalaryTable table = new ExportSalaryTable();
-            table.setWorkId(item.getWorkId());
-            table.setName(item.getName());
-            table.setDepName(item.getDepartment().getName());
-            table.setYear(item.getSalaryTables().get(0).getYear());
-            table.setMonth(item.getSalaryTables().get(0).getMonth());
-            table.setBonus(item.getSalaryTables().get(0).getBonus());
-            table.setAllSalary(item.getSalaryTables().get(0).getAllSalary());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+        LocalDateTime localDate = LocalDateTime.now();
+        List<SalaryTable> list = salaryTableService.getAllSalaryTablesForExcel(formatter.format(localDate));
+        List<SalaryTableExcel> salaryTables = new ArrayList<>();
+        for(SalaryTable item: list) {
+            SalaryTableExcel table = new SalaryTableExcel();
+            table.setWorkId(item.getEmployee().getWorkId());
+            table.setName(item.getEmployee().getName());
+            table.setDepName(item.getEmployee().getDepartment().getName());
+            table.setPosition(item.getEmployee().getPosition().getName());
+            table.setDate(item.getDate());
+            table.setBonus(item.getBonus());
+            table.setAllSalary(item.getAllSalary());
             salaryTables.add(table);
         }
 
-        ExportParams params = new ExportParams(year+"年"+month+"月账单",year+"年"+month+"月账单", ExcelType.HSSF);
-        Workbook workbook = ExcelExportUtil.exportExcel(params, ExportSalaryTable.class, salaryTables);
+        ExportParams params = new ExportParams(localDate.getYear()+"年"+localDate.getMonthValue()+"月账单",localDate.getYear()+"年"+localDate.getMonthValue()+"月账单", ExcelType.HSSF);
+        Workbook workbook = ExcelExportUtil.exportExcel(params, SalaryTableExcel.class, salaryTables);
         ServletOutputStream outputStream = null;
         try {
             response.setHeader("content-type","application/octet-stream");
-            response.setHeader("content-disposition","attachment;filename=" + URLEncoder.encode(year+"年"+month+"月账单表.xls","UTF-8"));
+            response.setHeader("content-disposition","attachment;filename=" + URLEncoder.encode(localDate.getYear()+"年"+localDate.getMonthValue()+"月账单表.xls","UTF-8"));
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e) {

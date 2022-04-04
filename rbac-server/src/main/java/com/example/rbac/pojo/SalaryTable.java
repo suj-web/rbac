@@ -40,11 +40,13 @@ public class SalaryTable implements Serializable {
     @TableField("employee_id")
     private Integer employeeId;
 
-    @ApiModelProperty(value = "年份")
-    private Integer year;
+    @ApiModelProperty(value = "工资账套id")
+    @TableField("salary_id")
+    private Integer salaryId;
 
-    @ApiModelProperty(value = "月份")
-    private Integer month;
+    @ApiModelProperty(value = "工资表时间")
+    @JsonFormat(pattern = "yyyy-MM",timezone = "Asia/Shanghai")
+    private LocalDateTime date;
 
     @ApiModelProperty(value = "奖金")
     private Double bonus;
@@ -69,4 +71,12 @@ public class SalaryTable implements Serializable {
     @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime gmtModified;
+
+    @ApiModelProperty(value = "工资账套")
+    @TableField(exist = false)
+    private Salary salary;
+
+    @ApiModelProperty(value = "员工信息")
+    @TableField(exist = false)
+    private Employee employee;
 }
