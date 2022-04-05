@@ -85,7 +85,7 @@ public class AttendanceServiceImpl extends ServiceImpl<AttendanceMapper, Attenda
             Double actualHours = 0.0;
             List<Attendance> attendances = attendanceMapper.selectList(new QueryWrapper<Attendance>().eq("employee_id", emp.getId()).isNotNull("punch_in_time").isNotNull("punch_out_time").eq("absenteeism",false).between("gmt_create", localDate.with(TemporalAdjusters.firstDayOfMonth()), localDate.with(TemporalAdjusters.lastDayOfMonth())));
             for(Attendance att: attendances) {
-                if(att.getPersonalLeave()==1 || att.getSickLeave()==1) {
+                if(att.getPersonalLeave() || att.getSickLeave()) {
                     actualHours += 0.0;
                 }else {
                     Double endTime = att.getPunchOutTime().toEpochSecond(ZoneOffset.of("+8")) > offDutyAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) ?

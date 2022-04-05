@@ -34,12 +34,12 @@ public class Attendance implements Serializable {
     @TableField("employee_id")
     private Integer employeeId;
 
-    @ApiModelProperty(value = "上班打卡时间")
+    @ApiModelProperty(value = "签到打卡时间")
     @TableField("punch_in_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime punchInTime;
 
-    @ApiModelProperty(value = "下班打卡时间")
+    @ApiModelProperty(value = "签退打卡时间")
     @TableField("punch_out_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
     private LocalDateTime punchOutTime;
@@ -56,11 +56,11 @@ public class Attendance implements Serializable {
 
     @ApiModelProperty(value = "事假")
     @TableField("personal_leave")
-    private Integer personalLeave;
+    private Boolean personalLeave;
 
-    @ApiModelProperty(value = "病假(天)")
+    @ApiModelProperty(value = "病假")
     @TableField("sick_leave")
-    private Integer sickLeave;
+    private Boolean sickLeave;
 
     @ApiModelProperty(value = "出勤")
     private Boolean absenteeism;

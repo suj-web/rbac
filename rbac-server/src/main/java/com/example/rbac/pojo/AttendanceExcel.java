@@ -50,15 +50,15 @@ public class AttendanceExcel implements Serializable {
     private LocalDateTime closingTime;
 
     @ApiModelProperty(value = "事假")
-    @Excel(name = "事假")
-    private Integer personalLeave;
+    @Excel(name = "事假",replace = {"否_0","是_1"})
+    private Boolean personalLeave;
 
-    @ApiModelProperty(value = "病假(天)")
-    @Excel(name = "病假(天)")
-    private Integer sickLeave;
+    @ApiModelProperty(value = "病假")
+    @Excel(name = "病假", replace = {"否_0","是_1"})
+    private Boolean sickLeave;
 
     @ApiModelProperty(value = "出勤")
-    @Excel(name = "出勤",replace = {"出勤_0","缺勤_1"})
+    @Excel(name = "出勤",replace = {"出勤_false","缺勤_true"})
     private Boolean absenteeism;
 
     @ApiModelProperty(value = "考勤时间")
