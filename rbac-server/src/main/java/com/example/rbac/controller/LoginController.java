@@ -61,7 +61,7 @@ public class LoginController {
         loginLog.setSessionId(request.getRequestedSessionId());
         loginLog.setName(user.getUsername());
         loginLog.setIp(ClientUtils.getIpAddress(request));
-        loginLog.setAddress(ClientUtils.getAddress(request));
+        loginLog.setAddress(ClientUtils.getAddressByApi(request));
         loginLog.setBrowser(ClientUtils.getBrowserType(request));
         loginLog.setOs(ClientUtils.getOs(request));
         if(respBean.getCode() != 200) {

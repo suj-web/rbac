@@ -118,7 +118,7 @@ public class HomeRemindController {
             user.setIp(ClientUtils.getIpAddress(request));
             user.setBrowser(ClientUtils.getBrowserType(request));
             user.setOs(ClientUtils.getOs(request));
-            user.setAddress(ClientUtils.getAddress(request));
+            user.setAddress(ClientUtils.getAddressByApi(request));
             user.setSessionId(sessionInformation.get(0).getSessionId());
             users.add(user);
         }

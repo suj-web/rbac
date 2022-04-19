@@ -9,12 +9,8 @@ import eu.bitwalker.useragentutils.UserAgent;
 import jdk.nashorn.internal.parser.JSONParser;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 import java.util.Map;
 
 /**
@@ -60,6 +56,42 @@ public class ClientUtils {
     public static String getOs(HttpServletRequest request) {
         UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
         return userAgent.getOperatingSystem().toString();
+    }
+
+    /**
+     * 调用淘宝的接口获取ip地址对应的城市
+     * @param request
+     * @return
+     */
+    public static String getAddressByApi(HttpServletRequest request){
+        String ip = getIpAddress(request);
+        BufferedReader reader = null;
+        StringBuilder result = new StringBuilder("");
+        try {
+            URL url = new URL("https://ip.taobao.com/outGetIpInfo?ip=" + ip + "&accessKey=alibaba-inc");
+            URLConnection connection = url.openConnection();
+            connection.connect();
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String str = "";
+            while ((str = reader.readLine()) != null) {
+                result.append(str);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(null != reader) {
+                try {
+                    reader.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        StringBuilder address = new StringBuilder("");
+        Map map = (Map) JSON.parse(String.valueOf(result));
+        Map data = (Map) map.get("data");
+        address.append(data.get("country")+" ").append(data.get("region")+" ").append(data.get("city"));
+        return String.valueOf(address);
     }
 
     /**

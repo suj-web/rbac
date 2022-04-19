@@ -1,5 +1,6 @@
 package com.example.rbac;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.SalaryTable;
@@ -18,15 +19,37 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.io.*;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalAdjusters;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class RbacApplicationTests {
+
+    public static void main(String[] args) throws Exception{
+        String ip = "47.100.78.245";
+        URL url = new URL("https://ip.taobao.com/outGetIpInfo?ip="+ip+"&accessKey=alibaba-inc");
+        URLConnection connection = url.openConnection();
+        connection.connect();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String str = "";
+        StringBuilder result = new StringBuilder("");
+        while ((str = reader.readLine()) != null) {
+            result.append(str);
+        }
+        System.out.println(result);
+        Map map = (Map) JSON.parse(String.valueOf(result));
+        Map data = (Map) map.get("data");
+        System.out.println(data.get("country"));
+
+        System.out.println(data.get("city"));
+        System.out.println(data.get("region"));
+    }
 
     @Test
     public void dd() {
