@@ -16,9 +16,11 @@
 
     <resultMap id="EmployeeTrain" type="com.example.rbac.pojo.EmployeeTrain" extends="BaseResultMap">
         <association property="employee" javaType="com.example.rbac.pojo.Employee">
-            <id column="eid" property="id" />
             <result column="ename" property="name" />
             <result column="ework_id" property="workId" />
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
         </association>
     </resultMap>
 
@@ -30,14 +32,17 @@
 <!--    获取员工培训信息-->
     <select id="getAllEmployeeTrain" resultMap="EmployeeTrain">
         SELECT
-            et.*, e.id AS eid,
+            et.*,
             e.`name` AS ename,
-            e.work_id AS ework_id
+            e.work_id AS ework_id,
+            dep.`name` AS dep_name
         FROM
             t_employee_train et,
-            t_employee e
+            t_employee e,
+            t_department dep
         WHERE
             e.id = et.employee_id
+        AND e.department_id = dep.id
         AND e.is_delete = FALSE
         AND et.is_delete = FALSE
         <if test="null!=name and ''!=name">
@@ -46,6 +51,9 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(et.train_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY e.id
+        <if test="null!=depId">
+            AND dep.id = #{depId}
+        </if>
+        ORDER BY et.id
     </select>
 </mapper>

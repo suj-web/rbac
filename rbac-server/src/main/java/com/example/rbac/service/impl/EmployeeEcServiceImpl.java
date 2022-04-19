@@ -34,12 +34,13 @@ public class EmployeeEcServiceImpl extends ServiceImpl<EmployeeEcMapper, Employe
      * @param size
      * @param name
      * @param localDate
+     * @param depId
      * @return
      */
     @Override
-    public RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String localDate) {
+    public RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String localDate, Integer depId) {
         Page<EmployeeEc> page = new Page<>(currentPage, size);
-        IPage<EmployeeEc> employeeEcIPage = employeeEcMapper.getAllEmployeeEc(page, name, localDate);
+        IPage<EmployeeEc> employeeEcIPage = employeeEcMapper.getAllEmployeeEc(page, name, localDate, depId);
         return new RespPageBean(employeeEcIPage.getTotal(), employeeEcIPage.getRecords());
     }
 

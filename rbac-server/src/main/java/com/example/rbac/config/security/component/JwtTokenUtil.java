@@ -17,7 +17,6 @@ public class JwtTokenUtil {
 
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
-    private static final String CLAIM_KEY_IS_ADMIN = "is_admin";
     @Value("${jwt.secret}")
     private String secret;
     @Value("${jwt.expiration}")
@@ -33,20 +32,6 @@ public class JwtTokenUtil {
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
-    }
-
-    /**
-     * 从token中获取isAdmin
-     */
-    public Boolean getIsAdminFromToken(String token){
-        Boolean isAdmin;
-        try {
-            Claims claims = getClaimFromToken(token);
-            isAdmin = Boolean.parseBoolean(claims.get(CLAIM_KEY_IS_ADMIN).toString());
-        } catch (Exception e){
-            isAdmin = null;
-        }
-        return isAdmin;
     }
 
     /**

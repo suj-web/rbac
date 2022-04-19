@@ -27,5 +27,5 @@ public interface EmployeeTrainMapper extends BaseMapper<EmployeeTrain> {
      * @param localDate
      * @return
      */
-    IPage<EmployeeTrain> getAllEmployeeTrain(Page<EmployeeTrain> page, @Param("name") String name, @Param("localDate") String localDate);
+    IPage<EmployeeTrain> getAllEmployeeTrain(Page<EmployeeTrain> page, @Param("name") String name, @Param("localDate") String localDate, @Param("depId") Integer depId);
 }

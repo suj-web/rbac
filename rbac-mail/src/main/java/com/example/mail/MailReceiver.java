@@ -4,8 +4,7 @@ import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.MailConstants;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,8 @@ import java.io.IOException;
 import java.util.Date;
 
 @Component
+@Slf4j
 public class MailReceiver {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(MailReceiver.class);
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -51,7 +49,7 @@ public class MailReceiver {
 
         try {
             if(hashOperations.entries("mail_log"+employee.getId()).containsKey(msgId)) {
-                LOGGER.error("消息已经被消费=============>{}",msgId);
+                log.error("消息已经被消费=============>{}",msgId);
                 /**
                  * 手动确认消息
                  * tag：消息序号
@@ -80,7 +78,7 @@ public class MailReceiver {
             String mail = templateEngine.process("mail", context);
             helper.setText(mail,true);
             javaMailSender.send(msg);
-            LOGGER.info("邮件发送成功");
+            log.info("邮件发送成功");
             hashOperations.put("mail_log"+employee.getId(),msgId,"OK");
             //手动确认消息
             channel.basicAck(tag, false);
@@ -94,9 +92,9 @@ public class MailReceiver {
             try {
                 channel.basicNack(tag, false, true);
             } catch (IOException ex) {
-                LOGGER.error("邮件发送失败======={}",ex.getMessage());
+                log.error("邮件发送失败======={}",ex.getMessage());
             }
-            LOGGER.error("邮件发送失败======={}",e.getMessage());
+            log.error("邮件发送失败======={}",e.getMessage());
         }
     }
 }

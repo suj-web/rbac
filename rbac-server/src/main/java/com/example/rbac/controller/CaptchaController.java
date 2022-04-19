@@ -62,7 +62,5 @@ public class CaptchaController {
                }
            }
        }
-
-        //生成验证码end
     }
 }

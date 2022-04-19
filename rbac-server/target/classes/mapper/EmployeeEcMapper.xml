@@ -19,6 +19,13 @@
             <id column="eid" property="id" />
             <result column="ename" property="name" />
             <result column="ework_id" property="workId" />
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
+        </association>
+        <association property="ecRule" javaType="com.example.rbac.pojo.EcRule">
+            <result column="er_score" property="score" />
+            <result column="er_ec_reason" property="ecReason" />
         </association>
     </resultMap>
 
@@ -49,14 +56,19 @@
         SELECT
             ee.*, e.id AS eid,
             e.`name` AS ename,
-            e.work_id AS ework_id
+            e.work_id AS ework_id,
+            er.score AS er_score,
+            er.ec_reason AS er_ec_reason,
+            dep.`name` AS dep_name
         FROM
             t_employee_ec ee,
             t_employee e,
-            t_ec_rule er
+            t_ec_rule er,
+            t_department dep
         WHERE
             e.id = ee.employee_id
         AND ee.ec_id = er.id
+        AND e.department_id = dep.id
         AND e.is_delete = FALSE
         AND ee.is_delete = FALSE
         <if test="null!=name and ''!=name">
@@ -65,7 +77,10 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(ee.ec_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY e.id
+        <if test="null!=depId">
+            AND dep.id = #{depId}
+        </if>
+        ORDER BY ee.id
     </select>
 
 <!--    员工积分统计-->
@@ -156,6 +171,7 @@
         ORDER BY score DESC
     </select>
 
+<!--    根据员工id获取员工得分-->
     <select id="getScoreByEmployeeId" resultType="java.lang.Integer">
         SELECT
             SUM(er.score) AS score

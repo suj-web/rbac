@@ -65,25 +65,19 @@ public class AttendanceController {
     @OperationLogAnnotation(operModul = "员工考勤",operType = "添加",operDesc = "添加员工考勤信息")
     @ApiOperation(value = "添加员工考勤信息")
     @PostMapping("/")
-    public RespBean addEcRule(@RequestBody AttendanceParam param) {
-        List<Employee> emps = employeeService.list(new QueryWrapper<Employee>().eq("work_id", param.getWorkId()).eq("work_state","在职"));
+    public RespBean addEcRule(@RequestBody Attendance attendance) {
+        List<Employee> emps = employeeService.list(new QueryWrapper<Employee>().eq("work_id", attendance.getEmployee().getWorkId()).eq("work_state","在职"));
         if(null == emps) {
             return RespBean.error("该员工不存在");
         } else {
-            if(!emps.get(0).getName().equals(param.getName())) {
+            if(!emps.get(0).getName().equals(attendance.getEmployee().getName())) {
                 return RespBean.error("员工工号和姓名不匹配");
             }
         }
-        Attendance attendance = new Attendance();
         LocalDate localDate = LocalDate.now();
         attendance.setEmployeeId(emps.get(0).getId());
         attendance.setWorkAttendanceTime(LocalDateTime.of(localDate.getYear(),localDate.getMonthValue(),localDate.getDayOfMonth(),8,0,0));
         attendance.setOffDutyAttendanceTime(LocalDateTime.of(localDate.getYear(),localDate.getMonthValue(),localDate.getDayOfMonth(),18,0,0));
-        attendance.setPunchInTime(param.getPunchInTime());
-        attendance.setPunchOutTime(param.getPunchOutTime());
-        attendance.setPersonalLeave(param.getPersonalLeave());
-        attendance.setSickLeave(param.getSickLeave());
-        attendance.setAbsenteeism(param.getAbsenteeism());
         if(attendanceService.save(attendance)) {
             return RespBean.success("添加成功");
         }
@@ -93,23 +87,16 @@ public class AttendanceController {
     @OperationLogAnnotation(operModul = "员工考勤",operType = "修改",operDesc = "修改员工考勤信息")
     @ApiOperation(value = "修改员工考勤信息")
     @PutMapping("/")
-    public RespBean updateEcRule(@RequestBody AttendanceParam param) {
-        List<Employee> emps = employeeService.list(new QueryWrapper<Employee>().eq("work_id", param.getWorkId()).eq("work_state","在职"));
+    public RespBean updateEcRule(@RequestBody Attendance attendance) {
+        List<Employee> emps = employeeService.list(new QueryWrapper<Employee>().eq("work_id", attendance.getEmployee().getWorkId()).eq("work_state","在职"));
         if(null == emps) {
             return RespBean.error("该员工不存在");
         } else {
-            if(!emps.get(0).getName().equals(param.getName())) {
+            if(!emps.get(0).getName().equals(attendance.getEmployee().getName())) {
                 return RespBean.error("员工工号和姓名不匹配");
             }
         }
-        Attendance attendance = new Attendance();
-        attendance.setId(param.getId());
         attendance.setEmployeeId(emps.get(0).getId());
-        attendance.setPunchInTime(param.getPunchInTime());
-        attendance.setPunchOutTime(param.getPunchOutTime());
-        attendance.setPersonalLeave(param.getPersonalLeave());
-        attendance.setSickLeave(param.getSickLeave());
-        attendance.setAbsenteeism(param.getAbsenteeism());
         if(attendanceService.updateById(attendance)) {
             return RespBean.success("修改成功");
         }

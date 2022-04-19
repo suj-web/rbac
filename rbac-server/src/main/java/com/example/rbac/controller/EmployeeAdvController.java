@@ -47,16 +47,16 @@ public class EmployeeAdvController {
     @GetMapping("/ec")
     public RespPageBean getAllEmployeeEc(@RequestParam(defaultValue = "1") Integer currentSize,
                                          @RequestParam(defaultValue = "10") Integer size,
-                                         String name, String localDate) {
-        return employeeEcService.getAllEmployeeEc(currentSize, size, name, localDate);
+                                         String name, String localDate, Integer depId) {
+        return employeeEcService.getAllEmployeeEc(currentSize, size, name, localDate, depId);
     }
 
     @ApiOperation(value = "获取所有员工培训信息")
     @GetMapping("/train")
     public RespPageBean getAllEmployeeTrain(@RequestParam(defaultValue = "1") Integer currentSize,
                                             @RequestParam(defaultValue = "10") Integer size,
-                                            String name, String localDate) {
-        return employeeTrainService.getAllEmployeeTrain(currentSize, size, name, localDate);
+                                            String name, String localDate, Integer depId) {
+        return employeeTrainService.getAllEmployeeTrain(currentSize, size, name, localDate, depId);
     }
 
     @ApiOperation(value = "获取所有员工调薪信息")

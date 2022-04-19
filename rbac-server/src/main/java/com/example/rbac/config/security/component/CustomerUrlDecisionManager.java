@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 /**
+ * 自定义决策管理器
  * 判断用户角色
  * @Author suj
  * @create 2022/1/5

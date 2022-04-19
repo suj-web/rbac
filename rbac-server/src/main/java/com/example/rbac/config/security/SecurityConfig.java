@@ -18,6 +18,7 @@ import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
@@ -37,16 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     private IAdminService adminService;
 
     @Autowired
-    private SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
-
-    @Autowired
     private RestAuthorizationEntryPoint restAuthorizationEntryPoint;
 
     @Autowired
     private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
 
     @Autowired
-    private CustomFilter customFilter;
+    private FilterInvocationSecurityMetadataSource customFilter;
 
     @Autowired
     private CustomerUrlDecisionManager customerUrlDecisionManager;

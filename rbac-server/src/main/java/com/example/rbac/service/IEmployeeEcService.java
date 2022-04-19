@@ -24,9 +24,10 @@ public interface IEmployeeEcService extends IService<EmployeeEc> {
      * @param size
      * @param name
      * @param localDate
+     * @param depId
      * @return
      */
-    RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String localDate);
+    RespPageBean getAllEmployeeEc(Integer currentPage, Integer size, String name, String localDate, Integer depId);
 
     /**
      * 员工积分统计

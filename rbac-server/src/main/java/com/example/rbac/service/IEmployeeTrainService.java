@@ -22,7 +22,8 @@ public interface IEmployeeTrainService extends IService<EmployeeTrain> {
      * @param size
      * @param name
      * @param localDate
+     * @param depId
      * @return
      */
-    RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String localDate);
+    RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String localDate, Integer depId);
 }

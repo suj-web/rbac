@@ -32,12 +32,13 @@ public class EmployeeTrainServiceImpl extends ServiceImpl<EmployeeTrainMapper, E
      * @param size
      * @param name
      * @param localDate
+     * @param depId
      * @return
      */
     @Override
-    public RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String localDate) {
+    public RespPageBean getAllEmployeeTrain(Integer currentPage, Integer size, String name, String localDate, Integer depId) {
         Page<EmployeeTrain> page = new Page<>(currentPage, size);
-        IPage<EmployeeTrain> employeeTrainIPage = employeeTrainMapper.getAllEmployeeTrain(page, name, localDate);
+        IPage<EmployeeTrain> employeeTrainIPage = employeeTrainMapper.getAllEmployeeTrain(page, name, localDate, depId);
         return new RespPageBean(employeeTrainIPage.getTotal(), employeeTrainIPage.getRecords());
     }
 }

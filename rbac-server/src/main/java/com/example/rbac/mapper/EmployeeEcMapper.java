@@ -27,9 +27,10 @@ public interface EmployeeEcMapper extends BaseMapper<EmployeeEc> {
      * @param page
      * @param name
      * @param localDate
+     * @param depId
      * @return
      */
-    IPage<EmployeeEc> getAllEmployeeEc(Page<EmployeeEc> page, @Param("name") String name, @Param("localDate") String localDate);
+    IPage<EmployeeEc> getAllEmployeeEc(Page<EmployeeEc> page, @Param("name") String name, @Param("localDate") String localDate, @Param("depId")Integer depId);
 
     /**
      * 员工积分统计

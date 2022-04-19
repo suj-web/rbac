@@ -28,6 +28,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author suj
@@ -95,7 +96,11 @@ public class HomeRemindController {
     @ApiOperation(value = "在线人数")
     @GetMapping("/online/count")
     public Integer getOnlineCount() {
-        return sessionRegistry.getAllPrincipals().size();
+        List<String> list = sessionRegistry.getAllPrincipals().stream()
+                .filter(u -> !sessionRegistry.getAllSessions(u, false).isEmpty())
+                .map(Object::toString)
+                .collect(Collectors.toList());
+        return list.size();
     }
 
     @ApiOperation(value = "在线用户")
@@ -104,6 +109,8 @@ public class HomeRemindController {
         List<OnlineUser> users = new ArrayList<>();
         //获取principals
         List<Object> principals = sessionRegistry.getAllPrincipals();
+
+        System.out.println(principals);
         for (Object o : principals) {
             List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
             OnlineUser user = new OnlineUser();

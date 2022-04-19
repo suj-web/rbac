@@ -20,13 +20,19 @@ import java.util.List;
  * @create 2022/1/5
  */
 @Component
-public class CustomFilter implements FilterInvocationSecurityMetadataSource {
+public class MyFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     @Autowired
     private IResourceService resourceService;
 
     AntPathMatcher antPathMatcher = new AntPathMatcher();
 
+    /**
+     * 加载URL与权限对应关系
+     * @param o
+     * @return
+     * @throws IllegalArgumentException
+     */
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) o).getRequestUrl();

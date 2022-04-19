@@ -73,6 +73,7 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
                             bean.setCode(406);
                             out.write(new ObjectMapper().writeValueAsString(bean));
                             out.flush();
+                            return;
                         } catch (IOException e) {
                             e.printStackTrace();
                         } finally {
@@ -90,6 +91,7 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
                             bean.setCode(402);
                             out.write(new ObjectMapper().writeValueAsString(bean));
                             out.flush();
+                            return;
                         } catch (IOException e) {
                             e.printStackTrace();
                         } finally {

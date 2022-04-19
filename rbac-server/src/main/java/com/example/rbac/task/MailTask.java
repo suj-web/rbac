@@ -45,7 +45,7 @@ public class MailTask {
     public void mailTask() {
         List<MailLog> list = mailLogService.list(new QueryWrapper<MailLog>().eq("status", 0).lt("try_time", LocalDateTime.now()));
         list.forEach(mailLog -> {
-            //如果重试次数超过3次，更新状态为投递失败，不在重试
+            //如果重试次数超过3次，更新状态为投递失败，不再重试
             if(3<=mailLog.getCount()) {
                 mailLogService.update(new UpdateWrapper<MailLog>().set("status",2).eq("msg_id",mailLog.getMsgId()));
             } else {

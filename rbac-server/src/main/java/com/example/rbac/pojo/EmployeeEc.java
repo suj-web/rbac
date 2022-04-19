@@ -69,6 +69,10 @@ public class EmployeeEc implements Serializable {
     @TableField(exist = false)
     private Employee employee;
 
+    @ApiModelProperty(value = "奖惩规则")
+    @TableField(exist = false)
+    private EcRule ecRule;
+
     @ApiModelProperty(value = "员工总积分")
     @TableField(exist = false)
     private Integer score;

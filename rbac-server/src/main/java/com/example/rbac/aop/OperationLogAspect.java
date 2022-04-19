@@ -35,7 +35,6 @@ public class OperationLogAspect {
     /**
      * 设置操作日志切入点 在注解的位置切入代码
      */
-
     @Pointcut("@annotation(com.example.rbac.annotation.OperationLogAnnotation)")
     public void operLogPointCut() {
     }
