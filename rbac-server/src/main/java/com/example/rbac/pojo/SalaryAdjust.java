@@ -39,20 +39,26 @@ public class SalaryAdjust implements Serializable {
     private Integer employeeId;
 
     @ApiModelProperty(value = "调薪日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     @TableField("as_date")
     private LocalDate asDate;
 
-    @ApiModelProperty(value = "调前薪资")
-    @TableField("before_salary")
-    private Integer beforeSalary;
+    @ApiModelProperty(value = "调前工资账套id")
+    @TableField("before_salary_id")
+    private Integer beforeSalaryId;
 
-    @ApiModelProperty(value = "调后薪资")
-    @TableField("after_salary")
-    private Integer afterSalary;
+    @ApiModelProperty(value = "调后工资账套id")
+    @TableField("after_salary_id")
+    private Integer afterSalaryId;
 
     @ApiModelProperty(value = "调薪原因")
     private String reason;
+
+    @ApiModelProperty(value = "调薪审核状态")
+    private Integer status;
+
+    @ApiModelProperty(value = "是否已调薪")
+    @TableField("is_adjust")
+    private Boolean isAdjust;
 
     @ApiModelProperty(value = "备注")
     private String remark;
@@ -75,4 +81,12 @@ public class SalaryAdjust implements Serializable {
     @ApiModelProperty(value = "员工信息")
     @TableField(exist = false)
     private Employee employee;
+
+    @ApiModelProperty(value = "调前工资账套")
+    @TableField(exist = false)
+    private Salary beforeSalary;
+
+    @ApiModelProperty(value = "调后工资账套")
+    @TableField(exist = false)
+    private Salary afterSalary;
 }

@@ -1,14 +1,17 @@
 package com.example.rbac.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
+import com.example.rbac.service.IDepartmentService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.ISalaryAdjustService;
 import com.example.rbac.service.ISalaryService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -19,6 +22,7 @@ import java.util.List;
  * 人事管理-员工调薪
  * @author suj
  * @since 2022-01-12
+ *
  */
 @RestController
 @RequestMapping("/personnel/salary")
@@ -26,6 +30,24 @@ public class SalaryAdjustController {
 
     @Autowired
     private ISalaryAdjustService salaryAdjustService;
+    @Autowired
+    private IDepartmentService departmentService;
+    @Autowired
+    private ISalaryService salaryService;
+    @Autowired
+    private IEmployeeService employeeService;
+
+    @ApiOperation(value = "获取所有工资账套")
+    @GetMapping("/salary/list")
+    public List<Salary> getAllSalaries() {
+        return salaryService.list();
+    }
+
+    @ApiOperation(value = "获取所有部门信息")
+    @GetMapping("/department/list")
+    public List<Department> getAllDepartments() {
+        return departmentService.list();
+    }
 
     @OperationLogAnnotation(operModul = "员工调薪",operType = "查询",operDesc = "获取所有员工调薪信息")
     @ApiOperation(value = "获取所有员工调薪信息")
@@ -34,15 +56,32 @@ public class SalaryAdjustController {
                                            @RequestParam(defaultValue = "10") Integer size,
                                            Integer depId, String localDate) {
         return salaryAdjustService.getAllSalaryAdjust(currentPage, size, depId, localDate);
+    }
 
+    @ApiOperation(value = "根据工号获取员工信息")
+    @GetMapping("/employee")
+    public Employee getEmployeeByWorkId(String workId) {
+        List<Employee> list = employeeService.list(new QueryWrapper<Employee>().eq("work_id", workId));
+        if(null != list && 1 == list.size()) {
+            Employee employee = new Employee();
+            employee.setSalaryId(list.get(0).getSalaryId());
+            employee.setName(list.get(0).getName());
+            return employee;
+        }
+        return null;
     }
 
     @OperationLogAnnotation(operModul = "员工调薪",operType = "添加",operDesc = "添加员工调薪信息")
     @ApiOperation(value = "添加员工调薪信息")
     @PostMapping("/")
+    @Transactional
     public RespBean addSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
-        if(salaryAdjustService.save(salaryAdjust)) {
-            return RespBean.success("添加成功");
+        List<Employee> list = employeeService.list(new QueryWrapper<Employee>().eq("work_id", salaryAdjust.getEmployee().getWorkId()).eq("name", salaryAdjust.getEmployee().getName()));
+        if(null != list && 1 == list.size()) {
+            salaryAdjust.setEmployeeId(list.get(0).getId());
+            if(salaryAdjustService.save(salaryAdjust)) {
+                return RespBean.success("添加成功");
+            }
         }
         return RespBean.error("添加失败");
     }
@@ -51,6 +90,7 @@ public class SalaryAdjustController {
     @ApiOperation(value = "修改员工调薪信息")
     @PutMapping("/")
     public RespBean updateSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
+        salaryAdjust.setAsDate(LocalDate.now());
         if(salaryAdjustService.updateById(salaryAdjust)) {
             return RespBean.success("修改成功");
         }

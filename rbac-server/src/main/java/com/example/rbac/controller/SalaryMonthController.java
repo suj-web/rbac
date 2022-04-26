@@ -52,6 +52,16 @@ public class SalaryMonthController {
         return salaryTableService.getAllSalaryTableByCurrentMonth(currentPage, size, depId, formatter.format(localDate));
     }
 
+    @ApiOperation(value = "更新工资信息(发放工资)")
+    @PutMapping("/")
+    public RespBean updateSalaryTable(@RequestBody SalaryTable salaryTable) {
+        salaryTable.setStatus(true);
+        if(salaryTableService.updateById(salaryTable)) {
+            return RespBean.success("发放成功");
+        }
+        return RespBean.error("发放失败");
+    }
+
     @OperationLogAnnotation(operModul = "月末处理",operType = "更新",operDesc = "锁定当月账单")
     @ApiOperation(value = "锁定当月账单")
     @PutMapping("/lock")
@@ -59,7 +69,7 @@ public class SalaryMonthController {
         List<SalaryTable> tables = salaryTableService.listByIds(Arrays.asList(ids));
         try {
             for (SalaryTable table : tables) {
-                table.setEnabled(true);
+                table.setEnabled(false);
                 salaryTableService.updateById(table);
             }
             return RespBean.success("操作成功");
@@ -75,7 +85,7 @@ public class SalaryMonthController {
         List<SalaryTable> tables = salaryTableService.listByIds(Arrays.asList(ids));
         try {
             for (SalaryTable table : tables) {
-                table.setEnabled(false);
+                table.setEnabled(true);
                 salaryTableService.updateById(table);
             }
             return RespBean.success("操作成功");
@@ -98,9 +108,26 @@ public class SalaryMonthController {
             table.setName(item.getEmployee().getName());
             table.setDepName(item.getEmployee().getDepartment().getName());
             table.setPosition(item.getEmployee().getPosition().getName());
+            //设置工资账套信息
+            Salary salary = item.getSalary();
+            table.setBasicSalary(salary.getBasicSalary());
+            table.setLunchSalary(salary.getLunchSalary());
+            table.setTrafficSalary(salary.getTrafficSalary());
+            table.setAccumulationFundBase(salary.getAccumulationFundBase());
+            table.setAccumulationFundPer(salary.getAccumulationFundPer());
+            table.setPensionBase(salary.getPensionBase());
+            table.setPensionPer(salary.getPensionPer());
+            table.setMedicalBase(salary.getMedicalBase());
+            table.setMedicalPer(salary.getMedicalPer());
+            //设置出勤扣款
+            table.setAttendanceDeduction(item.getAttendanceDeduction());
+            //设置请假扣款
+            table.setLeaveDeduction(item.getLeaveDeduction());
+
             table.setDate(item.getDate());
             table.setBonus(item.getBonus());
             table.setAllSalary(item.getAllSalary());
+
             salaryTables.add(table);
         }
 

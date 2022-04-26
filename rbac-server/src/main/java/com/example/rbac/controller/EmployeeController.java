@@ -89,7 +89,7 @@ public class EmployeeController {
     @ApiOperation(value = "获取所有部门")
     @GetMapping("/deps")
     public List<Department> getAllDepartments(){
-        return departmentService.getAllDepartments();
+        return departmentService.list();
     }
 
     @ApiOperation(value = "获取最大工号")

@@ -1,13 +1,12 @@
 package com.example.rbac.task;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.rbac.mapper.SalaryMapper;
+import com.example.rbac.pojo.Attendance;
 import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.Salary;
 import com.example.rbac.pojo.SalaryTable;
-import com.example.rbac.service.IEmployeeEcService;
-import com.example.rbac.service.IEmployeeService;
-import com.example.rbac.service.ISalaryService;
-import com.example.rbac.service.ISalaryTableService;
+import com.example.rbac.service.*;
 import com.example.rbac.utils.SalaryUtils;
 import com.example.rbac.utils.ScoreUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +40,10 @@ public class SalaryTableTask {
 
     @Autowired
     private IEmployeeEcService employeeEcService;
+    @Autowired
+    private ISalaryService salaryService;
+    @Autowired
+    private IAttendanceService attendanceService;
 
     /**
      * 每月月初将员工基本工资信息插入到工资表中
@@ -58,17 +61,30 @@ public class SalaryTableTask {
         }
     }
 
-    @Scheduled(cron = "0 0 20 L * ?")
+    @Scheduled(cron = "0 0 0/2 * * ?")
     public void updateBonus() {
-        LocalDate localDate = LocalDate.now();
+        LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
-        List<SalaryTable> list = salaryTableService.list(new QueryWrapper<SalaryTable>()
-                .between("date",localDate.with(TemporalAdjusters.firstDayOfMonth()),localDate.with(TemporalAdjusters.lastDayOfMonth())));
+        List<SalaryTable> list = salaryTableService.list(new QueryWrapper<SalaryTable>().eq("enabled",1)
+                .between("date",date.with(TemporalAdjusters.firstDayOfMonth()),date.with(TemporalAdjusters.lastDayOfMonth())));
         for (SalaryTable salaryTable: list) {
-            Integer score = employeeEcService.getScoreByEmployeeId(salaryTable.getEmployeeId(), formatter.format(localDate));
-            double bonus = salaryTable.getAllSalary() * 0.1 * ScoreUtils.getScoreGrade(score);
+            Integer score = employeeEcService.getScoreByEmployeeId(salaryTable.getEmployeeId(), formatter.format(date));
+            Salary salary = salaryService.getById(salaryTable.getSalaryId());
+            Double bonus = salary.getBasicSalary() * 0.1 * ScoreUtils.getScoreGrade(score);
             salaryTable.setBonus(bonus);
-            salaryTable.setAllSalary(salaryTable.getAllSalary() + bonus);
+
+            Double basicSalary = SalaryUtils.getSalary(salary);
+            Integer attendanceDeduction = attendanceService.count(new QueryWrapper<Attendance>().eq("employee_id", salaryTable.getEmployeeId()).eq("absenteeism",1).between("gmt_create", date.with(TemporalAdjusters.firstDayOfMonth()), date.with(TemporalAdjusters.lastDayOfMonth())));
+            Integer leaveDeduction = attendanceService.count(new QueryWrapper<Attendance>().eq("employee_id", salaryTable.getEmployeeId()).and(wrapper->wrapper.eq("sick_leave",1).or().eq("personal_leave",1)).between("gmt_create", date.with(TemporalAdjusters.firstDayOfMonth()), date.with(TemporalAdjusters.lastDayOfMonth())));
+
+            Double att = salary.getBasicSalary() / 21.75 * attendanceDeduction;
+            salaryTable.setAttendanceDeduction(att);
+
+            Double lea = salary.getBasicSalary() / 21.75 * leaveDeduction;
+            salaryTable.setLeaveDeduction(lea);
+
+            Double allSalary = basicSalary + bonus - att - lea;
+            salaryTable.setAllSalary(allSalary);
             salaryTableService.updateById(salaryTable);
         }
     }

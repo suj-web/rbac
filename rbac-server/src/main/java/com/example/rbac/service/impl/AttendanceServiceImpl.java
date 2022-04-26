@@ -49,14 +49,14 @@ public class AttendanceServiceImpl extends ServiceImpl<AttendanceMapper, Attenda
      */
     @Override
     public RespPageBean getAllAttendance(Integer currentPage, Integer size, LocalDate localDate, Integer depId) {
-        Integer count = attendanceMapper.selectList(new QueryWrapper<Attendance>().between("gmt_create", localDate.with(TemporalAdjusters.firstDayOfMonth()), localDate.with(TemporalAdjusters.lastDayOfMonth()))).size();
+        List<Attendance> list = attendanceMapper.selectList(new QueryWrapper<Attendance>().between("gmt_create", localDate.with(TemporalAdjusters.firstDayOfMonth()), localDate.with(TemporalAdjusters.lastDayOfMonth())));
         List<RespAttendanceTable> attendanceTables = new ArrayList<>();
-        if(null == count || 0 == count) {
+        if(null == list || 0 == list.size()) {
             return new RespPageBean(0L, attendanceTables);
         }
         Page<Employee> page = new Page<>(currentPage, size);
-        LocalDateTime workAttendanceTime = attendanceMapper.selectList(null).get((0)).getWorkAttendanceTime();
-        LocalDateTime offDutyAttendanceTime = attendanceMapper.selectList(null).get(0).getOffDutyAttendanceTime();
+        LocalDateTime workAttendanceTime = list.get((0)).getWorkAttendanceTime();
+        LocalDateTime offDutyAttendanceTime = list.get(0).getOffDutyAttendanceTime();
 
         IPage<Employee> emps = null;
         if(null != depId) {
@@ -88,9 +88,10 @@ public class AttendanceServiceImpl extends ServiceImpl<AttendanceMapper, Attenda
                 if(att.getPersonalLeave() || att.getSickLeave()) {
                     actualHours += 0.0;
                 }else {
-                    Double endTime = att.getPunchOutTime().toEpochSecond(ZoneOffset.of("+8")) > offDutyAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) ?
+                    Double endTime = att.getPunchOutTime().toEpochSecond(ZoneOffset.of("+8")) >= offDutyAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) ?
                             offDutyAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) / 3600.0 : att.getPunchOutTime().toEpochSecond(ZoneOffset.of("+8")) / 3600.0;
-                    Double startTime = att.getPunchInTime().toEpochSecond(ZoneOffset.of("+8")) > workAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) ?
+
+                    Double startTime = att.getPunchInTime().toEpochSecond(ZoneOffset.of("+8")) >= workAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) ?
                             att.getPunchInTime().toEpochSecond(ZoneOffset.of("+8")) / 3600.0 : workAttendanceTime.toEpochSecond(ZoneOffset.of("+8")) / 3600.0;
                     actualHours = actualHours + endTime - startTime;
                 }
@@ -116,7 +117,7 @@ public class AttendanceServiceImpl extends ServiceImpl<AttendanceMapper, Attenda
             }
             table.setLeaveEarlyMinutes(leaveEarlyMinutes);
            //缺勤小时数
-            Integer absenteeismDays = attendanceMapper.selectCount(new QueryWrapper<Attendance>().eq("employee_id", emp.getId()).eq("absenteeism",true).between("gmt_create", localDate.with(TemporalAdjusters.firstDayOfMonth()), localDate.with(TemporalAdjusters.lastDayOfMonth())));
+            Integer absenteeismDays = attendanceMapper.selectCount(new QueryWrapper<Attendance>().eq("employee_id", emp.getId()).eq("absenteeism",1).between("gmt_create", localDate.with(TemporalAdjusters.firstDayOfMonth()), localDate.with(TemporalAdjusters.lastDayOfMonth())));
 
             table.setAbsenteeismHours(Duration.between(workAttendanceTime, offDutyAttendanceTime).toMillis() / 1000.0 / 3600.0 * absenteeismDays * 1.0);
             //缺勤次数

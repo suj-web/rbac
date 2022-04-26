@@ -32,7 +32,7 @@ public class EmployeeWorkAgeTask {
         List<Employee> employees = employeeService.list(new QueryWrapper<Employee>().eq("work_state","在职"));
         for(Employee employee: employees) {
             if(localDate.getYear() > employee.getBeginDate().getYear()) {
-                if(formatter.format(localDate).equals(formatter.format(employee.getBeginDate()))) {
+                if(formatter.format(localDate).compareTo(formatter.format(employee.getBeginDate())) > 0) {
                     if(null == employee.getWorkAge()) {
                         employee.setWorkAge(0);
                     }

@@ -20,6 +20,9 @@
             <id column="eid" property="id" />
             <result column="ename" property="name" />
             <result column="ework_id" property="workId" />
+            <association property="department" javaType="com.example.rbac.pojo.Department">
+                <result column="dep_name" property="name" />
+            </association>
         </association>
     </resultMap>
 
@@ -50,15 +53,21 @@
             ap.*, e.id AS eid,
             e.`name` AS ename,
             e.work_id AS ework_id,
+            dep.name AS dep_name
         FROM
             t_appraise ap,
-            t_employee e
+            t_employee e,
+            t_department dep
         WHERE
             e.id = ap.employee_id
         AND e.is_delete = FALSE
         AND ap.is_delete = FALSE
+        AND e.department_id = dep.id
+        <if test="null != depId">
+            AND e.department_id = #{depId}
+        </if>
         <if test="null!=name and ''!=name">
-            AND e. NAME LIKE CONCAT('%', #{name}, '%')
+            AND e.`NAME` LIKE CONCAT('%', #{name}, '%')
         </if>
         <if test="null!=localDate and ''!=localDate">
             AND date_format(ap.app_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
@@ -67,7 +76,7 @@
     </select>
 
 <!--    考评得分排名-->
-    <select id="getAppraiseRank" resultMap="AppraiseRankResultMap">
+    <select id="getAppraiseRank" resultMap="Appraise">
         SELECT
             ap.*, e.id AS eid,
             e.`name` AS ename,

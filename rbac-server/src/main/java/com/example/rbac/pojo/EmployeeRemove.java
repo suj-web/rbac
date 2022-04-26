@@ -82,4 +82,20 @@ public class EmployeeRemove implements Serializable {
     @ApiModelProperty(value = "员工信息")
     @TableField(exist = false)
     private Employee employee;
+
+    @ApiModelProperty(value = "调前部门")
+    @TableField(exist = false)
+    private Department beforeDepartment;
+
+    @ApiModelProperty(value = "调后部门")
+    @TableField(exist = false)
+    private Department afterDepartment;
+
+    @ApiModelProperty(value = "调前职位")
+    @TableField(exist = false)
+    private Position beforePosition;
+
+    @ApiModelProperty(value = "调后职位")
+    @TableField(exist = false)
+    private Position afterPosition;
 }

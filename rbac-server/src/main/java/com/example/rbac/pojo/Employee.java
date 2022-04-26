@@ -195,8 +195,22 @@ public class Employee implements Serializable{
     @TableField("salary_id")
     private Integer salaryId;
 
+    @ApiModelProperty(value = "员工状态")
+    @Excel(name = "员工状态")
+    private String status;
+
+    @ApiModelProperty(value = "开户姓名")
+    @TableField("account_name")
+    private String accountName;
+
+    @ApiModelProperty(value = "开户银行")
+    private String bank;
+
+    @ApiModelProperty(value = "银行账户")
+    @TableField("bank_account")
+    private String bankAccount;
+
     @ApiModelProperty(value = "是否启用")
-    @Getter(AccessLevel.NONE)
     private Boolean enabled;
 
     @ApiModelProperty(value = "逻辑删除")

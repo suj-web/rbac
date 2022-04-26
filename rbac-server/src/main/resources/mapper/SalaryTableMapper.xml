@@ -10,7 +10,10 @@
         <result column="date" property="date" />
         <result column="bonus" property="bonus" />
         <result column="all_salary" property="allSalary" />
+        <result column="attendance_deduction" property="attendanceDeduction" />
+        <result column="leave_deduction" property="leaveDeduction" />
         <result column="enabled" property="enabled" />
+        <result column="status" property="status" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_created" property="gmtCreated" />
         <result column="gmt_modified" property="gmtModified" />
@@ -35,7 +38,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, employee_id, salary_id, date, bonus, all_salary, enabled, is_delete, gmt_created, gmt_modified
+        id, employee_id, salary_id, date, attendance_deduction, leave_deduction, bonus, all_salary, enabled, status, is_delete, gmt_created, gmt_modified
     </sql>
 
     <!--    获取所有员工当月工资信息-->
@@ -47,11 +50,7 @@
             emp.salary_id AS salaryId,
             dep.`name` AS depName,
             pos.`name` AS posName,
-            st.id,
-            st.`date`,
-            st.bonus,
-            st.all_salary,
-            st.enabled
+            st.*
         FROM
             t_employee emp,
             t_department dep,
@@ -75,11 +74,7 @@
 <!--    获取所有工资单-->
     <select id="getAllSalaryTables" resultMap="SalaryTableResultMap">
         SELECT
-            st.id,
-            st.`date`,
-            st.bonus,
-            st.all_salary,
-            st.enabled,
+            st.*,
             emp.id AS empId,
             emp.`name` AS empName,
             emp.work_id AS workId,
@@ -109,11 +104,7 @@
 <!--    获取当月工资账单用于导出excel-->
     <select id="getAllSalaryTablesForExcel" resultMap="SalaryTableResultMap">
         SELECT
-            st.id,
-            st.`date`,
-            st.bonus,
-            st.all_salary,
-            st.enabled,
+            st.*,
             emp.id AS empId,
             emp.`name` AS empName,
             emp.work_id AS workId,

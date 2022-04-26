@@ -139,10 +139,10 @@ class RbacApplicationTests {
         for (SalaryTable salaryTable: list) {
             Integer score = employeeEcService.getScoreByEmployeeId(salaryTable.getEmployeeId(), formatter.format(localDate));
 
-            double bonus = salaryTable.getAllSalary() * 0.1 * ScoreUtils.getScoreGrade(score);
-            salaryTable.setBonus(bonus);
-            salaryTable.setAllSalary(salaryTable.getAllSalary()+bonus);
-            salaryTableService.updateById(salaryTable);
+//            double bonus = salaryTable.getAllSalary() * 0.1 * ScoreUtils.getScoreGrade(score);
+//            salaryTable.setBonus(bonus);
+//            salaryTable.setAllSalary(salaryTable.getAllSalary()+bonus);
+//            salaryTableService.updateById(salaryTable);
         }
     }
 
@@ -193,6 +193,26 @@ class RbacApplicationTests {
 //            salaryTable.setAllSalary(salaryTable.getAllSalary() + bonus);
 //            salaryTableService.updateById(salaryTable);
 //        }
+    }
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
+    @Test
+    public void q() {
+        LocalDate localDate = LocalDate.now();
+        List<Employee> employees = employeeService.list(new QueryWrapper<Employee>().eq("work_state","在职"));
+        for(Employee employee: employees) {
+            if(localDate.getYear() > employee.getBeginDate().getYear()) {
+                if(formatter.format(localDate).compareTo(formatter.format(employee.getBeginDate())) > 0) {
+                    if(null == employee.getWorkAge()) {
+                        employee.setWorkAge(0);
+                    }
+                    employee.setWorkAge(localDate.getYear() - employee.getBeginDate().getYear());
+
+                } else {
+                    employee.setWorkAge(localDate.getYear() - employee.getBeginDate().getYear()-1);
+                }
+                employeeService.updateById(employee);
+            }
+        }
     }
 
     @Test

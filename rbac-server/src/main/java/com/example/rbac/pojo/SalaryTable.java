@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.apache.poi.hpsf.Decimal;
 
 /**
  * <p>
@@ -48,14 +49,25 @@ public class SalaryTable implements Serializable {
     @JsonFormat(pattern = "yyyy-MM",timezone = "Asia/Shanghai")
     private LocalDateTime date;
 
+    @ApiModelProperty(value = "出勤扣款")
+    @TableField("attendance_deduction")
+    private double attendanceDeduction;
+
+    @ApiModelProperty(value = "请假扣款")
+    @TableField("leave_deduction")
+    private double leaveDeduction;
+
     @ApiModelProperty(value = "奖金")
-    private Double bonus;
+    private double bonus;
 
     @ApiModelProperty(value = "应发工资")
-    private Double allSalary;
+    private double allSalary;
 
     @ApiModelProperty(value = "是否可修改 0可修改 1不可修改")
     private Boolean enabled;
+
+    @ApiModelProperty(value = "工资是否已发放")
+    private Boolean status;
 
     @ApiModelProperty(value = "逻辑删除")
     @TableField("is_delete")

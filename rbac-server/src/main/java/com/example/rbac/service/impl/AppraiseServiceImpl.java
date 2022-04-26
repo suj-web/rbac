@@ -35,12 +35,13 @@ public class AppraiseServiceImpl extends ServiceImpl<AppraiseMapper, Appraise> i
      * @param size
      * @param name
      * @param localDate
+     * @param depId
      * @return
      */
     @Override
-    public RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String localDate) {
+    public RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String localDate, Integer depId) {
         Page<Appraise> page = new Page<>(currentSize, size);
-        IPage<Appraise> appraiseIPage = appraiseMapper.getAllAppraise(page, name, localDate);
+        IPage<Appraise> appraiseIPage = appraiseMapper.getAllAppraise(page, name, localDate, depId);
         return new RespPageBean(appraiseIPage.getTotal(), appraiseIPage.getRecords());
     }
 

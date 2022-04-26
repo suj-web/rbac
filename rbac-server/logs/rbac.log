@@ -1,102 +1,652 @@
-2022-04-19 19:22:40.071  INFO 8164 --- [main] com.example.rbac.RbacApplicationTests    : Starting RbacApplicationTests using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 8164 (started by Lenovo in D:\USERPROG\JavaEE\folder\rbac\rbac-server)
-2022-04-19 19:22:40.071  INFO 8164 --- [main] com.example.rbac.RbacApplicationTests    : No active profile set, falling back to default profiles: default
-2022-04-19 19:22:41.726  INFO 8164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-04-19 19:22:41.726  INFO 8164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-04-19 19:22:41.773  INFO 8164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 Redis repository interfaces.
-2022-04-19 19:22:43.039  INFO 8164 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2022-04-19 19:22:43.305  INFO 8164 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2022-04-19 19:22:49.048  INFO 8164 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
-2022-04-19 19:22:50.780  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
-2022-04-19 19:22:50.908  INFO 8164 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a1d926b, org.springframework.security.web.context.SecurityContextPersistenceFilter@fabfc79, org.springframework.security.web.header.HeaderWriterFilter@2a60981c, org.springframework.security.web.authentication.logout.LogoutFilter@5af4328e, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@c87787d, org.springframework.security.web.session.ConcurrentSessionFilter@6e7fa4b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b87ea8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b5390, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36b761e3, org.springframework.security.web.session.SessionManagementFilter@4c8a9266, org.springframework.security.web.access.ExceptionTranslationFilter@6a54aa7a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67292fc7]
-2022-04-19 19:22:51.017  INFO 8164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-04-19 19:22:51.064  INFO 8164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-04-19 19:22:51.195  INFO 8164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-04-19 19:22:51.371  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.433  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.449  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-04-19 19:22:51.449  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-04-19 19:22:51.464  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
-2022-04-19 19:22:51.464  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
-2022-04-19 19:22:51.480  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
-2022-04-19 19:22:51.480  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
-2022-04-19 19:22:51.480  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.480  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
-2022-04-19 19:22:51.480  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
-2022-04-19 19:22:51.530  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.530  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
-2022-04-19 19:22:51.530  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-04-19 19:22:51.561  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
-2022-04-19 19:22:51.577  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.577  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
-2022-04-19 19:22:51.593  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
-2022-04-19 19:22:51.593  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.608  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
-2022-04-19 19:22:51.624  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.624  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_4
-2022-04-19 19:22:51.624  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
-2022-04-19 19:22:51.639  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.639  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
-2022-04-19 19:22:51.655  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
-2022-04-19 19:22:51.671  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.671  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
-2022-04-19 19:22:51.686  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.686  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
-2022-04-19 19:22:51.686  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
-2022-04-19 19:22:51.686  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-04-19 19:22:51.702  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
-2022-04-19 19:22:51.702  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.723  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
-2022-04-19 19:22:51.724  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
-2022-04-19 19:22:51.724  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.724  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
-2022-04-19 19:22:51.724  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
-2022-04-19 19:22:51.724  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_5
-2022-04-19 19:22:51.724  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_2
-2022-04-19 19:22:51.740  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
-2022-04-19 19:22:51.755  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.755  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
-2022-04-19 19:22:51.771  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
-2022-04-19 19:22:51.787  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.787  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
-2022-04-19 19:22:51.802  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportSalaryTableUsingGET_1
-2022-04-19 19:22:51.802  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.818  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.818  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_6
-2022-04-19 19:22:51.818  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
-2022-04-19 19:22:51.818  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentUsingGET_1
-2022-04-19 19:22:51.818  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
-2022-04-19 19:22:51.865  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
-2022-04-19 19:22:51.880  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
-2022-04-19 19:22:51.899  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_3
-2022-04-19 19:22:51.914  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.914  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
-2022-04-19 19:22:51.914  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
-2022-04-19 19:22:51.930  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.930  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
-2022-04-19 19:22:51.930  WARN 8164 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
-2022-04-19 19:22:51.945  INFO 8164 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2022-04-19 19:22:51.945  INFO 8164 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5513a46b]]
-2022-04-19 19:22:51.945  INFO 8164 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2022-04-19 19:22:51.961  INFO 8164 --- [main] com.example.rbac.RbacApplicationTests    : Started RbacApplicationTests in 12.371 seconds (JVM running for 15.472)
-2022-04-19 19:22:53.702  INFO 8164 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
-2022-04-19 19:22:53.702  INFO 8164 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5513a46b]]
-2022-04-19 19:22:53.702  INFO 8164 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
-2022-04-19 19:22:53.754  INFO 8164 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-2022-04-19 19:22:53.754  INFO 8164 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-21 17:59:02.378  INFO 6452 --- [main] com.example.rbac.RbacApplicationTests    : Starting RbacApplicationTests using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 6452 (started by Lenovo in D:\USERPROG\JavaEE\folder\rbac\rbac-server)
+2022-04-21 17:59:02.441  INFO 6452 --- [main] com.example.rbac.RbacApplicationTests    : No active profile set, falling back to default profiles: default
+2022-04-21 17:59:04.035  INFO 6452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-21 17:59:04.054  INFO 6452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-21 17:59:04.101  INFO 6452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
+2022-04-21 17:59:05.363  INFO 6452 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-21 17:59:05.632  INFO 6452 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-21 17:59:11.601  INFO 6452 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-21 17:59:13.597  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-21 17:59:13.613  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-21 17:59:13.754  INFO 6452 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a1d926b, org.springframework.security.web.context.SecurityContextPersistenceFilter@fabfc79, org.springframework.security.web.header.HeaderWriterFilter@3f1fb139, org.springframework.security.web.authentication.logout.LogoutFilter@5af4328e, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@1bea7b0, org.springframework.security.web.session.ConcurrentSessionFilter@6c7f804c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b87ea8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b5390, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36b761e3, org.springframework.security.web.session.SessionManagementFilter@63ad5fe7, org.springframework.security.web.access.ExceptionTranslationFilter@4c114687, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67292fc7]
+2022-04-21 17:59:13.881  INFO 6452 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-21 17:59:13.915  INFO 6452 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-21 17:59:14.029  INFO 6452 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-21 17:59:14.247  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.313  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.329  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 17:59:14.329  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 17:59:14.345  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-21 17:59:14.345  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-21 17:59:14.360  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-21 17:59:14.360  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-21 17:59:14.360  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.360  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-21 17:59:14.360  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-21 17:59:14.407  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.423  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-21 17:59:14.423  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 17:59:14.454  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-21 17:59:14.454  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.454  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-21 17:59:14.470  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-21 17:59:14.485  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.485  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_4
+2022-04-21 17:59:14.501  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-21 17:59:14.501  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-21 17:59:14.532  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.532  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_5
+2022-04-21 17:59:14.532  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-21 17:59:14.532  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.548  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-21 17:59:14.563  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-21 17:59:14.579  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.579  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-21 17:59:14.579  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.595  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-21 17:59:14.598  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-21 17:59:14.598  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 17:59:14.613  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-21 17:59:14.613  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.629  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-21 17:59:14.629  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-21 17:59:14.629  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.629  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-21 17:59:14.629  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-21 17:59:14.629  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_6
+2022-04-21 17:59:14.649  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 17:59:14.651  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-21 17:59:14.654  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-21 17:59:14.657  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-21 17:59:14.660  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-21 17:59:14.663  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-21 17:59:14.663  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_2
+2022-04-21 17:59:14.663  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-21 17:59:14.678  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.678  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_3
+2022-04-21 17:59:14.694  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-21 17:59:14.709  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.709  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_7
+2022-04-21 17:59:14.709  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-21 17:59:14.725  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeByWorkIdUsingGET_1
+2022-04-21 17:59:14.725  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-21 17:59:14.725  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportSalaryTableUsingGET_1
+2022-04-21 17:59:14.741  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.741  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.741  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_8
+2022-04-21 17:59:14.756  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_2
+2022-04-21 17:59:14.756  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentUsingGET_1
+2022-04-21 17:59:14.756  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-21 17:59:14.819  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-21 17:59:14.819  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-21 17:59:14.850  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_3
+2022-04-21 17:59:14.854  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.854  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-21 17:59:14.870  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-21 17:59:14.870  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.870  INFO 6452 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-21 17:59:14.885  WARN 6452 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 17:59:14.901  INFO 6452 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-21 17:59:14.901  INFO 6452 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@35d3202b]]
+2022-04-21 17:59:14.901  INFO 6452 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-21 17:59:14.917  INFO 6452 --- [main] com.example.rbac.RbacApplicationTests    : Started RbacApplicationTests in 13.105 seconds (JVM running for 16.31)
+2022-04-21 17:59:16.017  INFO 6452 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-04-21 17:59:16.017  INFO 6452 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@35d3202b]]
+2022-04-21 17:59:16.017  INFO 6452 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-04-21 17:59:16.054  INFO 6452 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-21 17:59:16.054  INFO 6452 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-21 18:02:00.310  INFO 16724 --- [main] com.example.rbac.RbacApplicationTests    : Starting RbacApplicationTests using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 16724 (started by Lenovo in D:\USERPROG\JavaEE\folder\rbac\rbac-server)
+2022-04-21 18:02:00.310  INFO 16724 --- [main] com.example.rbac.RbacApplicationTests    : No active profile set, falling back to default profiles: default
+2022-04-21 18:02:01.463  INFO 16724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-21 18:02:01.479  INFO 16724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-21 18:02:01.526  INFO 16724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 Redis repository interfaces.
+2022-04-21 18:02:02.555  INFO 16724 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-21 18:02:02.717  INFO 16724 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-21 18:02:07.934  INFO 16724 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-21 18:02:09.331  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-21 18:02:09.347  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-21 18:02:09.347  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-21 18:02:09.347  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-21 18:02:09.347  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-21 18:02:09.347  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-21 18:02:09.472  INFO 16724 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c7744c1, org.springframework.security.web.context.SecurityContextPersistenceFilter@259aec72, org.springframework.security.web.header.HeaderWriterFilter@33b2ba25, org.springframework.security.web.authentication.logout.LogoutFilter@78e50fca, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@683fe7b5, org.springframework.security.web.session.ConcurrentSessionFilter@3e73f5e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@126f2eb8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@594c66c3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@320e179f, org.springframework.security.web.session.SessionManagementFilter@36349e29, org.springframework.security.web.access.ExceptionTranslationFilter@3f33bb6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30bf881e]
+2022-04-21 18:02:09.569  INFO 16724 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-21 18:02:09.601  INFO 16724 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-21 18:02:09.684  INFO 16724 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-21 18:02:09.840  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:09.903  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:09.903  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:02:09.918  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:02:09.934  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-21 18:02:09.934  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-21 18:02:09.934  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-21 18:02:09.951  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-21 18:02:09.952  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:09.954  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-21 18:02:09.954  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-21 18:02:10.004  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.014  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-21 18:02:10.017  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:02:10.032  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-21 18:02:10.048  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.063  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-21 18:02:10.063  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-21 18:02:10.085  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.085  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_4
+2022-04-21 18:02:10.101  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-21 18:02:10.101  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-21 18:02:10.151  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.155  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_5
+2022-04-21 18:02:10.155  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-21 18:02:10.155  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.155  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-21 18:02:10.186  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-21 18:02:10.202  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.202  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-21 18:02:10.217  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.217  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-21 18:02:10.217  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-21 18:02:10.217  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:02:10.233  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-21 18:02:10.250  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.254  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-21 18:02:10.254  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-21 18:02:10.254  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.254  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-21 18:02:10.254  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-21 18:02:10.254  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_6
+2022-04-21 18:02:10.269  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:02:10.269  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-21 18:02:10.269  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-21 18:02:10.269  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-21 18:02:10.285  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-21 18:02:10.285  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-21 18:02:10.285  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_2
+2022-04-21 18:02:10.285  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-21 18:02:10.301  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.301  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_3
+2022-04-21 18:02:10.316  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-21 18:02:10.332  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.347  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_7
+2022-04-21 18:02:10.347  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-21 18:02:10.347  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeByWorkIdUsingGET_1
+2022-04-21 18:02:10.347  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-21 18:02:10.363  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportSalaryTableUsingGET_1
+2022-04-21 18:02:10.363  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.363  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.363  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_8
+2022-04-21 18:02:10.380  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_2
+2022-04-21 18:02:10.384  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentUsingGET_1
+2022-04-21 18:02:10.384  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-21 18:02:10.431  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-21 18:02:10.446  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-21 18:02:10.462  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_3
+2022-04-21 18:02:10.478  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.478  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-21 18:02:10.493  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-21 18:02:10.509  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.509  INFO 16724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-21 18:02:10.525  WARN 16724 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:02:10.540  INFO 16724 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-21 18:02:10.540  INFO 16724 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@11577ab8]]
+2022-04-21 18:02:10.540  INFO 16724 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-21 18:02:10.556  INFO 16724 --- [main] com.example.rbac.RbacApplicationTests    : Started RbacApplicationTests in 10.822 seconds (JVM running for 12.154)
+2022-04-21 18:02:11.294  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.454  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.485  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.517  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.564  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.600  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.631  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.663  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.694  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.741  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.772  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.834  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.870  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.917  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:11.980  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.094  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.141  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.188  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.219  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.254  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.286  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.332  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.364  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.400  INFO 16724 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:02:12.462  INFO 16724 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-04-21 18:02:12.462  INFO 16724 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@11577ab8]]
+2022-04-21 18:02:12.462  INFO 16724 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-04-21 18:02:12.493  INFO 16724 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-21 18:02:12.493  INFO 16724 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-21 18:03:12.169  INFO 4636 --- [main] com.example.rbac.RbacApplicationTests    : Starting RbacApplicationTests using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 4636 (started by Lenovo in D:\USERPROG\JavaEE\folder\rbac\rbac-server)
+2022-04-21 18:03:12.169  INFO 4636 --- [main] com.example.rbac.RbacApplicationTests    : No active profile set, falling back to default profiles: default
+2022-04-21 18:03:13.354  INFO 4636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-21 18:03:13.369  INFO 4636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-21 18:03:13.416  INFO 4636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
+2022-04-21 18:03:14.394  INFO 4636 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-21 18:03:14.552  INFO 4636 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-21 18:03:19.616  INFO 4636 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-21 18:03:20.817  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-21 18:03:20.941  INFO 4636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34cfdd84, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e89f5bc, org.springframework.security.web.header.HeaderWriterFilter@446cc036, org.springframework.security.web.authentication.logout.LogoutFilter@178c6261, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@31b650e9, org.springframework.security.web.session.ConcurrentSessionFilter@63ad5fe7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fb70301, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c79780, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c7744c1, org.springframework.security.web.session.SessionManagementFilter@7057dbda, org.springframework.security.web.access.ExceptionTranslationFilter@2c4eae94, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7112b21a]
+2022-04-21 18:03:21.055  INFO 4636 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-21 18:03:21.086  INFO 4636 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-21 18:03:21.185  INFO 4636 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-21 18:03:21.326  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.393  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.393  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:03:21.393  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:03:21.408  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-21 18:03:21.424  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-21 18:03:21.424  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-21 18:03:21.424  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-21 18:03:21.424  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.424  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-21 18:03:21.424  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-21 18:03:21.486  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.486  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-21 18:03:21.502  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:03:21.518  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-21 18:03:21.533  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.533  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-21 18:03:21.533  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-21 18:03:21.554  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.554  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_4
+2022-04-21 18:03:21.554  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-21 18:03:21.570  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-21 18:03:21.585  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.601  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_5
+2022-04-21 18:03:21.601  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-21 18:03:21.601  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.601  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-21 18:03:21.632  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-21 18:03:21.648  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.648  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-21 18:03:21.648  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.663  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-21 18:03:21.663  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-21 18:03:21.663  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:03:21.679  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-21 18:03:21.695  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.695  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-21 18:03:21.695  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-21 18:03:21.695  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.695  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-21 18:03:21.710  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-21 18:03:21.710  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_6
+2022-04-21 18:03:21.710  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:03:21.710  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-21 18:03:21.710  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-21 18:03:21.726  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-21 18:03:21.726  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-21 18:03:21.726  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-21 18:03:21.726  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_2
+2022-04-21 18:03:21.741  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-21 18:03:21.741  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.741  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_3
+2022-04-21 18:03:21.767  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-21 18:03:21.783  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.783  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_7
+2022-04-21 18:03:21.798  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-21 18:03:21.798  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeByWorkIdUsingGET_1
+2022-04-21 18:03:21.814  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-21 18:03:21.830  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportSalaryTableUsingGET_1
+2022-04-21 18:03:21.830  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.830  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.830  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_8
+2022-04-21 18:03:21.845  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_2
+2022-04-21 18:03:21.845  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentUsingGET_1
+2022-04-21 18:03:21.845  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-21 18:03:21.894  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-21 18:03:21.910  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-21 18:03:21.926  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_3
+2022-04-21 18:03:21.926  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.926  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-21 18:03:21.941  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-21 18:03:21.957  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.960  INFO 4636 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-21 18:03:21.962  WARN 4636 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:03:21.978  INFO 4636 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-21 18:03:21.978  INFO 4636 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@73fe7483]]
+2022-04-21 18:03:21.978  INFO 4636 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-21 18:03:21.993  INFO 4636 --- [main] com.example.rbac.RbacApplicationTests    : Started RbacApplicationTests in 10.385 seconds (JVM running for 11.731)
+2022-04-21 18:03:22.741  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:22.872  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:22.918  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:22.970  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.002  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.050  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.081  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.127  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.162  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.193  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.225  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.271  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.303  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.334  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.369  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.416  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.447  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.479  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.510  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.558  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.708  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.755  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.786  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.833  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.870  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.901  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.948  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:23.979  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.010  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.061  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.096  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.128  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.160  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.190  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.238  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.269  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.301  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.347  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.394  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.426  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.461  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.493  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.524  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.571  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.618  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.654  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.686  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.733  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.764  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.794  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.841  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.877  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.908  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.939  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:24.986  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.017  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.054  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.085  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.117  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.164  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.195  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.226  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.262  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.310  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.341  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.372  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.403  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.453  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.486  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.533  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.564  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.595  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.642  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.678  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.709  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.740  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.772  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.818  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.854  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.886  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.918  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.964  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:25.996  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.026  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.057  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.105  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.136  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.170  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.202  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.248  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.295  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.326  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.361  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.393  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.439  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.471  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.502  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.533  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.585  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.679  INFO 4636 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:03:26.742  INFO 4636 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-04-21 18:03:26.742  INFO 4636 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@73fe7483]]
+2022-04-21 18:03:26.742  INFO 4636 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-04-21 18:03:26.777  INFO 4636 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-21 18:03:26.777  INFO 4636 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-21 18:16:17.929  INFO 11468 --- [main] com.example.rbac.RbacApplicationTests    : Starting RbacApplicationTests using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 11468 (started by Lenovo in D:\USERPROG\JavaEE\folder\rbac\rbac-server)
+2022-04-21 18:16:18.023  INFO 11468 --- [main] com.example.rbac.RbacApplicationTests    : No active profile set, falling back to default profiles: default
+2022-04-21 18:16:19.470  INFO 11468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-21 18:16:19.470  INFO 11468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-21 18:16:19.517  INFO 11468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
+2022-04-21 18:16:20.560  INFO 11468 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-21 18:16:20.845  INFO 11468 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-21 18:16:26.777  INFO 11468 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-21 18:16:28.321  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-21 18:16:28.434  INFO 11468 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34cfdd84, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e89f5bc, org.springframework.security.web.header.HeaderWriterFilter@33b2ba25, org.springframework.security.web.authentication.logout.LogoutFilter@178c6261, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@7ef4aceb, org.springframework.security.web.session.ConcurrentSessionFilter@3e73f5e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fb70301, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c79780, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c7744c1, org.springframework.security.web.session.SessionManagementFilter@36349e29, org.springframework.security.web.access.ExceptionTranslationFilter@3f33bb6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7112b21a]
+2022-04-21 18:16:28.561  INFO 11468 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-21 18:16:28.577  INFO 11468 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-21 18:16:28.686  INFO 11468 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-21 18:16:28.897  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:28.959  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:28.975  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:16:28.975  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:16:28.990  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-21 18:16:28.990  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-21 18:16:28.990  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-21 18:16:28.990  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-21 18:16:28.990  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:28.990  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-21 18:16:29.006  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-21 18:16:29.037  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.053  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-21 18:16:29.053  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:16:29.084  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-21 18:16:29.100  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.100  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-21 18:16:29.100  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeEcUsingGET_1
+2022-04-21 18:16:29.115  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.134  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_4
+2022-04-21 18:16:29.134  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeRemoveUsingGET_1
+2022-04-21 18:16:29.134  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-21 18:16:29.165  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.165  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_5
+2022-04-21 18:16:29.181  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeTrainUsingGET_1
+2022-04-21 18:16:29.181  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.181  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-21 18:16:29.214  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-21 18:16:29.214  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.230  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-21 18:16:29.230  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.230  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-21 18:16:29.230  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-21 18:16:29.230  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:16:29.246  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-21 18:16:29.261  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.261  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeUsingPOST_1
+2022-04-21 18:16:29.261  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeUsingDELETE_1
+2022-04-21 18:16:29.261  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.261  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeesUsingDELETE_1
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_3
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_6
+2022-04-21 18:16:29.277  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-21 18:16:29.277  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-21 18:16:29.292  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_2
+2022-04-21 18:16:29.292  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-21 18:16:29.292  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.292  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_3
+2022-04-21 18:16:29.313  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-21 18:16:29.313  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.330  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_7
+2022-04-21 18:16:29.334  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalaryAdjustUsingGET_1
+2022-04-21 18:16:29.334  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeByWorkIdUsingGET_1
+2022-04-21 18:16:29.334  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-21 18:16:29.334  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportSalaryTableUsingGET_1
+2022-04-21 18:16:29.334  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.334  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.334  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_8
+2022-04-21 18:16:29.350  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_2
+2022-04-21 18:16:29.350  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentUsingGET_1
+2022-04-21 18:16:29.350  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-21 18:16:29.397  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-21 18:16:29.397  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-21 18:16:29.428  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_3
+2022-04-21 18:16:29.428  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.428  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-21 18:16:29.428  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-21 18:16:29.444  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.444  INFO 11468 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-21 18:16:29.459  WARN 11468 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-21 18:16:29.475  INFO 11468 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-21 18:16:29.475  INFO 11468 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@73fe7483]]
+2022-04-21 18:16:29.475  INFO 11468 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-21 18:16:29.584  INFO 11468 --- [main] com.example.rbac.RbacApplicationTests    : Started RbacApplicationTests in 12.055 seconds (JVM running for 14.215)
+2022-04-21 18:16:30.490  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.521  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.568  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.615  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.665  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.729  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.792  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.850  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.898  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.944  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:30.975  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.007  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.037  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.085  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.135  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.166  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.197  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.250  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.281  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.328  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.359  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.406  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.453  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.499  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.550  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.581  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.630  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.677  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.713  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.750  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.797  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.828  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.875  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.922  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:31.969  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.015  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.081  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.114  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.161  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.193  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.271  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.302  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.335  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.367  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.414  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.451  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.513  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.591  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.638  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.716  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.767  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.814  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.850  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.896  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.928  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:32.975  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.037  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.068  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.116  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.162  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.213  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.234  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.281  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.312  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.344  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.390  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.468  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.515  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.562  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.634  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.682  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.744  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.791  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.854  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.916  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:33.963  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.009  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.056  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.103  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.134  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.166  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.212  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.244  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.275  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.338  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.385  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.416  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.480  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.531  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.563  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.594  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.640  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.687  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.719  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.765  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.814  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.846  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.892  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.931  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:34.966  INFO 11468 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-21 18:16:35.013  INFO 11468 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-04-21 18:16:35.013  INFO 11468 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@73fe7483]]
+2022-04-21 18:16:35.013  INFO 11468 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-04-21 18:16:35.049  INFO 11468 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-21 18:16:35.065  INFO 11468 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

@@ -37,6 +37,12 @@ public class RespAttendanceTable implements Serializable {
     @ApiModelProperty(value = "下班考勤时间")
     private LocalDateTime offDutyAttendanceTime;
 
+    @ApiModelProperty(value = "上班打卡时间")
+    private LocalDateTime punchInTime;
+
+    @ApiModelProperty(value = "下班打卡时间")
+    private LocalDateTime punchOutTime;
+
     @ApiModelProperty(value = "事假(天)")
     private Integer personalLeave;
 

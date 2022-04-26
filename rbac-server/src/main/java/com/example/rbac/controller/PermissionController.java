@@ -78,15 +78,24 @@ public class PermissionController {
         return resourceService.getAllResources();
     }
 
-    @ApiOperation(value = "通过角色id获取资源id")
-    @GetMapping("/resId/{rid}")
-    public List<Integer> getResIdByRoleId(@PathVariable Integer rid){
-        return roleResourceService.list(new QueryWrapper<RoleResource>().eq("role_id",rid))
-                .stream().map(RoleResource::getResourceId).collect(Collectors.toList());
+    @ApiOperation(value = "获取所有角色id获取资源id")
+    @GetMapping("/role/resIds")
+    public List<RespResIdsBean> getResIdByRoleId(){
+        List<Role> roles = roleService.list();
+        List<RespResIdsBean> respBeans = new ArrayList<>();
+        for(Role role: roles) {
+            RespResIdsBean bean = new RespResIdsBean();
+            bean.setRoleId(role.getId());
+            List<Integer> ids = roleResourceService.list(new QueryWrapper<RoleResource>().eq("role_id",role.getId()))
+                    .stream().map(RoleResource::getResourceId).collect(Collectors.toList());
+            bean.setResIds(ids);
+            respBeans.add(bean);
+        }
+        return respBeans;
     }
 
     @ApiOperation(value = "获取所有资源id")
-    @GetMapping("/resId")
+    @GetMapping("/resId/list")
     public List<Integer> getAllResId() {
         return resourceService.list().stream().map(Resource::getId).collect(Collectors.toList());
     }

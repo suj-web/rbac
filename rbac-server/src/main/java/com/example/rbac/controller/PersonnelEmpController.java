@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 人事管理-员工资料
+ * 人事管理-员工管理
  *
  * @Author suj
  * @create 2022/1/24
@@ -87,114 +87,17 @@ public class PersonnelEmpController {
     @ApiOperation(value = "获取所有部门")
     @GetMapping("/deps")
     public List<Department> getAllDepartments(){
-        return departmentService.getAllDepartments();
-    }
-
-    @ApiOperation(value = "获取最大工号")
-    @GetMapping("/maxWorkID")
-    public RespBean maxWorkID(){
-        return employeeService.maxWorkID();
-    }
-
-    @OperationLogAnnotation(operModul = "员工资料",operType = "添加",operDesc = "添加员工")
-    @ApiOperation(value = "添加员工")
-    @PostMapping("/")
-    public RespBean addEmployee(@RequestBody Employee employee){
-        return employeeService.addEmployee(employee);
+        return departmentService.list();
     }
 
     @OperationLogAnnotation(operModul = "员工资料",operType = "更新",operDesc = "更新员工")
     @ApiOperation(value = "更新员工")
     @PutMapping("/")
     public RespBean updateEmployee(@RequestBody Employee employee){
+        employee.setNotWorkDate(LocalDate.now());
         if(employeeService.updateById(employee)){
             return RespBean.success("更新成功!");
         }
         return RespBean.error("更新失败!");
-    }
-
-    @OperationLogAnnotation(operModul = "员工资料",operType = "删除",operDesc = "删除员工")
-    @ApiOperation(value = "删除员工")
-    @DeleteMapping("/{id}")
-    public RespBean deleteEmployee(@PathVariable Integer id){
-        if(employeeService.removeById(id)){
-            return RespBean.success("删除成功!");
-        }
-        return RespBean.error("删除失败!");
-    }
-
-    @OperationLogAnnotation(operModul = "员工资料",operType = "删除",operDesc = "批量删除员工")
-    @ApiOperation(value = "批量删除员工")
-    @DeleteMapping("/")
-    public RespBean deleteEmployees(Integer[] ids){
-        if(employeeService.removeByIds(Arrays.asList(ids))){
-            return RespBean.success("删除成功!");
-        }
-        return RespBean.error("删除失败!");
-    }
-
-    @OperationLogAnnotation(operModul = "员工资料",operType = "导出",operDesc = "导出员工数据")
-    @ApiOperation(value = "导出员工数据")
-    @GetMapping(value = "/export", produces = "application/octet-stream")
-    public void exportEmployee(HttpServletResponse response){
-        List<Employee> list = employeeService.getEmployee(null);
-        ExportParams params = new ExportParams("员工表","员工表", ExcelType.HSSF);
-        Workbook workbook = ExcelExportUtil.exportExcel(params, Employee.class, list);
-        ServletOutputStream outputStream = null;
-        try {
-            response.setHeader("content-type","application/octet-stream");
-            response.setHeader("content-disposition","attachment;filename=" + URLEncoder.encode("员工表.xls","UTF-8"));
-            outputStream = response.getOutputStream();
-            workbook.write(outputStream);
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            if(null!=outputStream) {
-                try {
-                    outputStream.close();
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @OperationLogAnnotation(operModul = "员工资料",operType = "导入",operDesc = "导入员工数据")
-    @ApiOperation(value = "导入员工数据")
-    @PostMapping("/import")
-    public RespBean importEmployee(MultipartFile file) {
-        ImportParams params = new ImportParams();
-        //去掉标题行
-        params.setTitleRows(1);
-        List<Department> departments = departmentService.list();
-        List<Nation> nations = nationService.list();
-        List<PoliticsStatus> politicsStatuses = politicsStatusService.list();
-        List<Position> positions = positionService.list();
-        List<Joblevel> joblevels = joblevelService.list();
-
-        try {
-            List<Employee> employees = ExcelImportUtil.importExcel(file.getInputStream(), Employee.class, params);
-            System.out.println(employees);
-            String maxWorkId = (String) employeeService.maxWorkID().getObj();
-            for(Employee employee : employees) {
-                employee.setDepartmentId(departments.get(departments.indexOf(new Department(employee.getDepartment().getName()))).getId());
-                employee.setNationId(nations.get(nations.indexOf(new Nation(employee.getNation().getName()))).getId());
-                employee.setPoliticId(politicsStatuses.get(politicsStatuses.indexOf(new PoliticsStatus(employee.getPoliticsStatus().getName()))).getId());
-                employee.setPositionId(positions.get(positions.indexOf(new Position(employee.getPosition().getName()))).getId());
-                employee.setJobLevelId(joblevels.get(joblevels.indexOf(new Joblevel(employee.getJoblevel().getName()))).getId());
-                employee.setEnabled(true);
-                //初始密码
-                employee.setPassword(new BCryptPasswordEncoder().encode("123456"));
-                //设置员工工号
-                employee.setWorkId(maxWorkId);
-                maxWorkId = String.format("%08d", Integer.parseInt(maxWorkId) + 1);
-            }
-            if(employeeService.saveBatch(employees)) {
-                return RespBean.success("导入成功");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return RespBean.error("导入失败");
     }
 }

@@ -7,9 +7,11 @@
         <id column="id" property="id" />
         <result column="employee_id" property="employeeId" />
         <result column="as_date" property="asDate" />
-        <result column="before_salary" property="beforeSalary" />
-        <result column="after_salary" property="afterSalary" />
+        <result column="before_salary_id" property="beforeSalaryId" />
+        <result column="after_salary_id" property="afterSalaryId" />
         <result column="reason" property="reason" />
+        <result column="status" property="status" />
+        <result column="is_adjust" property="isAdjust" />
         <result column="remark" property="remark" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
@@ -25,11 +27,15 @@
                 <result column="dep_name" property="name" />
             </association>
         </association>
+        <association property="beforeSalary" javaType="com.example.rbac.pojo.Salary"
+            column="before_salary_id" select="com.example.rbac.mapper.SalaryMapper.selectById"></association>
+        <association property="afterSalary" javaType="com.example.rbac.pojo.Salary"
+                     column="after_salary_id" select="com.example.rbac.mapper.SalaryMapper.selectById"></association>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, employee_id, as_date, before_salary, after_salary, reason, remark, is_delete, gmt_create, gmt_modified
+        id, employee_id, as_date, before_salary_id, after_salary_id, reason, status, is_adjust, remark, is_delete, gmt_create, gmt_modified
     </sql>
 
 <!--    获取所有员工调薪信息-->

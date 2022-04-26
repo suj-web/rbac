@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -68,7 +69,7 @@ public class SalaryTableController {
 
         SalaryTable salaryTable = salaryTableService.getOne(new QueryWrapper<SalaryTable>().eq("employee_id", employeeId)
                 .between("date", localDate.with(TemporalAdjusters.firstDayOfMonth()),localDate.with(TemporalAdjusters.lastDayOfMonth())));
-        if(salaryTable.getEnabled()) {
+        if(!salaryTable.getEnabled()) {
             return RespBean.error("账单已锁定,不可修改");
         } else {
             Employee employee = employeeService.getById(employeeId);
@@ -81,7 +82,8 @@ public class SalaryTableController {
             double bonus = baseSalary * 0.1 * ScoreUtils.getScoreGrade(score);
 
             salaryTable.setBonus(bonus);
-            salaryTable.setAllSalary(baseSalary + bonus);
+            Double allSalary = baseSalary + bonus;
+            salaryTable.setAllSalary(allSalary);
             if(employeeService.updateById(employee) && salaryTableService.updateById(salaryTable)) {
                 return RespBean.success("更新成功");
             } else {

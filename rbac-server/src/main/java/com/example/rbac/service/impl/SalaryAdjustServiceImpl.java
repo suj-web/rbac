@@ -1,7 +1,10 @@
 package com.example.rbac.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.rbac.mapper.EmployeeMapper;
+import com.example.rbac.pojo.Employee;
 import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.pojo.SalaryAdjust;
 import com.example.rbac.mapper.SalaryAdjustMapper;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -25,6 +29,8 @@ public class SalaryAdjustServiceImpl extends ServiceImpl<SalaryAdjustMapper, Sal
 
     @Autowired
     private SalaryAdjustMapper salaryAdjustMapper;
+    @Autowired
+    private EmployeeMapper employeeMapper;
 
     /**
      * 获取所有员工调薪信息
@@ -38,6 +44,13 @@ public class SalaryAdjustServiceImpl extends ServiceImpl<SalaryAdjustMapper, Sal
     public RespPageBean getAllSalaryAdjust(Integer currentPage, Integer size, Integer depId, String localDate) {
         Page<SalaryAdjust> page = new Page<>(currentPage, size);
         IPage<SalaryAdjust> salaryAdjustIPage = salaryAdjustMapper.getAllSalaryAdjust(page, depId, localDate);
-        return new RespPageBean(salaryAdjustIPage.getTotal(), salaryAdjustIPage.getRecords());
+        List<SalaryAdjust> records = salaryAdjustIPage.getRecords();
+        for (SalaryAdjust salaryAdjust: records) {
+            Integer salaryId = employeeMapper.selectById(salaryAdjust.getEmployeeId()).getSalaryId();
+            if(salaryId == salaryAdjust.getAfterSalaryId()) {
+                salaryAdjust.setIsAdjust(true);
+            }
+        }
+        return new RespPageBean(salaryAdjustIPage.getTotal(), records);
     }
 }

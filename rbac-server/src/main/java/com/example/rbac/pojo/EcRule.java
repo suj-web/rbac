@@ -35,6 +35,9 @@ public class EcRule implements Serializable {
     @TableField("ec_reason")
     private String ecReason;
 
+    @ApiModelProperty(value = "是否启用")
+    private Boolean enabled;
+
     @ApiModelProperty(value = "逻辑删除")
     @TableField("is_delete")
     @TableLogic

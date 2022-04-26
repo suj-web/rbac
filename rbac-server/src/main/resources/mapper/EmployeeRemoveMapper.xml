@@ -24,6 +24,15 @@
             <result column="ename" property="name" />
             <result column="ework_id" property="workId" />
         </association>
+        <association property="beforeDepartment" javaType="com.example.rbac.pojo.Department"
+                column="before_department_id" select="com.example.rbac.mapper.DepartmentMapper.selectById"></association>
+        <association property="afterDepartment" javaType="com.example.rbac.pojo.Department"
+                     column="after_department_id" select="com.example.rbac.mapper.DepartmentMapper.selectById"></association>
+        <association property="beforePosition" javaType="com.example.rbac.pojo.Position"
+                     column="before_position_id" select="com.example.rbac.mapper.PositionMapper.selectById"></association>
+        <association property="afterPosition" javaType="com.example.rbac.pojo.Position"
+                     column="after_position_id" select="com.example.rbac.mapper.PositionMapper.selectById"></association>
+
     </resultMap>
 
     <!-- 通用查询结果列 -->

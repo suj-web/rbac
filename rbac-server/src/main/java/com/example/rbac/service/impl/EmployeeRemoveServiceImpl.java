@@ -1,5 +1,6 @@
 package com.example.rbac.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.rbac.mapper.EmployeeMapper;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -57,18 +59,25 @@ public class EmployeeRemoveServiceImpl extends ServiceImpl<EmployeeRemoveMapper,
     @Override
     @Transactional
     public RespBean addEmployeeRemove(EmployeeRemove employeeRemove) {
-        if(1 != employeeRemoveMapper.insert(employeeRemove)) {
-            return RespBean.error("添加失败");
+//        List<Employee> list = employeeMapper.list(new QueryWrapper<Employee>().eq("work_id", salaryAdjust.getEmployee().getWorkId()).eq("name", salaryAdjust.getEmployee().getName()));
+//        Employee employee = employeeMapper.selectById(employeeRemove.getEmployeeId());
+        List<Employee> list = employeeMapper.selectList(new QueryWrapper<Employee>().eq("work_id",employeeRemove.getEmployee().getWorkId()).eq("name",employeeRemove.getEmployee().getName()));
+        if(null != list && 1 == list.size()) {
+            Employee employee = list.get(0);
+            employeeRemove.setEmployeeId(employee.getId());
+            if (1 != employeeRemoveMapper.insert(employeeRemove)) {
+                return RespBean.error("添加失败");
+            }
+            try {
+                employee.setDepartmentId(employeeRemove.getAfterDepartmentId());
+                employee.setPositionId(employeeRemove.getAfterPositionId());
+                employeeMapper.updateById(employee);
+                return RespBean.success("添加成功");
+            } catch (Exception e) {
+                return RespBean.error("添加失败");
+            }
         }
-        try {
-            Employee employee = employeeMapper.selectById(employeeRemove.getEmployeeId());
-            employee.setDepartmentId(employeeRemove.getAfterDepartmentId());
-            employee.setPositionId(employeeRemove.getAfterPositionId());
-            employeeMapper.updateById(employee);
-            return RespBean.success("添加成功");
-        } catch (Exception e) {
-            return RespBean.error("添加失败");
-        }
+        return RespBean.error("添加失败");
     }
 
     @Override

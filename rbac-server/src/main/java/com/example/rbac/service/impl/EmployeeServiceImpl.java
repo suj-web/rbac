@@ -55,7 +55,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 
     @Autowired
     private EmployeeRemoveMapper employeeRemoveMapper;
-
+    @Autowired
+    private EmployeeDataMapper employeeDataMapper;
 
     /**
      * 根据username获取员工实体
@@ -106,6 +107,10 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
         employee.setContractTerm(Double.parseDouble(decimalFormat.format(days / 365.0)));
 
         if(1 == employeeMapper.insert(employee)){
+            //插入员工存档(高级)资料
+            EmployeeData employeeData = new EmployeeData();
+            employeeData.setEmployeeId(employee.getId());
+            employeeDataMapper.insert(employeeData);
             //发送信息
             Employee emp = employeeMapper.getEmployee(employee.getId()).get(0);
 

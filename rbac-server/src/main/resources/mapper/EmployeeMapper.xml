@@ -39,6 +39,10 @@
         <result column="work_age" property="workAge" />
         <result column="salary_id" property="salaryId" />
         <result column="enabled" property="enabled" />
+        <result column="status" property="status"></result>
+        <result column="account_name" property="accountName" />
+        <result column="bank" property="bank" />
+        <result column="bank_account" property="bankAccount" />
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
@@ -119,7 +123,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, work_id, username, password, phone, telephone, email, address, birthday, wed_lock, id_card, department_id, position_id, nation_id, native_place, politic_id, job_level_id, engage_form, tiptop_degree, specialty, school, gender, begin_date, not_work_date, user_face, work_state, remark, contract_term, conversion_time, begin_contract, end_contract, work_age, salary_id, enabled, is_delete, gmt_create, gmt_modified
+        id, name, work_id, username, password, phone, telephone, email, address, birthday, wed_lock, id_card, department_id, position_id, nation_id, native_place, politic_id, job_level_id, engage_form, tiptop_degree, specialty, school, gender, begin_date, not_work_date, user_face, work_state, remark, contract_term, conversion_time, begin_contract, end_contract, work_age, salary_id, enabled, status, account_name, bank, bank_account, is_delete, gmt_create, gmt_modified
     </sql>
 
 <!--    分页查询员工信息-->
@@ -171,6 +175,12 @@
         </if>
         <if test="null!=employee.departmentId">
             AND emp.department_id = #{employee.departmentId}
+        </if>
+        <if test="null!=employee.workState and ''!=employee.workState">
+            AND emp.work_state = #{employee.workState}
+        </if>
+        <if test="null!=employee.status and ''!=employee.status">
+            AND emp.status = #{employee.status}
         </if>
         <if test="null!=beginDateScope and 2==beginDateScope.length">
             AND emp.begin_date BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
