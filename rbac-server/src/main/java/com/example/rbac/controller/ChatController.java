@@ -14,6 +14,7 @@ import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,21 +52,7 @@ public class ChatController {
     @ApiOperation(value = "添加聊天消息")
     @PostMapping("/")
     public void addChatContent(@RequestBody ChatContent chatContent) {
+        chatContent.setDate(LocalDateTime.now());
         chatContentService.addChatContent(chatContent);
-    }
-
-    @GetMapping("/ll")
-    public Map<String, List<ChatContent>> ll() {
-        HashMap<String, List<ChatContent>> map = new HashMap<>();
-        List<ChatContent> list = new ArrayList<>();
-        ChatContent con1 = new ChatContent();
-        con1.setContent("abc123");
-        ChatContent con2 = new ChatContent();
-        con2.setContent("def123");
-        list.add(con1);
-        list.add(con2);
-        map.put("abc",list);
-        map.put("def",list);
-        return map;
     }
 }
