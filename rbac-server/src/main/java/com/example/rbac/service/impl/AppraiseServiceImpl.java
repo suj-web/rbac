@@ -31,7 +31,7 @@ public class AppraiseServiceImpl extends ServiceImpl<AppraiseMapper, Appraise> i
 
     /**
      * 获取所有考评信息
-     * @param currentSize
+     * @param currentPage
      * @param size
      * @param name
      * @param localDate
@@ -39,8 +39,8 @@ public class AppraiseServiceImpl extends ServiceImpl<AppraiseMapper, Appraise> i
      * @return
      */
     @Override
-    public RespPageBean getAllAppraise(Integer currentSize, Integer size, String name, String localDate, Integer depId) {
-        Page<Appraise> page = new Page<>(currentSize, size);
+    public RespPageBean getAllAppraise(Integer currentPage, Integer size, String name, String localDate, Integer depId) {
+        Page<Appraise> page = new Page<>(currentPage, size);
         IPage<Appraise> appraiseIPage = appraiseMapper.getAllAppraise(page, name, localDate, depId);
         return new RespPageBean(appraiseIPage.getTotal(), appraiseIPage.getRecords());
     }

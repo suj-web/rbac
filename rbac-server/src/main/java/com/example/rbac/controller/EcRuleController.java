@@ -72,7 +72,7 @@ public class EcRuleController {
 
     @OperationLogAnnotation(operModul = "奖惩规则",operType = "删除",operDesc = "删除所有奖惩规则")
     @ApiOperation(value = "批量删除奖惩规则")
-    @DeleteMapping("")
+    @DeleteMapping("/")
     public RespBean deleteEcRuleByIds(Integer[] ids) {
         for(Integer id: ids) {
             List<EmployeeEc> list = employeeEcService.list(new QueryWrapper<EmployeeEc>().eq("ec_id", id));
