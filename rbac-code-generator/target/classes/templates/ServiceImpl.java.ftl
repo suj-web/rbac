@@ -9,6 +9,7 @@ import com.example.rbac.service.${serviceName};
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.rbac.pojo.RespPageBean;
 
 /**
  * ${serviceImplName}
@@ -31,7 +32,7 @@ public class ${serviceImplName} extends ServiceImpl<${mapperName}, ${pojoName}> 
     public RespPageBean getAll${pojoName}(Integer currentPage, Integer size) {
         Page<${pojoName}> page = new Page<>(currentPage, size);
         IPage<${pojoName}> ${pojoName?uncap_first}IPage = ${mapperName?uncap_first}.selectPage(page,null);
-        RespPageBean respPageBean = new RespPageBean(${pojoName?uncap_first}IPage.getTotal(), ${pojoName?uncap_first}IPage.getRecords())
+        RespPageBean respPageBean = new RespPageBean(${pojoName?uncap_first}IPage.getTotal(), ${pojoName?uncap_first}IPage.getRecords());
         return respPageBean;
     }
 }

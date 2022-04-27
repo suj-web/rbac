@@ -131,7 +131,7 @@ public class SystemCfgController {
             user.setBrowser(ClientUtils.getBrowserType(request));
             user.setOs(ClientUtils.getOs(request));
             user.setAddress(ClientUtils.getAddressByApi(request));
-            user.setSessionId(sessionInformation.getSessionId());
+            user.setSessionId(sessionInformations.get(0).getSessionId());
             user.setLastRequestTime(Instant.ofEpochMilli(sessionInformation.getLastRequest().getTime())
                     .atZone(ZoneId.systemDefault())
                     .toLocalDateTime());

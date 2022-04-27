@@ -6,7 +6,7 @@
     <resultMap id="BaseResultMap" type="${packageName}.pojo.${pojoName}">
         <#if columns??>
             <#list columns as column>
-        <<#if column.isPrimary??>id<#else>result</#if> column="${columnName}" property="${propertyName}" />
+        <<#if column.isPrimary??>id<#else>result</#if> column="${column.columnName}" property="${column.propertyName}" />
             </#list>
         </#if>
     </resultMap>

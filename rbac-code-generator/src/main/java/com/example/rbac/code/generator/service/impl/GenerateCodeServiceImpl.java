@@ -38,6 +38,12 @@ public class GenerateCodeServiceImpl implements IGenerateCodeService {
     public RespBean generateCode(List<TableClass> tableClassList, String realPath) {
         try {
             Template pojoTemplate = cfg.getTemplate("Pojo.java.ftl");
+            Template mapperJavaTemplate = cfg.getTemplate("Mapper.java.ftl");
+            Template mapperXmlTemplate = cfg.getTemplate("Mapper.xml.ftl");
+            Template serviceTemplate = cfg.getTemplate("Service.java.ftl");
+            Template serviceImplTemplate = cfg.getTemplate("ServiceImpl.java.ftl");
+            Template controllerTemplate = cfg.getTemplate("Controller.java.ftl");
+            Template vueTemplate = cfg.getTemplate("Vue.vue.ftl");
             Connection connection = DBUtils.getConnection();
             DatabaseMetaData metaData = connection.getMetaData();
             for(TableClass tableClass: tableClassList) {
@@ -65,6 +71,12 @@ public class GenerateCodeServiceImpl implements IGenerateCodeService {
                 tableClass.setColumns(columnClassList);
                 String path = realPath+"/"+tableClass.getPackageName().replace(".","/");
                 generate(pojoTemplate, tableClass, path+"/pojo/");
+                generate(mapperJavaTemplate, tableClass, path+"/mapper/");
+                generate(mapperXmlTemplate, tableClass, path+"/mapper/");
+                generate(serviceTemplate, tableClass, path+"/service/");
+                generate(serviceImplTemplate, tableClass, path+"/service/impl/");
+                generate(controllerTemplate, tableClass, path+"/controller/");
+                generate(vueTemplate, tableClass, path+"/vue/");
             }
             return RespBean.success("代码已生成",realPath);
         } catch (Exception e) {
@@ -78,7 +90,10 @@ public class GenerateCodeServiceImpl implements IGenerateCodeService {
         if(!folder.exists()) {
             folder.mkdirs();
         }
-        String fileName = path+"/"+tableClass.getPojoName() + template.getName().replace(".ftl","").replace("Pojo","");
+        String fileName = path+"/"+tableClass.getPojoName() + template.getName().replace(".ftl","").replace("Pojo","").replace("Vue","");
+        if(template.getName().startsWith("Service.java")){
+            fileName = path+"/I"+tableClass.getPojoName() + template.getName().replace(".ftl","");
+        }
         FileOutputStream fos = new FileOutputStream(fileName);
         OutputStreamWriter out = new OutputStreamWriter(fos);
         template.process(tableClass, out);

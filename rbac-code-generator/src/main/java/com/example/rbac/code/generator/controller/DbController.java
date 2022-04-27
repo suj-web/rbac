@@ -31,7 +31,6 @@ public class DbController {
                 return RespBean.success("数据库连接成功");
             }
         } catch (Exception e) {
-            e.printStackTrace();
             return RespBean.error("数据库连接失败");
         }
         return RespBean.error("数据库连接失败");
@@ -75,8 +74,7 @@ public class DbController {
             }
             return RespBean.success("数据库信息读取成功",tableClassList);
         } catch (Exception e) {
-            e.printStackTrace();
+            return RespBean.error("数据库信息读取失败");
         }
-        return RespBean.error("数据库信息读取失败");
     }
 }
