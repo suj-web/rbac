@@ -1,0 +1,308 @@
+2022-04-28 18:44:11.179  INFO 12128 --- [main] com.example.rbac.RbacApplicationTests    : Starting RbacApplicationTests using Java 1.8.0_201 on LAPTOP-R2KOJR5Q with PID 12128 (started by Lenovo in D:\USERPROG\JavaEE\folder\rbac\rbac-server)
+2022-04-28 18:44:11.179  INFO 12128 --- [main] com.example.rbac.RbacApplicationTests    : No active profile set, falling back to default profiles: default
+2022-04-28 18:44:14.834  INFO 12128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-04-28 18:44:14.834  INFO 12128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-04-28 18:44:14.927  INFO 12128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2022-04-28 18:44:16.395  INFO 12128 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-04-28 18:44:16.786  INFO 12128 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-28 18:44:23.135  INFO 12128 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/login'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/logout'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/index.html'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='favicon.ico'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/doc.html'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/swagger-resources/**'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/v2/api-docs/**'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/captcha'] with []
+2022-04-28 18:44:25.332  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/ws/**'] with []
+2022-04-28 18:44:25.426  INFO 12128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78aa1753, org.springframework.security.web.context.SecurityContextPersistenceFilter@79fc4e99, org.springframework.security.web.header.HeaderWriterFilter@4cb773c5, org.springframework.security.web.authentication.logout.LogoutFilter@308be1a3, com.example.rbac.config.security.component.JwtAuthorizationTokenFilter@1818390b, org.springframework.security.web.session.ConcurrentSessionFilter@14293540, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@578d5d02, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16c9e378, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67292fc7, org.springframework.security.web.session.SessionManagementFilter@4c114687, org.springframework.security.web.access.ExceptionTranslationFilter@471a9e8c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38af386e]
+2022-04-28 18:44:25.520  INFO 12128 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-04-28 18:44:25.567  INFO 12128 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-04-28 18:44:25.686  INFO 12128 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-04-28 18:44:25.873  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:25.935  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:25.967  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:25.967  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-28 18:44:25.983  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_1
+2022-04-28 18:44:25.986  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-28 18:44:25.986  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllAdminsUsingGET_1
+2022-04-28 18:44:26.001  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_2
+2022-04-28 18:44:26.001  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEcRuleUsingPOST_1
+2022-04-28 18:44:26.001  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdUsingDELETE_1
+2022-04-28 18:44:26.001  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.001  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEcRuleByIdsUsingDELETE_1
+2022-04-28 18:44:26.017  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEcRuleUsingPUT_1
+2022-04-28 18:44:26.017  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_3
+2022-04-28 18:44:26.079  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.079  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_4
+2022-04-28 18:44:26.111  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-28 18:44:26.142  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: importEmployeeUsingPOST_1
+2022-04-28 18:44:26.173  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.173  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_5
+2022-04-28 18:44:26.189  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.204  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_6
+2022-04-28 18:44:26.204  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_1
+2022-04-28 18:44:26.220  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addEmployeeTrainUsingPOST_1
+2022-04-28 18:44:26.220  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteEmployeeTrainUsingDELETE_1
+2022-04-28 18:44:26.235  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.235  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteManyEmployeeTrainUsingDELETE_1
+2022-04-28 18:44:26.235  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_7
+2022-04-28 18:44:26.235  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeTrainUsingPUT_1
+2022-04-28 18:44:26.235  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.251  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_1
+2022-04-28 18:44:26.267  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDateTime[]
+2022-04-28 18:44:26.267  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.285  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdminInfoUsingGET_1
+2022-04-28 18:44:26.285  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.285  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdsUsingDELETE_1
+2022-04-28 18:44:26.285  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportEmployeeUsingGET_2
+2022-04-28 18:44:26.285  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-28 18:44:26.301  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllRolesUsingGET_1
+2022-04-28 18:44:26.301  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.317  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_8
+2022-04-28 18:44:26.317  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.time.LocalDate[]
+2022-04-28 18:44:26.317  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeUsingGET_1
+2022-04-28 18:44:26.317  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllJoblevelUsingGET_1
+2022-04-28 18:44:26.317  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllNationsUsingGET_1
+2022-04-28 18:44:26.332  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPoliticsStatusUsingGET_1
+2022-04-28 18:44:26.332  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_2
+2022-04-28 18:44:26.332  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateEmployeeUsingPUT_1
+2022-04-28 18:44:26.348  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.348  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllPositionsUsingGET_3
+2022-04-28 18:44:26.364  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getParentResourceUsingGET_1
+2022-04-28 18:44:26.364  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.379  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_9
+2022-04-28 18:44:26.379  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getEmployeeByWorkIdUsingGET_1
+2022-04-28 18:44:26.379  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_1
+2022-04-28 18:44:26.395  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: exportSalaryTableUsingGET_1
+2022-04-28 18:44:26.395  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.395  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.410  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentsUsingGET_10
+2022-04-28 18:44:26.410  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllSalariesUsingGET_2
+2022-04-28 18:44:26.410  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllDepartmentUsingGET_1
+2022-04-28 18:44:26.410  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllEmployeeWithSalaryTableUsingGET_1
+2022-04-28 18:44:26.426  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateSalaryTableUsingPUT_1
+2022-04-28 18:44:26.442  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_1
+2022-04-28 18:44:26.457  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_2
+2022-04-28 18:44:26.473  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDepartmentsUsingGET_3
+2022-04-28 18:44:26.473  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.473  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteSystemMessageUsingDELETE_1
+2022-04-28 18:44:26.473  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getOnlineCountUsingGET_1
+2022-04-28 18:44:26.489  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.489  INFO 12128 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBackupFileUsingDELETE_1
+2022-04-28 18:44:26.489  WARN 12128 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType java.lang.Integer[]
+2022-04-28 18:44:26.520  INFO 12128 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-04-28 18:44:26.520  INFO 12128 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5e02fb23]]
+2022-04-28 18:44:26.520  INFO 12128 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-04-28 18:44:26.535  INFO 12128 --- [main] com.example.rbac.RbacApplicationTests    : Started RbacApplicationTests in 16.359 seconds (JVM running for 18.201)
+2022-04-28 18:44:27.899  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:27.962  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.002  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.049  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.096  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.127  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.158  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.189  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.236  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.267  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.302  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.333  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.380  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.411  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.442  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.489  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.536  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.567  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.602  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.649  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.680  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.727  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.758  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.805  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.852  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.902  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.933  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:28.964  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.003  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.050  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.086  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.118  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.164  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.186  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.233  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.283  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.333  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.365  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.402  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.448  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.479  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.511  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.542  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.589  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.636  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.667  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.701  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.733  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.779  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.811  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.842  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.873  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.936  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:29.967  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.001  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.033  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.064  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.111  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.158  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.189  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.220  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.267  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.304  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.350  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.386  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.417  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.448  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.479  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.526  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.558  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.589  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.636  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.667  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.702  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.733  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.786  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.818  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.850  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.886  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.933  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.965  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:30.996  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.043  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.073  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.120  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.151  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.186  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.233  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.264  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.311  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.358  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.389  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.420  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.467  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.502  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.533  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.564  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.595  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.642  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.673  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.751  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.786  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.817  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.849  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.880  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.927  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:31.974  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.052  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.086  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.118  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.164  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.196  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.227  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.258  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.306  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.337  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.368  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.402  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.448  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.496  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.526  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.559  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.605  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.636  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.668  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.702  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.733  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.780  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.811  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.857  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.889  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.936  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:32.967  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.001  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.033  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.079  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.127  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.252  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.318  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.350  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.385  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.417  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.448  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.495  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.526  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.573  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.686  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.718  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.749  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.796  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.843  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.889  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.920  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.952  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:33.986  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.033  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.064  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.095  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.126  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.173  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.205  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.236  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.284  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.317  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.348  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.380  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.427  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.459  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.490  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.521  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.567  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.603  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.634  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.665  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.712  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.759  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.806  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.868  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.899  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.946  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:34.978  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.009  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.055  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.087  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.118  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.150  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.185  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.232  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.264  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.295  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.326  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.373  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.405  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.435  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.487  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.519  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.565  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.602  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.632  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.664  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.696  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.742  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:35.773  INFO 12128 --- [main] c.e.rbac.handler.MyMetaObjectHandler     : update fill
+2022-04-28 18:44:36.711  INFO 12128 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2022-04-28 18:44:36.711  INFO 12128 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5e02fb23]]
+2022-04-28 18:44:36.711  INFO 12128 --- [SpringApplicationShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2022-04-28 18:44:36.851  INFO 12128 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-28 18:44:36.867  INFO 12128 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

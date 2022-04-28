@@ -47,9 +47,11 @@ spring:
         max-idle: 200
         #最小空闲连接
         min-idle: 5
+  application:
+    name: rbac-mail
 logging:
   level:
-    root: debug
+    root: info
   file:
     name: ${logging.file.path}/${spring.application.name}.log
     path: logs
