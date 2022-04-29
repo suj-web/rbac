@@ -53,8 +53,8 @@ public interface ResourceMapper extends BaseMapper<Resource> {
 //     */
 //    List<Resource> getAdminActionByPath(@Param("userId") Integer userId, @Param("parentId") Integer parentId);
 
-    List<Resource> getParentResource(Integer parentId);
-
+//    List<Resource> getParentResource(Integer parentId);
+//
     /**
      * 获取所有资源(菜单管理)
      * @param parentId
@@ -68,6 +68,13 @@ public interface ResourceMapper extends BaseMapper<Resource> {
      * @return
      */
     List<Resource> getActionsByUserId(Integer userId);
+
+//    /**
+//     * 根据角色id获取对应的资源id
+//     * @param rid
+//     * @return
+//     */
+//    List<Integer> getResIdsByRoleId(Integer rid);
 
 //    /**
 //     * 根据userId和parentId获取员工当前页面下可执行的操作

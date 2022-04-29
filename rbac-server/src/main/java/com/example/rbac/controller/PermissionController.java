@@ -78,20 +78,10 @@ public class PermissionController {
         return resourceService.getAllResources();
     }
 
-    @ApiOperation(value = "通过角色id获取资源id")
+    @ApiOperation(value = "获取所有角色对应资源id")
     @GetMapping("/role/resIds")
-    public List<RespResIdsBean> getResIdByRoleId(){
-        List<Role> roles = roleService.list();
-        List<RespResIdsBean> respBeans = new ArrayList<>();
-        for(Role role: roles) {
-            RespResIdsBean bean = new RespResIdsBean();
-            bean.setRoleId(role.getId());
-            List<Integer> ids = roleResourceService.list(new QueryWrapper<RoleResource>().eq("role_id",role.getId()))
-                    .stream().map(RoleResource::getResourceId).collect(Collectors.toList());
-            bean.setResIds(ids);
-            respBeans.add(bean);
-        }
-        return respBeans;
+    public List<RespResIdsBean> getResIdsWithRoleId(){
+        return resourceService.getResIdsWithRoleId();
     }
 
     @ApiOperation(value = "获取所有资源id")
@@ -99,13 +89,6 @@ public class PermissionController {
     public List<Integer> getAllResId() {
         return resourceService.list().stream().map(Resource::getId).collect(Collectors.toList());
     }
-
-    @ApiOperation(value = "获取所有父级资源")
-    @GetMapping("/parent")
-    public List<Resource> getParentResource() {
-        return resourceService.getParentResource();
-    }
-
 
     @OperationLogAnnotation(operModul = "权限组",operType = "更新",operDesc = "更新角色菜单列表")
     @ApiOperation(value = "更新角色菜单列表")

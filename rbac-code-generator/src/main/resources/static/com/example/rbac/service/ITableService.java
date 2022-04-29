@@ -7,7 +7,7 @@ import com.example.rbac.pojo.RespPageBean;
 /**
  * ITableService
  * @author suj
- * @since 2022-4-28
+ * @since 2022-4-29
  */
 public interface ITableService extends IService<Table> {
 

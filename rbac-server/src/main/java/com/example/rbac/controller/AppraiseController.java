@@ -51,6 +51,9 @@ public class AppraiseController {
     @PostMapping("/")
     public RespBean addEmployeeTrain(@RequestBody Appraise appraise) {
         List<Employee> list = employeeService.list(new QueryWrapper<Employee>().eq("work_id", appraise.getEmployee().getWorkId()).eq("name", appraise.getEmployee().getName()));
+        if(null != list && 1 == list.size() && "离职".equals(list.get(0).getWorkState())){
+            return RespBean.error("该员工已离职");
+        }
         if(null != list && 1 == list.size()) {
             appraise.setEmployeeId(list.get(0).getId());
             if (appraiseService.save(appraise)) {

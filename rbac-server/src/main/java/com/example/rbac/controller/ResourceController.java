@@ -46,18 +46,6 @@ public class ResourceController {
         return resourceService.getActionsByUserId();
     }
 
-//    @ApiOperation(value = "通过path查询用户在当前页面下的可执行的操作资源")
-//    @GetMapping("/action")
-//    public List<String> getActionResourceByPath(String currentActivePath){
-//        return resourceService.getActionResourceByPath(currentActivePath);
-//    }
-
-    @ApiOperation(value = "获取所有父级资源")
-    @GetMapping("/parent")
-    public List<Resource> getParentResource() {
-        return resourceService.getParentResource();
-    }
-
     @ApiOperation(value = "获取所有资源(菜单管理)")
     @GetMapping("/resources")
     public List<Resource> getResources(){

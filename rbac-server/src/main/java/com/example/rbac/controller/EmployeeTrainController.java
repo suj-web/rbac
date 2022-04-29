@@ -50,7 +50,10 @@ public class EmployeeTrainController {
     @ApiOperation(value = "添加员工培训信息")
     @PostMapping("/")
     public RespBean addEmployeeTrain(@RequestBody EmployeeTrain employeeTrain) {
-        List<Employee> list = employeeService.list(new QueryWrapper<Employee>().eq("work_id", employeeTrain.getEmployee().getWorkId()).eq("name", employeeTrain.getEmployee().getName()));
+        List<Employee> list = employeeService.list(new QueryWrapper<Employee>().eq("work_id", employeeTrain.getEmployee().getWorkId()).eq("name", employeeTrain.getEmployee().getName()).eq("is_delete",false));
+        if(null != list && 1 == list.size() && "离职".equals(list.get(0).getWorkState())){
+            return RespBean.error("该员工已离职");
+        }
         if(null != list && 1 == list.size()) {
             employeeTrain.setEmployeeId(list.get(0).getId());
             if (employeeTrainService.save(employeeTrain)) {

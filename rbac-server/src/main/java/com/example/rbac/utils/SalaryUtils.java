@@ -14,9 +14,9 @@ public class SalaryUtils {
      */
     public static double getSalary(Salary salary) {
         double baseSalary = salary.getBasicSalary() + salary.getLunchSalary()
-                + salary.getTrafficSalary() + salary.getPensionBase()
-                * salary.getPensionPer() + salary.getMedicalBase()
-                * salary.getMedicalPer() + salary.getAccumulationFundBase()
+                + salary.getTrafficSalary() - salary.getPensionBase()
+                * salary.getPensionPer() - salary.getMedicalBase()
+                * salary.getMedicalPer() - salary.getAccumulationFundBase()
                 * salary.getAccumulationFundPer();
         return baseSalary;
     }

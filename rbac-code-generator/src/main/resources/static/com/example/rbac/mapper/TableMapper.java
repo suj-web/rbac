@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * TableMapper
  * @author suj
- * @since 2022-4-28
+ * @since 2022-4-29
  */
 @Repository
 public interface TableMapper extends BaseMapper<Table> {

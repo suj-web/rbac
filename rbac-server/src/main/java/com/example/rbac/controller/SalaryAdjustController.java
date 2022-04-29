@@ -77,6 +77,9 @@ public class SalaryAdjustController {
     @Transactional
     public RespBean addSalaryAdjust(@RequestBody SalaryAdjust salaryAdjust) {
         List<Employee> list = employeeService.list(new QueryWrapper<Employee>().eq("work_id", salaryAdjust.getEmployee().getWorkId()).eq("name", salaryAdjust.getEmployee().getName()));
+        if(null != list && 1 == list.size() && "离职".equals(list.get(0).getWorkState())){
+            return RespBean.error("该员工已离职");
+        }
         if(null != list && 1 == list.size()) {
             salaryAdjust.setEmployeeId(list.get(0).getId());
             if(salaryAdjustService.save(salaryAdjust)) {

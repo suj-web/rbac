@@ -62,6 +62,9 @@ public class EmployeeRemoveServiceImpl extends ServiceImpl<EmployeeRemoveMapper,
 //        List<Employee> list = employeeMapper.list(new QueryWrapper<Employee>().eq("work_id", salaryAdjust.getEmployee().getWorkId()).eq("name", salaryAdjust.getEmployee().getName()));
 //        Employee employee = employeeMapper.selectById(employeeRemove.getEmployeeId());
         List<Employee> list = employeeMapper.selectList(new QueryWrapper<Employee>().eq("work_id",employeeRemove.getEmployee().getWorkId()).eq("name",employeeRemove.getEmployee().getName()));
+        if(null != list && 1 == list.size() && "离职".equals(list.get(0).getWorkState())){
+            return RespBean.error("该员工已离职");
+        }
         if(null != list && 1 == list.size()) {
             Employee employee = list.get(0);
             employeeRemove.setEmployeeId(employee.getId());

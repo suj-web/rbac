@@ -103,44 +103,12 @@ public class HomeRemindController {
         return list.size();
     }
 
-    @ApiOperation(value = "在线用户")
-    @GetMapping("/online/user")
-    public List<OnlineUser> getOnlineUser(HttpServletRequest request) {
-        List<OnlineUser> users = new ArrayList<>();
-        //获取principals
-        List<Object> principals = sessionRegistry.getAllPrincipals();
-
-        System.out.println(principals);
-        for (Object o : principals) {
-            List<SessionInformation> sessionInformation = sessionRegistry.getAllSessions(o, false);
-            OnlineUser user = new OnlineUser();
-            user.setLoginName(UserUtils.getCurrentUser().getUsername());
-            user.setIp(ClientUtils.getIpAddress(request));
-            user.setBrowser(ClientUtils.getBrowserType(request));
-            user.setOs(ClientUtils.getOs(request));
-            user.setAddress(ClientUtils.getAddressByApi(request));
-            user.setSessionId(sessionInformation.get(0).getSessionId());
-            users.add(user);
-        }
-        return users;
-    }
-
     @ApiOperation(value = "查询登录日志")
     @GetMapping("/login/log")
     public RespPageBean getLoginLogs(@RequestParam(defaultValue = "1") Integer currentPage,
                                      @RequestParam(defaultValue = "10") Integer size,
                                      LoginLog loginLog, LocalDateTime[] loginDateTimeScope) {
         return loginLogService.getLoginLogs(currentPage, size, loginLog, loginDateTimeScope);
-    }
-
-    @OperationLogAnnotation(operModul = "首页展示",operType = "删除",operDesc = "删除登录日志")
-    @ApiOperation(value = "删除登录日志")
-    @DeleteMapping("/login/log")
-    public RespBean deleteLoginLog(Integer[] logIds) {
-        if(loginLogService.removeByIds(Arrays.asList(logIds))) {
-            return RespBean.success("删除成功");
-        }
-        return RespBean.error("删除失败");
     }
 
     @OperationLogAnnotation(operModul = "首页展示",operType = "导出",operDesc = "导出登录日志")

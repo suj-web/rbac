@@ -1,6 +1,11 @@
 package com.example.rbac.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.rbac.mapper.RoleMapper;
+import com.example.rbac.mapper.RoleResourceMapper;
+import com.example.rbac.pojo.RespResIdsBean;
+import com.example.rbac.pojo.Role;
+import com.example.rbac.pojo.RoleResource;
 import com.example.rbac.utils.UserUtils;
 import com.example.rbac.pojo.Resource;
 import com.example.rbac.mapper.ResourceMapper;
@@ -12,6 +17,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +37,12 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private RoleMapper roleMapper;
+
+    @Autowired
+    private RoleResourceMapper roleResourceMapper;
 
     /**
      * 通过用户id查询资源列表
@@ -83,7 +95,7 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     }
 
     /**
-     * 获取所有资源
+     * 获取所有资源(权限组)
      * @return
      */
     @Override
@@ -91,10 +103,10 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
         return resourceMapper.getAllResources(-1);
     }
 
-    @Override
-    public List<Resource> getParentResource() {
-        return resourceMapper.getParentResource(null);
-    }
+//    @Override
+//    public List<Resource> getParentResource() {
+//        return resourceMapper.getParentResource(null);
+//    }
 
     /**
      * 获取所有资源(菜单管理)
@@ -103,5 +115,43 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     @Override
     public List<Resource> getResources() {
         return resourceMapper.getResources(-1);
+    }
+
+//    /**
+//     * 根据角色id获取对应的资源id
+//     * @param rid
+//     * @return
+//     */
+//    @Override
+//    public List<Integer> getResIdsByRoleId(Integer rid) {
+//        return resourceMapper.getResIdsByRoleId(rid);
+//    }
+
+    @Override
+    public List<RespResIdsBean> getResIdsWithRoleId() {
+        List<Role> roles = roleMapper.selectList(null);
+        List<RespResIdsBean> respBeans = new ArrayList<>();
+        for(Role role: roles) {
+            RespResIdsBean bean = new RespResIdsBean();
+            bean.setRoleId(role.getId());
+            List<Integer> ids = new ArrayList<>();
+            List<RoleResource> roleResources = roleResourceMapper.selectList(new QueryWrapper<RoleResource>().eq("role_id", role.getId()));
+            for(RoleResource roleResource: roleResources) {
+                Resource resource = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("id", roleResource.getResourceId()).eq("type", 1));
+                if(null != resource) {
+                    List<Resource> actions = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()).eq("type", 2));
+                    if (null != actions && 0 == actions.size()) {
+                        ids.add(resource.getId());
+                    } else {
+                        for (Resource action : actions) {
+                            ids.add(action.getId());
+                        }
+                    }
+                }
+            }
+            bean.setResIds(ids);
+            respBeans.add(bean);
+        }
+        return respBeans;
     }
 }

@@ -180,4 +180,19 @@
         AND res.parent_id = #{parentId}
         ORDER BY res.id
     </select>
+
+<!--    根据角色id获取对应的资源id-->
+    <select id="getResIdsByRoleId" resultType="java.lang.Integer">
+        SELECT
+            res.id
+        FROM
+            t_role_resource rr,
+            t_resource res
+        WHERE
+            rr.resource_id = res.id
+        AND res.type = 2
+        AND rr.role_id = #{rid}
+        ORDER BY
+            res.id
+    </select>
 </mapper>

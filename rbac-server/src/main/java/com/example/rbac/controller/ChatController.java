@@ -1,6 +1,7 @@
 package com.example.rbac.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.Admin;
 import com.example.rbac.pojo.Chat;
 import com.example.rbac.pojo.ChatContent;
@@ -49,6 +50,7 @@ public class ChatController {
         return chatService.getChatContents();
     }
 
+    @OperationLogAnnotation(operModul = "在线聊天", operType = "新增", operDesc = "发送消息")
     @ApiOperation(value = "添加聊天消息")
     @PostMapping("/")
     public void addChatContent(@RequestBody ChatContent chatContent) {
@@ -68,6 +70,7 @@ public class ChatController {
         return map;
     }
 
+    @OperationLogAnnotation(operModul = "在线聊天", operType = "更新", operDesc = "查看消息")
     @ApiOperation(value = "修改消息状态(改为已读)")
     @PutMapping("/message/")
     public void updateMessageStatus(String chatObj) {

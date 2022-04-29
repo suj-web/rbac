@@ -2,6 +2,7 @@ package com.example.rbac.service;
 
 import com.example.rbac.pojo.Resource;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.rbac.pojo.RespResIdsBean;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public interface IResourceService extends IService<Resource> {
      */
     List<Resource> getAllResources();
 
-    List<Resource> getParentResource();
+//    List<Resource> getParentResource();
 
     /**
      * 获取所有资源(菜单管理)
@@ -53,4 +54,20 @@ public interface IResourceService extends IService<Resource> {
      * @return
      */
     List<String> getActionsByUserId();
+
+//    /**
+//     * 根据角色id获取对应的资源id
+//     * @param rid
+//     * @return
+//     */
+//    List<Integer> getResIdsByRoleId(Integer rid);
+//
+//
+//    List<RespResIdsBean> getResIdByRoleId();
+
+    /**
+     * 获取所有角色对应资源id
+     * @return
+     */
+    List<RespResIdsBean> getResIdsWithRoleId();
 }
