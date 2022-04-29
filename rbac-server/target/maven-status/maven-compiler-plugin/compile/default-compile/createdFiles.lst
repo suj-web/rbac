@@ -126,7 +126,6 @@ com\example\rbac\config\RabbitMQConfig.class
 com\example\rbac\controller\SystemDataController.class
 com\example\rbac\utils\FastDFSUtils.class
 com\example\rbac\controller\EmployeeAdvController.class
-com\example\rbac\controller\AdminRoleController.class
 com\example\rbac\service\impl\TableServiceImpl.class
 com\example\rbac\pojo\Chat.class
 com\example\rbac\service\impl\AdminRoleServiceImpl.class

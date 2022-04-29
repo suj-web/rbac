@@ -3,3 +3,10 @@ server:
 spring:
   application:
     name: rbac-code-generator
+
+logging:
+  level:
+    root: info
+  file:
+    name: ${logging.file.path}/${spring.application.name}.log
+    path: logs
