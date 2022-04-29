@@ -38,11 +38,10 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
      */
     @Override
     public List<Resource> getResourcesByUserId() {
-        Integer userId;
         List<Resource> resources = null;
         ValueOperations<String, Object> valueOperations = redisTemplate.opsForValue();
 
-        userId = UserUtils.getCurrentUser().getId();
+        Integer userId = UserUtils.getCurrentUser().getId();
         //从redis中获取菜单数据
         resources = (List) valueOperations.get("menu_admin_" + userId);
         if(CollectionUtils.isEmpty(resources)) {
@@ -66,11 +65,21 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
      * @param currentActivePath
      * @return
      */
+//    @Override
+//    public List<String> getActionResourceByPath(String currentActivePath) {
+//        Integer parentId = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("path",currentActivePath)).getId();
+//        Integer userId = UserUtils.getCurrentUser().getId();
+//        return resourceMapper.getAdminActionByPath(userId, parentId).stream().map(Resource::getComponent).collect(Collectors.toList());
+//    }
+
+    /**
+     * 查询当前用户按钮权限
+     * @return
+     */
     @Override
-    public List<String> getActionResourceByPath(String currentActivePath) {
-        Integer parentId = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("path",currentActivePath)).getId();
+    public List<String> getActionsByUserId() {
         Integer userId = UserUtils.getCurrentUser().getId();
-        return resourceMapper.getAdminActionByPath(userId, parentId).stream().map(Resource::getComponent).collect(Collectors.toList());
+        return resourceMapper.getActionsByUserId(userId).stream().map(Resource::getComponent).collect(Collectors.toList());
     }
 
     /**

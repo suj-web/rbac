@@ -40,6 +40,9 @@ public class ChatContent implements Serializable {
     @TableField("self")
     private Boolean self;
 
+    @ApiModelProperty(value = "是否已读 0未读 1已读")
+    private Boolean status;
+
     @ApiModelProperty(value = "逻辑删除")
     @TableField("is_delete")
     @TableLogic

@@ -27,12 +27,12 @@ public interface IResourceService extends IService<Resource> {
      */
     List<Resource> getResourcesWithRole();
 
-    /**
-     * 通过组件path查询当前页面下的可执行的操作资源
-     * @param currentActivePath
-     * @return
-     */
-    List<String> getActionResourceByPath(String currentActivePath);
+//    /**
+//     * 通过组件path查询当前页面下的可执行的操作资源
+//     * @param currentActivePath
+//     * @return
+//     */
+//    List<String> getActionResourceByPath(String currentActivePath);
 
     /**
      * 获取所有资源
@@ -47,4 +47,10 @@ public interface IResourceService extends IService<Resource> {
      * @return
      */
     List<Resource> getResources();
+
+    /**
+     * 查询当前用户按钮权限
+     * @return
+     */
+    List<String> getActionsByUserId();
 }

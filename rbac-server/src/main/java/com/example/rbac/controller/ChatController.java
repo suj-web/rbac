@@ -55,4 +55,27 @@ public class ChatController {
         chatContent.setDate(LocalDateTime.now());
         chatContentService.addChatContent(chatContent);
     }
+
+    @ApiOperation(value = "获取所有未读信息的数量")
+    @GetMapping("/unread/count")
+    public Map<String, Integer> getUnReadCount() {
+        Map<String, Integer> map = new HashMap<>();
+        List<Chat> chatObjs = chatService.list();
+        for(Chat chat: chatObjs) {
+            Integer count = chatContentService.count(new QueryWrapper<ChatContent>().eq("chat_obj_id", chat.getId()).eq("status", false));
+            map.put(chat.getChatObj(), count);
+        }
+        return map;
+    }
+
+    @ApiOperation(value = "修改消息状态(改为已读)")
+    @PutMapping("/message/")
+    public void updateMessageStatus(String chatObj) {
+        Chat chat = chatService.getOne(new QueryWrapper<Chat>().eq("chat_obj", chatObj));
+        List<ChatContent> list = chatContentService.list(new QueryWrapper<ChatContent>().eq("chat_obj_id", chat.getId()).eq("status", false));
+        for(ChatContent chatContent: list) {
+            chatContent.setStatus(true);
+            chatContentService.updateById(chatContent);
+        }
+    }
 }

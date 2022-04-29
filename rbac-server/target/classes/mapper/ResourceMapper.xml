@@ -129,7 +129,7 @@
             res.id
     </select>
 
-    <select id="getAdminActionByPath" resultMap="BaseResultMap">
+    <select id="getActionsByUserId" resultMap="BaseResultMap">
         SELECT
             res.*
         FROM
@@ -145,7 +145,6 @@
         AND res.is_delete = FALSE
         AND r.is_delete = FALSE
         AND res.type = 2
-        AND res.parent_id = #{parentId}
         AND ar.admin_id = #{userId}
         ORDER BY res.id
     </select>

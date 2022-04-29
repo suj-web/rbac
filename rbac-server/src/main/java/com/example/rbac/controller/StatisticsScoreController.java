@@ -38,13 +38,13 @@ public class StatisticsScoreController {
     }
 
     @ApiOperation(value = "员工积分统计")
-    @GetMapping("/score/statistic")
+    @GetMapping("/statistic")
     public List<RespChartBean> getScoreStatistic(String localDate, Integer depId) {
         return employeeEcService.getScoreStatistic(localDate, depId);
     }
 
     @ApiOperation(value = "员工积分排名")
-    @GetMapping("/score/rank")
+    @GetMapping("/rank")
     public RespPageBean getScoreRank(@RequestParam(defaultValue = "1") Integer currentPage,
                                      @RequestParam(defaultValue = "10") Integer size,
                                      String localDate, Integer depId) {

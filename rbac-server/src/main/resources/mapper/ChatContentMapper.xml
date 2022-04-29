@@ -9,6 +9,7 @@
         <result column="content" property="content" />
         <result column="date" property="date" />
         <result column="self" property="self" />
+        <result column="status" property="status"></result>
         <result column="is_delete" property="isDelete" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
@@ -16,6 +17,6 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, chat_obj_id, content, date, self, is_delete, gmt_create, gmt_modified
+        id, chat_obj_id, content, date, self, status, is_delete, gmt_create, gmt_modified
     </sql>
 </mapper>

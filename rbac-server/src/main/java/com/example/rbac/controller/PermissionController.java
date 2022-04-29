@@ -78,7 +78,7 @@ public class PermissionController {
         return resourceService.getAllResources();
     }
 
-    @ApiOperation(value = "获取所有角色id获取资源id")
+    @ApiOperation(value = "通过角色id获取资源id")
     @GetMapping("/role/resIds")
     public List<RespResIdsBean> getResIdByRoleId(){
         List<Role> roles = roleService.list();

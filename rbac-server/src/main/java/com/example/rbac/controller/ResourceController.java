@@ -2,6 +2,7 @@ package com.example.rbac.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.Resource;
 import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.RoleResource;
@@ -16,7 +17,7 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * 资源控制器
+ * 系统管理-系统管理-菜单管理
  * @author suj
  * @since 2022-01-05
  */
@@ -39,11 +40,17 @@ public class ResourceController {
         return resourceService.getResourcesByUserId();
     }
 
-    @ApiOperation(value = "通过path查询用户在当前页面下的可执行的操作资源")
+    @ApiOperation(value = "查询当前用户按钮权限")
     @GetMapping("/action")
-    public List<String> getActionResourceByPath(String currentActivePath){
-        return resourceService.getActionResourceByPath(currentActivePath);
+    public List<String> getActionsByUserId() {
+        return resourceService.getActionsByUserId();
     }
+
+//    @ApiOperation(value = "通过path查询用户在当前页面下的可执行的操作资源")
+//    @GetMapping("/action")
+//    public List<String> getActionResourceByPath(String currentActivePath){
+//        return resourceService.getActionResourceByPath(currentActivePath);
+//    }
 
     @ApiOperation(value = "获取所有父级资源")
     @GetMapping("/parent")
