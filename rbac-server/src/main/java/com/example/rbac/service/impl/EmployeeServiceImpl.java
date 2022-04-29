@@ -19,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -372,7 +373,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             if (entryCount == 0 && (beginCount + endCount == 0)) {
                 bean.setInductionRate(0.0);
             } else {
-                bean.setInductionRate(inductionRate);
+                bean.setInductionRate(new BigDecimal(inductionRate).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
             }
 
             //转正人数
@@ -386,7 +387,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             if (dimissionCount == 0 && (beginCount + endCount == 0)) {
                 bean.setDimissionRate(0.0);
             } else {
-                bean.setDimissionRate(dimissionRate);
+                bean.setDimissionRate(new BigDecimal(dimissionRate).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
             }
 
             respEmployeeRecordBeans.add(bean);

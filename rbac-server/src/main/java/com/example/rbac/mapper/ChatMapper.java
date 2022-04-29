@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
 /**
- * ChatMapper
+ * 聊天对象Mapper
  * @author suj
  * @since 2022-4-27
  */

@@ -73,18 +73,6 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     }
 
     /**
-     * 根据path获取当前页面下可执行的操作
-     * @param currentActivePath
-     * @return
-     */
-//    @Override
-//    public List<String> getActionResourceByPath(String currentActivePath) {
-//        Integer parentId = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("path",currentActivePath)).getId();
-//        Integer userId = UserUtils.getCurrentUser().getId();
-//        return resourceMapper.getAdminActionByPath(userId, parentId).stream().map(Resource::getComponent).collect(Collectors.toList());
-//    }
-
-    /**
      * 查询当前用户按钮权限
      * @return
      */
@@ -103,11 +91,6 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
         return resourceMapper.getAllResources(-1);
     }
 
-//    @Override
-//    public List<Resource> getParentResource() {
-//        return resourceMapper.getParentResource(null);
-//    }
-
     /**
      * 获取所有资源(菜单管理)
      * @return
@@ -116,16 +99,6 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     public List<Resource> getResources() {
         return resourceMapper.getResources(-1);
     }
-
-//    /**
-//     * 根据角色id获取对应的资源id
-//     * @param rid
-//     * @return
-//     */
-//    @Override
-//    public List<Integer> getResIdsByRoleId(Integer rid) {
-//        return resourceMapper.getResIdsByRoleId(rid);
-//    }
 
     @Override
     public List<RespResIdsBean> getResIdsWithRoleId() {
@@ -136,16 +109,17 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
             bean.setRoleId(role.getId());
             List<Integer> ids = new ArrayList<>();
             List<RoleResource> roleResources = roleResourceMapper.selectList(new QueryWrapper<RoleResource>().eq("role_id", role.getId()));
+            List<Integer> roleResIds = roleResources.stream().map(RoleResource::getResourceId).collect(Collectors.toList());
             for(RoleResource roleResource: roleResources) {
                 Resource resource = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("id", roleResource.getResourceId()).eq("type", 1));
                 if(null != resource) {
-                    List<Resource> actions = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()).eq("type", 2));
-                    if (null != actions && 0 == actions.size()) {
+                    List<Integer> actionIds = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()).eq("type", 2))
+                            .stream().map(Resource::getId).collect(Collectors.toList());
+                    if (0 == actionIds.size()) {
                         ids.add(resource.getId());
                     } else {
-                        for (Resource action : actions) {
-                            ids.add(action.getId());
-                        }
+                        actionIds.retainAll(roleResIds);
+                        ids.addAll(actionIds);
                     }
                 }
             }

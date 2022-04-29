@@ -28,20 +28,11 @@ public interface IResourceService extends IService<Resource> {
      */
     List<Resource> getResourcesWithRole();
 
-//    /**
-//     * 通过组件path查询当前页面下的可执行的操作资源
-//     * @param currentActivePath
-//     * @return
-//     */
-//    List<String> getActionResourceByPath(String currentActivePath);
-
     /**
      * 获取所有资源
      * @return
      */
     List<Resource> getAllResources();
-
-//    List<Resource> getParentResource();
 
     /**
      * 获取所有资源(菜单管理)
@@ -54,16 +45,6 @@ public interface IResourceService extends IService<Resource> {
      * @return
      */
     List<String> getActionsByUserId();
-
-//    /**
-//     * 根据角色id获取对应的资源id
-//     * @param rid
-//     * @return
-//     */
-//    List<Integer> getResIdsByRoleId(Integer rid);
-//
-//
-//    List<RespResIdsBean> getResIdByRoleId();
 
     /**
      * 获取所有角色对应资源id

@@ -17,5 +17,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EcRuleMapper extends BaseMapper<EcRule> {
 
-    IPage<EcRule> getEcRuleList(Page<EcRule> page);
 }

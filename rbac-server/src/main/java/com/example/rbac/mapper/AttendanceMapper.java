@@ -20,16 +20,6 @@ import java.util.List;
 @Repository
 public interface AttendanceMapper extends BaseMapper<Attendance> {
 
-//    /**
-//     * 考勤信息统计
-//     * @param page
-//     * @param localDate
-//     * @param absenteeism
-//     * @param depId
-//     * @return
-//     */
-//    IPage<Attendance> getAllAttendance(Page<Attendance> page, @Param("localDate") String localDate, @Param("absenteeism") Boolean absenteeism, @Param("depId") Integer depId);
-
     /**
      * 人事管理-员工考勤-查询员工考勤信息
      * @param page
@@ -38,5 +28,10 @@ public interface AttendanceMapper extends BaseMapper<Attendance> {
      */
     IPage<Attendance> getAttendances(Page<Attendance> page, @Param("depId")Integer depId, @Param("beginDateScope") LocalDate[] beginDateScope);
 
+    /**
+     * 查询考勤信息用于导出Excel
+     * @param dateScope
+     * @return
+     */
     List<Attendance> getAttendanceForExcel(@Param("dateScope") LocalDate[] dateScope);
 }
