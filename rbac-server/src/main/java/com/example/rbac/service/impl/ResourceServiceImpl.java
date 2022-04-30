@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -122,8 +123,6 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
                             actionIds.retainAll(roleResIds);
                             ids.addAll(actionIds);
                         }
-                    } else if(resource.getType() == 2) {
-                        ids.add(resource.getId());
                     } else if(resource.getType() == 0) {
                         List<Resource> children = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()));
                         if(children.size() == 0) {
@@ -132,6 +131,7 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
                     }
                 }
             }
+            ids = ids.stream().sorted(Comparator.comparing(Integer::intValue)).collect(Collectors.toList());
             bean.setResIds(ids);
             respBeans.add(bean);
         }
