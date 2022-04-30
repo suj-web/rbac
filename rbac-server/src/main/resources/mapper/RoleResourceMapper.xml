@@ -18,9 +18,9 @@
     </sql>
 
     <insert id="insertRecord">
-        INSERT INTO t_role_resource(role_id, resource_id) VALUES
+        INSERT INTO t_role_resource(role_id, resource_id, gmt_create, gmt_modified) VALUES
         <foreach collection="ids" item="resId" separator=",">
-            (#{roleId},#{resId})
+            (#{roleId},#{resId}, NOW(), NOW())
         </foreach>
     </insert>
 </mapper>

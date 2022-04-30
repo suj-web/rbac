@@ -22,9 +22,10 @@ public interface ResourceMapper extends BaseMapper<Resource> {
     /**
      * 通过管理员id查询资源列表(菜单级别)
      * @param adminId
+     * @param parentId
      * @return
      */
-    List<Resource> getResourcesByAdminId(Integer adminId);
+    List<Resource> getResourcesByAdminId(@Param("adminId") Integer adminId, @Param("parentId") Integer parentId);
 
     /**
      * 根据角色获取资源

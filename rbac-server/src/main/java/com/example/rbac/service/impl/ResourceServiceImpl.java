@@ -57,7 +57,7 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
         //从redis中获取菜单数据
         resources = (List) valueOperations.get("menu_admin_" + userId);
         if(CollectionUtils.isEmpty(resources)) {
-            resources = resourceMapper.getResourcesByAdminId(userId);
+            resources = resourceMapper.getResourcesByAdminId(userId, 1);
             valueOperations.set("menu_admin_" + userId, resources);
         }
         return resources;
@@ -111,15 +111,24 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
             List<RoleResource> roleResources = roleResourceMapper.selectList(new QueryWrapper<RoleResource>().eq("role_id", role.getId()));
             List<Integer> roleResIds = roleResources.stream().map(RoleResource::getResourceId).collect(Collectors.toList());
             for(RoleResource roleResource: roleResources) {
-                Resource resource = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("id", roleResource.getResourceId()).eq("type", 1));
+                Resource resource = resourceMapper.selectOne(new QueryWrapper<Resource>().eq("id", roleResource.getResourceId()));
                 if(null != resource) {
-                    List<Integer> actionIds = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()).eq("type", 2))
-                            .stream().map(Resource::getId).collect(Collectors.toList());
-                    if (0 == actionIds.size()) {
+                    if(resource.getType() == 1) {
+                        List<Integer> actionIds = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()).eq("type", 2))
+                                .stream().map(Resource::getId).collect(Collectors.toList());
+                        if (0 == actionIds.size()) {
+                            ids.add(resource.getId());
+                        } else {
+                            actionIds.retainAll(roleResIds);
+                            ids.addAll(actionIds);
+                        }
+                    } else if(resource.getType() == 2) {
                         ids.add(resource.getId());
-                    } else {
-                        actionIds.retainAll(roleResIds);
-                        ids.addAll(actionIds);
+                    } else if(resource.getType() == 0) {
+                        List<Resource> children = resourceMapper.selectList(new QueryWrapper<Resource>().eq("parent_id", resource.getId()));
+                        if(children.size() == 0) {
+                            ids.add(resource.getId());
+                        }
                     }
                 }
             }

@@ -19,20 +19,8 @@
     </resultMap>
 
     <resultMap id="Resources" type="com.example.rbac.pojo.Resource" extends="BaseResultMap">
-        <collection property="children" ofType="com.example.rbac.pojo.Resource">
-            <id column="id2" property="id"></id>
-            <result column="name2" property="name" />
-            <result column="type2" property="type" />
-            <result column="url2" property="url" />
-            <result column="path2" property="path" />
-            <result column="component2" property="component" />
-            <result column="icon_cls2" property="iconCls" />
-            <result column="parent_id2" property="parentId" />
-            <result column="enabled2" property="enabled" />
-            <result column="is_delete2" property="isDelete" />
-            <result column="gmt_create2" property="gmtCreate" />
-            <result column="gmt_modified2" property="gmtModified" />
-        </collection>
+        <collection property="children" ofType="com.example.rbac.pojo.Resource"
+                column="{adminId=admin_id, parentId=id}" select="com.example.rbac.mapper.ResourceMapper.getResourcesByAdminId"></collection>
     </resultMap>
 
     <resultMap id="ResourcesWithRole" type="com.example.rbac.pojo.Resource" extends="BaseResultMap">
@@ -71,40 +59,25 @@
 
     <select id="getResourcesByAdminId" resultMap="Resources">
         SELECT DISTINCT
-            re1.*,
-            re2.id AS id2,
-            re2.url AS url2,
-            re2.path AS path2,
-            re2.type AS type2,
-            re2.component AS component2,
-            re2.name AS name2,
-            re2.icon_cls AS icon_cls2,
-            re2.parent_id AS parent_id2,
-            re2.enabled AS enabled2,
-            re2.is_delete AS is_delete2,
-            re2.gmt_create AS gmt_create2,
-            re2.gmt_modified AS gmt_modified2
+            res.*,
+            ar.admin_id
         FROM
             t_admin_role ar,
             t_role r,
             t_role_resource rr,
-            t_resource re1,
-            t_resource re2
+            t_resource res
         WHERE
-            re1.id = re2.parent_id
+            ar.admin_id = #{adminId}
         AND ar.role_id = r.id
         AND r.id = rr.role_id
-        AND rr.resource_id = re2.id
-        AND re2.enabled = TRUE
-        AND re1.enabled = TRUE
-        AND re2.is_delete = FALSE
-        AND re2.is_delete = FALSE
+        AND rr.resource_id = res.id
+        AND res.type != 2
+        AND res.enabled = TRUE
         AND r.is_delete = FALSE
-        AND re2.type != 2
-        AND re1.type != -1
-        AND ar.admin_id = #{adminId}
+        AND res.is_delete = FALSE
+        AND res.parent_id = #{parentId}
         ORDER BY
-            re1.id, re2.id
+            res.id
     </select>
 
     <select id="getResourcesWithRole" resultMap="ResourcesWithRole">
@@ -172,13 +145,14 @@
         ORDER BY res.id
     </select>
 
+<!--    获取所有资源(菜单管理)-->
     <select id="getResources" resultMap="AllResourcesResultMap">
         SELECT
             <include refid="Base_Column_List" />
         FROM t_resource res
         WHERE res.is_delete = FALSE
         AND res.parent_id = #{parentId}
-        ORDER BY res.id
+        ORDER BY res.type
     </select>
 
 <!--    根据角色id获取对应的资源id-->

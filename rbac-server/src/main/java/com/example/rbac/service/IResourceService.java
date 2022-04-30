@@ -17,7 +17,7 @@ import java.util.List;
 public interface IResourceService extends IService<Resource> {
 
     /**
-     * 通过用户id(管理员id， 员工id)查询资源列表
+     * 通过管理员id查询资源列表
      * @return
      */
     List<Resource> getResourcesByUserId();
