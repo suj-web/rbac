@@ -9,6 +9,7 @@ import com.example.rbac.utils.FastDFSUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
@@ -31,6 +32,7 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/system/data")
+@Slf4j
 public class SystemDataController {
 
     @Autowired
@@ -67,7 +69,7 @@ public class SystemDataController {
     @ApiOperation(value = "备份数据")
     @GetMapping("/backup")
     public RespBean backup(String savePath) {
-        String command = "mysqldump -hlocalhost -uroot -p12345678 test";
+        String command = "mysqldump -hlocalhost -uroot -p12345678 --force test";
         File file = new File(savePath);
         File parentFile = new File(file.getParent());
         if(!parentFile.exists()) {
@@ -76,14 +78,14 @@ public class SystemDataController {
         String filePath = backup(command, savePath);
         if(null != filePath) {
             String[] split = filePath.split("/");
-            double size = FileUtil.size(new File(savePath)) / 1024.0 / 1024.0;
+            double size = FileUtil.size(new File(savePath)) / 1024.0;
             Backup backup = new Backup();
             backup.setName(split[split.length-1]);
             backup.setPath(filePath);
             backup.setSize(size);
-            if(backupService.save(backup)) {
-                return RespBean.success("备份成功");
-            }
+            boolean isSuccess = backupService.save(backup);
+            log.debug("备份是否成功===========>{}",isSuccess);
+            return RespBean.success("备份成功","ok");
         }
         return RespBean.error("备份失败");
     }
@@ -128,6 +130,7 @@ public class SystemDataController {
             // 组装字符串
             while ((s = br.readLine()) != null) {
                 sb.append(s + System.lineSeparator());
+                log.info("备份文件下载数据=========>"+(s+System.lineSeparator()));
             }
             s = sb.toString();
             // 创建文件输出流
@@ -143,17 +146,23 @@ public class SystemDataController {
             FileInputStream input = new FileInputStream(file);
             MultipartFile multipartFile =new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
             String[] filePath = FastDFSUtils.upload(multipartFile);
+            try {
+//                log.info("下载文件字节流==============>" + Arrays.toString(multipartFile.getBytes()));
+                log.info("下载文件大小==============>" + multipartFile.getSize());
+            } catch (Exception e) {
+                log.info("下载文件=========>{}",e.getMessage());
+            }
             String url = FastDFSUtils.getTrackerUrl() + filePath[0]  + "/" + filePath[1];
             return url;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("SystemDataController===============>{}",e.getMessage());
         } finally {
             try {
                 if (null != bw) {
                     bw.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("SystemDataController===============>{}",e.getMessage());
             }
 
             try {
@@ -161,7 +170,7 @@ public class SystemDataController {
                     br.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("SystemDataController===============>{}",e.getMessage());
             }
         }
         return null;
@@ -180,6 +189,12 @@ public class SystemDataController {
         BufferedReader br = null;
         BufferedWriter bw = null;
         try {
+//            log.info("上传文件字节流==============>" + Arrays.toString(file.getBytes()));
+            log.info("上传文件大小==============>" + file.getSize());
+        } catch (Exception e) {
+            log.info("上传文件=========>{}",e.getMessage());
+        }
+        try {
             Process p = r.exec(command);
             OutputStream os = p.getOutputStream();
             InputStreamReader isr = new InputStreamReader(file.getInputStream(), "utf-8");
@@ -188,6 +203,7 @@ public class SystemDataController {
             StringBuffer sb = new StringBuffer("");
             while ((s = br.readLine()) != null) {
                 sb.append(s + System.lineSeparator());
+                log.info("备份文件上传数据=========>"+(s+System.lineSeparator()));
             }
             s = sb.toString();
             OutputStreamWriter osw = new OutputStreamWriter(os, "utf-8");
@@ -197,14 +213,14 @@ public class SystemDataController {
             flag = true;
         } catch (IOException e) {
             flag = false;
-            e.printStackTrace();
+            log.error("SystemDataController===============>{}",e.getMessage());
         } finally {
             try {
                 if (null != bw) {
                     bw.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("SystemDataController===============>{}",e.getMessage());
             }
 
             try {
@@ -212,7 +228,7 @@ public class SystemDataController {
                     br.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("SystemDataController===============>{}",e.getMessage());
             }
         }
         return flag;

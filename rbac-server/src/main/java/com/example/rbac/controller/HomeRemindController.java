@@ -12,6 +12,7 @@ import com.example.rbac.service.ILoginLogService;
 import com.example.rbac.utils.ClientUtils;
 import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -36,6 +37,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/home/remind")
+@Slf4j
 public class HomeRemindController {
 
     @Autowired
@@ -125,13 +127,13 @@ public class HomeRemindController {
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("HomeRemindController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("HomeRemindController===============>{}",e.getMessage());
                 }
             }
         }

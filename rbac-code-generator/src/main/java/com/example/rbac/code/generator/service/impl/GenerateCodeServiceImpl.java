@@ -10,6 +10,7 @@ import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -24,6 +25,7 @@ import java.util.List;
  * @create 2022/4/26
  */
 @Service
+@Slf4j
 public class GenerateCodeServiceImpl implements IGenerateCodeService {
 
     Configuration cfg = null;
@@ -32,6 +34,7 @@ public class GenerateCodeServiceImpl implements IGenerateCodeService {
         cfg = new Configuration(Configuration.VERSION_2_3_30);
         cfg.setTemplateLoader(new ClassTemplateLoader(GenerateCodeServiceImpl.class,"/templates"));
         cfg.setDefaultEncoding("UTF-8");
+        log.info("初始化模板");
     }
 
     @Override
@@ -78,8 +81,10 @@ public class GenerateCodeServiceImpl implements IGenerateCodeService {
                 generate(controllerTemplate, tableClass, path+"/controller/");
                 generate(vueTemplate, tableClass, path+"/vue/");
             }
+            log.info("代码生成成功");
             return RespBean.success("代码已生成",realPath);
         } catch (Exception e) {
+            log.error("代码生成失败============>{}", e.getMessage());
             e.printStackTrace();
         }
         return RespBean.error("代码生成失败");

@@ -8,6 +8,7 @@ import com.example.rbac.pojo.*;
 import com.example.rbac.service.IDepartmentService;
 import com.example.rbac.service.ISalaryTableService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/salary/month")
+@Slf4j
 public class SalaryMonthController {
 
     @Autowired
@@ -140,13 +142,13 @@ public class SalaryMonthController {
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("SalaryMonthController===============>{}",e.getMessage());
         } finally {
             if(null != outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("SalaryMonthController===============>{}",e.getMessage());
                 }
             }
         }

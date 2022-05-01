@@ -9,6 +9,7 @@ import com.example.rbac.pojo.SalaryTable;
 import com.example.rbac.service.*;
 import com.example.rbac.utils.SalaryUtils;
 import com.example.rbac.utils.ScoreUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -30,6 +31,7 @@ import java.util.List;
  */
 @Component
 @EnableScheduling
+@Slf4j
 public class SalaryTableTask {
 
     @Autowired
@@ -59,6 +61,7 @@ public class SalaryTableTask {
             table.setAllSalary(salary);
             salaryTableService.save(table);
         }
+        log.info("填充工资表信息");
     }
 
     @Scheduled(cron = "0 0 0/2 * * ?")
@@ -87,5 +90,6 @@ public class SalaryTableTask {
             salaryTable.setAllSalary(allSalary);
             salaryTableService.updateById(salaryTable);
         }
+        log.info("更新工资表信息");
     }
 }

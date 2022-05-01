@@ -3,6 +3,7 @@ package com.example.rbac.task;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.rbac.pojo.Employee;
 import com.example.rbac.service.IEmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 @Component
 @EnableScheduling
+@Slf4j
 public class EmployeeWorkAgeTask {
     @Autowired
     private IEmployeeService employeeService;
@@ -41,6 +43,7 @@ public class EmployeeWorkAgeTask {
                 }
             }
         }
+        log.info("员工工龄更新");
     }
 
 }

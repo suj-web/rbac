@@ -5,6 +5,7 @@ import com.example.rbac.code.generator.pojo.RespBean;
 import com.example.rbac.code.generator.pojo.TableClass;
 import com.example.rbac.code.generator.utils.DBUtils;
 import com.google.common.base.CaseFormat;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ import java.util.Map;
  * @create 2022/4/26
  */
 @RestController
+@Slf4j
 public class DbController {
 
     @PostMapping("/connect")
@@ -28,9 +30,11 @@ public class DbController {
         try {
             Connection con = DBUtils.initDb(db);
             if (null != con) {
+                log.info("数据库连接成功");
                 return RespBean.success("数据库连接成功");
             }
         } catch (Exception e) {
+            log.error("数据库连接失败========>{}",e.getMessage());
             return RespBean.error("数据库连接失败");
         }
         return RespBean.error("数据库连接失败");
@@ -40,8 +44,10 @@ public class DbController {
     public RespBean disconnect() {
         try {
             DBUtils.disConnection();
+            log.info("数据库连接已断开");
             return RespBean.success("数据库连接已断开");
         } catch (Exception e){
+            log.error("数据库连接断开失败========>{}",e.getMessage());
             return RespBean.error("数据库连接断开失败");
         }
     }
@@ -72,8 +78,10 @@ public class DbController {
                 tableClass.setVueName(pojoName);
                 tableClassList.add(tableClass);
             }
+            log.info("数据库信息读取成功");
             return RespBean.success("数据库信息读取成功",tableClassList);
         } catch (Exception e) {
+            log.error("数据库信息读取失败========>{}",e.getMessage());
             return RespBean.error("数据库信息读取失败");
         }
     }

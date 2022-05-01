@@ -5,6 +5,7 @@ import com.example.rbac.pojo.RespBean;
 import com.example.rbac.pojo.Table;
 import com.example.rbac.service.ITableService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/init")
+@Slf4j
 public class SystemInitController {
     @Autowired
     private ITableService tableService;
@@ -38,6 +40,7 @@ public class SystemInitController {
     public RespBean deleteTableByIds(Integer[] ids) {
         for(Integer id: ids) {
             if(id < 12) {
+                log.info("服务器上设置了清除保护设置,无法执行该操作");
                 return RespBean.error("服务器上设置了清除保护设置,无法执行该操作");
             }
         }
@@ -48,6 +51,7 @@ public class SystemInitController {
             }
             return RespBean.success("初始化成功");
         } catch (Exception e) {
+            log.error("数据库初始化==========>{}",e.getMessage());
             return RespBean.error("初始化失败");
         }
     }

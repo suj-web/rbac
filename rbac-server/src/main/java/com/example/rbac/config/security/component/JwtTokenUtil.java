@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@Slf4j
 public class JwtTokenUtil {
 
     private static final String CLAIM_KEY_USERNAME = "sub";
@@ -46,6 +48,7 @@ public class JwtTokenUtil {
             username = claims.getSubject();
         }catch (Exception e){
             username = null;
+            log.error("JwtTokenUtil=============>{}",e.getMessage());
         }
 
         return username;
@@ -115,7 +118,7 @@ public class JwtTokenUtil {
                     .parseClaimsJws(token)
                     .getBody();
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("JwtTokenUtil================>{}",e.getMessage());
         }
         return claims;
     }

@@ -7,6 +7,7 @@ import com.example.rbac.pojo.MailConstants;
 import com.example.rbac.pojo.MailLog;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.IMailLogService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 @Component
 @EnableScheduling
+@Slf4j
 public class MailTask {
 
     @Autowired
@@ -58,5 +60,6 @@ public class MailTask {
                         emp, new CorrelationData(mailLog.getMsgId()));
             }
         });
+        log.info("定时发送邮件");
     }
 }

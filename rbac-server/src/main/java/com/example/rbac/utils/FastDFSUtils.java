@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * FastDFS工具类
@@ -22,8 +23,10 @@ public class FastDFSUtils {
      */
     static {
         try{
-            String filePath = new ClassPathResource("fdfs_client.conf").getFile().getAbsolutePath();
-            ClientGlobal.init(filePath);
+            Properties properties = new Properties();
+            InputStream resourceAsStream = FastDFSUtils.class.getClassLoader().getResourceAsStream("fdfs_client.properties");
+            properties.load(resourceAsStream);
+            ClientGlobal.initByProperties(properties);
         } catch (Exception e){
             LOGGER.error("初始化FastDFS失败=======>",e.getMessage());
         }

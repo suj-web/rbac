@@ -13,6 +13,7 @@ import com.example.rbac.pojo.RespPageBean;
 import com.example.rbac.service.IOplogService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/log")
+@Slf4j
 public class OplogController {
 
     @Autowired
@@ -79,13 +81,13 @@ public class OplogController {
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("OplogController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("OplogController===============>{}",e.getMessage());
                 }
             }
         }

@@ -8,6 +8,7 @@ import com.example.rbac.pojo.*;
 import com.example.rbac.service.*;
 import io.swagger.annotations.ApiOperation;
 import javafx.geometry.Pos;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/statistics/record")
+@Slf4j
 public class StatisticsRecordController {
 
     @Autowired
@@ -82,13 +84,13 @@ public class StatisticsRecordController {
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("StatisticsRecordController===============>{}",e.getMessage());
         } finally {
             if(null != outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("StatisticsRecordController===============>{}",e.getMessage());
                 }
             }
         }

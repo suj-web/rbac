@@ -6,6 +6,7 @@ import com.example.rbac.pojo.RespBean;
 import com.example.rbac.service.IAdminService;
 import com.example.rbac.utils.UserUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -27,6 +28,7 @@ import java.io.PrintWriter;
 /**
  * jwt登录授权过滤器
  */
+@Slf4j
 public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
@@ -75,7 +77,7 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
                             out.flush();
                             return;
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            log.error("JwtAuthrrizationTokenFilter================>{}",e.getMessage());
                         } finally {
                             if(out != null) {
                                 out.close();

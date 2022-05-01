@@ -11,6 +11,7 @@ import com.example.rbac.annotation.OperationLogAnnotation;
 import com.example.rbac.pojo.*;
 import com.example.rbac.service.*;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.apache.poi.ss.formula.functions.Na;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -33,6 +34,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/employee/basic")
+@Slf4j
 public class EmployeeController {
     @Autowired
     private IEmployeeService employeeService;
@@ -149,13 +151,13 @@ public class EmployeeController {
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeController===============>{}",e.getMessage());
                 }
             }
         }
@@ -195,7 +197,7 @@ public class EmployeeController {
                 return RespBean.success("导入成功");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("EmployeeController===============>{}",e.getMessage());
         }
         return RespBean.error("导入失败");
     }

@@ -7,6 +7,7 @@ import com.example.rbac.utils.PDFUtils;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.pdf.*;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +30,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/employee/advanced")
+@Slf4j
 public class EmployeeAdvController {
 
     @Autowired
@@ -80,20 +82,20 @@ public class EmployeeAdvController {
             outputStream = response.getOutputStream();
             PDFUtils.addWaterMark(bis, outputStream,"合同");
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeAdvController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
             if(null != bis) {
                 try {
                     bis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
         }
@@ -123,20 +125,20 @@ public class EmployeeAdvController {
             outputStream = response.getOutputStream();
             PDFUtils.addWaterMark(bis, outputStream,"身份证正反面");
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeAdvController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
             if(null != bis) {
                 try {
                     bis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
         }
@@ -166,20 +168,20 @@ public class EmployeeAdvController {
             outputStream = response.getOutputStream();
             PDFUtils.addWaterMark(bis, outputStream,"体检报告");
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeAdvController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
             if(null != bis) {
                 try {
                     bis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
         }
@@ -209,20 +211,20 @@ public class EmployeeAdvController {
             outputStream = response.getOutputStream();
             PDFUtils.addWaterMark(bis, outputStream,"学历证书");
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeAdvController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
             if(null != bis) {
                 try {
                     bis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
         }
@@ -252,20 +254,20 @@ public class EmployeeAdvController {
             outputStream = response.getOutputStream();
             PDFUtils.addWaterMark(bis, outputStream,"offer");
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeAdvController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
             if(null != bis) {
                 try {
                     bis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
         }
@@ -295,20 +297,20 @@ public class EmployeeAdvController {
             outputStream = response.getOutputStream();
             PDFUtils.addWaterMark(bis, outputStream,"入职简历");
         } catch (Exception e){
-            e.printStackTrace();
+            log.error("EmployeeAdvController===============>{}",e.getMessage());
         } finally {
             if(null!=outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
             if(null != bis) {
                 try {
                     bis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("EmployeeAdvController===============>{}",e.getMessage());
                 }
             }
         }

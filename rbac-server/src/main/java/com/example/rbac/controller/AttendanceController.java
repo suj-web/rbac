@@ -13,6 +13,7 @@ import com.example.rbac.service.IAttendanceService;
 import com.example.rbac.service.IDepartmentService;
 import com.example.rbac.service.IEmployeeService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.aspectj.lang.annotation.DeclareWarning;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/salary/attendance")
+@Slf4j
 public class AttendanceController {
 
     @Autowired
@@ -160,13 +162,13 @@ public class AttendanceController {
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("AttendanceController===============>{}",e.getMessage());
         } finally {
             if(null != outputStream) {
                 try {
                     outputStream.close();
                 } catch (Exception e){
-                    e.printStackTrace();
+                    log.error("AttendanceController===============>{}",e.getMessage());
                 }
             }
         }
@@ -205,7 +207,7 @@ public class AttendanceController {
                 return RespBean.success("导入成功");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("AttendanceController===============>{}",e.getMessage());
         }
         return RespBean.error("导入失败");
     }
