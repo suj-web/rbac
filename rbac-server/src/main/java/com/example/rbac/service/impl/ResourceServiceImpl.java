@@ -128,6 +128,8 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
                         if(children.size() == 0) {
                             ids.add(resource.getId());
                         }
+                    } else if(resource.getType() == 2) {
+                        ids.add(resource.getId());
                     }
                 }
             }

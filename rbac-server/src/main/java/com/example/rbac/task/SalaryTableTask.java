@@ -57,6 +57,7 @@ public class SalaryTableTask {
         for(Employee employee: employees) {
             table.setEmployeeId(employee.getId());
             table.setDate(LocalDateTime.now());
+            table.setSalaryId(employee.getSalaryId());
             double salary = SalaryUtils.getSalary(employee.getSalary());
             table.setAllSalary(salary);
             salaryTableService.save(table);

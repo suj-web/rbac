@@ -103,7 +103,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .authenticationEntryPoint(restAuthorizationEntryPoint)
                 .accessDeniedHandler(restfulAccessDeniedHandler);
 
-        // 配置spring security
         http.sessionManagement()
                 .maximumSessions(-1) // 控制并发的数量
                 .maxSessionsPreventsLogin(false) // 如果并发登录，不允许后面的登录，必须等到前一个登录退出来

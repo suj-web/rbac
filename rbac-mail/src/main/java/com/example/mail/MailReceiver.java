@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.mail.MailProperties;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.messaging.Message;
@@ -21,6 +22,9 @@ import org.thymeleaf.context.Context;
 
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Component
@@ -36,6 +40,8 @@ public class MailReceiver {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
 
     @RabbitListener(queues = MailConstants.MAIL_QUEUE_NAME)
     public void handler(Message message, Channel channel){
@@ -71,10 +77,16 @@ public class MailReceiver {
 
             //邮件内容
             Context context = new Context();
-            context.setVariable("name",employee.getName());
+            context.setVariable("name",employee.getName().substring(0,1));
             context.setVariable("posName",employee.getPosition().getName());
-            context.setVariable("joblevelName",employee.getJoblevel().getName());
             context.setVariable("departmentName",employee.getDepartment().getName());
+            LocalDate localDate = employee.getBeginDate();
+            context.setVariable("year",localDate.getYear());
+            context.setVariable("month",localDate.getMonthValue());
+            context.setVariable("day",localDate.getDayOfMonth());
+            context.setVariable("gender",employee.getGender());
+            context.setVariable("conversion",employee.getConversionTime().getMonthValue()-employee.getBeginDate().getMonthValue());
+            context.setVariable("sendDate", LocalDate.now().format(formatter));
             String mail = templateEngine.process("mail", context);
             helper.setText(mail,true);
             javaMailSender.send(msg);

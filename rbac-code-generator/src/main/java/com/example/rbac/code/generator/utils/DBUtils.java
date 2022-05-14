@@ -19,7 +19,7 @@ public class DBUtils {
     public static Connection initDb(Db db) throws Exception{
         if(null == connection) {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(db.getUrl(), db.getUsername(), db.getPassword());
+            connection = DriverManager.getConnection(db.getUrl()+"&autoReconnect=true", db.getUsername(), db.getPassword());
         }
         return connection;
     }

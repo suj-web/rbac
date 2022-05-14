@@ -12,6 +12,8 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.internet.MimeMessage;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -28,6 +30,7 @@ public class test {
     private MailProperties mailProperties;
     @Autowired
     private TemplateEngine templateEngine;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
 
     @Test
     public void test() throws Exception{
@@ -44,10 +47,16 @@ public class test {
 
         //邮件内容
         Context context = new Context();
-        context.setVariable("name","suj");
-        context.setVariable("posName","测试工程师");
-        context.setVariable("joblevelName","初级工程师");
+        context.setVariable("name","韦梅".substring(0,1));
+        context.setVariable("posName","java开发工程师");
         context.setVariable("departmentName","技术部");
+        LocalDate localDate = LocalDate.now();
+        context.setVariable("year",localDate.getYear());
+        context.setVariable("gender","女");
+        context.setVariable("month",localDate.getMonthValue());
+        context.setVariable("day",localDate.getDayOfMonth());
+        context.setVariable("conversion",6);
+        context.setVariable("sendDate", LocalDate.now().format(formatter));
         String mail = templateEngine.process("mail", context);
         helper.setText(mail,true);
         javaMailSender.send(msg);

@@ -5,27 +5,28 @@
     <title>入职欢迎邮件</title>
 </head>
 <body>
-    欢迎 <span th:text="${name}"></span>加入XXXX大家庭,您的入职信息如下:
-<table border="1">
-    <tr>
-        <td>姓名</td>
-        <td th:text="${name}"></td>
-    </tr>
-    <tr>
-        <td>职位</td>
-        <td th:text="${posName}"></td>
-    </tr>
-    <tr>
-        <td>职称</td>
-        <td th:text="${joblevelName}"></td>
-    </tr>
-    <tr>
-        <td>部门</td>
-        <td th:text="${departmentName}"></td>
-    </tr>
-</table>
-<p>
-
-</p>
+<div>
+    <p>尊敬的<span th:text="${name}"></span><span th:if="${gender} eq '男'">先生</span><span th:if="${gender} eq '女'">女士</span>：</p>
+    <p>　　我们很荣幸地通知您，你顺利通过了XXX的面试，我们想邀请您担任一职。入职时间为：<span th:text="${year}"></span>年<span th:text="${month}"></span>月<span th:text="${day}"></span>日，上午8:00。</p>
+    <p>　　对于XX的入职邀请，是建立在双方互相信任，互相尊重的基础上，但是为了后期管理的要求，您在入职时有责任和义务提供教育背景、专业证书及职业经历等方面的证明。</p>　　
+    <p style="margin-top: -10px;">
+        <strong>　　一、以下是您的入职信息：</strong>
+    </p>
+    <p>　　1、您的入职部门：<span th:text="${departmentName}"></span></p>
+    <p>　　2、您的任职岗位：<span th:text="${posName}"></span></p>
+    <p>　　3、您的试用期限：自正式入职之日起<span th:text="${conversion}"></span>个月(本公司保留根据您的工作表现调整本期限的权利)。</p>
+    <p>
+        <strong>　　二、以下是您办理入职时需要携带的资料：</strong>
+    </p>
+    <p>　　1.身份证原件及复印件</p>
+    <p>　　2.学历、学位证书、职称证书、专业证书原件及复印件</p>
+    <p>　　3.原单位离职证明</p>
+    <p>　　4.劳动手册</p>
+    <p>　　5.四张一寸的彩色近照</p>
+    <p>　　6.三个月内有效的身体健康证明报告(入职一周内提供)</p>
+    <p>　　7.开户名为本人的招商银行本地借记卡卡号</p>
+    <p style="text-align: right">　　XX科技有限公司</p>
+    <p style="text-align:right;">　　<span th:text="${sendDate}"></span></p>
+</div>
 </body>
 </html>
