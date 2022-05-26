@@ -60,6 +60,6 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(sa.as_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY e.id
+        ORDER BY sa.id
     </select>
 </mapper>

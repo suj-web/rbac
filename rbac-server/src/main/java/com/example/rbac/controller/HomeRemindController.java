@@ -9,6 +9,7 @@ import com.example.rbac.pojo.*;
 import com.example.rbac.service.IEcRuleService;
 import com.example.rbac.service.IEmployeeService;
 import com.example.rbac.service.ILoginLogService;
+import com.example.rbac.service.ISysMsgService;
 import com.example.rbac.utils.ClientUtils;
 import com.example.rbac.utils.UserUtils;
 import io.swagger.annotations.ApiOperation;
@@ -47,7 +48,17 @@ public class HomeRemindController {
     private SessionRegistry sessionRegistry;
 
     @Autowired
+    private ISysMsgService sysMsgService;
+
+    @Autowired
     private ILoginLogService loginLogService;
+
+    @ApiOperation(value = "查询系统公告(用于首页轮播)")
+    @GetMapping("/system/message")
+    public List<SysMsg> getSysMsg() {
+        return sysMsgService.list(new QueryWrapper<SysMsg>().eq("enabled", true));
+    }
+
 
     @ApiOperation(value = "在职员工数量")
     @GetMapping("/employee/count")

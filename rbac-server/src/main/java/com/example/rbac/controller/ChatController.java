@@ -75,6 +75,9 @@ public class ChatController {
     @PutMapping("/message/")
     public void updateMessageStatus(String chatObj) {
         Chat chat = chatService.getOne(new QueryWrapper<Chat>().eq("chat_obj", chatObj));
+        if(null == chat) {
+            return;
+        }
         List<ChatContent> list = chatContentService.list(new QueryWrapper<ChatContent>().eq("chat_obj_id", chat.getId()).eq("status", false));
         for(ChatContent chatContent: list) {
             chatContent.setStatus(true);

@@ -72,7 +72,7 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(ap.app_date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY e.id
+        ORDER BY ap.id
     </select>
 
 <!--    考评得分排名-->

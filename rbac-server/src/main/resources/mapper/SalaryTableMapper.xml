@@ -68,7 +68,7 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(st.date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY emp.id
+        ORDER BY st.id
     </select>
 
 <!--    获取所有工资单-->
@@ -98,7 +98,7 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(st.date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY emp.id
+        ORDER BY st.id
     </select>
 
 <!--    获取当月工资账单用于导出excel-->
@@ -125,6 +125,6 @@
         <if test="null!=localDate and ''!=localDate">
             AND date_format(st.date,'%Y-%m-%d') LIKE CONCAT('%',#{localDate},'%')
         </if>
-        ORDER BY emp.id
+        ORDER BY st.id
     </select>
 </mapper>

@@ -6,13 +6,15 @@ spring:
     #邮件服务器地址
     host: smtp.qq.com
     #协议
-    #protocol: smtp
+    protocol: smtp
     #编码格式
     #default-encoding: utf-8
     #授权码
     password: rvtmmgeeczeqddcb
     #发送者邮箱地址
     username: 3212174398@qq.com
+    port: 587
+
 
   #rabbit配置
   rabbitmq:

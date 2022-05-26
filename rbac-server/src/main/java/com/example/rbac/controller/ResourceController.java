@@ -22,7 +22,6 @@ import java.util.List;
  * @since 2022-01-05
  */
 @RestController
-@RequestMapping("/system/cfg")
 public class ResourceController {
 
     @Autowired
@@ -35,25 +34,25 @@ public class ResourceController {
     private RedisTemplate redisTemplate;
 
     @ApiOperation(value = "通过用户id查询资源列表")
-    @GetMapping("/resource")
+    @GetMapping("/menu/resource")
     public List<Resource> getResourcesByUserId(){
         return resourceService.getResourcesByUserId();
     }
 
     @ApiOperation(value = "查询当前用户按钮权限")
-    @GetMapping("/action")
+    @GetMapping("/action/resource")
     public List<String> getActionsByUserId() {
         return resourceService.getActionsByUserId();
     }
 
     @ApiOperation(value = "获取所有资源(菜单管理)")
-    @GetMapping("/resources")
+    @GetMapping("/system/cfg/resources")
     public List<Resource> getResources(){
         return resourceService.getResources();
     }
 
     @ApiOperation(value = "添加资源")
-    @PostMapping("/resource")
+    @PostMapping("/system/cfg/resource")
     public RespBean addResource(@RequestBody Resource resource) {
         if(resourceService.save(resource)) {
             return RespBean.success("添加成功");
@@ -62,7 +61,7 @@ public class ResourceController {
     }
 
     @ApiOperation(value = "修改资源")
-    @PutMapping("/resource")
+    @PutMapping("/system/cfg/resource")
     public RespBean updateResource(@RequestBody Resource resource) {
         if(resourceService.updateById(resource)) {
             redisTemplate.delete(redisTemplate.keys("menu_admin_*"));
@@ -72,7 +71,7 @@ public class ResourceController {
     }
 
     @ApiOperation(value = "删除资源")
-    @DeleteMapping("/resource/{id}")
+    @DeleteMapping("/system/cfg/resource/{id}")
     public RespBean deleteResource(@PathVariable Integer id) {
         int size = roleResourceService.list(new QueryWrapper<RoleResource>().eq("resource_id", id)).size();
         int children = resourceService.list(new QueryWrapper<Resource>().eq("parent_id",id).eq("enabled",true)).size();

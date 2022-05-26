@@ -53,6 +53,7 @@ public class ChatContentServiceImpl extends ServiceImpl<ChatContentMapper, ChatC
     public void addChatContent(ChatContent chatContent) {
         Chat chat = chatMapper.selectOne(new QueryWrapper<Chat>().eq("chat_obj", chatContent.getChat().getChatObj()));
         if(null == chat) {
+            chat = new Chat();
             chat.setChatObj(chatContent.getChat().getChatObj());
             if(1 == chatMapper.insert(chat)) {
                 chatContent.setChatObjId(chat.getId());

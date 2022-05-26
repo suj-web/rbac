@@ -89,6 +89,7 @@
         <if test="null!=beginDateScope and 2==beginDateScope.length">
             AND att.gmt_create BETWEEN #{beginDateScope[0]} AND #{beginDateScope[1]}
         </if>
+        ORDER BY att.id
     </select>
 
     <select id="getAttendanceForExcel" resultMap="AttendanceResultMap">
@@ -111,5 +112,6 @@
         <if test="null!=dateScope and 2==dateScope.length">
             AND att.gmt_create BETWEEN #{dateScope[0]} AND #{dateScope[1]}
         </if>
+        ORDER BY att.id
     </select>
 </mapper>

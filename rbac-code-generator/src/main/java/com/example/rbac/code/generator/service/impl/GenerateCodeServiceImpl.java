@@ -51,7 +51,7 @@ public class GenerateCodeServiceImpl implements IGenerateCodeService {
             DatabaseMetaData metaData = connection.getMetaData();
             for(TableClass tableClass: tableClassList) {
                 ResultSet columns = metaData.getColumns(connection.getCatalog(), null, tableClass.getTableName(), null);
-                ResultSet primaryKeys = metaData.getPrimaryKeys(connection.getCatalog(), null, "t_admin");
+                ResultSet primaryKeys = metaData.getPrimaryKeys(connection.getCatalog(), null, tableClass.getTableName());
                 List<ColumnClass> columnClassList = new ArrayList<>();
                 while (columns.next()) {
                     String column_name = columns.getString("COLUMN_NAME");

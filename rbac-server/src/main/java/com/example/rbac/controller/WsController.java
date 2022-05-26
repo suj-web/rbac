@@ -38,6 +38,7 @@ public class WsController {
 
         Chat chatObj = chatService.getOne(new QueryWrapper<Chat>().eq("chat_obj", chatMessage.getTo() + "$" + admin.getUsername()));
         if(null == chatObj) {
+            chatObj = new Chat();
             chatObj.setChatObj(chatMessage.getTo() + "$" + admin.getUsername());
             chatService.save(chatObj);
         }
@@ -45,6 +46,7 @@ public class WsController {
         chatContent.setChatObjId(chatObj.getId());
         chatContent.setContent(chatMessage.getContent());
         chatContent.setDate(LocalDateTime.now());
+        chatContentService.save(chatContent);
         simpMessagingTemplate.convertAndSendToUser(chatMessage.getTo(),"/queue/chat",chatMessage);
     }
 }
